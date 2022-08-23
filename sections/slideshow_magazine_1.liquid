@@ -1,0 +1,2386 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          clifford: '#da373d',
+        }
+      }
+    },
+    important: '#magazine',
+  }
+</script>
+
+{%- liquid 
+  assign admin_sp = request.design_mode
+  assign sid = section.id
+  assign se_stts = section.settings
+  assign se_blocks = section.blocks
+  assign font_family = settings.fnt_magazine.family | default: settings.fnt_magazine2.family
+  assign DefaultValueMrLR = 'auto'
+  assign DefaultValueMr = 0 
+  assign DefaultValuePd = 0
+  assign fs_text = se_stts.fs_text
+  assign fs_text_m = se_stts.fs_text_m -%}
+
+{% for block in se_blocks %}
+  {%- liquid
+    assign bk_stts = block.settings
+    assign mg = bk_stts.mg
+    assign pd = bk_stts.pd
+    assign mg_mb = bk_stts.mg_mb
+    assign pd_mb = bk_stts.pd_mb -%}
+
+  {%- capture block_style -%}
+    {%- if mg != blank or pd != blank -%} 
+    .page_{{ block.type }} .mag_container {
+      {%- if mg != blank %}
+        {% assign arr_mg = mg | remove:' ' | split:',' -%}
+        margin-top: {{arr_mg[0]|default:DefaultValueMr}} !important;
+        margin-right: {{arr_mg[1]|default:DefaultValueMrLR}} !important;
+        margin-bottom: {{arr_mg[2]|default:DefaultValueMr}} !important;
+        margin-left: {{arr_mg[3]|default:DefaultValueMrLR}} !important;
+      {%- endif -%}
+      {%- if pd != blank %}
+        {% assign arr_pd = pd | remove:' ' | split:',' -%}
+          padding-top: {{arr_pd[0]|default:DefaultValuePd}} !important;
+          padding-right: {{arr_pd[1]|default:DefaultValuePd}} !important;
+          padding-bottom: {{arr_pd[2]|default:DefaultValuePd}} !important;
+          padding-left: {{arr_pd[3]|default:DefaultValuePd}} !important;
+      {%- endif -%}
+    }
+    {%- endif -%}
+    {%- if mg_mb != blank or pd_mb != blank -%} 
+      @media only screen and (max-width: 1279px) {
+        .page_{{ block.type }} .mag_container {
+          {%- if mg_mb != blank %}
+            {% assign arr_mg = mg_mb | remove:' ' | split:',' -%}
+            margin-top: {{arr_mg[0]|default:DefaultValueMr}} !important;
+            margin-right: {{arr_mg[1]|default:DefaultValueMrLR}} !important;
+            margin-bottom: {{arr_mg[2]|default:DefaultValueMr}} !important;
+            margin-left: {{arr_mg[3]|default:DefaultValueMrLR}} !important;
+          {%- endif -%}
+          {%- if pd_mb != blank %}
+            {% assign arr_pd = pd_mb | remove:' ' | split:',' -%}
+              padding-top: {{arr_pd[0]|default:DefaultValuePd}} !important;
+              padding-right: {{arr_pd[1]|default:DefaultValuePd}} !important;
+              padding-bottom: {{arr_pd[2]|default:DefaultValuePd}} !important;
+              padding-left: {{arr_pd[3]|default:DefaultValuePd}} !important;
+          {%- endif -%}
+        }
+      }
+    {%- endif -%}
+  {%- endcapture -%}
+
+  {%- style -%}{{ block_style | strip_newlines | remove:"  "}}{%- endstyle -%}
+
+{% endfor %}
+
+<div class="nt_se_{{sid}} {{se_stts.layout}}" id="magazine">
+  <a href="/pages/magazine" >
+    <div class="backToCatalogPage w-max mb-10 p-2 border border-solid border-gray-500 rounded hover:border-black text-gray-500 hover:text-black md:cursor-pointer">
+      ALL MAGAZINE
+    </div>
+  </a>
+  <div class="magazine_wrapper relative">
+    <div class="append-buttons flex justify-between px-items-center mb-5 text-base font-normal">
+      <div class="append-buttons-item prevSlide md:cursor-pointer flex items-center">
+        <i class="iconfont icon-pex-xiangzuo"></i> PREVIOUS PAGE
+      </div>
+      <div class="flex">
+        <div class="append-buttons-item nextSlide mr-4 md:cursor-pointer flex items-center">
+          NEXT PAGE <i class="iconfont icon-pex-xiangyou1"></i>
+        </div>
+        <div class="append-buttons-item backToFirstSlide md:cursor-pointer flex items-center">
+          BACK<i class="iconfont icon-pex-xiangyou"></i>
+        </div>
+      </div>
+    </div>
+    <div class="swiper mySwiper border border-solid border-[#F0F2F5] relative">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {%- assign bk_stts = block.settings -%}
+          {%- assign arr_pd = bk_stts.pd | remove:' ' | split:',' -%}
+          {%- assign product = bk_stts.product -%}
+          {%- assign product2 = bk_stts.product2 -%}
+          {% assign arr_pd_m = pd_mb | remove:' ' | split:',' -%}
+
+          {%- capture page_num_r -%}
+            <div class="page_number absolute xl:right-[{{ arr_pd[1]|default:DefaultValuePd }}] right-[{{ arr_pd_m[1]|default:DefaultValuePd }}] xl:bottom-[5%] bottom-[2.5%] flex items-baseline">
+              <div class="text-xs">{{ bk_stts.page_text }}</div>
+              <div class="ml-1 text-lg font-bold">{{ bk_stts.page_number }}</div>
+            </div>
+          {%- endcapture -%}
+
+          {%- capture page_num_l -%}
+            <div class="page_number absolute xl:left-[{{ arr_pd[3]|default:DefaultValuePd }}] left-[{{ arr_pd_m[3]|default:DefaultValuePd }}] xl:bottom-[5%] bottom-[2.5%] flex items-baseline">
+              <div class="text-xs">{{ bk_stts.page_text }}</div>
+              <div class="ml-1 text-lg font-bold">{{ bk_stts.page_number }}</div>
+            </div>
+          {%- endcapture -%}
+
+          <div class="swiper-slide page_{{ block.type }}" key="{{ block.type }}">
+          {%- case block.type -%}
+            {%- when 'magazine_template_1' -%}
+              <div class="flex flex-col justify-between h-full">
+                <div class="mag_container">
+                  <div class="mag_header mb-5 font-bold text-black">
+                    <div class="mag_sub_heading xl:text-xl text-[1.2rem]">{{ bk_stts.sub_heading | escape }}</div>
+                    <div class="mag_heading xl:text-6xl text-[2.8rem]">{{ bk_stts.heading | escape }}</div>
+                    <div class="mag_third_heading xl:text-lg text-[1.1rem] leading-none">{{ bk_stts.third_heading }}</div>
+                  </div>
+                  <div class="mag_content xl:mb-7 mb-5 grid grid-cols-2 gap-7 font-normal text-black">
+                    <div class="indent-4">
+                      {{ bk_stts.richtext1 }}
+                    </div>
+                    <div>
+                      {{ bk_stts.richtext2 }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mag_image">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{bk_stts.image.alt}}" />
+                </div>
+              </div>
+
+            {%- when 'magazine_template_2' -%}
+              <div class="flex flex-col justify-between h-full">
+                <div class="mag_text mag_container">
+                  <div class="mag_content xl:mb-7 mb-5 grid grid-cols-2 xl:gap-7 gap-5 font-normal text-black">
+                    <div>
+                      {{ bk_stts.richtext1 }}
+                    </div>
+                    <div>
+                      {{ bk_stts.richtext2 }}
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mag_image">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{bk_stts.image.alt}}" />
+                </div>
+              </div>
+
+            {%- when 'magazine_template_3' -%}
+              <div class="page_wrapper h-full">
+                <a class="h-full" href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img class="h-full" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_4' -%}
+              <div class="page_wrapper relative flex justify-between h-full">
+                <div class="mag_image col-4 h-full p-0">
+                  <img class="h-full" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                </div>
+
+                <div class="mag_text mag_container flex-1 self-center">
+                  <div class="mag_heading md:mb-7 mb-5 xl:text-5xl text-[2.4rem] font-bold">
+                    <span class="relative">
+                      {{ bk_stts.heading }}
+                      <img class="absolute right-0 -top-[25px]" src="{{ bk_stts.tag_image | img_url: "master" }}" alt="{{ bk_stts.tag_image.alt }}" />
+                    </span>
+                  </div>
+                  <div class="mag_content">{{ bk_stts.richtext }}</div>
+                </div>
+
+                {{ page_num_r }}
+              </div>
+            
+            {%- when 'magazine_template_5' -%}
+              <div class="page_wrapper mag_container h-full">
+                <div class="mag_text flex justify-between items-center h-full">
+                  <div class="col-8 flex flex-col xl:p-[30px] p-[15px]">
+                    <div class="mag_heading xl:mb-7 mb-5 font-bold">
+                      <div class="xl:text-3xl text-[1.8rem] leading-none">
+                        {{ bk_stts.sub_heading }}
+                      </div>
+                      <span class="xl:text-5xl text-[2.4rem]">
+                        {{ bk_stts.heading }}
+                      </span>
+                    </div>
+                    <div class="mag_content">{{ bk_stts.richtext }}</div>
+                  </div>
+
+                  {%- if bk_stts.image != blank -%}
+                    <div class="mag_image flex justify-end h-full col-4 xl:pb-0 px-0 pb-[12px]">
+                      <img class="h-full" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                      <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+
+            {%- when 'magazine_template_6' -%}
+              <div class="page_wrapper mag_container relative h-full">
+                <div class="mag_text h-full">
+                  {%- if bk_stts.image != blank -%}
+                    <div class="mag_image h-full">
+                      <img class="xl:h-full h-auto" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                      <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                {{ page_num_r }}
+              </div>
+
+            {%- when 'magazine_template_7' -%}
+              <div class="page_wrapper mag_container h-full flex flex-col">
+                <div class="flex justify-between items-center">
+                  {%- if bk_stts.image != blank -%}
+                    <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block col-8">
+                      <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                      <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                      <div class="mt-2 text-center text-sm text-[#666666] hover:text-black hover:underline lg:no-underline underline">{{ product.title }}</div>
+                    </a>
+                  {%- endif -%}
+
+                  <div class="flex flex-col col-4">
+                    {% for image in product.images limit: 3 %}
+                      <view class="relative w-full pt-[100%]">
+                        <img class="w-full h-full top-0 left-0 absolute" src="{{ image.src | product_img_url: 'medium' }}" alt="{{ product.title }}" mode="aspectFill" />
+                      </view>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="mag_text_wrapper 2xl:mt-7 mt-4">
+                  <div class="mag_heading 2xl:text-5xl text-[2.4rem] font-bold text-[{{ bk_stts.heading_color }}]">{{ bk_stts.heading }}</div>
+                  <div class="mag_content">{{ bk_stts.content }}</div>
+                </div>
+              </div>
+
+            {%- when 'magazine_template_8' -%}
+              <div class="page_wrapper mag_container relative h-full flex flex-col">
+                <div class="mag_text_wrapper">
+                  <div class="mag_heading 2xl:text-5xl text-[2.4rem] font-bold text-[{{ bk_stts.heading_color }}]">{{ bk_stts.heading }}</div>
+                  <div class="mag_content">{{ bk_stts.content }}</div>
+                </div>
+
+                <div class="flex justify-between items-center 2xl:mt-7 mt-4">
+                  {%- if bk_stts.image != blank -%}
+                    <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block 2xl:flex-[0_0_66.66667%] 2xl:max-w-[66.66667%] flex-[0_0_58.333333%] max-w-[58.333333%]">
+                      <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                      <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                      <div class="mt-2 text-center text-[#666666] hover:text-black hover:underline lg:no-underline underline">{{ product.title }}</div>
+                    </a>
+                  {%- endif -%}
+
+                  <div class="flex flex-col flex-[0_0_41.666667%] max-w-[41.666667%] 2xl:flex-[0_0_33.333333%] 2xl:max-w-[33.333333%]">
+                    {% for image in product.images limit: 2 %}
+                      <view class="relative w-full pt-[100%]">
+                        <img class="w-full h-full top-0 left-0 absolute" src="{{ image.src | product_img_url: 'medium' }}" alt="{{ product.title }}" mode="aspectFill" />
+                      </view>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                {{ page_num_r }}
+              </div>
+
+            {%- when 'magazine_template_9' -%}
+              <div class="page_wrapper relative h-full">
+                <div class="mag_content absolute top-[5%] left-[5%]">
+                  <a class="block underline text-[#666666] hover:text-black" href="{{ bk_stts.url | default: product.url }}">{{ bk_stts.text | default: product.title }}</a>
+                  <a class="block underline text-[#666666] hover:text-black" href="{{ bk_stts.url2 | default: product2.url }}">{{ bk_stts.text2 | default: product2.title }}</a>
+                </div>
+
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title  }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_10' -%}
+              <div class="page_wrapper h-full">
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_11' -%}
+              <div class="page_wrapper mag_container flex justify-center items-center relative h-full">
+                <div class="grid grid-cols-2 px-[5%]">
+                  <div class="magazine12_item_content relative h-max xl:px-[10%] px-[5%] xl:pb-[10%] pb-[5%]">
+                    <a class="flex justify-center" href="{{ bk_stts.url | default: product.url }}">
+                      <img src="{{ bk_stts.product_image1 | img_url: "master" }}" />
+                    </a>
+                    <div class="mt__5">
+                      <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url | default: product.url }}">{{ product.title }}</a>
+                      <div class="xl:mt-4 mt-2 text-3xl font-bold">{{ bk_stts.title1 }}</div>
+                      <div class="text_content xl:mt-4 mt-2">{{ bk_stts.content1 }}</div>
+                    </div>
+                  </div>
+                  <div class="xl:mt-24 mt-12 xl:px-[10%] px-[5%]">
+                    <div class="xl:mb-5 mb-3">
+                      <div class="text-3xl font-bold">{{ bk_stts.title2 }}</div>
+                      <div class="text_content xl:mt-4 mt-2">{{ bk_stts.content2 }}</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <a href="{{ bk_stts.url2 | default: product2.url }}">
+                        <img src="{{ bk_stts.product_image2 | img_url: "master" }}" alt="{{ product2.title }}" />
+                      </a>
+                      <a class="mt__5 text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url2 | default: product2.url }}">{{ product2.title }}</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="absolute right-0 bottom-0 h-full">
+                  <img class="h-full" src="{{ bk_stts.right_image | img_url: 'master' }}" alt="{{ bk_stts.right_image.alt | default: product.title }}"/>
+                </div>
+                <div class="absolute left-0 bottom-0 xl:w-[65%] w-[55%]">
+                  <img src="{{ bk_stts.bottom_image | img_url: 'master' }}" alt="{{ bk_stts.bottom_image.alt | default: product2.title }}"/>
+                </div>
+              </div>
+
+            {%- when 'magazine_template_12' -%}
+              <div class="page_wrapper mag_container flex justify-center items-center relative h-full">
+                <div class="grid grid-cols-2 px-[5%]">
+                  <div class="magazine12_item_content relative h-max xl:px-[10%] px-[5%] xl:pb-[10%] pb-[5%]">
+                    <a class="flex justify-center" href="{{ bk_stts.url | default: product.url }}">
+                      <img src="{{ bk_stts.product_image1 | img_url: "master" }}" />
+                    </a>
+                    <div class="mt__5">
+                      <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url | default: product.url }}">{{ product.title }}</a>
+                      <div class="xl:mt-4 mt-2 text-3xl font-bold">{{ bk_stts.title1 }}</div>
+                      <div class="xl:mt-4 mt-2 text_content">{{ bk_stts.content1 }}</div>
+                    </div>
+                  </div>
+                  <div class="xl:mt-24 mt-12 xl:px-[10%] px-[5%]">
+                    <div class="xl:mb-5 mb-3">
+                      <div class="text-3xl font-bold">{{ bk_stts.title2 }}</div>
+                      <div class="xl:mt-4 mt-2 text_content">{{ bk_stts.content2 }}</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <a href="{{ bk_stts.url2 | default: product2.url }}">
+                        <img src="{{ bk_stts.product_image2 | img_url: "master" }}" alt="{{ product2.title }}" />
+                      </a>
+                      <a class="mt__5 text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url2 | default: product2.url }}">{{ product2.title }}</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="absolute top-0 left-0  h-full">
+                  <img class="h-full" src="{{ bk_stts.left_image | img_url: 'master' }}" alt="{{ bk_stts.left_image.alt | default: product.title }}"/>
+                </div>
+                <div class="absolute top-0 right-0 xl:w-[55%] w-[40%]">
+                  <img class="md:w-full w-[70%] float-right" src="{{ bk_stts.top_image | img_url: 'master' }}" alt="{{ bk_stts.top_image.alt | default: product2.title }}"/>
+                </div>
+              </div>
+
+            {%- when 'magazine_template_13' -%}
+              <div class="page_wrapper mag_container h-full">
+                <div class="mag_img w-2/3">
+                  <img src="{{ bk_stts.header_image | img_url: "master" }}" alt="{{ bk_stts.header_image.alt }}" />
+                </div>
+                <div class="mag_content">{{ bk_stts.content }}</div>
+                <div class="flex justify-between xl:mt-10 mt-5">
+                  <div class="relative col-6 xl:mt-10 mt-5">
+                    <a class="flex justify-center" href="{{ bk_stts.url | default: product.url }}">
+                      <img src="{{ bk_stts.image1 | img_url: "master" }}" alt="{{ bk_stts.image1.alt }}" />
+                    </a>
+                    <div>
+                      <div class="text-xl font-bold">{{ bk_stts.title1 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url | default: product.url }}">{{ bk_stts.content1 | default: product.title }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative col-6">
+                    <a class="flex justify-center" href="{{ bk_stts.url | default: product2.url }}">
+                      <img src="{{ bk_stts.image2 | img_url: "master" }}" alt="{{ bk_stts.image2.alt }}" />
+                    </a>
+                    <div>
+                      <div class="text-xl font-bold">{{ bk_stts.title2 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url2 | default: product2.url }}">{{ bk_stts.content2 | default: product2.title }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {%- when 'magazine_template_14' -%}
+              <div class="page_wrapper mag_container relative flex justify-between items-center h-full">
+                <div class="flex flex-col col-6 xl:mt-10 mt-5">
+                  <div class="relative">
+                    <a class="flex justify-center" href="{{ bk_stts.url1 | default: product.url }}">
+                      <img src="{{ bk_stts.image1 | img_url: "master" }}" alt="{{ bk_stts.image1.alt }}" />
+                    </a>
+                    <div class="w-4/5">
+                      <div class="text-xl font-bold">{{ bk_stts.title1 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url1 | default: product.url }}">{{ bk_stts.content1 }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative xl:mt-5 mt-3">
+                    <a class="flex justify-center" href="{{ bk_stts.url12 | default: product2.url }}">
+                      <img src="{{ bk_stts.image2 | img_url: "master" }}" alt="{{ bk_stts.image2.alt }}" />
+                    </a>
+                    <div class="w-4/5">
+                      <div class="text-xl font-bold">{{ bk_stts.title2 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url12 | default: product2.url }}">{{ bk_stts.content2 }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col col-6">
+                  <div class="relative">
+                    <a class="flex justify-center" href="{{ bk_stts.url3 | default: product3.url }}">
+                      <img src="{{ bk_stts.image3 | img_url: "master" }}" alt="{{ bk_stts.image3.alt }}" />
+                    </a>
+                    <div class="w-4/5">
+                      <div class="text-xl font-bold">{{ bk_stts.title3 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url3 | default: product3.url }}">{{ bk_stts.content3 }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative xl:mt-5 mt-3">
+                    <a class="flex justify-center" href="{{ bk_stts.url4 | default: product4.url }}">
+                      <img src="{{ bk_stts.image4 | img_url: "master" }}" alt="{{ bk_stts.image4.alt }}" />
+                    </a>
+                    <div class="w-4/5">
+                      <div class="text-xl font-bold">{{ bk_stts.title4 }}</div>
+                      <div class="text_content">
+                        <a class="text-[#666666] hover:text-black hover:underline lg:no-underline underline text-sm" href="{{ bk_stts.url4 | default: product4.url }}">{{ bk_stts.content4 }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {%- when 'magazine_template_15' -%}
+              <div class="page_wrapper h-full">
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_16' -%}
+              <div class="page_wrapper h-full">
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_17' -%}
+              <div class="page_wrapper h-full">
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_18' -%}
+              <div class="page_wrapper mag_container relative h-full">
+                <div class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt }}</span>
+                </div>
+
+                <div class="mag_text xl:mt-20 mt-5">
+                  <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color }}] before:bg-[{{ bk_stts.qs_title_color }}]">{{ bk_stts.qs_title }}</div>
+                  <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer }}</div>
+                </div>
+
+                {{ page_num_r }}
+              </div>
+
+            {%- when 'magazine_template_19' -%}
+              <div class="page_wrapper mag_container relative flex justify-between items-center h-full">
+                <div class="questions flex flex-col flex-[0_0_70%] max-w-[70%]">
+                  <div class="item_question">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color }}] before:bg-[{{ bk_stts.qs_title_color }}]">
+                      {{ bk_stts.qs_title }}
+                    </div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer }}</div>
+                  </div>
+                  <div class="item_question xl:mt-4 mt-3">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color2 }}] before:bg-[{{ bk_stts.qs_title_color2 }}]">
+                      {{ bk_stts.qs_title2 }}
+                    </div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer2 }}</div>
+                  </div>
+                </div>
+
+                <div class="mag_image h-full flex-[0_0_30%] max-w-[30%] flex justify-end">
+                  <img class="h-full" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                </div>
+              </div>
+
+            {%- when 'magazine_template_20' -%}
+              <div class="page_wrapper mag_container relative flex justify-between items-center h-full">
+                <div class="mag_image h-full flex-[0_0_40%] max-w-[40%]">
+                  <img class="h-full" src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt }}" />
+                </div>
+
+                <div class="questions flex flex-col flex-[0_0_60%] max-w-[60%]">
+                  <div class="item_question">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color }}] before:bg-[{{ bk_stts.qs_title_color }}]">{{ bk_stts.qs_title }}</div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer }}</div>
+                  </div>
+                  <div class="item_question xl:mt-4 mt-3">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color2 }}] before:bg-[{{ bk_stts.qs_title_color2 }}]">{{ bk_stts.qs_title2 }}</div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer2 }}</div>
+                  </div>
+                </div>
+
+                {{ page_num_r }}
+              </div>
+
+            {%- when 'magazine_template_21' -%}
+              <div class="page_wrapper mag_container h-full">
+                <a href="{{ bk_stts.url | default: product.url }}" class="mag_image block">
+                  <img src="{{ bk_stts.image | img_url: "master" }}" alt="{{ bk_stts.image.alt | default: product.title }}" />
+                  <span class="sr-only">{{ bk_stts.image.alt | default: product.title }}</span>
+                </a>
+              </div>
+
+            {%- when 'magazine_template_22' -%}
+              <div class="page_wrapper mag_container relative h-full">
+                <div class="questions">
+                  <div class="item_question">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color }}] before:bg-[{{ bk_stts.qs_title_color }}]">{{ bk_stts.qs_title }}</div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer }}</div>
+                  </div>
+                  <div class="item_question xl:mt-4 mt-3">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color2 }}] before:bg-[{{ bk_stts.qs_title_color2 }}]">{{ bk_stts.qs_title2 }}</div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer2 }}</div>
+                  </div>
+                  <div class="item_question xl:mt-4 mt-3">
+                    <div class="relative qs_title pl-4 xl:text-3xl text-2xl font-bold text-[{{ bk_stts.qs_title_color3 }}] before:bg-[{{ bk_stts.qs_title_color3 }}]">{{ bk_stts.qs_title3 }}</div>
+                    <div class="qs_answer mg_content xl:mt-4 mt-3 leading-[1.25]">{{ bk_stts.qs_answer3 }}</div>
+                  </div>
+                </div>
+
+                {{ page_num_r }}
+              </div>
+              
+            {%- else -%}
+              
+          {%- endcase -%}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+{%- render 'section_css' -%}
+{%- style -%}
+.nt_se_{{sid}} {
+  font-family: {{ font_family | default:font_family2 }};
+}
+.nt_se_{{sid}} .swiper-slide {
+  font-size: {{ fs_text }}px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .nt_se_{{sid}} .swiper-slide {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .nt_se_{{sid}} .swiper-slide {
+    font-size: {{ fs_text_m }}px;
+  }
+}
+.magazine12_item_content:before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  z-index: -1;
+  background-color: rgba(242, 242, 242, 1);
+  -webkit-clip-path: polygon(100% 0%,100% 100%,100% 100%,0 100%,0 15%,25% 0%);
+  clip-path: polygon(100% 0%,100% 100%,100% 100%,0 100%,0 15%,25% 0%);
+}
+.qs_title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 7px;
+  height: 100%;
+}
+.swiper {
+	--swiper-navigation-color: #999;
+	--swiper-pagination-color: #999;
+  --swiper-navigation-size: 30px;
+}
+{%- endstyle -%}
+
+{%- schema -%}
+  {
+    "name": "Slideshow magazine",
+    "class": "nt_section tp_se_cdt2",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== General Settings"
+      },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "default": "nt_full",
+        "options": [
+          {
+              "value": "container",
+              "label": "Container"
+          },
+          {
+            "value": "nt_full",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background Color",
+        "info": "only active when you use layout 'Container'"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+        "default": ",,50px,",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "range",
+        "id": "fs_text",
+        "min": 10,
+        "max": 30,
+        "step": 0.5,
+        "label": "Font size(desktop)",
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "range",
+        "id": "fs_text_m",
+        "min": 8,
+        "max": 30,
+        "step": 0.5,
+        "label": "Font size(mobile)",
+        "unit": "px",
+        "default": 10
+      }
+    ],
+    "blocks": [
+      {
+        "type":"magazine_template_1",
+        "name":"magazine template 1",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading",
+            "label": "Sub Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "third_heading",
+            "label": "third_heading"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext1",
+            "label": "Content 1"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext2",
+            "label": "Content 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+            "placeholder": "50px,50px,50px,50px,"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "placeholder": "40px,40px,40px,40px,"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_2",
+        "name":"magazine template 2",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext1",
+            "label": "Content 1"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext2",
+            "label": "Content 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+            "placeholder": "50px,50px,50px,50px,"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "placeholder": "40px,40px,40px,40px,"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_3",
+        "name":"magazine template 3",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_4",
+        "name":"magazine template 4",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "image_picker",
+            "id": "tag_image",
+            "label": "Heading Tag Image"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext",
+            "label": "Content"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+            "placeholder": "50px,50px,50px,50px,"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "placeholder": "40px,40px,40px,40px,"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_5",
+        "name":"magazine template 5",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "SUMMER OUTFIT"
+          },
+          {
+            "type": "richtext",
+            "id": "sub_heading",
+            "label": "Sub Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+            "placeholder": "50px,50px,50px,50px,",
+            "default": "50px,55px,50px,50px"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "placeholder": "40px,40px,40px,40px,"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_6",
+        "name":"magazine template 6",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+            "placeholder": "50px,50px,50px,50px,",
+            "default": "50px,55px,50px,50px"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "placeholder": "50px,,50px,"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "placeholder": "40px,40px,40px,40px,"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_7",
+        "name":"magazine template 7",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Choose product"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link",
+            "info": "Link"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_8",
+        "name":"magazine template 8",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Choose product"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link",
+            "info": "Link"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_9",
+        "name":"magazine template 9",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Content"
+          },
+          {
+            "type": "url",
+            "id": "url2",
+            "label": "Link2"
+          },
+          {
+            "type": "product",
+            "id": "product2",
+            "label": "Product2"
+          },
+          {
+            "type": "richtext",
+            "id": "text2",
+            "label": "Content2"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_10",
+        "name":"magazine template 10",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_11",
+        "name":"magazine template 11",
+        "settings":[
+          {
+            "type": "image_picker",
+            "id": "bottom_image",
+            "label": "Bottom Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "right_image",
+            "label": "Right Image"
+          },
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "product_image1",
+            "label": "Product Image1"
+          },
+          {
+            "type": "url",
+            "id": "url1",
+            "label": "Link1",
+            "info": "Link1"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product Select",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Title1"
+          },
+          {
+            "type": "richtext",
+            "id": "content1",
+            "label": "Content1"
+          },
+          {
+            "type": "image_picker",
+            "id": "product_image2",
+            "label": "Product Image2"
+          },
+          {
+            "type": "url",
+            "id": "url2",
+            "label": "Link2",
+            "info": "Link2"
+          },
+          {
+            "type": "product",
+            "id": "product2",
+            "label": "Product2 Select",
+            "info": "Select Other Product"
+          },
+          {
+            "type": "text",
+            "id": "title2",
+            "label": "Title2"
+          },
+          {
+            "type": "richtext",
+            "id": "content2",
+            "label": "Content2"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_12",
+        "name":"magazine template 12",
+        "settings":[
+          {
+            "type": "image_picker",
+            "id": "left_image",
+            "label": "Left Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "top_image",
+            "label": "Top Image"
+          },
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "product_image1",
+            "label": "Product Image1"
+          },
+          {
+            "type": "url",
+            "id": "url1",
+            "label": "Link1",
+            "info": "Link1"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product Select",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Title1"
+          },
+          {
+            "type": "richtext",
+            "id": "content1",
+            "label": "Content1"
+          },
+          {
+            "type": "image_picker",
+            "id": "product_image2",
+            "label": "Product Image2"
+          },
+          {
+            "type": "url",
+            "id": "url2",
+            "label": "Link2",
+            "info": "Link2"
+          },
+          {
+            "type": "product",
+            "id": "product2",
+            "label": "Product2 Select",
+            "info": "Select Other Product"
+          },
+          {
+            "type": "text",
+            "id": "title2",
+            "label": "Title2"
+          },
+          {
+            "type": "richtext",
+            "id": "content2",
+            "label": "Content2"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_13",
+        "name":"magazine template 13",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "header_image",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "url",
+            "id": "url1",
+            "label": "Link1",
+            "info": "Link1"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select Product",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Title1"
+          },
+          {
+            "type": "richtext",
+            "id": "content1",
+            "label": "Content1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image1"
+          },
+          {
+            "type": "url",
+            "id": "url2",
+            "label": "Link2",
+            "info": "Link2"
+          },
+          {
+            "type": "product",
+            "id": "product2",
+            "label": "Select Other Product",
+            "info": "Select Other Product"
+          },
+          {
+            "type": "text",
+            "id": "title2",
+            "label": "Title2"
+          },
+          {
+            "type": "richtext",
+            "id": "content2",
+            "label": "Content2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image2"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_14",
+        "name":"magazine template 14",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "url",
+            "id": "url1",
+            "label": "Link1",
+            "info": "Link1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image1"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select Product",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Title1"
+          },
+          {
+            "type": "richtext",
+            "id": "content1",
+            "label": "Content1"
+          },
+          {
+            "type": "url",
+            "id": "url2",
+            "label": "Link2",
+            "info": "Link2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image2"
+          },
+          {
+            "type": "product",
+            "id": "product2",
+            "label": "Select Other Product",
+            "info": "Select Other Product"
+          },
+          {
+            "type": "text",
+            "id": "title2",
+            "label": "Title2"
+          },
+          {
+            "type": "richtext",
+            "id": "content2",
+            "label": "Content2"
+          },
+          {
+            "type": "url",
+            "id": "url3",
+            "label": "Link3",
+            "info": "Link3"
+          },
+          {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Image3"
+          },
+          {
+            "type": "product",
+            "id": "product3",
+            "label": "Select Product",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title3",
+            "label": "Title3"
+          },
+          {
+            "type": "richtext",
+            "id": "content3",
+            "label": "Content3"
+          },
+          {
+            "type": "url",
+            "id": "url4",
+            "label": "Link4",
+            "info": "Link4"
+          },
+          {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "Image4"
+          },
+          {
+            "type": "product",
+            "id": "product4",
+            "label": "Select Product",
+            "info": "Select first Product"
+          },
+          {
+            "type": "text",
+            "id": "title4",
+            "label": "Title4"
+          },
+          {
+            "type": "richtext",
+            "id": "content4",
+            "label": "Content4"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_15",
+        "name":"magazine template 15",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_16",
+        "name":"magazine template 16",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_17",
+        "name":"magazine template 17",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_18",
+        "name":"magazine template 18",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color",
+            "label": "Question Tilte Color",
+            "default": "#156D45"
+          },
+          {
+            "type": "text",
+            "id": "qs_title",
+            "label": "Question Title",
+            "default": "Question Title"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer",
+            "label": "Question Answer",
+            "default": "<p>Question Answer</p>"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "range",
+            "id": "fs_text",
+            "min": 1,
+            "max": 30,
+            "step": 0.5,
+            "label": "Font size(mobile)",
+            "unit": "px",
+            "default": 16,
+            "info": "Mobile font size"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_19",
+        "name":"magazine template 19",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A1"
+          },
+          {
+            "type": "text",
+            "id": "qs_title",
+            "label": "Question Title"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color",
+            "label": "Question Tilte Color"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer",
+            "label": "Question Answer"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A2"
+          },
+          {
+            "type": "text",
+            "id": "qs_title2",
+            "label": "Question Title2"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color2",
+            "label": "Question Tilte Color2"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer2",
+            "label": "Question Answer2"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_20",
+        "name":"magazine template 20",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A1"
+          },
+          {
+            "type": "text",
+            "id": "qs_title",
+            "label": "Question Title"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color",
+            "label": "Question Tilte Color"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer",
+            "label": "Question Answer"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A2"
+          },
+          {
+            "type": "text",
+            "id": "qs_title2",
+            "label": "Question Title2"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color2",
+            "label": "Question Tilte Color2"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer2",
+            "label": "Question Answer2"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_21",
+        "name":"magazine template 21",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding"
+          }
+        ]
+      },
+      {
+        "type":"magazine_template_22",
+        "name":"magazine template 22",
+        "settings":[
+          {
+            "type": "header",
+            "content": "== General Settings"
+          },
+          {
+            "type": "text",
+            "id": "page_text",
+            "label": "Page text",
+            "info": "Custom Page text",
+            "placeholder": "JUNE 2022 PEXMOD"
+          },
+          {
+            "type": "text",
+            "id": "page_number",
+            "label": "Page number",
+            "info": "Custom page number",
+            "placeholder": "00"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A1"
+          },
+          {
+            "type": "text",
+            "id": "qs_title",
+            "label": "Question Title",
+            "default": "Question Title"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color",
+            "label": "Question Tilte Color"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer",
+            "label": "Question Answer"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A2"
+          },
+          {
+            "type": "text",
+            "id": "qs_title2",
+            "label": "Question Title2"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color2",
+            "label": "Question Tilte Color2"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer2",
+            "label": "Question Answer2"
+          },
+          {
+            "type": "header",
+            "content": "== Q&A3"
+          },
+          {
+            "type": "text",
+            "id": "qs_title3",
+            "label": "Question Title3"
+          },
+          {
+            "type": "color",
+            "id": "qs_title_color3",
+            "label": "Question Tilte Color3"
+          },
+          {
+            "type": "richtext",
+            "id": "qs_answer3",
+            "label": "Question Answer3"
+          },
+          {
+            "type": "header",
+            "content": "== Design Options"
+          },
+          {
+            "type": "text",
+            "id": "mg",
+            "label": "Margin",
+            "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+          },
+          {
+            "type": "text",
+            "id": "pd",
+            "label": "Padding",
+            "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+          },
+          {
+            "type": "header",
+            "content": "== Design Mobile Options"
+          },
+          {
+            "type": "text",
+            "id": "mg_mb",
+            "label": "Margin"
+          },
+          {
+            "type": "text",
+            "id": "pd_mb",
+            "label": "Padding"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slideshow magazine",
+        "category": "III. Image",
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

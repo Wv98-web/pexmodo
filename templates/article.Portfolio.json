@@ -1,0 +1,108 @@
+{
+  "sections": {
+    "aptf-heading": {
+      "type": "aptf-heading",
+      "blocks": {
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3": {
+          "type": "1",
+          "settings": {}
+        },
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed": {
+          "type": "2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3",
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed"
+      ],
+      "settings": {
+        "shown": true,
+        "use_specify_image": true,
+        "parallax": false,
+        "color": "#000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "aptf-template",
+      "blocks": {
+        "4576271c-4895-42d0-b334-68c1c4fe05a2": {
+          "type": "img",
+          "settings": {}
+        },
+        "91472d72-efb1-4003-99ef-4ab28bf2b4a8": {
+          "type": "content",
+          "settings": {}
+        },
+        "cf42995b-401c-4ce3-961e-dc0a55fed0c7": {
+          "type": "infos",
+          "settings": {
+            "cat": true,
+            "author": true,
+            "tags": true
+          }
+        },
+        "f7df2a2e-8916-4972-8029-d5930ce1ad69": {
+          "type": "social",
+          "settings": {
+            "follow": false,
+            "tooltip": true,
+            "des": "2"
+          }
+        },
+        "c024f913-1525-4688-a9c8-14185872fcc2": {
+          "type": "nav",
+          "settings": {}
+        },
+        "2e04f59b-58fe-499d-8d42-fe29e06709f9": {
+          "type": "related",
+          "settings": {
+            "title": "Related Portfolio",
+            "t_center": true,
+            "limit": 5,
+            "date": "date",
+            "col_pr": "4",
+            "col_pr_tb": "4",
+            "col_pr_mb": "12",
+            "loop": false,
+            "au_time": 0,
+            "au_hover": true,
+            "button": true,
+            "btn_vi": "1",
+            "btn_owl": "1",
+            "btn_color": "0",
+            "dot": false,
+            "dot_owl": "1",
+            "dot_color": "1",
+            "use_eq_height": false,
+            "image_ratio": "ratio_nt",
+            "image_size": "nt_cover",
+            "image_position": "8"
+          }
+        }
+      },
+      "block_order": [
+        "4576271c-4895-42d0-b334-68c1c4fe05a2",
+        "91472d72-efb1-4003-99ef-4ab28bf2b4a8",
+        "cf42995b-401c-4ce3-961e-dc0a55fed0c7",
+        "f7df2a2e-8916-4972-8029-d5930ce1ad69",
+        "c024f913-1525-4688-a9c8-14185872fcc2",
+        "2e04f59b-58fe-499d-8d42-fe29e06709f9"
+      ],
+      "settings": {
+        "ptf_layout": "default"
+      }
+    }
+  },
+  "order": [
+    "aptf-heading",
+    "main"
+  ]
+}

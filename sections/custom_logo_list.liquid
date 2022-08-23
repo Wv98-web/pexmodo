@@ -1,0 +1,446 @@
+{%- liquid
+  assign se_blocks = section.blocks -%}
+
+<div class="nt_se_{{section.id}} {{section.settings.layout}} logo_list">
+  {%- render 'section_title_new_custom',section:section -%}
+
+  <div class="pc_block mt__30">
+    <div class="logo_list_content">
+      <div class="logo_group">
+        <div class="col-3 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[0].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[0].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[0].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+
+          <div class="plus">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_8374e6b1-02ce-4ca1-84ad-457998ed6c31.png" />
+          </div>
+        </div>
+
+        <div class="col-3 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[1].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[1].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[1].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+
+          <div class="plus">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_8374e6b1-02ce-4ca1-84ad-457998ed6c31.png" />
+          </div>
+        </div>
+
+        <div class="col-3 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[2].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[2].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[2].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+
+          <div class="arrow">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_42444b4b-e9fb-491b-b0ee-31ee1f884098.png" />
+          </div>
+        </div>
+
+        <div class="col-3 logo_item_wrap">
+          <div class="logo_item logo_item_4 pr">
+            <img class="card__side card__side--front" src="{{ se_blocks[3].settings.image2 | img_url: 'master' }}" />
+            <img class="card__side card__side--back" src="{{ se_blocks[3].settings.image_m2 | img_url: 'master' }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile_block mt__30">
+    <div class="logo_list_content">
+      <div class="logo_group col-12">
+        <div class="col-4 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[0].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[0].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[0].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+
+          <div class="plus">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_8374e6b1-02ce-4ca1-84ad-457998ed6c31.png" />
+          </div>
+        </div>
+
+        <div class="col-4 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[1].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[1].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[1].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+
+          <div class="plus">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_8374e6b1-02ce-4ca1-84ad-457998ed6c31.png" />
+          </div>
+        </div>
+
+        <div class="col-4 logo_item_wrap pr">
+          <div class="logo_item">
+            <img src="{{ se_blocks[2].settings.image | img_url: 'master' }}" />
+            <div class="content">
+              <div class="title pr">
+                <span></span>
+                <p class="pr">{{ se_blocks[2].settings.block_title | escape }}</p>
+              </div>
+              <div class="sub_txt">{{ se_blocks[2].settings.block_sub_title | escape }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 card_wrap pr">
+        <div class="arrow pa">
+          <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/dbc7acec372d3103ab433df66574379f.png" />
+        </div>
+        <div class="card flex"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+  $(".card").append("<div><img src=https://cdn.shopify.com/s/files/1/0637/3346/5308/files/b2f6a5d525c730aa8c2e153233f177c7.png /><img src=https://cdn.shopify.com/s/files/1/0637/3346/5308/files/93c0cfdf1156cb9c97b1ed15698c4f66.png /></div>")
+  $(".card > div").addClass("pr card_side--front");
+  $(".card > div > img:last").addClass("click");
+  $(".card").one("click", function(){
+    $(".card").empty();
+    $(".card").append("<div><img src=https://cdn.shopify.com/s/files/1/0637/3346/5308/files/logo_d0064a94-d668-4ba6-a1b3-9d3fb036170a.png /></div>")
+    $(".card > div").addClass("card__side--back");
+    $(".card > div").addClass("card__side--back-click")
+  })
+{% endjavascript %}
+
+{%- render 'section_css' -%}
+{%- style -%}
+.nt_se_{{section.id}} .logo_list_content{
+  background:{{section.settings.background_color}};
+  border-radius:{{section.settings.border_radius}}px;
+}
+.nt_se_{{section.id}} .logo_item .title{
+  color: {{section.settings.text_color}};
+}
+{%- endstyle -%}
+
+{%- schema -%}
+  {
+    "name": "Logo list",
+    "class": "nt_section type_collection_list",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Title Settings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Talk about your brand"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title",
+        "label": "Sub Text"
+      },
+      {
+        "type": "select",
+        "id": "sub_font",
+        "default": "2",
+        "options": [
+         {
+            "value": "1",
+            "label": "Body font"
+         },
+         {
+            "value": "2",
+            "label": "Sub title font"
+          },
+          {
+            "value": "3",
+            "label": "Colors Of Autumn"
+          }
+        ],
+        "label": "Sub Text use font:"
+      },
+      {
+        "type": "select",
+        "id": "style_title",
+        "options": [
+         {
+            "value": "title_1",
+            "label": "Design 1"
+         },
+         {
+            "value": "title_2",
+            "label": "Design 2"
+          },
+         {
+            "value": "title_3",
+            "label": "Design 3"
+          },
+         {
+            "value": "title_4",
+            "label": "Design 4"
+          },
+         {
+            "value": "title_5 lazyloadt4s",
+            "label": "Design 5"
+          },
+         {
+            "value": "title_6",
+            "label": "Design 6"
+          },
+         {
+            "value": "title_7 +la",
+            "label": "Design 7 (with line-awesome)"
+          },
+         {
+            "value": "title_8",
+            "label": "Design 8"
+          },
+         {
+            "value": "title_9",
+            "label": "Design 9"
+          },
+         {
+            "value": "title_11",
+            "label": "Design 11"
+          },
+         {
+            "value": "title_12",
+            "label": "Design 12"
+          },
+         {
+            "value": "title_13",
+            "label": "Design 13"
+          },
+          {
+            "value": "title_new",
+            "label": "Design new(new custon)"
+          }
+        ],
+        "label": "Design Title:"
+      },
+      {
+        "type": "image_picker",
+        "id": "tag_image",
+        "label": "Tag image",
+        "info": "Only working with design title: design new"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_bottom_border",
+        "label": "Show bottom border",
+        "default": false,
+        "info": "Show only on mobile"
+      },
+      {
+        "type": "text",
+        "id": "ic_tt",
+        "label": "Style 7 icon line-awesome",
+        "default": "gem"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_clpr",
+        "label": "Use icon color primary?",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
+      },
+      {
+        "type": "header",
+        "content": "== General Settings"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Border radius",
+        "default": 12
+      },
+      {
+        "type": "header",
+        "content": "== Color Settings"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#eeeeee"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "light_color",
+        "label": "Light text color",
+        "default": "#980CE7"
+      },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "nt_co_wide",
+            "label": "Wide"
+          },
+         {
+            "value": "nt_full",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+        "default": "50px,,50px,",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+        "placeholder": "50px,,50px,"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding",
+        "placeholder": "50px,,50px,"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Logo image",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "block_sub_title",
+            "label": "Sub Text",
+            "default": "Sub Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_m",
+            "label": "Mobile Image"
+          }
+        ]
+      },
+      {
+        "type": "image2",
+        "name": "Logo image2",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title2",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "block_sub_title2",
+            "label": "Sub Text",
+            "default": "Sub Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_m2",
+            "label": "Mobile Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Logo list",
+        "category": "I. Collections",
+        "blocks": [
+          { "type": "image" },
+          { "type": "image" },
+          { "type": "image" },
+          { "type": "image2" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,858 @@
+{%- liquid
+  assign col_class= '12'
+  assign ck_hide_all = true
+  assign section_blocks = section.blocks
+   assign se_stts = section.settings
+   assign style_color = settings.style_color_filter | replace: ' ,', ',' | replace: ', ', ',' |split:',' -%}
+
+{%- if request.design_mode%}[t4splitlz]<div class="t4s_js_wrap"><div id="t4sad_sidebar_shop" class="nt_ajaxFilter section_sidebar_shop type_instagram spt4s-section">{% endif -%}
+<div class="h3 mg__0 tu bgb cw visible-sm fs__16 pr">{{ 'collections.general.sidebar' | t }}<i class="close_pp pegk pe-7s-close fs__40 ml__5"></i></div>
+<div class="cat_shop_wrap">
+<div class="cat_fixcl-scroll">
+<div class="cat_fixcl-scroll-content css_ntbar">
+<div class="row no-gutters wrap_filter">
+  {%- if settings.shop_filters and settings.sort_enable -%}{%- assign ck_hide_all = false -%}
+  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}{%- assign sr_url = canonical_url -%}
+   <div class="col-12 col-md-{{col_class}} widget hidden_sortby_{{settings.use_hidden_cat}}">
+      <h5 class="widget-title">{{ 'collections.sorting.title' | t }}</h5>
+      <div class="loke_scroll">
+         <ul class="nt_filter_block nt_filter_sortby">
+            {%- for option in collection.sort_options -%}<li {%- if sort_by == option.value %} class="active"{% endif %}><a href="{{ sr_url | sort_by:option.value }}">{{  option.name }}</a></li>{%- endfor -%}
+         </ul>
+      </div>
+   </div>
+{%- endif -%}
+{%- if section_blocks.size > 0 -%}
+  {%- for block in section_blocks %}{% assign bk_stts = block.settings -%}
+     {%- case block.type -%}
+        {%- when 'category' -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_product_categories cat_count_{{bk_stts.count}}">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               <ul class="product-categories">
+                  {%- case bk_stts.cat_source -%}
+                     {%- when '1' -%}
+                        {%- if collections.size > 0 -%}{%- assign ck_hide_all = false -%}
+                           {%- for category in collections -%}
+                              {%- if category.products.size > 0 -%}
+                                 <li class="cat-item{%- if collection.handle == category.handle %} current-cat{%- endif -%}"><a href="{{ category.url }}">{{category.title}}</a> <span class="cat_count">({{ category.all_products_count }})</span></li>
+                              {%- endif -%}
+                           {%- endfor -%}
+                        {%- endif -%}
+                     {%- else -%}
+                        {%- assign top_link_list = bk_stts.cat_link_list -%}
+                        {%- for link in linklists[top_link_list].links -%}
+                            {%- if link.type == 'collection_link' or link.type == 'catalog_link' -%}{%- assign ck_hide_all = false -%}
+                              {%- if link.links != blank -%}
+                                   <li class="pr menu_nested cat-item{%- if link.active or link.child_active %} current-cat{%- endif -%}">
+                                      <a class="db has_cats_toggle pr__25" href="{{ link.url }}">{{link.title}} <span class="cat_count">({{ link.object.all_products_count | default:shop.products_count }})</span></a>
+                                      <ul class="sub-menu children dn">
+                                         {%- for child_link in link.links -%}
+                                             {%- if child_link.type == 'collection_link' or child_link.type == 'catalog_link' -%}
+                                             
+                                               {%- if child_link.links != blank -%}
+                                               <li class="pr menu_nested2 cat-item{%- if child_link.active or child_link.child_active %} current-cat{%- endif -%}">
+                                                  <a class="db has_cats_toggle_ pr__25" href="{{ child_link.url }}">{{child_link.title}} <span class="cat_count">({{ child_link.object.all_products_count | default:shop.products_count }})</span></a>
+                                                  <ul class="sub-menu children dn">
+                                                    {%- for third_link in child_link.links -%}
+                                                     {%- if third_link.type == 'collection_link' or third_link.type == 'catalog_link' -%}
+                                                     <li class="cat-item{%- if third_link.active %} current-cat{%- endif -%}">
+                                                        <a href="{{ third_link.url }}">{{third_link.title}} <span class="cat_count">({{ third_link.object.all_products_count | default:shop.products_count }})</span></a>
+                                                     </li>
+                                                     {%- endif -%}
+                                                    {%- endfor -%}
+                                                  </ul>
+                                                  <div class="btn_cats_toggle"><i class="facl facl-angle-down"></i></div>
+                                               </li>
+                                               {%- else -%}
+                                               <li class="cat-item{%- if child_link.active %} current-cat{%- endif -%}">
+                                                  <a href="{{ child_link.url }}">{{child_link.title}} <span class="cat_count">({{ child_link.object.all_products_count | default:shop.products_count }})</span></a>
+                                               </li>
+                                               {%- endif -%}
+
+                                             {%- endif -%}
+                                          {%- endfor -%}
+                                      </ul>
+                                      <div class="btn_cats_toggle"><i class="facl facl-angle-down"></i></div>
+                                    </li>
+                              {%- else -%}
+                                <li class="cat-item{%- if link.active %} current-cat{%- endif -%}"><a href="{{ link.url }}">{{link.title}} <span class="cat_count">({{ link.object.all_products_count |default:shop.products_count}})</a></span></li>
+                              {%- endif -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+                  {%- endcase -%}
+               </ul>
+            </div>
+        {%- when 'collection' -%}
+            {%- liquid
+             assign on_sale_txt = 'products.product.on_sale' | t
+             assign save_js = 'products.product.save_js' | t: saved_amount:'saved_amount' -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_product_list">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               {%- if bk_stts.collection == blank -%}
+                  <p class="mg__0 mb__30">{{ 'homepage.onboarding.no_content' | t }}</p>
+               {%- else -%}{%- assign ck_hide_all = false -%}
+               <div class="product_list_widget">
+                  {%- for product in collections[bk_stts.collection].products limit: bk_stts.limit -%}
+                     {%- render 'pr_group_loop',product:product,c:collections[bk_stts.collection],on_sale_txt:on_sale_txt,save_js:save_js -%}
+                  {%- endfor -%}
+               </div>
+               {%- endif -%}
+            </div>
+        {%- when 'post' -%}{%- assign date = bk_stts.date -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_post_list">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               {%- if bk_stts.blog == blank -%}
+                  <p class="mg__0 mb__30">{{ 'homepage.onboarding.no_content' | t }}</p>
+               {%- else -%}{%- assign ck_hide_all = false -%}
+               <div class="post_list_widget">
+                  {%- for article in blogs[bk_stts.blog].articles limit: bk_stts.limit -%}
+                     {%- render 'ar_group_loop',article:article,date:date -%}
+                  {%- endfor -%}
+               </div>
+               {%- endif -%}
+            </div>
+        {%- when 'instagram' -%}{%- assign ck_hide_all = false -%}{%- assign col = bk_stts.col_pr -%}{%- assign col_tb = bk_stts.col_pr_tb -%}{%- assign col_mb = bk_stts.col_pr_mb -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_instagram">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               <div class="nt_instagram_wrap row equal_nt ins_spaces_{{bk_stts.space}} ins_rounded_{{bk_stts.rounded_ins}} nt_cover ratio1_1 position_8 js_nt_ist" data-id='{{col}}{{col_tb}}{{col_mb}}{{bk_stts.limit}}{{bk_stts.open_link}}' data-cl='{{col}}' data-cltb='{{col_tb}}' data-clmb='{{col_mb}}' data-acc='{{bk_stts.acc2 | default:settings.global_acc}}' data-limit='{{bk_stts.limit }}' data-target='{{bk_stts.open_link}}'><div class="lds_bginfinity pr"></div></div>
+            </div>
+        {%- when 'instagram2' -%}{%- assign ck_hide_all = false -%}{%- assign col = bk_stts.col_pr -%}{%- assign col_tb = bk_stts.col_pr_tb -%}{%- assign col_mb = bk_stts.col_pr_mb -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_instagram">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               <div class="nt_instagram_wrap row equal_nt ins_spaces_{{bk_stts.space}} ins_rounded_{{bk_stts.rounded_ins}} nt_cover ratio1_1 position_8 js_nt_ist" data-id='{{col}}{{col_tb}}{{col_mb}}{{bk_stts.limit}}{{bk_stts.open_link}}' data-cl='{{col}}' data-cltb='{{col_tb}}' data-clmb='{{col_mb}}' data-acc='ins_19041994' data-limit='{{bk_stts.limit }}' data-target='{{bk_stts.open_link}}'><div class="lds_bginfinity pr"></div></div>
+            </div>
+        {%- when 'shipping' -%}{%- assign ck_hide_all = false -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_shipping">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               {%- for i in (1..6) -%}
+                  {%- assign shipping = 'shipping_' | append:i -%}
+                  {%- assign shipping_id = bk_stts[shipping] -%}
+                  {%- if shipping_id != blank -%}
+                     {%- assign shipping = shipping_id | replace: ' ,', ',' | replace: ', ', ',' | split: ',' -%}
+                        <div class="row no-gutters nt_shipping tl clearfix mt__30">
+                           {%- if shipping[0] != blank -%}<div class="icon medium cd col-auto"><i class="{%- if shipping[0] contains 'pe-' -%}pegk {{shipping[0]}}{%- else -%}las la-{{shipping[0]}}{%- endif -%}"></i></div>{%- endif -%}
+                           <div class="content col">
+                              <h3 class="title cd tu fs__14 mg__0 mb__5">{{shipping[1]}}</h3>
+                              <p class="mg__0">{{shipping[2]}}</p>
+                           </div>
+                        </div>
+                  {%- endif -%}
+               {%- endfor -%}
+            </div> 
+        {%- when 'html' -%}{%- assign ck_hide_all = false -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_html">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               {%- if bk_stts.page != blank -%}{{pages[bk_stts.page].content}}{%- endif -%}
+            </div>
+        {%- when 'text' -%}{%- assign ck_hide_all = false -%}
+            <div class="col-12 col-md-{{col_class}} widget widget_text">
+               <h5 class="widget-title">{{ bk_stts.title }}</h5>
+               {%- if bk_stts.text != blank -%}{{bk_stts.text}}{%- endif -%}
+            </div>
+
+        {%- when 'filters' -%}
+            {%- assign total_active_values = 0 -%}
+            {%- for filter in collection.filters -%}
+               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+               {%- case filter.type -%}
+                  {%- when 'list' -%}
+
+                     {%- if filter.values.size == 0 or all_count_pr == 0 %}{% continue %}{% endif %}{% assign ck_style = true -%}
+                     
+                     {%- if 'ColorColorsColourCouleur' contains filter.label -%}
+                      <div id="blockid_{{forloop.index}}"  class="col-12 col-md-{{col_class}} widget blockid_color count_vr_{{bk_stts.count}}">
+                          <h5 class="widget-title">{{filter.label| escape}}</h5>
+                          <div class="loke_scroll">
+                             <ul class="nt_filter_block nt_filter_color css_ntbar">
+
+                                {%- for value in filter.values -%}
+                                  {%- assign label = value.label | escape -%}
+                                  {%- if value.active -%}
+                                      <li class="active">
+                                        <a class="pr" href="{{value.url_to_remove}}">
+                                          <div class="filter-swatch">
+                                            <span class="bg_color_{{label | handle}} lazyloadt4s"></span>
+                                          </div>
+                                          <span class="tt_txt">{{label}}</span>
+                                          <span class="count_vr_filter">({{value.count}})</span>
+                                        </a>
+                                      </li>
+                                  {%- else -%}
+                                      <li>
+                                        <a class="pr" href="{{value.url_to_add}}">
+                                          <div class="filter-swatch">
+                                            <span class="bg_color_{{label | handle}} lazyloadt4s"></span>
+                                          </div>
+                                          <span class="tt_txt">{{label}}</span>
+                                          <span class="count_vr_filter">({{value.count}})</span>
+                                        </a>
+                                      </li>
+                                  {%- endif -%}
+
+                                {%- endfor -%}
+
+                             </ul>
+                          </div>
+                        </div>
+                     {%- else -%}
+                        <div id="blockid_{{forloop.index}}"  class="col-12 col-md-{{col_class}} widget blockid_vendor count_vr_{{bk_stts.count}}">
+                             <h5 class="widget-title">{{filter.label| escape}}</h5>
+                             <div class="loke_scroll">
+                                <ul class="nt_filter_block nt_filter_style{{bk_stts.style}} css_ntbar">
+                                 
+                                   {%- for value in filter.values -%}
+                                     
+                                     {%- if value.active -%}
+                                         <li class="active"><a href="{{value.url_to_remove}}">{{value.label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                                     {%- else -%}
+                                         <li><a href="{{value.url_to_add}}">{{value.label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                                     {%- endif -%}
+
+                                   {%- endfor -%}
+
+                                </ul>
+                             </div>
+                        </div>
+                     {%- endif -%}
+
+                  {%- when 'price_range' -%}
+                      {%- assign min_value_price = filter.min_value.value |default:0 -%}
+                      {%- assign max_value_price = filter.max_value.value |default:filter.range_max |default:0  -%}
+
+                      {%- if min_value_price == max_value_price or all_count_pr == 0 %}{% continue %}{% endif %}{% assign ck_style = true -%}
+                        
+                        <div id="blockid_{{forloop.index}}" class="col-12 col-md-{{col_class}} widget blockid_price">
+                          <h5 class="widget-title">{{filter.label| escape}}</h5>
+                          <div class="price_slider_wrapper mt__5">
+                            <div class="price_slider"></div>
+                            <div class="price_slider_amount" data-step="1" data-maxstr='{{filter.max_value.param_name}}' data-minstr='{{filter.min_value.param_name}}'>
+                              <input type="hidden" class="url_price" name="url_price" value="">
+                              <input type="hidden" class="min_price" name="min_price" value="{{min_value_price}}" data-min="0" placeholder="Min price">
+                              <input type="hidden" class="max_price" name="max_price" value="{{max_value_price}}" data-max="{{filter.range_max}}" placeholder="Max price">
+                              <div class="price_steps_slider"></div>
+                              <button type="button" class="button price_slider_btn dn">{{ 'collections.filter_variant.button_price' | t }}</button>
+                              <div class="price_label">
+                                {{ 'collections.filter_variant.title_price' | t }}: <span class="from">{{min_value_price | money }}</span> — <span class="to">{{max_value_price | money }}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+               {%- endcase -%}
+            {%- endfor -%}
+            
+     {%- endcase -%}
+  {%- endfor -%}
+  {%- if total_active_values > 1 -%}<div class="col-12 tc mt__20"><a class="button clear_filter_js" href="{{collection.url}}">{{ 'collections.general.clear_filter' | t}}</a></div>{%- endif -%}
+  {%- if ck_style %}<style>.cat_filter {opacity: 1;pointer-events: auto}.type_toolbar_sidebar{display: block}</style>{% endif -%}
+
+{%- else -%}
+<div class="tc">{%- render 'no_blocks'-%}</div>   
+{%- endif -%}
+</div>
+</div>
+</div>
+</div>
+<style>.btn_sidebar {opacity: 1} .type_toolbar_sidebar{display: block}{%- if ck_hide_all and ck_style == false -%}.cat_sidebar {opacity: 0;pointer-events: none;}.type_toolbar_sidebar.dn{display: none}{%- endif -%}</style>
+{%- if request.design_mode%}</div></div>[t4splitlz]{% endif -%}
+{%- schema -%}
+  {
+    "name": "Sidebar Shop 2",
+    "class": "nt_ajaxFilter section_sidebar_shop type_instagram",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "+ Only working when enable sidebar"
+      },
+      {
+        "type": "paragraph",
+        "content": "Customize [Filter by product options](\/admin\/menus). Filter product options will be empty for collections that contain over 1000 products."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "category",
+        "name": "Categories",
+        "limit": 1,
+        "settings": [
+         { 
+          "type":"text",
+          "id":"title",
+          "label":"Categories",
+          "default":"Product Categories"
+          },
+          {
+           "type": "select",
+           "id": "cat_source",
+           "label": "Show all \/ Show a link list",
+           "options": [
+             {
+               "value": "1",
+               "label": "Show all"
+             },
+             {
+               "value": "2",
+               "label": "Show a link list"
+             }
+           ]
+         },
+          {
+           "type": "link_list",
+           "id": "cat_link_list",
+           "label": "Choose a link list"
+         },
+          {
+            "type": "checkbox",
+            "id": "count",
+            "label": "Show count?",
+            "default": true
+          }
+        ]
+      },
+      {
+        "type": "collection",
+        "name": "Featured Products",
+        "settings": [
+         {
+          "type":"text",
+          "id":"title",
+          "label":"Title",
+          "default":"Sale Products"
+          },
+          {
+           "type": "collection",
+           "id": "collection",
+           "label": "Collection to use"
+         },
+          {
+            "type": "range",
+            "id": "limit",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Number of products to show",
+            "default": 3
+          }
+        ]
+      },
+      {
+        "type": "post",
+        "name": "Recent Post",
+        "settings": [
+         {
+          "type":"text",
+          "id":"title",
+          "label":"Title",
+          "default":"Recent Post"
+          },
+          {
+           "type": "blog",
+           "id": "blog",
+           "label": "Blog to use"
+         },
+        {
+          "type": "select",
+          "id": "date",
+          "options": [
+            {
+              "value": "abbreviated_date",
+              "label": "Apr 19, 1994"
+            },
+            {
+              "value": "basic",
+              "label": "4/19/1994"
+            },
+            {
+              "value": "date",
+              "label": "April 19, 1994"
+            }
+          ],
+          "label": "Date format",
+          "info":"different format options display for various languages.",
+          "default": "date"
+        },
+          {
+            "type": "range",
+            "id": "limit",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Number of products to show",
+            "default": 3
+          }
+        ]
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram feed",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Instagram"
+          },
+          {
+            "type": "text",
+            "id": "acc2",
+            "label": "User's photos via GraphQL (New Instagram API):",
+            "info":"If none is set, General Instagram Access Token is used. [How to get your Instagram Access Token via GraphQL API.](https://kalles-docs.the4.co/installation/how-to-get-instagram-access-token)"
+          },
+          {
+            "type": "range",
+            "id": "limit",
+            "min": 1,
+            "max": 25,
+            "step": 1,
+            "unit": "img",
+            "label": "Number of photos",
+            "default": 9
+          },
+          {
+            "type": "select",
+            "id": "open_link",
+            "options": [
+              {
+                "value": "_self",
+                "label": "Current window (_self)"
+              },
+             {
+                "value": "_blank",
+                "label": "New window (_blank)"
+              }
+            ],
+            "label": "Open link in",
+            "default": "_blank"
+          },
+          {
+           "type": "select",
+           "id": "space",
+           "options": [
+             {
+               "value": "6",
+               "label": "6"
+             },
+             {
+               "value": "3",
+               "label": "3"
+             },
+             {
+               "value": "2",
+               "label": "2"
+             },
+             {
+               "value": "0",
+               "label": "0"
+             }
+           ],
+           "label": "spaces between photos",
+           "default": "2"
+          },
+          {
+            "type": "select",
+            "id": "rounded_ins",
+            "label": "Rounded corners for images",
+            "default": "0",
+            "options": [
+              {
+                "value": "0",
+                "label": "Disable"
+              },
+              {
+                "value": "1",
+                "label": "Style 1"
+              },
+              {
+                "value": "2",
+                "label": "Style 2"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr",
+            "label": "Photos per row",
+            "info": "How many photos you want to show per row",
+            "default": "4",
+            "options": [
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr_tb",
+            "label": "Photos per row Tablet",
+            "default": "4",
+            "options": [
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr_mb",
+            "label": "Photos per row Mobile",
+            "default": "4",
+            "options": [
+              {
+                "value": "12",
+                "label": "1"
+              },
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "instagram2",
+        "name": "Instagram feed via APP",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Firstly, you need to install [Section Feed App](https://apps.shopify.com/section-feed-by-maestrooo) to use this section"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Instagram"
+          },
+          {
+            "type": "range",
+            "id": "limit",
+            "min": 1,
+            "max": 25,
+            "step": 1,
+            "unit": "img",
+            "label": "Number of photos",
+            "default": 9
+          },
+          {
+            "type": "select",
+            "id": "open_link",
+            "options": [
+              {
+                "value": "_self",
+                "label": "Current window (_self)"
+              },
+             {
+                "value": "_blank",
+                "label": "New window (_blank)"
+              }
+            ],
+            "label": "Open link in",
+            "default": "_blank"
+          },
+          {
+           "type": "select",
+           "id": "space",
+           "options": [
+             {
+               "value": "6",
+               "label": "6"
+             },
+             {
+               "value": "3",
+               "label": "3"
+             },
+             {
+               "value": "2",
+               "label": "2"
+             },
+             {
+               "value": "0",
+               "label": "0"
+             }
+           ],
+           "label": "spaces between photos",
+           "default": "2"
+          },
+          {
+            "type": "select",
+            "id": "rounded_ins",
+            "label": "Rounded corners for images",
+            "default": "0",
+            "options": [
+              {
+                "value": "0",
+                "label": "Disable"
+              },
+              {
+                "value": "1",
+                "label": "Style 1"
+              },
+              {
+                "value": "2",
+                "label": "Style 2"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr",
+            "label": "Photos per row",
+            "info": "How many photos you want to show per row",
+            "default": "4",
+            "options": [
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr_tb",
+            "label": "Photos per row Tablet",
+            "default": "4",
+            "options": [
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "col_pr_mb",
+            "label": "Photos per row Mobile",
+            "default": "4",
+            "options": [
+              {
+                "value": "12",
+                "label": "1"
+              },
+              {
+                "value": "6",
+                "label": "2"
+              },
+              {
+                "value": "4",
+                "label": "3"
+              },
+              {
+                "value": "3",
+                "label": "4"
+              },
+              {
+                "value": "15",
+                "label": "5"
+              },
+              {
+                "value": "2",
+                "label": "6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "shipping",
+        "name": "SHIPPING DELIVERY",
+        "limit": 1,
+        "settings": [
+         {
+          "type":"text",
+          "id":"title",
+          "label":"Title",
+          "default":"Shipping & Delivery"
+         },
+        {
+          "type": "paragraph",
+          "content": "Example: pe-7s-car,Save up to 20%,limited time [Get icons Pe icon](http://themes-pixeden.com/font-demos/7-stroke/index.html)"
+        },
+        {
+          "type": "paragraph",
+          "content": "Example: phone,Save up to 20%,limited time [Get icons Line awesome](https://icons8.com/line-awesome)"
+        },
+         {
+           "type": "textarea",
+           "id": "shipping_1",
+           "label":"Shipping Block 1",
+           "default":"truck,FREE SHIPPING,Free shipping for all US order"
+         },
+         {
+           "type": "textarea",
+           "id": "shipping_2",
+           "label":"Shipping Block 2",
+           "default":"headset,SUPPORT 24/7,We support 24 hours a day"
+         },
+         {
+           "type": "textarea",
+           "id": "shipping_3",
+           "label":"Shipping Block 3",
+           "default":"exchange-alt,30 DAYS RETURN,You have 30 days to return"
+         },
+         {
+           "type": "textarea",
+           "id": "shipping_4",
+           "label":"Shipping Block 4"
+         },
+         {
+           "type": "textarea",
+           "id": "shipping_5",
+           "label":"Shipping Block 5"
+         },
+         {
+           "type": "textarea",
+           "id": "shipping_6",
+           "label":"Shipping Block 6"
+         }
+        ]
+      },
+      {
+        "type": "html",
+        "name": "Custom HTML",
+        "settings": [
+         {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Custom HTML"
+          },
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Content page"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+            {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Talk about your brand"
+            },
+            {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            }
+         ]
+      },
+      {
+        "type": "filters",
+        "name": "Filter by product options",
+        "limit": 1,
+        "settings": [
+            {
+              "type": "paragraph",
+              "content": "Customize [Filter by product options](\/admin\/menus). Filter product options will be empty for collections that contain over 1000 products."
+            }
+        ]
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "category"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "shipping" 
+        },
+        {
+          "type": "filters"
+        }
+      ]
+    }
+  }
+{% endschema %}

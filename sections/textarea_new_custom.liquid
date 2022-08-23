@@ -1,0 +1,361 @@
+<div class="nt_se_{{section.id}} {{section.settings.layout}}">
+  {%- render 'section_title_new_custom',section:section -%}
+  <div class="mt__30 rte_setting {{section.settings.align}} textarea_wrapper">
+    <div class="content_heading mb__10">
+      {{ section.settings.content_heading }}
+    </div>
+    <div class="content">
+      {{ section.settings.content }}
+    </div>
+  </div>
+</div>
+
+{%- render 'section_css' -%}
+{%- style -%}
+.nt_se_{{section.id}} .textarea_wrapper{
+  background:{{section.settings.background_color}};
+  border-radius:{{section.settings.border_radius}}px;
+  padding: 30px;
+}
+.nt_se_{{section.id}} .textarea_wrapper .content_heading{
+  font-size: {{section.settings.fs_heading}}px;
+  font-weight: bold;
+  color: {{section.settings.heading_color}};
+}
+.nt_se_{{section.id}} .textarea_wrapper .content{
+  font-size:{{section.settings.fs_text}}px;
+  color: {{section.settings.text_color}};
+}
+.nt_se_{{section.id}} .textarea_wrapper .content .light{
+  color: {{section.settings.light_color}};
+}
+@media (min-width: 1024px){
+  .nt_se_{{section.id}} .textarea_wrapper{
+    padding: 50px 10%;
+  }
+}
+@media (max-width: 768px){
+  .nt_se_{{section.id}} .textarea_wrapper .content_heading{
+    font-size: {{section.settings.fs_heading_mobile}}px;
+  }
+  .nt_se_{{section.id}} .textarea_wrapper .content{
+    font-size:{{section.settings.fs_text_mobile}}px;
+  }
+}
+{%- endstyle -%}
+
+{%- schema -%}
+  {
+    "name": "Textarea(new custom)",
+    "class": "nt_section type_rich_text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Title Settings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "checkbox",
+        "id": "lighted",
+        "label": "Heading text highlighted",
+        "default": false,
+        "info": "Only use for Design Title: Design new(new custom)"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title",
+        "label": "Sub Text"
+      },
+      {
+        "type": "select",
+        "id": "sub_font",
+        "default": "2",
+        "options": [
+         {
+            "value": "1",
+            "label": "Body font"
+         },
+         {
+            "value": "2",
+            "label": "Sub title font"
+          },
+          {
+            "value": "3",
+            "label": "Colors Of Autumn"
+          },
+          {
+            "value": "4",
+            "label": "Sub title highlighted"
+          }
+        ],
+        "label": "Sub Text use font:"
+      },
+      {
+        "type": "select",
+        "id": "style_title",
+        "options": [
+         {
+            "value": "title_1",
+            "label": "Design 1"
+         },
+         {
+            "value": "title_2",
+            "label": "Design 2"
+          },
+         {
+            "value": "title_3",
+            "label": "Design 3"
+          },
+         {
+            "value": "title_4",
+            "label": "Design 4"
+          },
+         {
+            "value": "title_5 lazyloadt4s",
+            "label": "Design 5"
+          },
+         {
+            "value": "title_6",
+            "label": "Design 6"
+          },
+         {
+            "value": "title_7 +la",
+            "label": "Design 7 (with line-awesome)"
+          },
+         {
+            "value": "title_8",
+            "label": "Design 8"
+          },
+         {
+            "value": "title_9",
+            "label": "Design 9"
+          },
+         {
+            "value": "title_11",
+            "label": "Design 11"
+          },
+         {
+            "value": "title_12",
+            "label": "Design 12"
+          },
+         {
+            "value": "title_13",
+            "label": "Design 13"
+          },
+          {
+            "value": "title_new",
+            "label": "Design new(new custon)"
+          }
+        ],
+        "label": "Design Title:"
+      },
+      {
+        "type": "image_picker",
+        "id": "tag_image",
+        "label": "Tag image",
+        "info": "Only working with design title: design new"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_bottom_border",
+        "label": "Show bottom border",
+        "default": false,
+        "info": "Show only on mobile"
+      },
+      {
+        "type": "text",
+        "id": "ic_tt",
+        "label": "Style 7 icon line-awesome",
+        "default": "gem"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_clpr",
+        "label": "Use icon color primary?",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
+      },
+      {
+        "type": "header",
+        "content": "== Color Settings"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#eeeeee"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "light_color",
+        "label": "Light text color",
+        "default": "#980CE7"
+      },
+      {
+        "type": "header",
+        "content": "== General Settings"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Border radius",
+        "default": 12
+      },
+      {
+        "type": "text",
+        "id": "content_heading",
+        "label": "Content heading"
+      },
+      {
+        "type": "range",
+        "id": "fs_heading",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Heading font size",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "fs_heading_mobile",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Heading font size(mobile)",
+        "default": 18
+      },
+      {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "info": "If you want text to be highlighted, you need to add tags to the text, e.g. <span class='light'>lighted text</span>"
+      },
+      {
+        "type": "range",
+        "id": "fs_text",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "fs_text_mobile",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Font size(mobile)",
+        "default": 12
+      },
+      {
+        "type": "select",
+        "id": "align",
+        "default": "tc",
+        "options": [
+         {
+            "value": "tl",
+            "label": "Left"
+         },
+         {
+            "value": "tc",
+            "label": "Center"
+          },
+         {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text Align"
+      },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "nt_co_wide",
+            "label": "Wide"
+          },
+         {
+            "value": "nt_full",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+        "default": "50px,,50px,",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+        "placeholder": "50px,,50px,"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding",
+        "placeholder": "50px,,50px,"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Textarea(new custom)",
+        "category": "V. Text"
+      }
+    ]
+  }
+{% endschema %}

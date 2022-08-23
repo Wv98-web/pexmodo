@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "cat_shop": {
+      "type": "cat_shop",
+      "settings": {
+        "shown": false,
+        "source": "1",
+        "sort": "alphabetical"
+      }
+    },
+    "sea_heading": {
+      "type": "sea_heading",
+      "blocks": {
+        "sea_heading1": {
+          "type": "1",
+          "settings": {
+            "color": "#fff"
+          }
+        }
+      },
+      "block_order": [
+        "sea_heading1"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "search_page",
+      "settings": {
+        "enable_filter": true,
+        "shop_layout": "default",
+        "shop_des": "default",
+        "show_col_switch": true,
+        "limit": 12,
+        "space": 30,
+        "use_pagination": "default",
+        "use_bar_lm": true,
+        "btn_rd": true,
+        "btn_style": "default",
+        "col_pr": "3",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "use_eq_height": false,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8"
+      }
+    }
+  },
+  "order": [
+    "cat_shop",
+    "sea_heading",
+    "main"
+  ]
+}

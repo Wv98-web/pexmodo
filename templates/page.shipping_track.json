@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "heading": {
+      "type": "pages_heading",
+      "disabled": true,
+      "blocks": {
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "1659087922a85b4a5a": {
+      "type": "blank_page",
+      "blocks": {
+        "4c3bcc65-4182-4090-8f1b-81983aca3f86": {
+          "type": "page",
+          "settings": {
+            "page": "tracking-order"
+          }
+        }
+      },
+      "block_order": [
+        "4c3bcc65-4182-4090-8f1b-81983aca3f86"
+      ],
+      "settings": {
+        "title": "",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "layout": "container",
+        "cl_bg": "",
+        "mg": "50px,,50px,",
+        "pd": "",
+        "mg_mb": "",
+        "pd_mb": ""
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "1659087922a85b4a5a"
+  ]
+}

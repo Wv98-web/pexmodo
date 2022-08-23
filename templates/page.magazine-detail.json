@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "blank": {
+      "type": "blank",
+      "disabled": true,
+      "blocks": {
+        "2d813cb6-d6d0-40bd-8aa6-64c2cfbc083d": {
+          "type": "shopify:\/\/apps\/pexmod\/blocks\/magazine_detail\/766698f1-2257-4564-b6e8-88f0233ada7b",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "2d813cb6-d6d0-40bd-8aa6-64c2cfbc083d"
+      ],
+      "settings": {
+        "title": "",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "layout": "container",
+        "cl_bg": "",
+        "mg": "50px,,50px,",
+        "pd": "",
+        "mg_mb": "",
+        "pd_mb": ""
+      }
+    },
+    "1656055784d021598e": {
+      "type": "blank2",
+      "blocks": {
+        "09047d48-84bc-421b-addb-dfc8c32e7b3f": {
+          "type": "shopify:\/\/apps\/pexmod\/blocks\/magazine_detail\/766698f1-2257-4564-b6e8-88f0233ada7b",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "09047d48-84bc-421b-addb-dfc8c32e7b3f"
+      ],
+      "settings": {
+        "title": "",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "layout": "container",
+        "cl_bg": "",
+        "mg": "50px,,50px,",
+        "pd": "",
+        "mg_mb": "",
+        "pd_mb": ""
+      }
+    }
+  },
+  "order": [
+    "blank",
+    "1656055784d021598e"
+  ]
+}

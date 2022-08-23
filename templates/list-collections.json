@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "list_cat_heading": {
+      "type": "list_cat_heading",
+      "settings": {
+        "shown": true,
+        "parallax": false,
+        "color": "#000",
+        "color_txt": "#fff",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "list-collections-template",
+      "settings": {
+        "layout": "default",
+        "hoverz": true,
+        "cat_design": "3",
+        "cat_space": "20",
+        "display_type": "all",
+        "sort": "alphabetical",
+        "col": "3",
+        "col_md": "3",
+        "col_mb": "6",
+        "pr_txt": "products",
+        "use_eq_height": true,
+        "image_ratio": "ratio1_1"
+      }
+    }
+  },
+  "order": [
+    "list_cat_heading",
+    "main"
+  ]
+}

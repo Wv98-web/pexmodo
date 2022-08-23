@@ -1,0 +1,349 @@
+<!doctype html>
+<html
+  class="no-js"
+  lang="{{ request.locale.iso_code }}"
+>
+
+<head>
+  <!-- Taboola Pixel Code -->
+  <script type="text/javascript">
+    window._tfa = window._tfa || [];
+    window._tfa.push({ notify: 'event', name: 'page_view', id: 1463942 });
+    !function (t, f, a, x) {
+      if (!document.getElementById(x)) {
+        t.async = 1; t.src = a; t.id = x; f.parentNode.insertBefore(t, f);
+      }
+    }(document.createElement('script'),
+      document.getElementsByTagName('script')[0],
+      '//cdn.taboola.com/libtrc/unip/1463942/tfa.js',
+      'tb_tfa_script');
+    {% if template contains 'product' %}
+    _tfa.push({ notify: 'event', name: 'view_content', id: 1463942 });
+    {% endif %}
+  </script>
+  <script src="//cdn.codeblackbelt.com/js/modules/frequently-bought-together/main.min.js?shop=pexmodo.myshopify.com" defer></script>
+  <!-- End of Taboola Pixel Code -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-9WDFET9QS9"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag () { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9WDFET9QS9');
+  </script>
+
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  >
+  <meta
+    name="theme-color"
+    content="{{ settings.color_primary }}"
+  >
+  <meta
+    name="format-detection"
+    content="telephone=no"
+  >
+
+  <meta
+    name="facebook-domain-verification"
+    content="lyfy4vfgvnl9846tlfzq73wt6xpdaj"
+  />
+  {% render 'apple_suite' %}
+  <link
+    rel="canonical"
+    href="{{ canonical_url }}"
+  >
+  <link
+    rel="prefetch"
+    as="document"
+    href="https://{{shop.domain}}"
+  >
+  <link
+    rel="dns-prefetch"
+    href="https://cdn.shopify.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://cdn.shopify.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://monorail-edge.shopifysvc.com"
+  >
+  {%- if settings.font_source == '1' %}
+  {%- assign header_font = settings.fnt_heading -%}
+  {%- assign base_font = settings.fnt_bd -%}
+  {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
+  <link
+    rel="dns-prefetch"
+    href="https://fonts.shopifycdn.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.shopify.com"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    as="font"
+    href="{{ header_font | font_url }}"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    as="font"
+    href="{{ base_font | font_url }}"
+    type="font/woff2"
+    crossorigin
+  >
+  <link
+    rel="preload"
+    as="font"
+    href="{{ base_font_bold | font_url }}"
+    type="font/woff2"
+    crossorigin
+  >
+  {%- else -%}
+  <link
+    rel="dns-prefetch"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+  <link
+    rel="dns-prefetch"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  {%- endif -%}
+  <link
+    rel="stylesheet"
+    href="{{ 'stylesheet.css' | asset_url }}"
+  >
+  <link
+    rel="stylesheet"
+    href="{{ 'colors.css' | asset_url }}"
+  >
+  <link
+    rel="preload"
+    as="style"
+    href="{{ 'pre_theme.min.css' | asset_url }}"
+  >
+  <link
+    rel="preload"
+    as="style"
+    href="{%- render 'enable_minify' with 'css' ,nameFile:'theme.css' -%}"
+  >
+  <link
+    rel="stylesheet"
+    href="{{ 'iconfont.css' | asset_url }}"
+  >
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {%- capture seo_title -%}
+  {%- if template == 'search' and search.performed == true -%}{{ 'general.search.heading' | t: count:
+  search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count
+  }}{%- elsif template == 'search.wish' %}{{ 'general.meta.wishlist' | t }}{%- elsif template == 'search.compe' %}{{
+  'general.meta.compare' | t }}{%- else -%}{{ page_title }}{%- endif -%}
+  {%- if current_tags -%}{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags:
+  meta_tags -}}{%- endif -%}
+  {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{%- endif -%}
+  {%- assign escaped_page_title = page_title | escape -%}
+  {%- unless escaped_page_title contains shop.name %} &ndash; {{ shop.name }}{%- endunless -%}
+  {%- endcapture -%}
+  <title>{{ seo_title | strip }}</title>
+  {%- if page_description %}
+  <meta
+    name="description"
+    content="{{ page_description | escape }}"
+  >
+  {%- elsif collection.current_type or collection.current_vendor %}
+  <meta
+    name="description"
+    content="{{ shop.description | default: shop.name | escape }}"
+  >{% endif -%}
+  {%- if settings.favicon != blank %}
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="{{ settings.favicon | img_url: '32x' }}"
+  >{% endif -%}
+  {%- if settings.favicon_apple != blank %}
+  <link
+    rel="apple-touch-icon-precomposed"
+    type="image/png"
+    sizes="152x152"
+    href="{{ settings.favicon_apple | img_url: '152x' }}"
+  >{% endif -%}
+  {%- liquid
+  assign t_name = request.page_type
+  assign body_img = settings.body_bg_image
+  render 'social-meta-tags',t_name:t_name
+  render 'head_assets',t_name:t_name
+  capture class_body_theme
+  render 'class_body_theme',t_name:t_name, body_img:body_img
+  endcapture -%}
+
+  {{ content_for_header }}
+  {% render 'judgeme_core' %}
+
+  {% render 'gsf-conversion-pixels' %}
+
+  <script>(() => { const installerKey = 'docapp-discount-auto-install'; const urlParams = new URLSearchParams(window.location.search); if (urlParams.get(installerKey)) { window.sessionStorage.setItem(installerKey, JSON.stringify({ integrationId: urlParams.get('docapp-integration-id'), divClass: urlParams.get('docapp-install-class'), check: urlParams.get('docapp-check') })); } })();</script>
+
+  <script>(() => { const previewKey = 'docapp-discount-test'; const urlParams = new URLSearchParams(window.location.search); if (urlParams.get(previewKey)) { window.sessionStorage.setItem(previewKey, JSON.stringify({ active: true, integrationId: urlParams.get('docapp-discount-inst-test') })); } })();</script>
+</head>
+
+<body {{class_body_theme | strip_newlines-}}>
+  {% if content_for_header contains 'convert_global' %}
+  <script type="text/javascript">
+    var _conv_page_type = "{{ request.page_type }}";
+    var _conv_category_id = "{{ collection.id }}";
+    var _conv_category_name = "{{ collection.title }}";
+    var _conv_product_sku = "{{ product.selected_variant.sku }}";
+    var _conv_product_name = "{{ product.title }}";
+    var _conv_product_price = "{{ product.price_min | money_without_currency }}";
+    var _conv_customer_id = "{{ customer.id }}";
+    var _conv_custom_v1 = "{{ product.tags.first }}";
+    var _conv_custom_v2 = "{{ collection.current_type }}";
+    var _conv_custom_v3 = "{{ cart.item_count }}";
+    var _conv_custom_v4 = "{{ cart.total_price | money_without_currency }}";
+  </script>
+  {% render 'convert' %}
+  {% endif %}
+  {%- render 'lazypreload' -%}
+  <div id="nt_wrapper">
+    {%- render 'header',t_name:t_name -%}
+    <div id="nt_content">{{ content_for_layout }}{%- if request.design_mode%}{%render 'render_temp'%}{%endif-%}</div>
+    <footer
+      id="nt_footer"
+      class="bgbl footer-1"
+    >{%- section 'footer_top' -%}{%- section 'footer_bot' -%}</footer>
+  </div>
+  {%- render 'div_html',t_name:t_name -%}
+  
+
+  <script>
+    const { hash, href } = window.location;
+    const prodApi = 'https://pex.pexmod.com/api';
+    let is_mobile = 0;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      is_mobile = 1;
+    }
+
+    if (window.location.href.includes('###') || window.location.href.includes('%20Error%20updating%20database') || window.location.href.includes('PluginCheckoutMapper') || window.location.href.includes('Data%20too%20long')) {
+      let formdata = new FormData();
+      formdata.append("url", href);
+      formdata.append("is_mobile", is_mobile);
+      formdata.append("app_version", navigator.appVersion);
+
+      fetch(prodApi + '/issue/payment_pacypay', {
+        method: 'post', body: formdata,
+      }).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        console.log(res)
+        return;
+      })
+    } 
+  </script>
+  
+  {%- if request.page_type == 'collection' -%}
+    <script>
+      // const productId = window.location.hash?.split("=")[1];
+      const pq = window.location.hash;
+      const keyValue = pq.split('?');
+      let obj = {};
+      for (let i = 0; i < keyValue.length; i++) {
+        let
+          item = keyValue[i].split("=");
+        let key = item[0] == '#pid' ? 'pid' : item[0];
+        let value = item[1];
+        obj[key] = value;
+      }
+      console.log(obj)
+      const products = document.querySelectorAll('.product')
+      products.forEach(element => {
+        const pr_id = element.dataset.pr_id;
+        if (pr_id == obj.pid) {
+          element.style.border = "1px solid #000";
+        }
+      });
+    </script>
+  {%- endif -%}
+
+  {%- assign magazine_request = request.path | split: '_' | first -%}
+  {%- if request.page_type == 'page' and request.path | split: '_' | first == '/pages/magazine'  -%}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+  >
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          navigation: {
+            enabled: false
+          }
+        },
+        1025: {
+          slidesPerView: 2,
+          slidesPerGroup: 2
+        }
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      preventClicks: false,
+      preventClicksPropagation: false,
+      observer: true,
+      observeParents: true
+    });
+
+    const prevSlide = document.querySelector(".prevSlide");
+    const nextSlide = document.querySelector(".nextSlide");
+    const backToFirstSlide = document.querySelector(".backToFirstSlide");
+
+    if (prevSlide) {
+      prevSlide.addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.slidePrev();
+      });
+      nextSlide.addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.slideNext();
+      });
+      backToFirstSlide.addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.slideTo(0, 1000, false);
+      });
+    }
+  </script>
+  {%- endif -%}
+</body>
+
+</html>

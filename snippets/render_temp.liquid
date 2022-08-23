@@ -1,0 +1,18 @@
+{%- case request.page_type -%}
+
+  {%- when 'collection' -%}
+     {%- if settings.shop_filters -%}<div class="hide hidden">
+        {%- if settings.type_filters == '1' %}{%- section 'nt_filter' -%}{% else %}{%- section 'nt_filter2' -%}{% endif -%}
+     </div>{%- endif -%}
+     <div class="hide hidden">
+        {%- if settings.type_filters == '1' %}{%- section 'sidebar_shop' -%}{% else %}{%- section 'sidebar_shop2' -%}{% endif -%}
+     </div>
+     
+   {%- when 'product' -%}
+     <div class="hide hidden">{% section 'pr-sidebar' %}</div>
+
+   {%- when 'blog' -%}<div class="hide hidden">{% section 'article-sidebar' %}</div>
+
+   {%- when 'article' -%}<div class="hide hidden">{% section 'article-sidebar' %}</div>
+     
+{%- endcase -%} 

@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "bptf-heading": {
+      "type": "bptf-heading",
+      "blocks": {
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3": {
+          "type": "1",
+          "settings": {}
+        },
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed": {
+          "type": "2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3",
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-bptf",
+      "settings": {}
+    }
+  },
+  "order": [
+    "bptf-heading",
+    "main"
+  ]
+}

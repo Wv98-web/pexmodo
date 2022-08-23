@@ -1,0 +1,109 @@
+{
+  "sections": {
+    "blog-heading": {
+      "type": "blog-heading",
+      "blocks": {
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3": {
+          "type": "1",
+          "settings": {
+            "color": "#fff"
+          }
+        },
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed": {
+          "type": "2",
+          "settings": {
+            "color": "#ededed"
+          }
+        }
+      },
+      "block_order": [
+        "c32e1213-b35d-4cab-a4dc-b59deef433e3",
+        "a6881cf8-9db3-4fc2-80c0-5d5acc6bf6ed"
+      ],
+      "settings": {
+        "shown": false,
+        "parallax": false,
+        "color": "#000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "blog-slider": {
+      "type": "blog-slider",
+      "settings": {
+        "blog": "",
+        "limit": 6,
+        "date": "date",
+        "col_pr": "4",
+        "col_pr_tb": "4",
+        "col_pr_mb": "12",
+        "show_au": true,
+        "show_dt": true,
+        "loop": false,
+        "au_time": 0,
+        "au_hover": true,
+        "button": true,
+        "btn_vi": "1",
+        "btn_owl": "1",
+        "btn_color": "0",
+        "dot": false,
+        "dot_owl": "1",
+        "dot_color": "1",
+        "cl": "#fff",
+        "cl2": "#878787",
+        "bg": "#000",
+        "overlay": 80,
+        "use_eq_height": true,
+        "image_ratio": "ratio4_3",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "layout": "nt_full"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "blog_layout": "default",
+        "blog_sidebar": "none",
+        "blog_size_sidebar": "2",
+        "shop_des": "default",
+        "art_des": "1",
+        "limit": 5,
+        "space": 40,
+        "use_pagination": "default",
+        "use_bar_lm": true,
+        "btn_rd": true,
+        "btn_style": "default",
+        "date": "date",
+        "col_pr": "6",
+        "col_pr_tb": "6",
+        "col_pr_mb": "12",
+        "show_au": true,
+        "show_dt": true,
+        "show_cm": false,
+        "show_tg": true,
+        "cl": "#fff",
+        "cl2": "#878787",
+        "bg": "#000",
+        "overlay": 90,
+        "des_cnt": "1",
+        "use_eq_height": true,
+        "image_ratio": "ratio4_3",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "source": "0",
+        "count": true
+      }
+    }
+  },
+  "order": [
+    "blog-heading",
+    "blog-slider",
+    "main"
+  ]
+}

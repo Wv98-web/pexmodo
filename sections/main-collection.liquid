@@ -1,0 +1,822 @@
+{%- liquid
+assign hidden_cat = settings.use_hidden_cat
+assign type_filters = settings.type_filters
+assign shop_filters = settings.shop_filters
+assign show_list_switch = settings.show_list_switch
+assign admin_sp = request.design_mode
+assign class_main = '12'
+assign no_sidebar = true
+assign shop_sidebar = settings.shop_sidebar
+if hidden_cat == false 
+  case shop_sidebar
+    when 'right'
+      assign no_sidebar = false
+      case settings.shop_size_sidebar
+        when '1'
+          assign class_main = '10 order-1 '
+          assign class_sidebar = '2 order-12 '
+        when '2'
+          assign class_main = '9 order-1 '
+          assign class_sidebar = '3 order-12 '
+         when '3'
+          assign class_main = '8 order-1 '
+           assign class_sidebar = '4 order-12 '
+      endcase
+    when 'left'
+      assign no_sidebar = false
+      case settings.shop_size_sidebar
+        when '1'
+          assign class_main = '10'
+          assign class_sidebar = '2'
+        when '2'
+          assign class_main = '9'
+          assign class_sidebar = '3'
+        when '3'
+          assign class_main = '8'
+          assign class_sidebar = '4'
+       endcase
+   endcase
+elsif shop_sidebar == 'left' or shop_sidebar == 'right'
+   assign no_sidebar = false 
+   assign class_sidebar = '12'
+endif
+assign cat_des = settings.cat_des
+assign hd_up = 'sub-' |append:collection.id
+assign nav_up = linklists[hd_up].links | where:'type','collection_link'
+if type_filters == '1'
+ assign nt_filter = 'nt_filter'
+ assign lz_filter = 'lazyloadt4s'
+ assign sidebar_shop = 'sidebar_shop'
+else 
+ assign nt_filter = 'nt_filter2'
+ assign lz_filter = ''
+ assign sidebar_shop = 'sidebar_shop2'
+endif -%}
+
+{%- liquid
+assign se_settings = section.settings
+assign shop_des = se_settings.shop_des
+assign use_pagination = se_settings.use_pagination
+assign use_bar_lm = se_settings.use_bar_lm
+assign limit = se_settings.limit
+assign hidden_cat = settings.use_hidden_cat
+assign nt_ck = false
+assign no_sidebar = true
+assign shop_sidebar = settings.shop_sidebar
+assign show_list_switch = settings.show_list_switch
+unless show_list_switch
+ assign on_list_view = false
+else
+ assign on_list_view = settings.default_list_view
+endunless
+if hidden_cat == false
+  case shop_sidebar
+    when 'right'
+      assign no_sidebar = false
+    when 'left'
+      assign no_sidebar = false 
+  endcase
+elsif shop_sidebar == 'left' or shop_sidebar == 'right'
+  assign no_sidebar = false 
+endif
+if shop_des == 'packery'
+  assign col = se_settings.col_pr 
+  assign col_tb = se_settings.col_pr_tb
+  assign cl_mb = se_settings.col_pr_mb 
+else
+  assign cat_dk_items_per_row = cart.attributes.cat_dk_items_per_row
+  assign cat_tb_items_per_row = cart.attributes.cat_tb_items_per_row
+  assign cat_mb_items_per_row = cart.attributes.cat_mb_items_per_row
+  assign col = cat_dk_items_per_row | default:se_settings.col_pr
+  assign col_tb = cat_tb_items_per_row | default:se_settings.col_pr_tb 
+  assign cl_mb = cat_mb_items_per_row | default:se_settings.col_pr_mb
+  if cat_dk_items_per_row == 'listt4' or cat_tb_items_per_row == 'listt4' or cat_mb_items_per_row == 'listt4'
+     assign on_list_view = show_list_switch
+  elsif cat_dk_items_per_row != blank or cat_tb_items_per_row != blank or cat_mb_items_per_row != blank
+     assign on_list_view = false
+  elsif on_list_view
+    assign col = 'listt4'
+    assign col_tb = 'listt4'
+    assign cl_mb = 'listt4'
+  endif
+endif
+
+assign col_mb = ' pr_animated done' | prepend:cl_mb 
+if collection.current_type or collection.current_vendor
+  assign nt_ck = true 
+endif 
+assign ck_packery = false
+assign inc_pr = se_settings.pr_des
+if shop_des == 'packery' and hidden_cat or no_sidebar 
+  assign ck_packery = true 
+  assign inc_pr = '1'
+elsif shop_des == 'packery' 
+  assign shop_des = 'default'
+endif
+assign sett_equal = se_settings.use_eq_height
+assign show_vendor = se_settings.show_vendor
+if hidden_cat == false and no_sidebar == false and col == '15' or col == '2'  
+  assign col = '3' 
+endif
+assign use_cdt = se_settings.use_cdt
+assign txt_cd = 'products.grid_items.offer_end_in' | t 
+assign cat_filters = collection.filters
+
+if type_filters == '2'
+   assign sort_by = collection.sort_by | default: collection.default_sort_by
+   assign limitstt = limit
+endif -%}
+{%- capture url_cat -%}/collections/{{collection.handle}}{%- endcapture -%}
+
+{%- paginate collection.products by limit -%}
+{%- assign page_t4 = current_page -%}
+{%- assign p_pages = paginate.pages -%}
+
+{%- if p_pages > 1 and use_pagination != 'default' and content_for_header contains '\u0026section_id=' -%}
+
+  {%- render 'ajax_cat_load',page_t4:page_t4,on_list:true,arr_results:collection.products,use_cdt:use_cdt,txt_cd:txt_cd,paginate:paginate,col:col, col_tb:col_tb, col_mb:col_mb,shop_des:shop_des,inc_pr:inc_pr,sett_equal:sett_equal,show_vendor:show_vendor,url_cat:url_cat -%}
+
+{%- else -%}
+  
+  <div class="container container_cat {{settings.pop_style}} cat_{{se_settings.shop_layout}} mb__60">
+     {%- if se_settings.breadcrumb_pr %}<nav class="sp-breadcrumb mt__10" aria-label="Breadcrumbs"><a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a><i class="facl facl-angle-right"></i>{{collection.title}}{% endif -%}
+     {%- assign get_url = '' | link_to_remove_tag: '' | split:'href="' | last | split:'"' | first | remove:'?customer_posted=true' -%}
+     {%- assign sy = collection.sort_by -%}
+     {%- if collection.current_type or sy != blank or collection.current_vendor or get_url contains '?' %}{% assign get_url = get_url | append:'&' %}{% else %}{% assign get_url = get_url | append:'/?' %}{% endif -%}
+     {%- assign sort_by = sy | default: collection.default_sort_by -%}
+     <div class="cat_toolbar row fl_center al_center mt__30">
+        <div class="cat_filter col op__0 pe_none">
+        {%- assign ck = true -%}
+        {%- if shop_filters -%}
+           <a rel="nofollow" href="#" data-no-instant data-opennt="#shopify-section-{{nt_filter}}" data-pos="left" data-remove="true" data-class="popup_filter" data-bg="hide_btn" class="has_icon btn_filter mgr"><i class="iccl fwb iccl-filter fwb mr__5"></i>{{ 'collections.general.filter' | t }}</a>
+           <a rel="nofollow" href="#" data-no-instant data-id="#shopify-section-{{nt_filter}}" class="btn_filter js_filter dn mgr"><i class="iccl fwb iccl-filter fwb mr__5"></i>{{ 'collections.general.filter' | t }}</a>
+        {%- elsif hidden_cat and no_sidebar == false -%}{%- assign ck = false -%}
+           <div class="cat_sidebar">
+              <a rel="nofollow" data-no-instant href="#" data-opennt="#shopify-section-{{sidebar_shop}}" data-pos="left" data-remove="true" data-class="popup_filter" data-bg="hide_btn" class="has_icon btn_sidebar mgr"><i class="iccl fwb iccl-trello fwb mr__5"></i>{{ 'collections.general.sidebar' | t }}</a>
+           </div>
+        {%- elsif no_sidebar == false -%}
+           <div class="cat_sidebar no_hidden_sidebar">
+              <a rel="nofollow" data-no-instant href="#" data-opennt="#shopify-section-{{sidebar_shop}}" data-pos="left" data-remove="true" data-class="popup_filter" data-bg="hide_btn" class="has_icon btn_sidebar mgr"><i class="iccl fwb iccl-trello fwb mr__5"></i>{{ 'collections.general.sidebar' | t }}</a>
+           </div>
+        {%- endif -%}
+        </div>
+        <div class="cat_view col-auto" data-link="{{get_url}}">
+        {%- if settings.show_column_switch and shop_des != 'packery' -%}
+           <div class="dn dev_desktop dev_view_cat">
+               {%- if show_list_switch %}<a rel="nofollow" data-no-instant href="#" data-mode='list' data-dev="dk" data-col="listt4" class="pr mr__10 cat_view_page view_list view_listt4"></a>{% endif -%}
+               <a rel="nofollow" data-no-instant href="#" data-mode='grid' data-dev="dk" data-col="6" class="pr mr__10 cat_view_page view_6"></a>
+               <a rel="nofollow" data-no-instant href="#" data-mode='grid' data-dev="dk" data-col="4" class="pr mr__10 cat_view_page view_4"></a>
+               <a rel="nofollow" data-no-instant href="#" data-mode='grid' data-dev="dk" data-col="3" class="pr mr__10 cat_view_page view_3"></a>
+               {%- if no_sidebar or hidden_cat -%}<a rel="nofollow" data-no-instant href="#" data-mode='grid' data-dev="dk" data-col="15" class="pr mr__10 cat_view_page view_15"></a>{%- endif -%}
+               {%- if no_sidebar or hidden_cat -%}<a rel="nofollow" data-no-instant href="#" data-mode='grid' data-dev="dk" data-col="2" class="pr cat_view_page view_2"></a>{%- endif -%}
+           </div>
+           <div class="dn dev_tablet dev_view_cat">
+               {%- if show_list_switch %}<a rel="nofollow" data-link="{{get_url}}" data-no-instant href="#" data-dev="tb" data-col="listt4" class="pr mr__10 cat_view_page view_list view_listt4"></a>{% endif -%}
+               <a rel="nofollow" data-no-instant href="#" data-dev="tb" data-col="6" class="pr mr__10 cat_view_page view_6"></a>
+               <a rel="nofollow" data-no-instant href="#" data-dev="tb" data-col="4" class="pr mr__10 cat_view_page view_4"></a>
+               <a rel="nofollow" data-no-instant href="#" data-dev="tb" data-col="3" class="pr cat_view_page view_3"></a>
+           </div>
+           <div class="flex dev_mobile dev_view_cat">
+               {%- if show_list_switch %}<a rel="nofollow" data-link="{{get_url}}" data-no-instant href="#" data-dev="mb" data-col="listt4" class="pr mr__10 cat_view_page view_list view_listt4"></a>{% endif -%}
+               <a rel="nofollow" data-no-instant href="#" data-dev="mb" data-col="12" class="pr mr__10 cat_view_page view_12"></a>
+               <a rel="nofollow" data-no-instant href="#" data-dev="mb" data-col="6" class="pr cat_view_page view_6"></a>
+           </div>
+        {%- endif -%}
+        </div>
+        {%- if no_sidebar == false and shop_filters and ck -%}
+        <div class="cat_hidden_{{hidden_cat}} col tr">
+           <div class="cat_sidebar">
+              <a rel="nofollow" data-no-instant href="#" data-no-instant data-opennt="#shopify-section-{{sidebar_shop}}" data-pos="right" data-remove="true" data-class="popup_filter" data-bg="hide_btn" class="has_icon btn_sidebar mgr op__0"><i class="iccl fwb iccl-trello fwb mr__5"></i>{{ 'collections.general.sidebar' | t }}</a>
+           </div> 
+           {%- if settings.sort_enable -%}
+           <div class="cat_sortby cat_sortby_js dn">{%- assign option_selected = collection.sort_options | where:"value",sort_by -%}
+              <a class="in_flex fl_between al_center sortby_pick" rel="nofollow" data-no-instant href="#"><span class="sr_txt dn">{{- option_selected.first.name -}}</span><span class="sr_txt_mb">{{ 'collections.sorting.title' | t }}</span><i class="ml__5 mr__5 facl facl-angle-down"></i></a>
+              <div class="nt_sortby dn">
+                <svg class="ic_triangle_svg" viewBox="0 0 20 9" role="presentation"><path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path></svg>
+                <div class="h3 mg__0 tc cd tu ls__2 dn_lg db">{{ 'collections.sorting.title' | t }}<i class="pegk pe-7s-close fs__50 ml__5"></i></div>
+                <div class="nt_ajaxsortby wrap_sortby">
+                 {%- if type_filters == '2'-%}
+
+                        {%- for option in collection.sort_options -%}
+                          <a class="truncate{% if sort_by == option.value %} selected{% endif %}" data-vl="{{ option.value }}" href="">{{ option.name }}</a>
+                        {%- endfor -%}
+
+                 {%- else -%}
+                    
+                      {%- if get_url contains sort_by -%} 
+                        {%- for option in collection.sort_options %}<a class="truncate{% if sort_by == option.value %} selected{% endif %}" href="{{ get_url | replace:sort_by,option.value | replace:'+nt+&sort_by','&sort_by' }}">{{ option.name }}</a>{% endfor -%}
+                      {%- else -%}
+                        {%- for option in collection.sort_options %}<a class="truncate{% if sort_by == option.value %} selected{% endif %}" href="{{ get_url | sort_by: option.value  | replace:'+nt+&sort_by','&sort_by'}}">{{ option.name }}</a>{% endfor -%}
+                      {%- endif -%}
+
+                 {%- endif -%}
+                </div>
+              </div>
+           </div>
+           {%- endif -%}
+        </div>
+        {%- elsif settings.sort_enable -%}
+            <div class="cat_sortby cat_sortby_js col tr">{%- assign option_selected = collection.sort_options | where:"value",sort_by -%}
+              <a class="in_flex fl_between al_center sortby_pick" rel="nofollow" data-no-instant href="#"><span class="sr_txt dn">{{- option_selected.first.name -}}</span><span class="sr_txt_mb">{{ 'collections.sorting.title' | t }}</span><i class="ml__5 mr__5 facl facl-angle-down"></i></a>
+              <div class="nt_sortby dn">
+                <svg class="ic_triangle_svg" viewBox="0 0 20 9" role="presentation"><path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path></svg>
+                <div class="h3 mg__0 tc cd tu ls__2 dn_lg db">{{ 'collections.sorting.title' | t }}<i class="pegk pe-7s-close fs__50 ml__5"></i></div>
+                <div class="nt_ajaxsortby wrap_sortby">
+                 {%- if type_filters == '2' -%}
+                      
+                      {%- for option in collection.sort_options -%}
+                          <a class="truncate{% if sort_by == option.value %} selected{% endif %}" data-vl="{{ option.value }}" href="">{{ option.name }}</a>
+                        {%- endfor -%}
+
+                 {%- else -%}
+                    
+                      {%- if get_url contains sort_by -%}
+                        {%- for option in collection.sort_options %}<a class="truncate{% if sort_by == option.value %} selected{% endif %}" href="{{ get_url | replace:sort_by,option.value }}">{{ option.name }}</a>{% endfor -%}
+                      {%- else -%}
+                        {%- for option in collection.sort_options %}<a class="truncate{% if sort_by == option.value %} selected{% endif %}" href="{{ get_url | sort_by: option.value }}">{{ option.name }}</a>{% endfor -%}
+                      {%- endif -%}
+
+                 {%- endif -%}
+                </div>
+              </div>
+            </div>
+        {%- else -%}<div class="col"></div>
+        {%- endif -%}
+     </div>
+
+     {%- if shop_filters %}<div class="filter_area_js filter_area {{lz_filter}} lazypreloadt4s" data-t4sid="{{nt_filter}}" data-rendert4s="{{get_url}}section_id={{nt_filter}}"></div>{% endif -%}
+
+     <div class="row">
+        {%- if no_sidebar == false -%}<div class="js_sidebar sidebar sidebar_nt col-lg-{{class_sidebar}} col-12 space_{{settings.space_sidebar}} hidden_{{hidden_cat}} {{lz_filter}} lazypreloadt4s" data-t4sid="{{sidebar_shop}}" data-rendert4s="{{get_url}}section_id={{sidebar_shop}}"><div class="nt_svg_loader dn"></div></div>{%- endif -%}
+        <div class="col-lg-{{class_main}} col-12">
+
+                      {%- assign inc_price = settings.price_format -%}
+                      {%- assign use_rating = settings.use_pr_rating -%}
+                      {%- assign inc_rating = settings.app_review -%}
+                      {%- assign show_color = settings.show_pr_color -%}
+                      {%- assign show_cl_type = settings.show_color_type -%}
+                      {%- assign show_size = settings.show_pr_size -%}
+                      {%- assign results_count = collection.products_count -%}
+                      {%- assign collection_img = collection.image -%}
+
+                      {%- if se_settings.show_collection_img -%}
+                        {%- if collection.image != blank -%}
+                          <div class="collection_banner_wrapper">
+                            <div class="pc_block js_full_ht4 img_slider_block dek_img_slide pr">
+                                <div class="bg_rp_norepeat bg_sz_cover lazyloadt4s item__position pa l__0 t__0 r__0 b__0" data-bgset="{{ collection.image | img_url: '1x1' }}" data-ratio="{{ se_settings.collection_banner.aspect_ratio }}" data-sizes="auto"></div>
+                            </div>
+                            <div class="mobile_block mb_img_slide pr">
+                              <img src="{{ se_settings.collection_mobile_banner | img_url: "master" }}" />
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      {%- else -%}
+                        {%- if se_settings.collection_banner != blank and se_settings.collection_banner_m != blank -%}
+                          <div class="collection_banner_wrapper">
+                            <div class="pc_block dek_img_slide pr">
+                              <img src="{{  se_settings.collection_banner | img_url: "master" }}" /></div>
+                            <div class="mobile_block mb_img_slide pr">
+                              <img src="{{  se_settings.collection_banner_m | img_url: "master" }}" />
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      {%- endif -%}
+
+                      {%- if nt_ck or current_tags.size > 0 and type_filters == '1' -%}
+                      <div class="result_clear mt__30 mb__20">
+                         <div class="sp_result_html dib cb clear_filter">{{ 'collections.general.results_with_count_html' | t:count:collection.products_count}}</div>
+                         {%- if current_tags.size > 0 -%}{%- for tag in current_tags -%}{%- assign txt_tag = tag | replace: '-', ' ' | replace: '_', ' ' -%}{{ txt_tag | link_to_remove_tag: tag | replace: 'title=', 'class="clear_filter dib bf_icons" aria-label=' }}{%- endfor -%}{%- endif -%}
+                         {%- if current_tags.size > 1 -%}<a class="clear_filter clear_filter_all dib" href="{{collection.url}}">{{ 'collections.general.clear_filter' | t}}</a>{%- endif -%}
+                      </div>
+                      {%- endif -%}
+                      {%- if cat_filters.size > 0 -%}
+                          {%- assign total_active_values = 0 -%}
+                          {%- capture result_html -%}
+                             {%- for filter in cat_filters -%}
+                                 {%- for value in filter.active_values -%}
+                                  {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                                   <a href="{{ value.url_to_remove }}" class="clear_filter dib bf_icons">{{ value.label | escape }}</a>
+                                 {%- endfor -%}
+                                {%- if filter.type == "price_range" %}
+                                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                                  {%- assign total_active_values = total_active_values | plus: 1 -%}
+                                   <a href="{{ filter.url_to_remove }}" class="clear_filter dib bf_icons">{%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}</a>
+                                  {%- endif -%}
+                                {% endif -%}
+                             {%- endfor -%}
+                          {%- endcapture -%}
+                          {%- if total_active_values > 0 -%}
+                          <div class="result_clear mt__30 mb__20">
+                             <div class="sp_result_html dib cb clear_filter">{{ 'collections.general.results_with_count_html' | t:count:collection.products_count}}</div>
+                             {{result_html}}
+                             {%- if total_active_values > 1 -%}<a class="clear_filter clear_filter_all dib" href="{{collection.url}}">{{ 'collections.general.clear_filter' | t}}</a>{%- endif -%}
+                          </div>
+                          {%- endif -%}
+                      {%- endif -%}
+                      {%- if p_pages > 1 and use_pagination != 'default' and paginate.previous.is_link -%}
+                        <div class="products-footer tc mt__40 mb__30 is_prev_cat_js">
+                          <a data-get='{{ paginate.previous.url }}' href="{{ paginate.previous.url }}" data-id="{{section.id}}" class="pr nt_cat_lm button">{{ 'products.grid_items.load_prev' | t }}</a>
+                        </div>
+                      {%- endif -%}
+                      <div class="nt_svg_loader dn"></div>
+
+                      {%- if shop_des == 'minimasonry' -%}
+                        <div data-change-url data-filterntt4='{"paginate_ntt4":"{{use_pagination}}","limit_ntt4":"{{limitstt}}","use_bar_lmntt4":"{{use_bar_lm}}"}' data-attrsntt4='{"paginate_ntt4":"{{cart.attributes.paginate_ntt4}}","limit_ntt4":"{{cart.attributes.limit_ntt4}}","use_bar_lmntt4":"{{cart.attributes.use_bar_lmntt4}}"}' class="on_list_view_{{on_list_view}} products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_settings.cdt_des}} round_cd_{{se_settings.round_cd}} {{se_settings.image_size}} {{se_settings.image_ratio}} position_{{se_settings.image_position}} space_{{se_settings.space}}{% if sett_equal %} equal_nt{% endif %} js_isotope nt_isotope" data-isotope='{ "itemSelector": ".pr_grid_item", "layoutMode": "masonry","columnWidth":".grid-sizer","rtl": {{settings.use_rtl}} }'>
+                         <div class="col-lg-{{col}} col-md-{{col_tb}} col-{{col_mb}} grid-sizer"></div>
+                         {%- if show_list_switch %}{% if inc_pr == '2' %}{% assign inc_pr= '2 tc' %}{% endif -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_list',page_t4:page_t4,product:product,inc_pr:inc_pr,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+                         {%- elsif inc_pr == '1' or inc_pr == '1 tc' -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_grid_1',page_t4:page_t4,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}<!--split-->
+                         {%- else -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_grid_2',page_t4:page_t4,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}<!--split-->
+                         {%- endif -%}
+                      </div>
+                      {%- elsif shop_des == 'packery' -%}
+                        <div data-change-url data-filterntt4='{"paginate_ntt4":"{{use_pagination}}","limit_ntt4":"{{limitstt}}","use_bar_lmntt4":"{{use_bar_lm}}"}' data-attrsntt4='{"paginate_ntt4":"{{cart.attributes.paginate_ntt4}}","limit_ntt4":"{{cart.attributes.limit_ntt4}}","use_bar_lmntt4":"{{cart.attributes.use_bar_lmntt4}}"}' class="on_list_view_{{on_list_view}} products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_settings.cdt_des}} round_cd_{{se_settings.round_cd}} {{se_settings.image_size}} {{se_settings.image_ratio}} position_{{se_settings.image_position}} space_{{se_settings.space}}{% if sett_equal %} equal_nt{% endif %} js_packery nt_packery"{% assign rtl = settings.use_rtl %}{% if rtl %}{% assign ltr = false %}{% else %}{% assign ltr = true %}{% endif %} data-packery='{ "itemSelector": ".pr_grid_item","columnWidth": ".pr_grid_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>
+                        {%- for product in collection.products -%}{% capture col %}{% cycle '3','6','3','3','3','3','3','3','3','6','3','3','3' %}{% endcapture %}{%- render 'pr_loop_grid_1',product:product, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+                        </div>
+                      {%- else -%}
+                        <div data-change-url data-filterntt4='{"paginate_ntt4":"{{use_pagination}}","limit_ntt4":"{{limitstt}}","use_bar_lmntt4":"{{use_bar_lm}}"}' data-attrsntt4='{"paginate_ntt4":"{{cart.attributes.paginate_ntt4}}","limit_ntt4":"{{cart.attributes.limit_ntt4}}","use_bar_lmntt4":"{{cart.attributes.use_bar_lmntt4}}"}' class="on_list_view_{{on_list_view}} products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_settings.cdt_des}} round_cd_{{se_settings.round_cd}} {{se_settings.image_size}} {{se_settings.image_ratio}} position_{{se_settings.image_position}} space_{{se_settings.space}}{% if sett_equal %} equal_nt{% endif %} nt_default">
+                         
+                         {%- if show_list_switch %}{% if inc_pr == '2' %}{% assign inc_pr= '2 tc' %}{% endif -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_list',page_t4:page_t4,product:product,inc_pr:inc_pr,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+                         {%- elsif inc_pr == '1' or inc_pr == '1 tc' -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_grid_1',page_t4:page_t4,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+                         {%- else -%}
+                           {%- for product in collection.products -%}{%- render 'pr_loop_grid_2',page_t4:page_t4,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+                         {%- endif -%}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if collection.products.size == 0 -%}<div class="shopify-info cat_emty_noprs"><i class="facl facl-attention"></i>{{ 'collections.general.no_matches' | t }}</div>{%- endif -%}
+                      {%- if p_pages > 1 -%}
+                      <div class="products-footer tc mt__40 mb__60">
+                        {%- if paginate.next.is_link and use_pagination != 'default' -%}
+                          {%- if use_bar_lm -%}
+                          <div class="js_progress_bar" data-tt='{{results_count}}'>
+                            {%- assign current_pr_size = collection.products.size | plus:paginate.current_offset -%}
+                             <p class="mg__0 progress_txt fs__15">{{ 'collections.general.bar_with_count_html' | t:current_count:current_pr_size,total_count:results_count}}</p>
+                            <div class="progress_bar pr oh"><div class="current_bar pa t__0 r__0 l__0 b__0" style="width: {{current_pr_size | times:100.0 | divided_by: results_count}}%"></div></div>
+                          </div>
+                          {%- endif -%}
+                          <a data-get='{{ paginate.next.url }}' href="{{ paginate.next.url }}" data-id="{{section.id}}" class="pr nt_cat_lm button{% if use_pagination == 'infinite' %} load-on-scroll{% endif %}">{{ 'products.grid_items.load_more' | t }}</a>
+                        {%- elsif use_pagination == 'default' -%}
+                        {%- render 'pagination', paginate: paginate,class:'paginate_ajax',style:'style_2' -%}
+                        {%- endif -%}
+                      </div>
+                      {%- else -%}
+                       <div class="mt__40 mb__60"></div>
+                      {%- endif -%}
+                <style>
+                {%- if on_list_view -%}
+                  .dev_view_cat a.view_list{color: #222;--active-view-cl: #222}
+                  .dark_mode_true .dev_view_cat a.view_list{color: #fff;--active-view-cl: #fff}
+                {%- else -%}
+                  .dev_view_cat.dev_desktop a.view_{{col}},.dev_view_cat.dev_tablet a.view_{{col_tb}},.dev_view_cat.dev_mobile a.view_{{cl_mb}}{color: #222;--active-view-cl: #222}
+                  .dark_mode_true .dev_view_cat.dev_desktop a.view_{{col}},.dark_mode_true .dev_view_cat.dev_tablet a.view_{{col_tb}},.dark_mode_true .dev_view_cat.dev_mobile a.view_{{cl_mb}}{color: #fff;--active-view-cl: #fff}
+                {%- endif -%}
+                .clear_filter.clear_filter_all {color: #fff;padding: 0 15px 0 25px;border-radius: 15px;font-size: 15px;}
+                .clear_filter.clear_filter_all:after, .clear_filter.clear_filter_all:before {left: 8px;}
+                </style>
+        </div>
+     </div>
+  </div>
+
+{%- endif -%}
+{%- endpaginate -%}
+
+{%- schema -%}
+  {
+    "name": "Collection Main",
+    "tag": "section",
+    "class": "tp_se_cdt id_collection_page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "+ Shop page layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_img",
+        "label": "Show collection image",
+        "default": false,
+        "info": "If the collection image is not set, it will not be displayed"
+      },
+      {
+        "type": "image_picker",
+        "id": "collection_mobile_banner",
+        "label": "Please set collection metafields image"
+      },
+      {
+        "type": "image_picker",
+        "id": "collection_banner",
+        "label": "Collection desktop banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "collection_banner_m",
+        "label": "Collection mobile banner"
+      },
+      {
+        "type": "select",
+        "id": "shop_layout",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "wide",
+            "label": "Wide (1600px)"
+          },
+          {
+            "value": "full",
+            "label": "full Width"
+          }
+        ],
+        "label": "Shop Layout"
+      },
+      {
+        "type": "select",
+        "id": "shop_des",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "minimasonry",
+            "label": "Masonry"
+          },
+          {
+            "value": "packery",
+            "label": "Packery"
+          }
+        ],
+        "label": "Shop Design",
+        "info": "Packery only active when disable sidebar or enable hidden sidebar"
+      },
+      {
+        "type": "header",
+        "content": "+ General Settings"
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "label": "Products per page",
+        "info": "Number of products per page",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "space",
+        "min": 20,"max": 50,"step": 10,
+        "unit": "px",
+        "label": "Space between products",
+        "default": 30
+      },
+      {
+        "type": "select",
+        "id": "use_pagination",
+        "label": "Pagination",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "more",
+            "label": "Load more button"
+          },
+          {
+            "value": "infinite",
+            "label": "Infinit scrolling"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "use_bar_lm",
+        "label": "Show progress bar?",
+        "info": "Only active when you use 'Load more' or 'Infinit scrolling'",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "+ Cons 'Load more', 'Infinit scrolling'"
+      },
+      {
+        "type": "paragraph",
+        "content": "Page-loading speed is everything for good user experience. Multiple researches have shown that slow load times result in people leaving your site or delete your app which result in low conversion rates. And that’s bad news for those who use an infinite-scrolling. The more users scroll down a page, more content has to load on the same page. As a result, the page performance will increasingly slow down."
+      },
+      {
+        "type": "paragraph",
+        "content": "Another problem is limited resources of the user’s device. On many infinite scrolling sites, especially those with many images, devices with limited resources (such as mobile devices or tablets with dated hardware) can start slowing down because of the sheer number of assets it has loaded."
+      },
+      {
+        "type": "paragraph",
+        "content": "Therefore, we recommend that you only use 'Load more', 'Infinite scrolling' for when your collection is less than or equal to 400 products"
+      },
+      {
+        "type": "select",
+        "id": "col_pr",
+        "label": "Products per row (desktop)",
+        "info": "How many products you want to show per row",
+        "default": "3",
+        "options": [
+          {
+            "value": "6",
+            "label": "2"
+          },
+          {
+            "value": "4",
+            "label": "3"
+          },
+          {
+            "value": "3",
+            "label": "4"
+          },
+          {
+            "value": "15",
+            "label": "5 (not support when use sidebar)"
+          },
+          {
+            "value": "2",
+            "label": "6 (not support when use sidebar)"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "col_pr_tb",
+        "label": "Products per row (tablet)",
+        "default": "3",
+        "options": [
+          {
+            "value": "6",
+            "label": "2"
+          },
+          {
+            "value": "4",
+            "label": "3"
+          },
+          {
+            "value": "3",
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "col_pr_mb",
+        "label": "Products per row (mobile)",
+        "default": "6",
+        "options": [
+          {
+            "value": "12",
+            "label": "1"
+          },
+          {
+            "value": "6",
+            "label": "2"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "pr_des",
+        "label": "Design product",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "Design 1"
+          },
+          {
+            "value": "1 tc",
+            "label": "Design 1 (center)"
+          },
+          {
+            "value": "2",
+            "label": "Design 2"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendors",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "breadcrumb_pr",
+        "label": "Show colelction breadcrumb?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "+ Countdown timer"
+      },
+      {
+        "type": "paragraph",
+        "content": "Countdown to the end sale date will be shown. Be sure you have set final date of the product sale price. product.metafields.meta.countdown ( 2017\/08\/17 )"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_cdt",
+        "default": false,
+        "label": "Use countdown timer?"
+      },
+      {
+        "type": "checkbox",
+        "id": "round_cd",
+        "default": false,
+        "label": "Round countdown timer?"
+      },
+      {
+        "type": "select",
+        "id": "cdt_des",
+        "label": "Countdown Design:",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "Design 1"
+          },
+          {
+            "value": "2",
+            "label": "Design 2"
+          },
+          {
+            "value": "3",
+            "label": "Design 3"
+          },
+          {
+            "value": "4",
+            "label": "Design 4"
+          },
+          {
+            "value": "5",
+            "label": "Design 5"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "+ Design Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_eq_height",
+        "label": "Use equal height images?",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "label": "Aspect Ratio",
+        "default": "ratio_nt",
+        "info": "Aspect Ratio Custom will settings in General panel.",
+        "options": [
+          {
+            "group": "Landscape",
+            "value": "ratio2_1",
+            "label": "2:1"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio16_9",
+            "label": "16:9"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio8_5",
+            "label": "8:5"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio3_2",
+            "label": "3:2"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio4_3",
+            "label": "4:3"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio_nt",
+            "label": "Ratio ASOS"
+          },
+          {
+            "group": "Squared",
+            "value": "ratio1_1",
+            "label": "1:1"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio2_3",
+            "label": "2:3"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio1_2",
+            "label": "1:2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus1",
+            "label": "Ratio Custom 1"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus2",
+            "label": "Ratio Custom 2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus3",
+            "label": "Ratio Custom 3"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus4",
+            "label": "Ratio Custom 4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Image Size",
+        "default": "nt_cover",
+        "options": [
+          {
+            "value": "nt_cover",
+            "label": "Full"
+          },
+          {
+            "value": "nt_contain",
+            "label": "Auto"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "image_position",
+        "info": "The first value is the horizontal position and the second value is the vertical.",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "1",
+            "label": "Left Top"
+          },
+          {
+            "value": "2",
+            "label": "Left Center"
+          },
+          {
+            "value": "3",
+            "label": "Left Bottom"
+          },
+          {
+            "value": "4",
+            "label": "Right Top"
+          },
+          {
+            "value": "5",
+            "label": "Right Center"
+          },
+          {
+            "value": "6",
+            "label": "Right Bottom"
+          },
+          {
+            "value": "7",
+            "label": "Center Top"
+          },
+          {
+            "value": "8",
+            "label": "Center Center"
+          },
+          {
+            "value": "9",
+            "label": "Center Bottom"
+          }
+        ],
+        "label": "Image Position",
+        "default": "8"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,2354 @@
+{%- comment -%}
+  The contents of the product.liquid template can be found in /sections/pr_summary.liquid
+{%- endcomment -%}
+{%- liquid
+  assign se_stts = section.settings
+  assign img_zoom_size = 'master'
+  assign img_size = product.images.size
+  assign eq_imgtb = se_stts.ratio_img_main
+  assign img_size_main = se_stts.img_size_main
+  assign img_pos_main = se_stts.img_pos_main
+  assign ratio_img_thumb = se_stts.ratio_img_thumb
+  assign img_size_thumb = se_stts.img_size_thumb
+  assign img_pos_thumb = se_stts.img_pos_thumb
+  assign sett_pr = se_stts.design_products
+  assign image = product.images[0] | default:settings.placeholder_img
+
+  case sett_pr
+    when '2'
+     assign singles_sp = 'sp-single-2'
+     assign cl_tb = '2'
+    when '3'
+     assign singles_sp = 'sp-single-3'
+     assign cl_tb = '3'
+    when '7'
+     assign singles_sp = 'sp-single-7'
+     assign cl_tb = '7'
+    when '4'
+     assign singles_sp = 'sp-single-4'
+     assign cl_tb = 'bottom'
+    when '5'
+     assign singles_sp = 'sp-single-5'
+     assign cl_tb = 'right'
+    when '6'
+     assign singles_sp = 'sp-single-6'
+     assign cl_tb = 'none'
+    else
+     assign singles_sp = 'sp-single-1'
+     assign cl_tb = 'left'
+  endcase
+
+  case se_stts.size_img_pr
+    when '1'
+     assign class_images = 'col-md-4'
+     assign class_summary = 'col-md-8'
+    when '2'
+     assign class_images = 'col-md-6'
+     assign class_summary = 'col-md-6'
+    when '3'
+     assign class_images = 'col-md-7'
+     assign class_summary = 'col-md-5'
+  endcase 
+  assign zoom_tp = settings.zoom_tp
+  assign main_click = settings.main_click
+  assign pr_media = product.media
+  assign class_main = '12'
+  assign no_sidebar = true
+  assign pr_sidebar = se_stts.pr_sidebar
+  case pr_sidebar
+    when 'right'
+      assign no_sidebar = false
+      case se_stts.pr_size_sidebar
+        when '1'
+          assign class_main = '10 order-1'
+          assign class_sidebar = '2 order-12'
+        when '2'
+          assign class_main = '9 order-1'
+          assign class_sidebar = '3 order-12'
+         when '3'
+          assign class_main = '8 order-1'
+           assign class_sidebar = '4 order-12'
+      endcase
+    when 'left'
+      assign no_sidebar = false
+      case se_stts.pr_size_sidebar
+        when '1'
+          assign class_main = '10 order-lg-12 order-1'
+          assign class_sidebar = '2 order-lg-1 order-12'
+        when '2'
+          assign class_main = '9 order-lg-12 order-1'
+          assign class_sidebar = '3 order-lg-1 order-12'
+        when '3'
+          assign class_main = '8 order-lg-12 order-1'
+          assign class_sidebar = '4 order-lg-1 order-12'
+       endcase
+   endcase
+  assign currently_var = product.selected_or_first_available_variant
+  assign cur_var_id = currently_var.id
+  assign pid = product.id
+  assign hd_up = 'fbt-' |append:pid
+  assign fbt_tag = product.tags| where:'fbtt4_' | first | default:hd_up | remove:'fbtt4_'
+  assign nav_up = linklists[fbt_tag].links | where:'type','product_link'
+  assign nav_up_size = nav_up.size 
+  if product.available == false or settings.fbt_pos == '2'
+    assign nav_up_size = 0
+  endif
+  assign ck_next_pr = false
+  if se_stts.back_next_pr and collection != blank
+  assign ck_next_pr = true
+  endif -%}
+
+<div class="sp-single {{singles_sp}} des_pr_layout_1">
+  {%- if ck_next_pr or se_stts.breadcrumb_pr -%}
+  <div class="bgbl pt__20 pb__20 lh__1 breadcrumb_pr_wrap">
+   <div class="container">
+    <div class="row al_center">
+      <div class="col">{% if se_stts.breadcrumb_pr %}<nav class="sp-breadcrumb"><a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a>{% if collection.url != blank %}<i class="facl facl-angle-right"></i><a href="{{collection.url}}" class="dib">{{collection.title}}</a>{% endif %}<i class="facl facl-angle-right"></i>{{product.title}}</nav>{% endif %}</div>
+      {%- if ck_next_pr -%}
+      <div class="col-auto flex al_center">
+        {%- assign next_pr = collection.next_product -%}
+        {%- assign prev_pr = collection.previous_product -%}
+        
+        {%- if prev_pr -%}<a href="{{prev_pr.url}}" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-left"></i><span class="tt_txt">{{prev_pr.title}}</span></a>{%- endif -%}
+        <a href="{{collection.url}}" class="pl__5 pr__5 fs__20 cd chp ttip_nt tooltip_bottom_left"><i class="fwb iccl iccl-grid fs__15"></i><span class="tt_txt">{{'products.product.back_to' | t:title:collection.title}}</span></a>
+        {%- if next_pr -%}<a href="{{next_pr.url}}" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-right"></i><span class="tt_txt">{{next_pr.title}}</span></a>{%- endif -%}
+      </div>
+      {%- endif -%} 
+    </div>
+   </div>
+  </div>
+  {%- endif -%} 
+
+
+  <div class="container container_cat cat_{{se_stts.pr_layout}} sticky_des_{{se_stts.use_sticky_des}}">
+      <div class="row product mt__40" id="product-{{product.id}}" data-featured-product-se data-id="_ppr">
+         {%- unless no_sidebar %}<div class="col-lg-{{class_sidebar}} col-12 sidebar sidebar_pr lazyloadt4s lazypreloadt4s" data-t4sid="pr-sidebar" data-set4url="/?section_id=pr-sidebar" data-rendert4s="{{product.url}}"><div class="nt_svg_loader dn"></div></div>{% endunless -%}
+         <div class="col-md-{{class_main}} col-12 thumb_{{cl_tb}}">
+            <div class="row mb__50 pr_sticky_content">
+               <div class="{{class_images}} col-12 pr product-images img_action_{{main_click}} pr_sticky_img" data-pr-single-media-group>
+                  <div class="row theiaStickySidebar">
+                     {%- if image != blank and pr_media.size < 2 -%}{%- assign ratio = image.aspect_ratio -%}{%- assign iw = image.width -%}
+                        <div class="col-12">
+                           <div class="p-thumb images sp-pr-gallery equal_nt {{img_size_main}} {{eq_imgtb}} position_{{img_pos_main}}">
+                              <div {% if alt contains 'imgt4_colorsolid' %}data-widths="[1]" {% endif %}data-grname="{{alt_arr | first | handleize }}" data-grpvl="{{alt_arr | last | handleize}}" class="img_ptw p_ptw js-sl-item p-item sp-pr-gallery__img w__100 media_id_{{media.id}}" data-mdid="{{media.id}}" data-mdtype="image" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{ratio}}" data-rationav="{{ratio_nav}}" data-sizes="auto" data-src="{{ image | img_url: img_zoom_size }}" data-width="{{ image.width }}" data-height="{{ image.height }}" data-cap="{{ txt_alt }}">
+                                 <div class="pr oh nt_bg_lz"{% if eq_imgtb == 'ratio_imgtrue' %} style="padding-top:{{ 1 | divided_by: ratio | times: 100}}%;"{% endif %}>
+                                   <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20{{image.width}}%20{{image.height}}%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="{{ image | img_url: '1x1' }}" data-widths="[180, 360, 540, 720, 900, 1080]" data-optimumx="2" data-sizes="auto" class="w__100 lazyloadt4s t4s-media-img" alt="{{image.alt | escape }}">
+                                   <span class="t4s-img-loader"></span>
+                                   <noscript><img class="t4s-img-noscript" src="{{ image | img_url: img_zoom_size }}" loading="lazy" alt="{{ txt_alt }}"></noscript>
+                                </div>
+                               </div>
+                           </div>
+                           {%- render 'product_labels',on:'singe' -%}
+                           {%- render 'p_group_btns',main_click:main_click -%}
+                        </div>
+                     {%- elsif pr_media.size > 0 -%}
+                        {%- render 'page_pr_img',main_click:main_click,nav_img_pr:se_stts.nav_img_pr,call_cl:'_ppr', pr_media:pr_media, sett_pr:sett_pr, eq_imgtb:eq_imgtb, e_imgnv:ratio_img_thumb, img_size_main:img_size_main, img_pos_main:img_pos_main, ratio_img_thumb:ratio_img_thumb, img_size_thumb:img_size_thumb, img_pos_thumb:img_pos_thumb -%}
+                     {%- endif -%}
+                     {%- if zoom_tp == '2' %}<div class="dt_img_zoom pa t__0 r__0 dib"></div>{% endif -%}
+                  </div>
+               </div>
+               <div class="{{class_summary}} col-12 product-infors pr_sticky_su"><div class="theiaStickySidebar">{%- render 'pr_summary',section:section -%}</div></div>
+            </div>
+         </div>
+      </div>
+  </div>
+  {%- if nav_up_size > 0 %}<div id="wrap_fbt" class="container">{%- render 'fbt_snipet',nav_up:nav_up,currently_var:currently_var,cur_var_id:cur_var_id,pid:pid -%}</div>{% endif -%}
+
+
+
+</div>
+<script type="application/ld+json">{%- assign current_variant = product.selected_or_first_available_variant | default:product.variants.first -%}{%- assign image = product.featured_image | default: product.images.first -%}
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": "{{ shop.url }}{{ product.url }}",
+  {%- if image != blank -%}
+    {%- assign image_size = image.width | append: 'x' -%}
+    "image": [
+      "https:{{ image.src | img_url: image_size }}"
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | escape | strip_newlines | json }},
+  "sku": "{{ current_variant.sku |default:current_variant.id }}",
+  "mpn": "{{ current_variant.barcode}}",
+  "productID": "{{ product.id }}",
+  "brand": {
+    "@type": "Thing",
+    "name": "{{ product.vendor | escape }}"
+  },
+  {%- if product.price_varies -%}
+  "offers": [
+    {%- capture not_change -%}
+       "@type" : "Offer",
+       "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+       "priceCurrency" : "{{ cart.currency.iso_code }}",
+       "itemCondition": "https://schema.org/NewCondition",
+       "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}",
+    {%- endcapture -%}
+    {%- assign shop_secure_url = shop.secure_url -%}
+    {%- for variant in product.variants -%}{%- assign barcode_size = variant.barcode.size -%}
+      {
+        {{not_change}}
+        "sku": "{{ variant.sku | default: variant.id }}",
+        "price" : "{{ variant.price | divided_by: 100.00 }}",
+        "mpn": "{{ variant.barcode }}",
+        {%- if barcode_size == 12 or barcode_size == 13 or barcode_size == 14 -%}"gtin{{barcode_size}}": "{{ variant.barcode }}",{%- endif -%}
+        "url" : "{{ shop_secure_url }}{{ variant.url }}"
+      }{% unless forloop.last %},{% endunless -%}
+    {%- endfor -%}
+  ]
+  {%- else -%}
+  "offers": {
+        "@type" : "Offer",
+        "sku": "{{ current_variant.sku |default: current_variant.id }}",
+        "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "price" : "{{ product.price | divided_by: 100.00 }}",
+        "priceCurrency" : "{{ cart.currency.iso_code }}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url" : "{{ shop.secure_url }}{{ product.url }}",
+        "mpn": "{{ current_variant.barcode }}",
+        {%- assign barcode_size = current_variant.barcode.size -%}{%- if barcode_size == 12 or barcode_size == 13 or barcode_size == 14 -%}"gtin{{barcode_size}}": "{{ variant.barcode }}",{%- endif -%}
+        "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}"
+  }
+  {%- endif -%}
+    {%- assign review_app = settings.app_review |default:'1' -%}
+    {%- case review_app -%}
+      {%- when '1' -%}
+       {%- assign meta_spr = product.metafields.spr.reviews -%}
+       {%- assign ratingname = meta_spr | split: 'itemprop="name" content="' | last | split: '"' | first -%}
+       {%- assign ratingCount = meta_spr | split: 'reviewCount" content="' | last | split: '"' | first -%}
+        {%- if ratingCount != "0" and ratingCount != blank and ratingname == product.title -%}
+        ,"aggregateRating": {
+         "@type": "AggregateRating",
+         "ratingCount": {{ ratingCount | plus: 0 }},
+         "ratingValue": {{ meta_spr | split: 'ratingValue" content="' | last | split: '"' | first | plus: 0 }}
+        }
+        {%- endif -%}
+      {%- when '2' -%}{%- assign aggregateRating = product.metafields.ryviu.product_reviews_info | split: ";" -%}{%- assign ratingCount = aggregateRating[0] -%}
+        {%- if ratingCount != "0" and ratingCount != blank -%}
+        ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": {{ ratingCount | plus: 0 }},
+        "ratingValue": {{ aggregateRating[1] | plus: 0 }}
+        }
+        {%- endif -%}
+      {%- when '3' -%}{%- assign ratingCount = product.metafields.ali.reviews_count -%}
+        {%- if ratingCount != "0" and ratingCount != blank -%}
+        ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": {{ ratingCount }},
+        "ratingValue": {{ product.metafields.ali.reviews_average }}
+        }
+        {%- endif -%}
+      {%- when '4' -%}{%- assign ratingCount = product.metafields.loox.num_reviews -%}
+        {%- if ratingCount != "0" and ratingCount != blank -%}
+        ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": {{ ratingCount }},
+        "ratingValue": {{ product.metafields.loox.avg_rating }}
+        }
+        {%- endif -%}
+      {%- when 'stamped' -%}{%- assign ratingCount = product.metafields.stamped.reviews_count -%}
+        {%- if ratingCount != "0" and ratingCount != blank -%}
+        ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": {{ ratingCount }},
+        "ratingValue": {{ product.metafields.stamped.reviews_average }}
+        }
+        {%- endif -%}
+    {%- endcase -%}
+}
+</script>
+
+{%- schema -%}
+  {
+    "name": "Product summary",
+    "class": "id_pr_summary",
+    "max_blocks": 30,
+    "settings": [
+      {
+        "type": "select",
+        "id": "pr_layout",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "wide",
+            "label": "Wide (1600px)"
+          },
+          {
+            "value": "full",
+            "label": "Full width"
+          }
+        ],
+        "label": "+ Product Layout"
+      },
+      {
+        "type": "select",
+        "id": "design_products",
+        "label": "+ Product page design",
+        "info": "Choose between different predefined designs",
+        "default": "4",
+        "options": [
+          {
+            "value": "1",
+            "label": "Product design 1"
+          },
+          {
+            "value": "2",
+            "label": "Product design 2"
+          },
+          {
+            "value": "3",
+            "label": "Product design 3"
+          },
+          {
+            "value": "7",
+            "label": "Product design modern"
+          },
+          {
+            "value": "4",
+            "label": "Product with thumb at bottom"
+          },
+          {
+            "value": "5",
+            "label": "Product with thumb on right"
+          },
+          {
+            "value": "6",
+            "label": "Product Layout without thumbnail"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "size_img_pr",
+        "label": "+ Product image size",
+        "info": "You can choose different page layout depending on the product image size you need",
+        "default": "2",
+        "options": [
+          {
+            "value": "1",
+            "label": "Small"
+          },
+          {
+            "value": "2",
+            "label": "Medium"
+          },
+          {
+            "value": "3",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "nav_img_pr",
+        "label": "+ Product thumb size",
+        "default": "medium",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "use_sticky_des",
+        "label": "Use Sticky product?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "+ Design Main Image"
+      },
+      {
+        "type": "select",
+        "id": "ratio_img_main",
+        "label": "Aspect Ratio Main",
+        "default": "ratio_imgtrue",
+        "options": [
+          {
+            "group": "Adapt Image",
+            "value": "ratio_imgtrue",
+            "label": "Adapt to all image"
+          },
+          {
+            "group": "Adapt Image",
+            "value": "ratio_img1",
+            "label": "Adapt to first image"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio2_1",
+            "label": "2:1"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio16_9",
+            "label": "16:9"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio8_5",
+            "label": "8:5"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio3_2",
+            "label": "3:2"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio4_3",
+            "label": "4:3"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio_nt",
+            "label": "Ratio ASOS"
+          },
+          {
+            "group": "Squared",
+            "value": "ratio1_1",
+            "label": "1:1"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio2_3",
+            "label": "2:3"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio1_2",
+            "label": "1:2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus1",
+            "label": "Ratio Custom 1"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus2",
+            "label": "Ratio Custom 2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus3",
+            "label": "Ratio Custom 3"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus4",
+            "label": "Ratio Custom 4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "img_size_main",
+        "label": "Image Size Main",
+        "default": "nt_contain",
+        "options": [
+          {
+            "value": "nt_cover",
+            "label": "Full"
+          },
+          {
+            "value": "nt_contain",
+            "label": "Auto"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "img_pos_main",
+        "info": "The first value is the horizontal position and the second value is the vertical.",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "1",
+            "label": "Left Top"
+          },
+          {
+            "value": "2",
+            "label": "Left Center"
+          },
+          {
+            "value": "3",
+            "label": "Left Bottom"
+          },
+          {
+            "value": "4",
+            "label": "Right Top"
+          },
+          {
+            "value": "5",
+            "label": "Right Center"
+          },
+          {
+            "value": "6",
+            "label": "Right Bottom"
+          },
+          {
+            "value": "7",
+            "label": "Center Top"
+          },
+          {
+            "value": "8",
+            "label": "Center Center"
+          },
+          {
+            "value": "9",
+            "label": "Center Bottom"
+          }
+        ],
+        "label": "Image Position Main",
+        "default": "8"
+      },
+      {
+        "type": "header",
+        "content": "+ Design Thumb Image"
+      },
+      {
+        "type": "select",
+        "id": "ratio_img_thumb",
+        "label": "Aspect Ratio Thumb",
+        "default": "ratio_imgtrue",
+        "options": [
+          {
+            "group": "Adapt Image",
+            "value": "ratio_imgtrue",
+            "label": "Adapt to all image"
+          },
+          {
+            "group": "Adapt Image",
+            "value": "ratio_img1",
+            "label": "Adapt to first image"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio2_1",
+            "label": "2:1"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio16_9",
+            "label": "16:9"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio8_5",
+            "label": "8:5"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio3_2",
+            "label": "3:2"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio4_3",
+            "label": "4:3"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio_nt",
+            "label": "Ratio ASOS"
+          },
+          {
+            "group": "Squared",
+            "value": "ratio1_1",
+            "label": "1:1"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio2_3",
+            "label": "2:3"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio1_2",
+            "label": "1:2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus1",
+            "label": "Ratio Custom 1"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus2",
+            "label": "Ratio Custom 2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus3",
+            "label": "Ratio Custom 3"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus4",
+            "label": "Ratio Custom 4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "img_size_thumb",
+        "label": "Image Size Thumb",
+        "default": "nt_contain",
+        "options": [
+          {
+            "value": "nt_cover",
+            "label": "Full"
+          },
+          {
+            "value": "nt_contain",
+            "label": "Auto"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "img_pos_thumb",
+        "info": "The first value is the horizontal position and the second value is the vertical.",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "1",
+            "label": "Left Top"
+          },
+          {
+            "value": "2",
+            "label": "Left Center"
+          },
+          {
+            "value": "3",
+            "label": "Left Bottom"
+          },
+          {
+            "value": "4",
+            "label": "Right Top"
+          },
+          {
+            "value": "5",
+            "label": "Right Center"
+          },
+          {
+            "value": "6",
+            "label": "Right Bottom"
+          },
+          {
+            "value": "7",
+            "label": "Center Top"
+          },
+          {
+            "value": "8",
+            "label": "Center Center"
+          },
+          {
+            "value": "9",
+            "label": "Center Bottom"
+          }
+        ],
+        "label": "Image Position Thumb",
+        "default": "8"
+      },
+      {
+        "type": "header",
+        "content": "+ Product Sidebar"
+      },
+      {
+        "type": "select",
+        "id": "pr_sidebar",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "left",
+            "label": "Sidebar Left"
+          },
+          {
+            "value": "right",
+            "label": "Sidebar Right"
+          }
+        ],
+        "label": "Product Sidebar",
+        "info": "Select main content and sidebar alignment for shop pages."
+      },
+      {
+        "type": "select",
+        "id": "pr_size_sidebar",
+        "default": "2",
+        "options": [
+          {
+            "value": "1",
+            "label": "Small"
+          },
+          {
+            "value": "2",
+            "label": "Medium"
+          },
+          {
+            "value": "3",
+            "label": "Large"
+          }
+        ],
+        "label": "Sidebar size",
+        "info": "You can set different sizes for your shop pages sidebar"
+      },
+      {
+        "type": "header",
+        "content": "+ Breadcrumb"
+      },
+      {
+        "type": "checkbox",
+        "id": "breadcrumb_pr",
+        "label": "Show Breadcrumb?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "back_next_pr",
+        "label": "Show back\/next product links?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "+ Collapsible tab"
+      },
+      {
+      "type": "checkbox",
+      "id": "auto",
+      "label": "Enable auto open?",
+      "info": "Only working with block 'Collapsible'",
+      "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "Product Title",
+        "limit": 1,
+        "settings": [
+            {
+              "type": "range",
+              "id": "size",
+              "min": 10,
+              "max": 60,
+              "step": 1,
+              "label": "Font size",
+              "unit": "px",
+              "default": 16
+            }
+        ]
+      },
+      {
+        "type": "pricereview",
+        "name": "Product Price, review",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "price",
+            "options": [
+              {
+                "value": "0",
+                "label": "None"
+              },
+              {
+                "value": "1",
+                "label": "$39.00 – $59.00"
+              },
+              {
+                "value": "2",
+                "label": "From $39.00"
+              }
+            ],
+            "label": "Price varies settings",
+            "default": "0"
+          },
+          {
+            "type": "select",
+            "id": "txt_sale",
+            "options": [
+              {
+                "value": "0",
+                "label": "None"
+              },
+              {
+                "value": "1",
+                "label": "Percentage"
+              },
+              {
+                "value": "2",
+                "label": "Fixed amount"
+              }
+            ],
+            "label": "Text Save",
+            "default": "0"
+          },
+          {
+           "type": "checkbox",
+           "id": "rating",
+           "label": "Use Rating?",
+           "default": true
+          },
+          {
+            "type": "liquid",
+            "id": "review_liquid",
+            "label": "Add Snippets Liquid",
+            "info": "Add app snippets reviews to show star rating on product page. Will working when you use 'Other app review'"
+          }
+        ]
+      },
+      {
+        "type": "des",
+        "name": "Description",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "des",
+            "options": [
+              {
+                "value": "1",
+                "label": "Full description"
+              },
+              {
+                "value": "2",
+                "label": "Short description"
+              }
+            ],
+            "label": "Description mode:",
+            "default": "2"
+          },
+          {
+            "type": "paragraph",
+            "content": "—————————————————"
+          },
+          {
+            "type": "paragraph",
+            "content": "== Short description settings:"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Short description",
+            "info": "This page content will appear. Short description page that will be displayed for each product content if you don't set metafield excerpt for each product content."
+          },
+        {
+          "type": "number",
+          "id": "length",
+          "label": "Excerpt length (integer)",
+          "info": "Number of words that will be displayed for each product content if you don't set short description page or set metafield excerpt for each product content.",
+          "default": 31
+        },
+        {
+         "type": "checkbox",
+         "id": "readm",
+         "label": "Use Read more?",
+         "default": false
+        },
+        {
+         "type": "text",
+         "id": "readm_txt",
+         "label": "Read more title",
+         "default": "Read more"
+        }
+        ]
+      },
+      {
+        "type": "frm",
+        "name": "Product Form",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "select",
+           "id": "ani",
+           "options": [
+             {
+               "value": "none",
+               "label": "None"
+             },
+             {
+               "value": "bounce",
+               "label": "Bounce"
+             },
+             {
+               "value": "tada",
+               "label": "Tada"
+             },
+             {
+               "value": "swing",
+               "label": "Swing"
+             },
+             {
+               "value": "flash",
+               "label": "Flash"
+             },
+             {
+               "value": "fadeIn",
+               "label": "FadeIn"
+             },
+             {
+               "value": "heartBeat",
+               "label": "HeartBeat"
+             },
+             {
+               "value": "shake",
+               "label": "Shake"
+             }
+           ],
+           "label": "Add to cart animation"
+         },
+          {
+            "type": "range",
+            "id": "time",
+            "min": 2,
+            "max": 40,
+            "step": 1,
+            "label": "Loop time (seconnds)",
+            "info": "Loop time add to cart animation",
+            "unit": "sec",
+            "default": 6
+          },
+         {
+           "type": "select",
+           "id": "btn_des",
+           "options": [
+             {
+               "value": "1",
+               "label": "Design 1"
+             },
+             {
+               "value": "2",
+               "label": "Design 2"
+             },
+             {
+               "value": "3",
+               "label": "Design 3"
+             }
+           ],
+           "label": "Button Design"
+         },
+         {
+            "type": "select",
+            "id": "btn_txt",
+            "default": "3",
+            "options": [
+              {
+                "value": "0",
+                "label": "None"
+              },
+              {
+                "value": "1",
+                "label": "Lowercase"
+              },
+              {
+                "value": "2",
+                "label": "Capitalize"
+              },
+              {
+                "value": "3",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Button transform Text:"
+         },
+         {
+           "type": "header",
+           "content": "Product Swatch"
+         },
+         {
+           "type": "select",
+           "id": "swatch_design",
+           "default": "2",
+           "options": [
+             {
+               "group": "Circle:",
+               "value": "1",
+               "label": "Circle"
+             },
+             {
+               "group": "Circle:",
+               "value": "2",
+               "label": "Circle + color"
+             },
+             {
+               "group": "Radio:",
+               "value": "3",
+               "label": "Radio"
+             },
+             {
+               "group": "Radio:",
+               "value": "4",
+               "label": "Radio + color"
+             },
+             {
+               "group": "Radio:",
+               "value": "5",
+               "label": "Radio full width"
+             },
+             {
+               "group": "Radio:",
+               "value": "6",
+               "label": "Radio full width + color"
+             },
+             {
+               "group": "Rectangle:",
+               "value": "7",
+               "label": "Rectangle"
+             },
+             {
+               "group": "Rectangle:",
+               "value": "8",
+               "label": "Rectangle + color"
+             },
+             {
+               "group": "Simple:",
+               "value": "9",
+               "label": "Simple"
+             },
+             {
+               "group": "Simple:",
+               "value": "10",
+               "label": "Simple + color"
+             }
+           ],
+           "label": "Swatch design setting"
+         },
+         {
+           "type": "select",
+           "id": "style_color",
+           "options": [
+             {
+               "value": "1",
+               "label": "Swatch color circle"
+             },
+             {
+               "value": "2",
+               "label": "Swatch color square"
+             }
+           ],
+           "label": "Swatch color setting for Design"
+         },
+         {
+           "type": "select",
+           "id": "swatch_style",
+           "options": [
+             {
+               "value": "1",
+               "label": "Swatch color (Default or Upload)"
+             },
+             {
+               "value": "2",
+               "label": "Swatch image variant"
+             }
+           ],
+           "label": "Swatch Layout setting for color/img"
+         },
+         {
+           "type": "select",
+           "id": "swatch_size",
+           "options": [
+             {
+               "value": "small",
+               "label": "Small"
+             },
+             {
+               "value": "medium",
+               "label": "Medium"
+             },
+             {
+               "value": "large",
+               "label": "Large"
+             },
+             {
+               "value": "exlarge",
+               "label": "Extra Large"
+             }
+           ],
+           "label": "Swatch color setting for size",
+           "default": "medium"
+         },
+         {
+           "type": "checkbox",
+           "id": "show_qty",
+           "label": "Show quantity selector",
+           "default": true
+         },
+         {
+           "type": "checkbox",
+           "id": "btn_atc_full",
+           "label": "Use Add to cart full width?",
+           "default": false
+         },
+         {
+           "type": "checkbox",
+           "id": "enable_payment_btn",
+           "label": "Show dynamic checkout button",
+           "info": "Lets customers check out directly using a familiar payment method. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)",
+           "default": false
+         }
+        ]
+      },
+      {
+        "type": "size",
+        "name": "Size Chart, Delivery, Ask",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "header",
+           "content": "== Size Chart"
+         },
+         {
+           "type": "select",
+           "id": "size_chart",
+           "label": "Show Size chart:",
+           "default": "3",
+           "options": [
+             {
+               "value": "1",
+               "label": "None"
+             },
+             {
+               "value": "2",
+               "label": "Only product has variant name 'size'"
+             },
+             {
+               "value": "3",
+               "label": "All product"
+             }
+           ]
+         },
+         {
+           "type": "select",
+           "id": "pos_sizeg",
+           "label": "Position show Size chart:",
+           "default": "1",
+           "options": [
+             {
+               "value": "1",
+               "label": "Default"
+             },
+             {
+               "value": "2",
+               "label": "Show on swatch variant name 'size'"
+             }
+           ]
+         },
+        {
+          "type": "select",
+          "id": "sc_type",
+          "default": "1",
+          "options": [
+            {
+              "value": "1",
+              "label": "HTML"
+            },
+            {
+              "value": "2",
+              "label": "IMAGE"
+            }
+          ],
+          "label": "Size Chart Type: "
+        },
+        {
+          "type": "paragraph",
+          "content": "—————————————————"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "HTML Size Chart",
+          "info": "This page content will appear."
+        },
+        {
+          "type": "paragraph",
+          "content": "—————————————————"
+         },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "IMAGE Size Chart"
+         },
+         {
+          "type": "paragraph",
+          "content": "—————————————————"
+         },
+         {
+           "type": "textarea",
+           "id": "size_ck",
+           "label": "Enter variant name you want has size guide",
+           "info": "Eg: size,sizes,Größe"
+         },
+         {
+           "type": "header",
+           "content": "== Delivery & Return"
+         },
+         {
+           "type": "checkbox",
+           "id": "delivery",
+           "label": "Show Delivery & Return?",
+           "default": false
+         },
+         {
+           "type": "page",
+           "id": "page_dr",
+           "label": "Add page Delivery & Return",
+            "info": "This page content will appear."
+         },
+         {
+           "type": "header",
+           "content": "== Ask a question"
+         },
+         {
+           "type": "checkbox",
+           "id": "ask",
+           "label": "Show Ask a question?",
+           "default": false
+         }/*,
+         {
+           "type": "page",
+           "id": "page_ask",
+           "label": "Add page Ask a question"
+         }*/
+        ]
+      },
+      {
+        "type": "meta",
+        "name": "Product meta",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "checkbox",
+           "id": "show_pr_vendor",
+           "label": "Show Product vendors",
+           "default": true
+         },
+         {
+           "type": "checkbox",
+           "id": "show_sku",
+           "label": "Show Sku?",
+           "default": true
+         },
+         {
+           "type": "checkbox",
+           "id": "show_barcode",
+           "label": "Show Barcode?",
+           "default": false
+         },
+         {
+           "type": "checkbox",
+           "id": "show_available",
+           "label": "Show Available?",
+           "default": true
+         },
+         {
+           "type": "checkbox",
+           "id": "show_category_product",
+           "label": "Show Category product?",
+           "default": true
+         },
+         {
+           "type": "checkbox",
+           "id": "show_tag_product",
+           "label": "Show product's tags?",
+           "default": true
+         }
+        ]
+      },
+      {
+        "type": "social",
+        "name": "Product social",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "select",
+           "id": "class",
+           "label": "Social align",
+           "default": "tc",
+           "options": [
+             {
+               "value": "tdf",
+               "label": "Default"
+             },
+             {
+               "value": "tc",
+               "label": "Center"
+             }
+           ]
+         }
+         ]
+      },
+      {
+        "type": "countdown",
+        "name": "Countdown Timer",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "paragraph",
+           "content": "Display a countdown timer in your product page."
+         },
+         {
+            "type": "select",
+            "id": "source",
+            "label": "Show Countdown Timer:",
+            "default": "1",
+            "options": [
+              {
+                "value": "1",
+                "label": "All products"
+              },
+              {
+                "value": "2",
+                "label": "Only product had tag 'has_stock_countdown'"
+              }
+            ]
+          },
+         /*{
+           "type": "checkbox",
+           "id": "timezone",
+           "label": "Use General timezone?",
+           "info":"Use to display a countdown accordingly to the General timezone no matter the localtime your computer is.",
+           "default": false
+         },*/
+         {
+           "type": "checkbox",
+           "id": "loop",
+           "label": "Use loop countdown?",
+           "info":"Only for countdown Timer Loop In A Day",
+           "default": false
+         },
+         {
+            "type": "select",
+            "id": "icon",
+            "label": "ICON / IMG:",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "None"
+              },
+              {
+                "value": "2",
+                "label": "Icon"
+              },
+              {
+                "value": "3",
+                "label": "Image"
+              }
+            ]
+          },
+         {
+           "type": "text",
+           "id": "icon_name",
+           "label": "Icon name",
+           "default": "stopwatch",
+           "info": "[Get name icon](https://icons8.com/line-awesome)"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image",
+           "info": "25x25 recommend"
+         },
+         {
+           "type": "checkbox",
+           "id": "fade",
+           "label": "Use fade animation?",
+           "default": true
+         },
+         {
+            "type": "select",
+            "id": "al",
+            "label": "Text Align",
+            "default": "tc",
+            "options": [
+              {
+                "value": "tl",
+                "label": "Text left"
+              },
+              {
+                "value": "tc",
+                "label": "Text center"
+              },
+              {
+                "value": "tr",
+                "label": "Text right"
+              }
+            ]
+          },
+         {
+           "type": "textarea",
+           "id": "mess",
+           "label": "Message",
+           "default": "Hurry up! Sale Ends in",
+           "placeholder": "Hurry up! Sale Ends in"
+         },
+          {
+            "type": "range",
+            "id": "size",
+            "min": 14,
+            "max": 50,
+            "step": 1,
+            "label": "Font size",
+            "unit": "px",
+            "default": 16
+          },
+         {
+           "type": "textarea",
+           "id": "stock_time",
+           "label": "Countdown Timer Loop In A Day",
+           "default": "8:00:00,16:00:00,23:59:59",
+           "placeholder": "8:00:00,16:00:00,23:59:59"
+         },
+         {
+           "type": "text",
+           "id": "day",
+           "label": "Days",
+           "default": "days",
+           "placeholder": "days"
+         },
+         {
+           "type": "text",
+           "id": "hr",
+           "label": "Hours",
+           "default": "hours",
+           "placeholder": "hours"
+         },
+         {
+           "type": "text",
+           "id": "min",
+           "label": "mins",
+           "default": "mins",
+           "placeholder": "mins"
+         },
+         {
+           "type": "text",
+           "id": "sec",
+           "label": "Secs",
+           "default": "secs",
+           "placeholder": "secs"
+         },
+         {
+           "type": "paragraph",
+           "content": "Hour of the day, 24-hour clock (00..23), Minute of the hour (00..59), Second of the minute (00..59)"
+         },
+         {
+           "type": "select",
+           "id": "cd_style",
+           "label": "Countdown Design",
+           "default": "dark",
+           "options": [
+             {
+               "value": "light",
+               "label": "Light"
+             },
+             {
+               "value": "dark",
+               "label": "Dark"
+             },
+             {
+               "value": "dark_2",
+               "label": "Dark 2"
+             },
+             {
+               "value": "dark_3",
+               "label": "Dark 3"
+             }
+           ]
+         },
+         {
+           "type": "paragraph",
+           "content": "Metafields product countdown, Countdown to the end sale date will be shown. Be sure you have set final date of the product sale price. pr_metafields_meta.countdown ( 2019/08/18 ) or ( 2019/08/18 17:34:56 ) or ( 2019/08/18 07:00:00,2019/08/20 17:34:56,2019/08/25 18:30:25 )"
+         }
+        ]
+      },
+      {
+        "type": "stock",
+        "name": " Inventory Quantity",
+        "limit": 1,
+        "settings": [
+            {
+              "type": "paragraph",
+              "content": "Display the stock level of your product variant."
+            },
+           {
+              "type": "select",
+              "id": "icon",
+              "label": "ICON / IMG:",
+              "default": "2",
+              "options": [
+                {
+                  "value": "1",
+                  "label": "None"
+                },
+                {
+                  "value": "2",
+                  "label": "Icon"
+                },
+                {
+                  "value": "3",
+                  "label": "Image"
+                }
+              ]
+            },
+           {
+             "type": "text",
+             "id": "icon_name",
+             "label": "Icon name",
+             "default": "hourglass-half",
+             "info": "[Get name icon](https://icons8.com/line-awesome)"
+           },
+           {
+             "type": "image_picker",
+             "id": "img",
+             "label": "Image",
+             "info": "25x25 recommend"
+           },
+           {
+             "type": "checkbox",
+             "id": "fade",
+             "label": "Use fade animation?",
+             "default": true
+           },
+           {
+              "type": "select",
+              "id": "st",
+              "label": "== Stock:",
+              "default": "3",
+              "options": [
+                {
+                  "value": "1",
+                  "label": "Only default"
+                },
+                {
+                  "value": "2",
+                  "label": "Only random"
+                },
+                {
+                  "value": "3",
+                  "label": "Default + Random"
+                }
+              ]
+            },
+            {
+              "type": "header",
+              "content": "== Default"
+            },
+            {
+              "type": "range",
+              "id": "qty",
+              "min": 1,
+              "max": 100,
+              "step": 1,
+              "unit": "Qty",
+              "label": "(X) items",
+              "info": "Show when less than (X) items are in stock",
+              "default": 10
+            },
+            {
+              "type": "header",
+              "content": "== Random"
+            },
+            {
+              "type": "range",
+              "id": "total_items",
+              "label": "Total items",
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "default": 100
+            },
+            {
+              "type": "range",
+              "id": "stock_from",
+              "label": "from",
+              "min": 1,
+              "max": 19,
+              "step": 1,
+              "default": 12
+            },
+            {
+              "type": "range",
+              "id": "stock_to",
+              "label": "to",
+              "min": 20,
+              "max": 70,
+              "step": 1,
+              "default": 20
+            },
+            {
+              "type": "header",
+              "content": "Translate labels"
+            },
+           {
+              "type": "select",
+              "id": "al",
+              "label": "Text Align",
+              "default": "tc",
+              "options": [
+                {
+                  "value": "tl",
+                  "label": "Left"
+                },
+                {
+                  "value": "tc",
+                  "label": "Center"
+                },
+                {
+                  "value": "tr",
+                  "label": "Right"
+                }
+              ]
+            },
+            {
+              "type": "textarea",
+              "id": "mess",
+              "label": "Message (You can leave it blank)",
+              "info": "Hurry! Only [stock_number] left in stock.",
+              "placeholder": "Hurry! Only [stock_number] left in stock.",
+              "default": "HURRY! ONLY [stock_number] LEFT IN STOCK."
+            },
+            {
+              "type": "range",
+              "id": "size",
+              "min": 10,
+              "max": 35,
+              "step": 1,
+              "label": "Font size",
+              "unit": "px",
+              "default": 16
+            },
+            {
+              "type": "paragraph",
+              "content": "—————————————————"
+            },
+            {
+             "type": "checkbox",
+             "id": "reduce",
+             "label": "Enable gradually reduce the amount of inventory?",
+             "default": true
+            },
+            {
+              "type": "paragraph",
+              "content": "—————————————————"
+            },
+            {
+             "type": "checkbox",
+             "id": "progress",
+             "label": "Show progress bar?",
+             "default": true
+            },
+            {
+              "type": "range",
+              "id": "wbar",
+              "min": 40,
+              "max": 100,
+              "step": 1,
+              "unit": "%",
+              "label": "Width progress bar",
+              "default": 100
+            },
+            {
+              "type": "color",
+              "id": "stock_bg_process",
+              "label": "Process color",
+              "default": "#f76b6a"
+            },
+            {
+              "type": "color",
+              "id": "bgten",
+              "label": "Less than 10 color",
+              "default": "#ec0101"
+            },
+            {
+              "type": "color",
+              "id": "stock_bg",
+              "label": "Background color",
+              "default": "#ffe8e8"
+            }
+        ]
+      },
+      {
+        "type": "img",
+        "name": "Trust Badge",
+        "limit": 1,
+        "settings": [
+         {
+           "type": "textarea",
+           "id": "mess",
+           "label": "Message",
+           "default": "Guaranteed Safe Checkout",
+           "placeholder": "Guaranteed Safe Checkout"
+         },
+          {
+            "type": "range",
+            "id": "size",
+            "min": 10,
+            "max": 60,
+            "step": 1,
+            "label": "Font size",
+            "unit": "px",
+            "default": 16
+          },
+         {
+            "type": "select",
+            "id": "source",
+            "label": "Source IMG:",
+            "default": "1",
+            "options": [
+              {
+                "value": "1",
+                "label": "Image"
+              },
+              {
+                "value": "2",
+                "label": "SVG"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "== Image"
+          },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Trust seal image"
+         },
+         {
+            "type": "select",
+            "id": "al",
+            "label": "Image Align",
+            "default": "tl",
+            "options": [
+              {
+                "value": "tl",
+                "label": "Left"
+              },
+              {
+                "value": "tc",
+                "label": "Center"
+              },
+              {
+                "value": "tr",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "range",
+            "id": "wimg",
+            "min": 40,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Width image",
+            "default": 60
+          },
+          {
+            "type": "header",
+            "content": "== SVG"
+          },
+         {
+           "type": "textarea",
+           "id": "svg",
+           "label": "SVG list",
+           "default": "amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa",
+           "info": "amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa"
+         },
+        {
+          "type": "range",
+          "id": "height",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "label": "Height",
+          "unit": "px",
+          "default": 50
+        }
+        ]
+      },
+      {
+        "type": "store_avai",
+        "name": "Pickup availability",
+        "limit": 1,
+        "settings": [
+         {
+            "type": "paragraph",
+            "content":"Engage local shoppers by showing where items are available for pickup — right from the product page. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup)"
+         }
+         ]
+      },
+      {
+        "type": "time",
+        "name": "Live view",
+        "limit": 1,
+        "settings": [
+         {
+            "type": "paragraph",
+            "content":"Display fake the number of people viewing your product page."
+         },
+         {
+            "type": "select",
+            "id": "icon",
+            "label": "ICON / IMG:",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "None"
+              },
+              {
+                "value": "2",
+                "label": "Icon"
+              },
+              {
+                "value": "3",
+                "label": "Image"
+              }
+            ]
+          },
+         {
+           "type": "text",
+           "id": "icon_name",
+           "label": "Icon name",
+           "default": "eye",
+           "info": "[Get name icon](https://icons8.com/line-awesome)"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image",
+           "info": "25x25 recommend"
+         },
+         {
+           "type": "checkbox",
+           "id": "fade",
+           "label": "Use fade animation?",
+           "default": true
+         },
+         {
+           "type": "range",
+           "id": "min",
+           "min": 1,
+           "max": 100,
+           "step": 1,
+           "label": "MIn fake real time Visitor",
+           "default": 1
+         },
+         {
+           "type": "range",
+           "id": "max",
+           "min": 10,
+           "max": 1000,
+           "step": 10,
+           "label": "Max fake real time Visitor",
+           "default": 100
+         },
+         {
+           "type": "range",
+           "id": "time",
+           "min": 1,
+           "max": 20,
+           "step": 1,
+           "unit": "sec",
+           "label": "Interval time",
+           "default": 2
+         },
+         {
+           "type": "textarea",
+           "id": "text",
+           "label": "Text",
+           "default": "[count] <span class=\"cd fwm\">People<\/span> are viewing this right now"
+         }
+        ]
+      },
+      {
+        "type": "sold",
+        "name": "Total sold flash",
+        "limit": 1,
+        "settings": [
+         {
+            "type": "select",
+            "id": "icon",
+            "label": "ICON / IMG:",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "None"
+              },
+              {
+                "value": "2",
+                "label": "Icon"
+              },
+              {
+                "value": "3",
+                "label": "Image"
+              }
+            ]
+          },
+         {
+           "type": "text",
+           "id": "icon_name",
+           "label": "Icon name",
+           "default": "fire",
+           "info": "[Get name icon](https://icons8.com/line-awesome)"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image",
+           "info": "25x25 recommend"
+         },
+         {
+           "type": "checkbox",
+           "id": "fade",
+           "label": "Use fade animation?",
+           "default": true
+         },
+         {
+           "type": "range",
+           "id": "mins",
+           "min": 1,
+           "max": 100,
+           "step": 1,
+           "unit": "qty",
+           "label": "Min Quantity",
+           "default": 5
+         },
+         {
+           "type": "range",
+           "id": "maxs",
+           "min": 10,
+           "max": 110,
+           "step": 1,
+           "unit": "qty",
+           "label": "Max Quantity",
+           "default": 25
+         },
+         {
+           "type": "range",
+           "id": "mint",
+           "min": 1,
+           "max": 24,
+           "step": 1,
+           "unit": "h",
+           "label": "Min Time",
+           "default": 3
+         },
+         {
+           "type": "range",
+           "id": "maxt",
+           "min": 1,
+           "max": 24,
+           "step": 1,
+           "unit": "h",
+           "label": "Max Time",
+           "default": 24
+         },
+         {
+           "type": "textarea",
+           "id": "text",
+           "label": "Text",
+           "info": "[sold] sold in last [hour] hours",
+           "default": "[sold] sold in last [hour] hours"
+         }
+        ]
+      },
+      /*{
+        "type": "free",
+        "name": "Free Shipping Text",
+        "limit": 1,
+        "settings": [
+         {
+            "type": "select",
+            "id": "icon",
+            "label": "ICON / IMG:",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "None"
+              },
+              {
+                "value": "2",
+                "label": "Icon"
+              },
+              {
+                "value": "3",
+                "label": "Image"
+              }
+            ]
+          },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Icon",
+           "info": "15x13 recommend"
+         },
+         {
+           "type": "checkbox",
+           "id": "fade",
+           "label": "Use fade animation?",
+           "default": true
+         },
+         {
+           "type": "color",
+           "id": "color",
+           "label": "Color Primary",
+           "default": "#0076bb"
+         },
+         {
+           "type": "textarea",
+           "id": "text",
+           "label": "Shipping Text",
+           "info":"Free Shipping For Over [money] to [country] [flag]",
+           "default": "Free Shipping For Over $100"
+         }
+        ]
+      },*/
+      {
+        "type": "order",
+        "name": "Delivery Time",
+        "limit": 1,
+        "settings": [
+         {
+            "type": "paragraph",
+            "content":"Display an approximate date of delivery."
+         },
+         {
+           "type": "checkbox",
+           "id": "hide_pre",
+           "label": "Hide with 'pre-order'?",
+           "default": true
+         },
+         {
+            "type": "select",
+            "id": "icon",
+            "label": "ICON / IMG:",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "None"
+              },
+              {
+                "value": "2",
+                "label": "Icon"
+              },
+              {
+                "value": "3",
+                "label": "Image"
+              }
+            ]
+         },
+         {
+           "type": "text",
+           "id": "icon_name",
+           "label": "Icon name",
+           "default": "truck",
+           "info": "[Get name icon](https://icons8.com/line-awesome)"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image",
+           "info": "25x25 recommend"
+         },
+         {
+           "type": "checkbox",
+           "id": "fade",
+           "label": "Use fade animation?",
+           "default": true
+         },
+         {
+           "type": "textarea",
+           "id": "txt",
+           "label": "Delivery Text",
+           "default": "Order in the next [hour] to get it between [date_start] and [date_end]",
+           "info":"Order in the next [hour] to get this to you between [date_start] and [date_end], Order in the next [hour] to get it by [date_end], Order in the next [hour] to get it soon"
+         },
+         {
+           "type": "range",
+           "id": "ds",
+           "min": 0,
+           "max": 99,
+           "step": 1,
+           "label": "Delivery Start Date",
+           "info": "From Current date",
+           "default": 10
+         },
+         {
+           "type": "range",
+           "id": "de",
+           "min": 0,
+           "max": 99,
+           "step": 1,
+           "label": "Delivery End Date",
+           "info": "From Current date",
+           "default": 15
+         },
+         {
+           "type": "select",
+           "id": "mode",
+           "default": "1",
+           "options": [
+             {
+               "value": "1",
+               "label": "Only Delivery"
+             },
+             {
+               "value": "2",
+               "label": "Shipping + Delivery"
+             }
+           ],
+           "label": "Exclude Days From"
+         },
+         {
+           "type": "text",
+           "id": "cut",
+           "label": "Exclude Days",
+           "default": "SAT,SUN",
+           "info": "Use the 'MON','TUE','WED','THU','FRI','SAT' and 'SUN'. Separate exclude days with a comma (,)."
+         },
+         {
+           "type": "select",
+           "id": "frm",
+           "default": "1",
+           "options": [
+             {
+               "value": "1",
+               "label": "Wednesday, 19th April"
+             },
+             {
+               "value": "12",
+               "label": "Wednesday, 19 April"
+             },
+             {
+               "value": "2",
+               "label": "Wednesday, 19th April 2019"
+             },
+             {
+               "value": "3",
+               "label": "Wednesday, 19th April, 2019"
+             },
+             {
+               "value": "4",
+               "label": "Wednesday, April 19th, 2019"
+             },
+             {
+               "value": "5",
+               "label": "Wednesday, April 19th"
+             },
+             {
+               "value": "6",
+               "label": "Wednesday, April 19th 2019"
+             },
+             {
+               "value": "7",
+               "label": "Wednesday, April 19"
+             },
+             {
+               "value": "8",
+               "label": "Wednesday, April 19 2019"
+             },
+             {
+               "value": "9",
+               "label": "Wednesday, 04/19/2019"
+             },
+             {
+               "value": "10",
+               "label": "Wednesday, 19/04/2019"
+             },
+             {
+               "value": "20",
+               "label": "Wednesday, 2019/04/19"
+             }
+           ],
+           "label": "Date delivery format"
+         },
+         /*{
+           "type": "checkbox",
+           "id": "timezone",
+           "label": "Use General timezone?",
+           "info":"Use to display a countdown accordingly to the General timezone no matter the localtime your computer is.",
+           "default": false
+         },*/
+         {
+           "type": "text",
+           "id": "time",
+           "label": "Delivery Cut Off",
+           "info": "Number Only(24 Hours Format - 16:00:00 Means 4PM)",
+           "default": "16:00:00"
+         },
+         {
+           "type": "text",
+           "id": "hr",
+           "label": "Text hours",
+           "default": "hours"
+         },
+         {
+           "type": "text",
+           "id": "min",
+           "label": "Text minutes",
+           "default": "minutes"
+         }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+            {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            }
+         ]
+      },
+      {
+        "type": "html",
+        "name": "Custom HTML",
+        "settings": [
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Content page",
+            "info": "This page content will appear."
+          }
+        ]
+      },
+      {
+        "type": "@app"
+      },
+     {
+      "type": "custom_liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+     },
+      {
+        "type": "tab_des",
+        "name": "Collapsible Description",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Description"
+          }
+         ]
+      },
+      {
+        "type": "tab_rivui",
+        "name": "Collapsible Review",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Reviews"
+          },
+          { 
+            "type": "liquid",
+            "id": "review_liquid",
+            "label": "Add Snippets Liquid",
+            "info": "Add app snippets reviews to show a 'write reviews' on product page. Will working when you use 'Other app review'"
+          }
+         ]
+      },
+      {
+        "type": "tab",
+        "name": "Collapsible tab",
+        "settings": [
+            {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Collapsible tab",
+            "info": "Include a heading that explains the content."
+            },
+            {
+              "type": "richtext",
+              "id": "content",
+              "label": "Tab content"
+            },
+            {
+              "type": "page",
+              "id": "page",
+              "label": "Tab content from page"
+            }
+         ]
+      },
+      {
+        "type": "tab_liquid",
+        "name": "Collapsible Custom Liquid",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Custom Liquid"
+          },
+          {
+            "type": "liquid",
+            "id": "custom_liquid",
+            "label": "Custom Liquid",
+            "info": "Add app snippets or other Liquid code to create advanced customizations."
+          }
+        ]
+      },
+     {
+      "type": "vendor_img",
+      "name": "Brand Image",
+      "limit": 1,
+      "settings": [
+      ]
+     }
+   ],
+    "default": {
+      "blocks": [
+        { "type": "title" },{ "type": "pricereview" },{ "type": "des" },{ "type": "frm" },{ "type": "size" },{ "type": "meta" },{ "type": "social" }
+      ]
+    }
+  }
+{% endschema %}

@@ -1,0 +1,576 @@
+{%- liquid
+  assign sid = section.id
+  assign se_stts = section.settings
+  assign img_ratio = se_stts.image_ratio 
+  assign ck = false 
+ if img_ratio == 'auto' 
+  assign ck = true 
+ endif
+ assign image = se_stts.image
+ assign url = se_stts.button_link 
+ if se_stts.cl_txt == 'dark' 
+  assign cl_txt = 'cd,cg' 
+ else 
+  assign cl_txt = 'cw,cw,button-o-w' 
+ endif 
+ assign cl_arr = cl_txt | split:","
+ assign fs_arr = se_stts.text_size2 | split:"," -%}
+
+{%- capture image_layout -%}
+<div class="col-12 col-md-4">
+  <div class="nt_img_txt oh pr middle center image_wrapper">
+    {% comment %} <a href="{{ url | default:'#' }}" class="db">
+      {%- if image != blank -%}
+        <div class="nt_bg_lz lazyloadt4s item__position {{se_stts.img_align}}" data-bgset="{{ image | img_url: '1x1' }}" data-sizes="auto" data-ratio="{{image.aspect_ratio}}" data-parent-fit="cover" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"></div>
+      {%- else -%}
+        <div class="nt_bg_lz lazyloadt4s item__position {{se_stts.img_align}}" data-bg="https://placehold.jp/50/{% cycle 'a8dacc', '56cfe1', 'f99077','c8b09b' %}/fff/570x630.png?text=Image+with+text" style="padding-top: 111.1111111111111%;"></div>
+      {%- endif -%}
+    </a> {% endcomment %}
+    {%- if image != blank -%}
+      <img src="{{ image | img_url: "master" }}" />
+      {%- if section.settings.image_text != blank -%}
+      <p>{{ section.settings.image_text }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+{%- endcapture -%}
+<div class="nt_se_{{sid}} {{se_stts.layout}} txt_shadow_{{se_stts.use_shadow}}">
+  {%- render 'section_title_new_custom',section:section -%}
+  <div class="mt__30 row no-gutters equal_nt {{img_ratio}} al_center textarea_wrapper">
+    {%- if se_stts.img_position == '1' -%}{{- image_layout -}}{%- endif -%}
+    <div class="col-12 col-md-8 txt_col_img">
+      <div class="flex column pl__20 pr__20 shadow_wrap {{se_stts.txt_align}} {{cl_arr[1]}}">
+          <h3 class="mb__20 mt__0 fs__{{fs_arr[0]}} {{cl_arr[0]}} lh__1">{{se_stts.inner_title}}</h3>
+          <div class="textarea">{{se_stts.text}}</div>
+          {%- if url != blank and se_stts.button_label -%}<p class="mg__0"><a class="button {{cl_arr[2]}}" href="{{url}}" target="{{se_stts.open_link}}">{{se_stts.button_label}}</a></p>{%- endif -%}
+      </div>
+    </div>
+    <style>.nt_se_{{sid}} .txt_col_img p {font-size: {{fs_arr[1]}}px}</style>
+    {%- if se_stts.img_position == '2' -%}{{- image_layout -}}{%- endif -%}
+  </div>
+</div>
+
+{%- render 'section_css' -%}
+{%- style -%}
+.nt_se_{{sid}} .textarea_wrapper{
+  background:{{section.settings.background_color}};
+  border-radius:{{section.settings.border_radius}}px;
+  padding: 30px;
+}
+.nt_se_{{sid}} .textarea p{
+  color: {{section.settings.text_color}};
+  font-size:{{section.settings.fs_text}}px;
+}
+.nt_se_{{sid}} .textarea p .light {
+  color: {{section.settings.light_color}};
+}
+.nt_se_{{sid}} .image_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8f8f8f;
+}
+.nt_se_{{sid}} .image_wrapper p {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+@media (min-width: 1024px){
+  .nt_se_{{sid}} .textarea_wrapper{
+    padding: 50px;
+  }
+}
+@media (max-width: 768px){
+  .nt_se_{{sid}} .textarea_wrapper{
+    display: flex;
+  }
+  .nt_se_{{sid}} .textarea_wrapper .col-md-4{
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .nt_se_{{sid}} .textarea_wrapper .col-md-8{
+  -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .nt_se_{{sid}} .textarea p{
+    font-size:{{section.settings.fs_text_mobile}}px;
+  }
+  .nt_se_{{sid}} .textarea_wrapper .txt_col_img {
+    margin-top: 0;
+  }
+  .nt_se_{{sid}} .image_wrapper img {
+    width: 6rem;
+  }
+  .nt_se_{{sid}} .image_wrapper p {
+    font-size: 1.1rem;
+  }
+}
+{%- endstyle -%}
+
+{%- schema -%}
+  {
+    "name": "Image with textarea(new)",
+    "class": "nt_section type_image_text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Title Settings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Banner heading"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title",
+        "label": "Sub Text",
+        "default": "Sub Text"
+      },
+      {
+        "type": "select",
+        "id": "sub_font",
+        "default": "2",
+        "options": [
+         {
+            "value": "1",
+            "label": "Body font"
+         },
+         {
+            "value": "2",
+            "label": "Sub title font"
+          },
+          {
+            "value": "3",
+            "label": "Colors Of Autumn"
+          }
+        ],
+        "label": "Sub Text use font:"
+      },
+      {
+        "type": "select",
+        "id": "style_title",
+        "options": [
+         {
+            "value": "title_1",
+            "label": "Style 1"
+         },
+         {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+         {
+            "value": "title_3",
+            "label": "Style 3"
+          },
+         {
+            "value": "title_4",
+            "label": "Style 4"
+          },
+         {
+            "value": "title_5 lazyloadt4s",
+            "label": "Style 5"
+          },
+         {
+            "value": "title_6",
+            "label": "Style 6"
+          },
+         {
+            "value": "title_7 +la",
+            "label": "Style 7 (with line-awesome)"
+          }, 
+          {
+            "value": "title_new",
+            "label": "Design new(new custon)"
+          }
+        ],
+        "label": "Style title"
+      },
+      {
+        "type": "image_picker",
+        "id": "tag_image",
+        "label": "Tag image",
+        "info": "Only working with design title: design new"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_bottom_border",
+        "label": "Show bottom border",
+        "default": false,
+        "info": "Show only on mobile"
+      },
+      {
+        "type": "text",
+        "id": "ic_tt",
+        "label": "Style 7 icon line-awesome",
+        "default": "gem"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_clpr",
+        "label": "Use icon color primary?",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
+      },
+      {
+        "type": "header",
+        "content": "== image Settings"
+      },
+      {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Image"
+       },
+      {
+        "type": "text",
+        "id": "image_text",
+        "label": "Image text",
+        "default": "Cultural Diversity"
+      },
+      {
+        "type": "select",
+        "id": "img_align",
+        "default": "center",
+        "options": [
+         {
+            "value": "top",
+            "label": "Top"
+         },
+         {
+            "value": "center",
+            "label": "Middle"
+         },
+         {
+            "value": "bottom",
+            "label": "Bottom"
+         }
+        ],
+        "label": "Image alignment",
+        "info":"Not active when enable Adapt to image"
+      },
+      {
+       "type": "select",
+       "id": "img_position",
+       "options": [
+        {
+           "value": "1",
+           "label": "Left"
+         },
+         {
+           "value": "2",
+           "label": "Right"
+         }
+       ],
+       "label": "Image position",
+       "default": "1"
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "label": "Aspect Ratio",
+        "default": "auto",
+        "info": "Aspect Ratio Custom will settings in General panel.",
+        "options": [
+          {
+            "group": "Auto",
+            "value": "auto",
+            "label": "Adapt to image"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio2_1",
+            "label": "2:1"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio16_9",
+            "label": "16:9"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio8_5",
+            "label": "8:5"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio3_2",
+            "label": "3:2"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio4_3",
+            "label": "4:3"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio_nt",
+            "label": "Ratio ASOS"
+          },
+          {
+            "group": "Squared",
+            "value": "ratio1_1",
+            "label": "1:1"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio2_3",
+            "label": "2:3"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio1_2",
+            "label": "1:2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus1",
+            "label": "Ratio Custom 1"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus2",
+            "label": "Ratio Custom 2"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus3",
+            "label": "Ratio Custom 3"
+          },
+          {
+            "group": "Custom",
+            "value": "ratio_cus4",
+            "label": "Ratio Custom 4"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "== General Settings"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Border radius",
+        "default": 12
+      },
+      {
+        "type": "header",
+        "content": "== Color Settings"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#3f3f3f"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "light_color",
+        "label": "Light text color",
+        "default": "#65f83a"
+      },
+      {
+        "type": "header",
+        "content": "== Text Settings"
+      },
+      {
+        "type": "select",
+        "id": "text_size2",
+        "label": "Text size",
+        "default": "30,14",
+        "options": [
+          {
+            "value": "24,12",
+            "label": "Small"
+          },
+          {
+            "value": "30,14",
+            "label": "Medium"
+          },
+          {
+            "value": "40,16",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "inner_title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Textarea",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "range",
+        "id": "fs_text",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Textarea font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "fs_text_mobile",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Textarea font size(mobile)",
+        "default": 12
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link (Optional)"
+      },
+      {
+        "type": "select",
+        "id": "open_link",
+        "options": [
+          {
+            "value": "_self",
+            "label": "Current window (_self)"
+          },
+         {
+            "value": "_blank",
+            "label": "New window (_blank)"
+          }
+        ],
+        "label": "Open link in",
+        "default": "_blank"
+      },
+      {
+       "type": "select",
+       "id": "txt_align",
+       "options": [
+        {
+           "value": "tl",
+           "label": "Left"
+         },
+         {
+           "value": "tc",
+           "label": "Center"
+         },
+         {
+           "value": "tr",
+           "label": "Right"
+         }
+       ],
+       "label": "Text alignment",
+       "default": "tc"
+      },
+      {
+        "type": "header",
+        "content": "== Color"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shadow",
+        "label": "Use text shadow?",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "cl_txt",
+        "options": [
+         {
+            "value": "dark",
+            "label": "Dark"
+         },
+         {
+            "value": "light",
+            "label": "Light"
+          }
+        ],
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "nt_full",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+        "default": "50px,,50px,",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+        "placeholder": "50px,,50px,"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin",
+        "placeholder": "50px,,50px,"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding",
+        "placeholder": "50px,,50px,"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with textarea(new)",
+        "category": "III. Image"
+      }
+    ]
+  }
+{% endschema %}

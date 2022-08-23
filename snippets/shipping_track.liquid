@@ -1,0 +1,22 @@
+
+<input type="text" id="YQNum" maxlength="50"/>
+<input type="button" value="TRACK" onclick="doTrack()" class="mt__20 mb__20" style="color:#000;"/>
+<div id="YQContainer"></div>
+
+<script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
+<script type="text/javascript">
+function doTrack() {
+    var num = document.getElementById("YQNum").value;
+    if(num===""){
+        alert("Enter your number."); 
+        return;
+    }
+    YQV5.trackSingle({
+        YQ_ContainerId:"YQContainer",
+        YQ_Height:560,
+        YQ_Fc:"0",
+        YQ_Lang:"en",
+        YQ_Num:num
+    });
+}
+</script>

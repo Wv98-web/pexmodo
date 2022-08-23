@@ -1,0 +1,12 @@
+{
+  "layout": false,
+  "sections": {
+    "main": {
+      "type": "main-cl_qs",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,14 @@
+{%- if section.settings.show_des %}<div class="cat_des_ntt4 container container_cat tc mt__40 rtet4">{{ collection.description}}</div>{% endif -%}
+{%- schema -%}
+{
+  "name": "Collections Description",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_des",
+        "label": "Show Description on collection?",
+        "default": false
+      }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,176 @@
+{
+  "wrapper": "div.mb__60",
+  "sections": {
+    "cart_heading": {
+      "type": "cart_heading",
+      "blocks": {
+        "cart_heading1": {
+          "type": "1",
+          "settings": {
+            "title": "Shopping cart",
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "cart_heading1"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "cart-template",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "tax": {
+          "type": "tax",
+          "settings": {}
+        },
+        "btnmr": {
+          "type": "btnmr",
+          "settings": {}
+        },
+        "btnck": {
+          "type": "btnck",
+          "settings": {}
+        },
+        "img": {
+          "type": "img",
+          "settings": {
+            "wimg": 50
+          }
+        },
+        "btn": {
+          "type": "btn",
+          "settings": {
+            "title": "Return To Shop",
+            "url": "shopify:\/\/collections\/hot-sale",
+            "style": "primary tu"
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "tax",
+        "btnmr",
+        "btnck",
+        "img",
+        "btn"
+      ],
+      "settings": {
+        "ajax_enable": true,
+        "calc_ship": false,
+        "show_note": false,
+        "show_rates": false,
+        "show_discount": true,
+        "show_gift_wrap": true,
+        "show_sale_info": true,
+        "sale_page": "sale-coupon"
+      }
+    },
+    "complete_cart": {
+      "type": "featured_collection_owl",
+      "settings": {
+        "title": "Recommendation",
+        "sub_title": "",
+        "sub_font": "2",
+        "btn_title": "See all products",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": true,
+        "collection": "all",
+        "limit": 8,
+        "space": 20,
+        "use_pagination": "none",
+        "btn_rd": false,
+        "btn_icon": false,
+        "btn_style": "default",
+        "col_pr": "3",
+        "col_pr_tb": "4",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "loop": true,
+        "au_time": 0,
+        "au_hover": true,
+        "button": false,
+        "btn_vi": "1",
+        "btn_owl": "3",
+        "btn_color": "1",
+        "dot": true,
+        "dot_owl": "1",
+        "dot_color": "1",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "cp_code": false,
+        "layout": "wrap",
+        "cl_bg": "",
+        "mg": ",,50px,",
+        "pd": "",
+        "mg_mb": "0,,,",
+        "pd_mb": ""
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently_viewed",
+      "settings": {
+        "show": true,
+        "unavailable_prs": "show",
+        "title": "Recently viewed products",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "limit": 8,
+        "sortby": "3",
+        "space": 20,
+        "col_pr": "3",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "loop": true,
+        "au_time": 0,
+        "au_hover": true,
+        "button": false,
+        "btn_vi": "1",
+        "btn_owl": "1",
+        "btn_color": "0",
+        "dot": true,
+        "dot_owl": "3",
+        "dot_color": "1",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8"
+      }
+    }
+  },
+  "order": [
+    "cart_heading",
+    "main",
+    "complete_cart",
+    "recently-viewed-products"
+  ]
+}

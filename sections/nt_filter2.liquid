@@ -1,0 +1,165 @@
+{%- liquid 
+   assign ck_style = false 
+   assign col_class= '3'
+   assign all_count_pr = 94|default:collection.products_count
+   assign se_stts = section.settings
+   assign style_color = settings.style_color_filter | replace: ' ,', ',' | replace: ', ', ',' |split:','
+   assign arr_filters = collection.filters |default:search.filters
+   if results.url
+    assign results_url = results.url
+   else 
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+   endif -%}
+
+{%- if request.design_mode%}[t4splitlz]<div class="t4s_js_wrap"><div id="t4sad_nt_filter" class="section_nt_filter nt_ajaxFilter spt4s-section">{% endif -%}
+  <div class="h3 mg__0 tu bgb cw visible-sm fs__16 pr">{{ 'collections.general.filter' | t }}<i class="close_pp pegk pe-7s-close fs__40 ml__5"></i></div>
+  <div class="cat_shop_wrap">
+  <div class="cat_fixcl-scroll">
+  <div class="cat_fixcl-scroll-content css_ntbar">
+  <div class="row wrap_filter">
+
+{%- assign total_active_values = 0 -%}
+{%- for filter in arr_filters -%}
+   {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+
+   {%- case filter.type -%}
+      {%- when 'list' -%}
+
+         {%- if filter.values.size == 0 or all_count_pr == 0 %}{% continue %}{% endif %}{% assign ck_style = true -%}
+         
+         {%- if style_color contains filter.label -%}
+          <div id="blockid_{{forloop.index}}"  class="col-12 col-md-{{col_class}} widget blockid_color count_vr_{{bk_stts.count}}">
+              <h5 class="widget-title">{{filter.label| escape}}</h5>
+              <div class="loke_scroll">
+                 <ul class="nt_filter_block nt_filter_color css_ntbar">
+
+                    {%- for value in filter.values -%}
+                      {%- assign label = value.label | escape -%}
+                      {%- if value.active -%}
+                          <li class="active"><a href="{{value.url_to_remove}}"><div class="filter-swatch"><span class="bg_color_{{label | handle}} lazyloadt4s"></span></div> {{label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                      {%- else -%}
+                          <li><a href="{{value.url_to_add}}"><div class="filter-swatch"><span class="bg_color_{{label | handle}} lazyloadt4s"></span></div> {{label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                      {%- endif -%}
+
+                    {%- endfor -%}
+
+                 </ul>
+              </div>
+            </div>
+         {%- else -%}
+            <div id="blockid_{{forloop.index}}"  class="col-12 col-md-{{col_class}} widget blockid_vendor count_vr_{{bk_stts.count}}">
+                 <h5 class="widget-title">{{filter.label| escape}}</h5>
+                 <div class="loke_scroll">
+                    <ul class="nt_filter_block nt_filter_style{{bk_stts.style}} css_ntbar">
+                     
+                       {%- for value in filter.values -%}
+                         
+                         {%- if value.active -%}
+                             <li class="active"><a href="{{value.url_to_remove}}">{{value.label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                         {%- else -%}
+                             <li><a href="{{value.url_to_add}}">{{value.label}}<span class="count_vr_filter">({{value.count}})</span></a></li>
+                         {%- endif -%}
+
+                       {%- endfor -%}
+
+                    </ul>
+                 </div>
+            </div>
+         {%- endif -%}
+
+      {%- when 'price_range' -%}
+          {%- assign min_value_price = filter.min_value.value |default:0 -%}
+          {%- assign max_value_price = filter.max_value.value |default:filter.range_max |default:0  -%}
+
+          {%- if min_value_price == max_value_price or all_count_pr == 0 %}{% continue %}{% endif %}{% assign ck_style = true -%}
+            
+            <div id="blockid_{{forloop.index}}" class="col-12 col-md-{{col_class}} widget blockid_price">
+              <h5 class="widget-title">{{filter.label| escape}}</h5>
+              <div class="price_slider_wrapper mt__5">
+                <div class="price_slider"></div>
+                <div class="price_slider_amount" data-step="1" data-maxstr='{{filter.max_value.param_name}}' data-minstr='{{filter.min_value.param_name}}'>
+                  <input type="hidden" class="url_price" name="url_price" value="">
+                  <input type="hidden" class="min_price" name="min_price" value="{{min_value_price}}" data-min="0" placeholder="Min price">
+                  <input type="hidden" class="max_price" name="max_price" value="{{max_value_price}}" data-max="{{filter.range_max}}" placeholder="Max price">
+                  <div class="price_steps_slider"></div>
+                  <button type="button" class="button price_slider_btn dn">{{ 'collections.filter_variant.button_price' | t }}</button>
+                  <div class="price_label">
+                    {{ 'collections.filter_variant.title_price' | t }}: <span class="from">{{min_value_price | money }}</span> — <span class="to">{{max_value_price | money }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+   {%- endcase -%}
+{%- endfor -%}
+
+{%- comment -%}
+  {%- liquid 
+   assign all_count_pr = collection.all_products_count
+   if all_count_pr < 1000 
+      assign limit = all_count_pr
+   else
+      assign limit = 1000
+   endif -%}
+  {%- if total_active_values.size > 0 -%}
+
+    {%- paginate collection.products by limit -%}
+
+       {%- assign arr_tags0 = '' | split: "," -%}  
+       {%- for product in collection.products -%}
+        {%- if arr_tags_uniq.size > 1000 %}{% break %}{% endif -%}
+        {%- if product.tags.size == 0  %}{% continue %}{% endif -%}
+
+          {%- assign arr_tags0 = arr_tags0 | concat: product.tags -%}
+          {%- assign arr_tags_uniq = arr_tags0 | uniq -%} 
+         
+       {%- endfor -%}
+    {%- endpaginate -%}
+
+  {%- else -%}
+     {%- assign arr_tags_uniq = collection.tags -%} 
+  {%- endif -%}
+
+  <div id="blockid_tag" class="col-12 col-md-{{col_class}} widget blockid_tag blockid_tag_option">
+    <h5 class="widget-title">Tag</h5>
+    <div class="loke_scroll">
+       <ul class="nt_filter_block nt_filter_style{{block.settings.style}} css_ntbar">
+          {%- for tag in collection.tags -%}
+
+              {%- liquid
+                assign tag_dow = tag | downcase
+                assign tag_key = tag | remove:key_3 | remove:key_2 | remove:key | strip -%}
+              {%- if current_tags contains tag -%}
+                    <li class="active">{{ tag | link_to_remove_tag: tag | replace: 'title=', 'aria-label=' }}</li>
+              {%- else -%}
+                    <li>{{ tag | link_to_tag: tag | replace: 'title=', 'aria-label=' }}</li>
+              {%- endif -%}
+
+          {%- endfor -%}
+       </ul>
+    </div>
+  </div>
+{%- endcomment -%}
+
+</div>
+</div>
+</div>
+</div>
+
+{%- if ck_style %}<style>.cat_filter {opacity: 1;pointer-events: auto}.type_toolbar_filter{display: block}</style>{% endif -%}
+{%- if request.design_mode%}</div></div>[t4splitlz]{% endif -%}
+
+{%- schema -%}
+  {
+    "name": "Filter product options",
+    "class": "nt_ajaxFilter section_nt_filter",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Customize [Filter by product options](\/admin\/menus). Filter product options will be empty for collections that contain over 1000 products."
+      }
+    ]
+  }
+{% endschema %}

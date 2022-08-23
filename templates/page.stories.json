@@ -1,0 +1,503 @@
+{
+  "sections": {
+    "heading": {
+      "type": "pages_heading",
+      "disabled": true,
+      "blocks": {
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "1652757949a64f1dc7": {
+      "type": "textarea_new_custom",
+      "settings": {
+        "title": "PEXMOD CREATIVE EXPRESSION",
+        "lighted": false,
+        "sub_title": "",
+        "sub_font": "3",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "background_color": "#292929",
+        "heading_color": "#000000",
+        "text_color": "#ffffff",
+        "light_color": "#65f83a",
+        "border_radius": 12,
+        "content_heading": "",
+        "fs_heading": 24,
+        "fs_heading_mobile": 18,
+        "content": "<p>Pexmod is committed to acting as a messenger of <span class=\"light\">fashion culture<\/span>, hoping to deliver <span class=\"light\">the latest and most special<\/span> cultural symbols to North American trend users, expressing themselves in the form of clothing and accessories.<br><br>Next is the brand creative display section of PEXMOD. Read the following and you will understand:<br>1.What is the <span class=\"light\">spiritual core<\/span> of PEXMOD.<br>2.What kind of relationship PEXMOD wants to have with its users.<br><\/p>",
+        "fs_text": 16,
+        "fs_text_mobile": 12,
+        "align": "tl",
+        "layout": "container",
+        "mg": "80px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "1651214948c9f5ace8": {
+      "type": "custom_logo_list",
+      "blocks": {
+        "16512149482d4f0c2b-0": {
+          "type": "image",
+          "settings": {
+            "block_title": "HORSE",
+            "block_sub_title": "Represent: \nFreedom, Courage, Vitality.",
+            "image": "shopify:\/\/shop_images\/horse.png",
+            "image_m": "shopify:\/\/shop_images\/6321addaf36889a789ba7da3bec87975.png"
+          }
+        },
+        "16512149482d4f0c2b-1": {
+          "type": "image",
+          "settings": {
+            "block_title": "VR GLASSES",
+            "block_sub_title": "Represent: \nVision, Technology, Trend.",
+            "image": "shopify:\/\/shop_images\/VR_glasses.png",
+            "image_m": "shopify:\/\/shop_images\/VR.png"
+          }
+        },
+        "16512149482d4f0c2b-2": {
+          "type": "image",
+          "settings": {
+            "block_title": "UNICORN",
+            "block_sub_title": "Represents: Special, Personality, Precious.",
+            "image": "shopify:\/\/shop_images\/unicorn.png",
+            "image_m": "shopify:\/\/shop_images\/8f34755f85d4ca5d7917b5126a1d0ccf.png"
+          }
+        },
+        "190ba3a4-0a79-44ea-a52b-123f24f23926": {
+          "type": "image2",
+          "settings": {
+            "block_title2": "Heading",
+            "block_sub_title2": "Sub Text",
+            "image2": "shopify:\/\/shop_images\/front.png",
+            "image_m2": "shopify:\/\/shop_images\/back.png"
+          }
+        }
+      },
+      "block_order": [
+        "16512149482d4f0c2b-0",
+        "16512149482d4f0c2b-1",
+        "16512149482d4f0c2b-2",
+        "190ba3a4-0a79-44ea-a52b-123f24f23926"
+      ],
+      "settings": {
+        "title": "OUR LOGO",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "border_radius": 12,
+        "background_color": "#292929",
+        "text_color": "#ffffff",
+        "light_color": "#980ce7",
+        "layout": "container",
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "16524320428a86e68b": {
+      "type": "banner",
+      "blocks": {
+        "16524320421e33aed7-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abc_pc_1a37c10b-4d03-4878-8bd5-8f5f03cd2ab7.jpg",
+            "img_align": "center",
+            "url": "",
+            "open_link": "_self",
+            "cat_design": "1",
+            "title": "",
+            "title_2": "",
+            "txt_align": "tc",
+            "banner_align": "fl_center"
+          }
+        }
+      },
+      "block_order": [
+        "16524320421e33aed7-0"
+      ],
+      "settings": {
+        "hide": true,
+        "title": "OUR BRAND",
+        "sub_title": "pexmod",
+        "sub_font": "3",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "cat_space": "0",
+        "image_ratio": "auto",
+        "col": "12",
+        "col_md": "12",
+        "col_mb": "12",
+        "hoverz": false,
+        "use_shadow": false,
+        "cl_txt": "#ffffff",
+        "cl_overlay": "#000000",
+        "cl_opacity": 0,
+        "layout": "container",
+        "cl_bg": "",
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "165275074869313a81": {
+      "type": "banner",
+      "blocks": {
+        "16527507477a009763-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/e4ae2ebf7cda8f9281b0dfd383aea1a8.png",
+            "img_align": "center",
+            "url": "",
+            "open_link": "_self",
+            "cat_design": "1",
+            "title": "",
+            "title_2": "",
+            "txt_align": "tc",
+            "banner_align": "fl_center"
+          }
+        }
+      },
+      "block_order": [
+        "16527507477a009763-0"
+      ],
+      "settings": {
+        "hide": false,
+        "title": "OUR BRAND",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "cat_space": "0",
+        "image_ratio": "auto",
+        "col": "12",
+        "col_md": "12",
+        "col_mb": "12",
+        "hoverz": false,
+        "use_shadow": false,
+        "cl_txt": "#ffffff",
+        "cl_overlay": "#000000",
+        "cl_opacity": 0,
+        "layout": "container",
+        "cl_bg": "",
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "16526931191f7dac16": {
+      "type": "collection-list_manual_new_custom",
+      "blocks": {
+        "165269311994c428b2-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/packing_bag.jpg",
+            "img_align": "center",
+            "title": "Packing Bag",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "165269311994c428b2-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/laser_sticker.jpg",
+            "img_align": "center",
+            "title": "Laser Sticker",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "165269311994c428b2-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/our_badge.jpg",
+            "img_align": "center",
+            "title": "Our Badge",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "165269311994c428b2-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/star_film.jpg",
+            "img_align": "center",
+            "title": "Postcard",
+            "url": "",
+            "col": "15",
+            "col_md": "6",
+            "col_mb": "12"
+          }
+        },
+        "165269311994c428b2-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/coupon.jpg",
+            "img_align": "center",
+            "title": "Coupon",
+            "url": "",
+            "col": "15",
+            "col_md": "6",
+            "col_mb": "12"
+          }
+        }
+      },
+      "block_order": [
+        "165269311994c428b2-0",
+        "165269311994c428b2-1",
+        "165269311994c428b2-2",
+        "165269311994c428b2-3",
+        "165269311994c428b2-4"
+      ],
+      "settings": {
+        "hide": true,
+        "title": "OUR PACKAGE",
+        "sub_title": "pexmod",
+        "sub_font": "3",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "cat_layout": "1",
+        "hoverz": false,
+        "cat_design": "8",
+        "cat_space": "20",
+        "pr_txt": "products",
+        "loop": true,
+        "autoplay": false,
+        "au_time": 6,
+        "au_hover": true,
+        "button": false,
+        "btn_vi": "1",
+        "btn_owl": "1",
+        "btn_color": "0",
+        "dot": true,
+        "dot_owl": "1",
+        "dot_color": "1",
+        "cp_code": false,
+        "layout": "wrap",
+        "cl_bg": "",
+        "hide_bgimg": false,
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "1652694887a6b46414": {
+      "type": "collection-list_manual_new_custom",
+      "blocks": {
+        "1652694887e112eba7-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/3E43_4_-_5.png",
+            "img_align": "center",
+            "title": "Packing Bag",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "1652694887e112eba7-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/3E43_3_-_5.png",
+            "img_align": "center",
+            "title": "Laser Sticker",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "1652694887e112eba7-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/3E43_5_-_5.png",
+            "img_align": "center",
+            "title": "Our Badge",
+            "url": "",
+            "col": "15",
+            "col_md": "4",
+            "col_mb": "12"
+          }
+        },
+        "1652694887e112eba7-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/3E43_1_-_5.png",
+            "img_align": "center",
+            "title": "Postcard",
+            "url": "",
+            "col": "15",
+            "col_md": "6",
+            "col_mb": "12"
+          }
+        },
+        "1652694887e112eba7-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/3E43_2_-_5.png",
+            "img_align": "center",
+            "title": "Coupon",
+            "url": "",
+            "col": "15",
+            "col_md": "6",
+            "col_mb": "12"
+          }
+        }
+      },
+      "block_order": [
+        "1652694887e112eba7-0",
+        "1652694887e112eba7-1",
+        "1652694887e112eba7-2",
+        "1652694887e112eba7-3",
+        "1652694887e112eba7-4"
+      ],
+      "settings": {
+        "hide": false,
+        "title": "OUR PACKAGE",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "cat_layout": "1",
+        "hoverz": true,
+        "cat_design": "8",
+        "cat_space": "20",
+        "pr_txt": "products",
+        "loop": true,
+        "autoplay": false,
+        "au_time": 6,
+        "au_hover": true,
+        "button": false,
+        "btn_vi": "1",
+        "btn_owl": "1",
+        "btn_color": "0",
+        "dot": true,
+        "dot_owl": "1",
+        "dot_color": "1",
+        "cp_code": false,
+        "layout": "wrap",
+        "cl_bg": "",
+        "hide_bgimg": false,
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    },
+    "16527564520dcfed1e": {
+      "type": "image_text_new_custom",
+      "settings": {
+        "title": "OUR VALUE",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_new",
+        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
+        "show_bottom_border": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "image": "shopify:\/\/shop_images\/icon_value.png",
+        "image_text": "CULTURAL DIVERSITY",
+        "img_align": "center",
+        "img_position": "1",
+        "image_ratio": "auto",
+        "border_radius": 12,
+        "background_color": "#292929",
+        "text_color": "#ffffff",
+        "light_color": "#65f83a",
+        "text_size2": "30,14",
+        "inner_title": "",
+        "text": "<p>We stand for equal rights by fully supporting artists around the world, no matter where they were born, where they live, or what language they speak.<\/p>",
+        "fs_text": 16,
+        "fs_text_mobile": 12,
+        "button_label": "Shop Now",
+        "button_link": "",
+        "open_link": "_blank",
+        "txt_align": "tl",
+        "use_shadow": false,
+        "cl_txt": "dark",
+        "layout": "container",
+        "mg": "100px,,50px,",
+        "pd": "",
+        "mg_mb": "50px,,50px,",
+        "pd_mb": ""
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "1652757949a64f1dc7",
+    "1651214948c9f5ace8",
+    "16524320428a86e68b",
+    "165275074869313a81",
+    "16526931191f7dac16",
+    "1652694887a6b46414",
+    "16527564520dcfed1e"
+  ]
+}

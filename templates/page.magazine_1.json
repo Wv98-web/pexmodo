@@ -1,0 +1,424 @@
+{
+  "sections": {
+    "heading": {
+      "type": "pages_heading",
+      "disabled": true,
+      "blocks": {
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "1657269588247a4917": {
+      "type": "slideshow_magazine_1",
+      "blocks": {
+        "81f9b217-5cd8-4c78-a692-d50f6dca2a79": {
+          "type": "magazine_template_1",
+          "settings": {
+            "heading": "PEXMOD",
+            "sub_heading": "ABOUT US",
+            "third_heading": "<p>\/<br\/>Brand<br\/>\/<br\/>Story<\/p>",
+            "richtext1": "<p>Pexmod is a trendy clothing brand founded in Hong Kong. At this crossroads where Eastern and Western cultures meet, you can see trends from all over the world coming together, exporting the  <\/p>",
+            "richtext2": "<p>lifestyles of young people to the world. Pexmod is committed to serving as a messenge of trend culture, hoping to deliver the latest and most special cultural symbols to North American trend-<\/p>",
+            "image": "shopify:\/\/shop_images\/1-1_2x_7c471184-a892-461b-9e0e-3107cbbe4a15.jpg",
+            "mg": "",
+            "pd": "10%,10%,,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,,5%,"
+          }
+        },
+        "3a8cdf52-9ade-4cca-a0bc-c6f33a4379fc": {
+          "type": "magazine_template_2",
+          "settings": {
+            "richtext1": "<p>setters, expressing itself in the form of clothing and accessories.<br\/>    Our founders come from all over the world, and the collision of inspiration and artistic exchange have created a variety of design styles. You can see expressions of various elements in our brand, maybe they come from East Asia or Europe. It may be difficult to generalize the stylistic characteristics of Pexmod - this is exactly what we want to express, everyone is unique and diverse. <\/p>",
+            "richtext2": "<p>Pexmod encourages users to try out different outfits and explore  another aspect of themselves.<br\/>    As we say as usual:”Refuse platitude, show attitude.” When you are tired of the plain clothes in the store, come to Pexmod! When you are tired of the constant rhythm of life, come to Pexmod! When you want peace and love, come to Pexmod too! As a global citizen identity, we accept different cultures and look forward to your joining!<\/p>",
+            "image": "shopify:\/\/shop_images\/1-2_2x_b3171908-9f47-47e7-895d-eeb060961689.jpg",
+            "mg": "",
+            "pd": "10%,10%,,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,,5%,"
+          }
+        },
+        "ca2456c7-5aed-4c8a-bba7-c9487a85e7ef": {
+          "type": "magazine_template_3",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2-1_2x_3b72956b-721b-40a3-9bcf-361ec2980ea0.jpg",
+            "url": "",
+            "product": ""
+          }
+        },
+        "1d5a7f1d-d111-4289-9406-b017f2a44f4b": {
+          "type": "magazine_template_4",
+          "settings": {
+            "page_text": "JUNE 2022 PEXMOD",
+            "page_number": "04",
+            "image": "shopify:\/\/shop_images\/2-2_2x_486df499-8dd7-4c3c-9b35-d124345eadce.jpg",
+            "heading": "CREATIVE EXPRESSION",
+            "tag_image": "shopify:\/\/shop_images\/2-2.png",
+            "richtext": "<p>In order to give consumers a better shopping experience, our design team has customized the original peripherals. Every consumer will receive a packaged gift from the PEXMOD brand that includes:<br\/>A postcard with a PEXMOD pattern;<br\/>A laser-style sticker;<br\/>A custom badge;<br\/>A buyer show collection coupon.<br\/>We expect consumers to connect more with us through the above products.<\/p>",
+            "mg": "",
+            "pd": "10%,10%,10%,5%,",
+            "mg_mb": "",
+            "pd_mb": "10%,10%,10%,5%,"
+          }
+        },
+        "56b0a2b9-90cf-4d8b-85f6-329fb6c38d5a": {
+          "type": "magazine_template_5",
+          "disabled": true,
+          "settings": {
+            "heading": "SUMMER  OUTFIT",
+            "sub_heading": "<p>2022<br\/>\/<\/p>",
+            "richtext": "<p>How to wear personality in hot summer? PEXMOD's first summer outfits are revealed! This issue includes tutorials on matching fashion items, as well as tributes to classic elements! At the same time, in June, we can't ignore a bit of support for LGBT.<\/p>",
+            "image": "shopify:\/\/shop_images\/3-1_2x_7b6d212a-00b2-4e1f-8954-5a1bfd4542c4.jpg",
+            "mg": "",
+            "pd": ",,15%,10%,",
+            "mg_mb": "",
+            "pd_mb": ",,10%,5%,"
+          }
+        },
+        "4d0a4144-c8e7-4652-b131-14d41b998e7f": {
+          "type": "magazine_template_6",
+          "disabled": true,
+          "settings": {
+            "page_text": "JUNE 2022 PEXMOD",
+            "page_number": "06",
+            "image": "shopify:\/\/shop_images\/3-2_2x_877530e8-21b9-4097-9602-dd8afad6b755.jpg",
+            "mg": "",
+            "pd": ",10%,15%,,",
+            "mg_mb": "",
+            "pd_mb": ",5%,10%,,"
+          }
+        },
+        "953d8813-b6ca-4e5a-bf3e-fa220f7c212b": {
+          "type": "magazine_template_7",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-1_2x_6fb01189-3a1b-4684-9a28-861e32cb1067.jpg",
+            "product": "pexmod-street-style-bear-printed-graphic-tee",
+            "url": "",
+            "heading": "Summer With Shining!",
+            "heading_color": "#69509b",
+            "content": "<p>Want to stand out from the crowd on a summer evening? Just imagine the pattern of your clothes glittering in the dark! You must not miss PEXMOD's luminous bear short sleeves! The product is available in black, white and gray, supplemented by a fashionable and beautiful light purple, which is a good choice whether it is paired with jeans or a short skirt. Be “the brightest” person in the crowd this summer!<\/p>",
+            "page_text": "",
+            "page_number": "",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "da2416ab-b9fd-4a50-9874-9c6d05e7d1b5": {
+          "type": "magazine_template_8",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-2_2x_d6a1d1c1-6425-45fe-b3bb-d10a33959c93.jpg",
+            "product": "pexmod-vintage-letters-pure-honey-graphic-short-sleeve-shirt",
+            "url": "",
+            "heading": "Close To Nature!",
+            "heading_color": "#156d45",
+            "content": "<p>There's nothing better than a summer trip! You do need a piece of clothing that is in harmony with nature while traveling! PEXMOD's contrasting shirts are lightweight and available in green and beige, so you can wear it perfectly whether it's a suburban picnic or a beach party! The color is very retro,  which can be matched with any style of bottoms, and the waistless design makes it suitable for any figure.<\/p>",
+            "page_text": "JUNE 2022 PEXMOD",
+            "page_number": "08",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "c367d76f-6168-4f61-ae24-f4fe4fca4c88": {
+          "type": "magazine_template_9",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5-1_2x_5e7513d6-c54c-482e-acd0-36bc6c5f916c.jpg",
+            "url": "",
+            "product": "pexmod-skeleton-printed-graphic-tee",
+            "text": "",
+            "url2": "",
+            "product2": "pexmod-multi-pocket-solid-color-casual-working-pants",
+            "text2": ""
+          }
+        },
+        "a4502593-f49e-4be0-8371-434bcfe04b80": {
+          "type": "magazine_template_10",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5-2_2x_9809be1b-41d9-4879-a541-b60998da25f6.jpg",
+            "url": "",
+            "product": "pexmod-skeleton-printed-graphic-tee"
+          }
+        },
+        "5712919c-4984-4bd2-bf6b-6757eb410c10": {
+          "type": "magazine_template_11",
+          "disabled": true,
+          "settings": {
+            "bottom_image": "shopify:\/\/shop_images\/6-1_1.2_2x_5b33354e-8ce2-4315-8711-9ee4be9a5ebb.png",
+            "right_image": "shopify:\/\/shop_images\/6-1_1.1_2x_c78cd19e-3338-42cd-80ac-46b81ed48049.png",
+            "product_image1": "shopify:\/\/shop_images\/6-1_1.1_2x_dfc810e0-3493-419c-a077-2322d42e0cf5.jpg",
+            "url1": "",
+            "product": "pexmod-fashion-irregular-cut-stitching-contrast-color-short-sleeve-shirt",
+            "title1": "Stay with cool",
+            "content1": "<p>The combination of blue and white is a very classic summer element. What's different about this shirt is that the lines break out of the regular shape and show up on the garment in a slashed way that makes the eyes shine.<\/p>",
+            "product_image2": "shopify:\/\/shop_images\/6-1_1.2_2x_30c14667-bb0c-4c38-8786-1061e2c277d0.jpg",
+            "url2": "",
+            "product2": "pexmod-3d-smiley-face-print-couple-short-sleeve-graphic-tee",
+            "title2": "Keep happy",
+            "content2": "<p>The simplest smiley face pattern conveys the truest emotions. The scorching heat may inconvenience travel, and it may ignite our emotions. Don't be nervous, everything is fine, just remember to be happy.<\/p>",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,15%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "b23b2d2b-050d-4c96-801f-f28e34db70c5": {
+          "type": "magazine_template_12",
+          "disabled": true,
+          "settings": {
+            "left_image": "shopify:\/\/shop_images\/6-2_1.1_2x_4ab44ca8-098d-4494-949b-31e98ee47827.png",
+            "top_image": "shopify:\/\/shop_images\/6-2_1.2_2x_2c316ce4-cc93-4fb9-93f6-aa76e26f8b19.png",
+            "product_image1": "shopify:\/\/shop_images\/6-2_1.1_2x_e6679674-669d-4ddb-b103-7d40507e3af5.jpg",
+            "url1": "",
+            "product": "pexmod-retro-fashion-brand-character-printed-graphic-tee",
+            "title1": "Free yourself",
+            "content1": "<p>Want to be undefined? The word from Japanese may be able to make you mysterious. Cross-cultural language symbols are also a way of expressing yourself, and foreign languages ​​are cooler than confusing nonsense letters.<\/p>",
+            "product_image2": "shopify:\/\/shop_images\/6-2_1.2_2x_557b4d74-b31d-41dc-8f8e-12fe93a2b589.jpg",
+            "url2": "",
+            "product2": "pexmod-rainbow-printing-tassels-loose-fitting-graphic-tee",
+            "title2": "Proud of love",
+            "content2": "<p>The tee was shown by the founder himself. We support all expressions of love. The rainbow is the color of the LGBT community, and the edges of varying lengths add flexibility and mean break free.<\/p>",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "15%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "1f85ab2b-d14f-4e8b-a169-c33dbd3f487b": {
+          "type": "magazine_template_13",
+          "disabled": true,
+          "settings": {
+            "header_image": "shopify:\/\/shop_images\/7-1_2x_803e9f26-7678-4e9d-827a-ff964e51e6dd.png",
+            "content": "<p>As a neutral color, green is often used in various occasions. <br\/>Green is often combined with concepts such as \"environmental protection\", \"health\" and \"sustainability\". This issue introduces 6 green items in PEXMOD products, looking forward to your matching!<\/p>",
+            "url1": "",
+            "product": "pexmod-color-matching-stitching-sports-letters-shorts",
+            "title1": "SPORT GREEN",
+            "content1": "",
+            "image1": "shopify:\/\/shop_images\/7-1_1_2x_c94ecb65-5c5e-4d4b-b6a4-d9da8a0b0c70.png",
+            "url2": "",
+            "product2": "pexmod-color-matching-stitching-sports-letters-shorts",
+            "title2": "CHEERFUL GREEN",
+            "content2": "<p>Pexmod Letter Printed Woven Windbreaker Pants Casual Shorts<\/p>",
+            "image2": "shopify:\/\/shop_images\/7-1_2_2x_942d8357-5680-45ab-a2c7-c1fab8b8d287.png",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "de75f0f8-8a6d-4fec-bb7b-4d5bfb88fd26": {
+          "type": "magazine_template_14",
+          "disabled": true,
+          "settings": {
+            "url1": "",
+            "image1": "shopify:\/\/shop_images\/7-2_3_2x_320f8bd7-aa25-466c-b965-d9644de0a125.png",
+            "product": "pexmod-retro-fashion-brand-character-printed-graphic-tee",
+            "title1": "JAPANESE GREEN",
+            "content1": "<p>Pexmod Retro Fashion Brand Character Printed Graphic Tee<\/p>",
+            "url2": "",
+            "image2": "shopify:\/\/shop_images\/7-2_5_2x_c3d9a105-559d-4e8e-b834-762f227458af.png",
+            "product2": "pexmod-green-frog-printed-short-sleeve-graphic-tee",
+            "title2": "FROG GREEN",
+            "content2": "<p>Pexmod Green Frog Printed Short Sleeve Graphic Tee<\/p>",
+            "url3": "",
+            "image3": "shopify:\/\/shop_images\/7-2_4_2x_1657e862-9568-42f0-954b-1b451b8e74d4.png",
+            "product3": "pexmod-double-yarn-letter-print-short-sleeve-t-shirt",
+            "title3": "CITY GREEN",
+            "content3": "<p>Pexmod Double Yarn Letter Print Graphic Tee<\/p>",
+            "url4": "",
+            "image4": "shopify:\/\/shop_images\/7-2_6_2x_5e5be2e3-facb-4ce1-a5d8-873ee8ab9559.png",
+            "product4": "pexmod-letter-print-straight-shorts-campus-casual-shorts",
+            "title4": "HEARY GREEN",
+            "content4": "<p>Pexmod Letter Print Straight Shorts Campus Casual Shorts<\/p>",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "00e63fb3-4f1e-4bfb-beb8-a57c196a5f5e": {
+          "type": "magazine_template_15",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8-1_2x_254e1d88-7e88-4ca7-a6d5-f3c327ee1ea0.jpg",
+            "url": "",
+            "product": ""
+          }
+        },
+        "ffaf0823-e842-4af4-90e8-59e09d8805a9": {
+          "type": "magazine_template_16",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8-2_2x_76da5ed5-29b7-4e5d-a3f5-58e267446dc9.jpg",
+            "url": "",
+            "product": ""
+          }
+        },
+        "8ca900ba-d3aa-43dc-8da2-1c1a34889ef8": {
+          "type": "magazine_template_17",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9-1_2x_6fb88b66-49b0-46f8-a5a3-a3eb69d682be.jpg",
+            "url": "",
+            "product": ""
+          }
+        },
+        "02436bc7-95d4-4e9d-9716-e3e7561939ed": {
+          "type": "magazine_template_18",
+          "disabled": true,
+          "settings": {
+            "page_text": "JUNE 2022 PEXMOD",
+            "page_number": "18",
+            "image": "shopify:\/\/shop_images\/9-1_2x_b41328d0-62aa-45c4-b238-8594fadb1422.png",
+            "qs_title_color": "#156d45",
+            "qs_title": "Q1: How did you come up with the idea of selling clothing?",
+            "qs_answer": "<p>A: This is a good question. We have also thought about how we can help everyone express themselves? Actually, we need a product, or a “carrier”, to realize the characteristics of an individual. In fact, we also thought of other things like electronics, collectibles, etc. But the advantage of clothing is that everyone needs to wear clothes to go out. No matter what industry the person is in, or what a compelling story he has, he must be in front of people in clothes that match his identity. Therefore, clothing has naturally become what we call this \"carrier\". We hope that clothing is not only just needed in life, but also expresses consumers' attitudes towards life and the world.<\/p>",
+            "fs_text": 16,
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        },
+        "e262d1b1-900f-43cd-a4ec-7cefdbdc6dbf": {
+          "type": "magazine_template_19",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10-1_2x_3bdea4b8-4942-4c74-bc8a-8fe730a1e31a.png",
+            "qs_title": "Q2: What do you think of today's clothing fashion?",
+            "qs_title_color": "#f2a23d",
+            "qs_answer": "<p>A: I don't think one style or type is always good. You'll often hear people say that fashion is a cycle, and that many styles come and go in cycles. If we compare the past few decades, we will find that there are many fashion elements that disappear for a while and then make a comeback. There are also some new elements that are produced with the development of society and the times, such as cyberpunk. The good news is that we have more and more choices, and people's tolerance for \"exotic clothes\" has increased a lot. We hope that our products can let more people know about different popular elements, even if it is very niche, which is why our products don't seem to be uniform (laughs).<\/p>",
+            "qs_title2": "Q3: What does the “brand”  mean to you?",
+            "qs_title_color2": "#156d45",
+            "qs_answer2": "<p>A: For our founders, the brand is to continue to do a valuable and meaningful thing, which requires determination, perseverance, and overcome all kinds of difficulties; for users, choosing the PEXMOD brand is choose to believe. We believe that only with the brand as the long-term goal, PEXMOD can establish a steady, sustainable and healthy relationship with users through products and services.              <\/p>",
+            "mg": "",
+            "pd": "10%,,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,,5%,5%,"
+          }
+        },
+        "1039b008-5898-421a-b9b3-71601da4d07f": {
+          "type": "magazine_template_20",
+          "disabled": true,
+          "settings": {
+            "page_text": "JUNE  2022  PEXMOD",
+            "page_number": "20",
+            "image": "shopify:\/\/shop_images\/10-2_2x_d2a9cd58-18cc-4cdd-b4a2-3b2d228a1d1b.png",
+            "qs_title": "Q4: How would you rate  your team?",
+            "qs_title_color": "#ed5020",
+            "qs_answer": "<p>A: We get along very well, often discussing our ideas and trying to make them happen. Everyone puts a lot of effort into PEXMOD, and we grow with our own brand.<\/p>",
+            "qs_title2": "Q5: Why do all  models wear hoods?  Do they have any  special meaning?",
+            "qs_title_color2": "#0071ed",
+            "qs_answer2": "<p>A: Actually, this is also a result of our team. We wanted to minimise the impact of the model's appearance on the garment itself, so that everyone could imagine that the person in the hoods was themselves. These hoods are all handcrafted by us, and each hood takes about three hours. They're unique, you won't see them anywhere online. In this way, we hope that consumers will remember us. Currently we have four hoods, maybe we will make some other images later. We hope that the diverse hoods can show a variety of collocations.<\/p>",
+            "mg": "",
+            "pd": "10%,10%,10%,,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,,"
+          }
+        },
+        "cf2bfd0e-aa44-4311-9b4c-d4add7739665": {
+          "type": "magazine_template_21",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11-1_2x_76cac5ff-5c39-41e3-9202-5e795bb96bc7.png",
+            "url": "",
+            "product": "",
+            "mg": "",
+            "pd": "10%,20%,10%,20%,",
+            "mg_mb": "",
+            "pd_mb": "5%,10%,10%,5%,"
+          }
+        },
+        "0f231409-193a-4ca6-be3b-0d3d826501a5": {
+          "type": "magazine_template_22",
+          "disabled": true,
+          "settings": {
+            "page_text": "JUNE 2022 PEXMOD",
+            "page_number": "22",
+            "qs_title": "Q6: Are you concerned that consumers  don't agree with brand-related concepts?",
+            "qs_title_color": "#0071ed",
+            "qs_answer": "<p>A: Certainly. This means that we may have erred in some way, or offended some people. Bad thinking can lead not only to higher costs and lost profits, but also to consumers losing trust in us, which we think is important. So we are very concerned about the feelings of consumers, and we are happy to have their opinions on our brand building. At the same time, we will also hold user surveys from time to time, hoping to get more feedback from people, and the ultimate goal is to be recognized.<\/p>",
+            "qs_title2": "Q7: Do you have anything you want to  share with young people?",
+            "qs_title_color2": "#156d45",
+            "qs_answer2": "<p>A: Suffice it to say, not everyone can be president, but everyone can be themselves. We have to keep doing what we love. Like our slogan: refuse platitude, show attitude. PEXMOD will also strive to become a clothing brand that can be praised by everyone.<\/p>",
+            "qs_title3": "Q8. What might change about your pro- duct in the future?",
+            "qs_title_color3": "#f2a23d",
+            "qs_answer3": "<p>A: At the moment we only have clothing items, we may consider some interesting accessories in the future. I also hope to jointly launch clothing with niche designers, so stay tuned!<\/p>",
+            "mg": "",
+            "pd": "10%,10%,10%,10%,",
+            "mg_mb": "",
+            "pd_mb": "5%,5%,5%,5%,"
+          }
+        }
+      },
+      "block_order": [
+        "81f9b217-5cd8-4c78-a692-d50f6dca2a79",
+        "3a8cdf52-9ade-4cca-a0bc-c6f33a4379fc",
+        "ca2456c7-5aed-4c8a-bba7-c9487a85e7ef",
+        "1d5a7f1d-d111-4289-9406-b017f2a44f4b",
+        "56b0a2b9-90cf-4d8b-85f6-329fb6c38d5a",
+        "4d0a4144-c8e7-4652-b131-14d41b998e7f",
+        "953d8813-b6ca-4e5a-bf3e-fa220f7c212b",
+        "da2416ab-b9fd-4a50-9874-9c6d05e7d1b5",
+        "c367d76f-6168-4f61-ae24-f4fe4fca4c88",
+        "a4502593-f49e-4be0-8371-434bcfe04b80",
+        "5712919c-4984-4bd2-bf6b-6757eb410c10",
+        "b23b2d2b-050d-4c96-801f-f28e34db70c5",
+        "1f85ab2b-d14f-4e8b-a169-c33dbd3f487b",
+        "de75f0f8-8a6d-4fec-bb7b-4d5bfb88fd26",
+        "00e63fb3-4f1e-4bfb-beb8-a57c196a5f5e",
+        "ffaf0823-e842-4af4-90e8-59e09d8805a9",
+        "8ca900ba-d3aa-43dc-8da2-1c1a34889ef8",
+        "02436bc7-95d4-4e9d-9716-e3e7561939ed",
+        "e262d1b1-900f-43cd-a4ec-7cefdbdc6dbf",
+        "1039b008-5898-421a-b9b3-71601da4d07f",
+        "cf2bfd0e-aa44-4311-9b4c-d4add7739665",
+        "0f231409-193a-4ca6-be3b-0d3d826501a5"
+      ],
+      "settings": {
+        "layout": "container",
+        "cl_bg": "rgba(0,0,0,0)",
+        "mg": "50px,,50px,",
+        "pd": "",
+        "mg_mb": "30px,,30px,",
+        "pd_mb": "",
+        "fs_text": 16,
+        "fs_text_m": 10
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "1657269588247a4917"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "blank": {
+      "type": "blank",
+      "settings": {}
+    },
+    "16545030141b74d388": {
+      "type": "apps",
+      "blocks": {
+        "38cc4790-8cdf-467c-a9a2-c4f50373fc9c": {
+          "type": "shopify:\/\/apps\/pexmod\/blocks\/iconic_account_waiting\/766698f1-2257-4564-b6e8-88f0233ada7b",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "38cc4790-8cdf-467c-a9a2-c4f50373fc9c"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "blank",
+    "16545030141b74d388"
+  ]
+}
