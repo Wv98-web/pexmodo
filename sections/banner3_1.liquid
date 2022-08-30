@@ -9,10 +9,10 @@
   assign index = 1
   assign se_blocks = section.blocks
   assign arr_blocks_img = se_blocks | where: "type", 'image' -%}
-  
+
+<div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2' -%}</div>
 <div class="nt_se_{{sid}} type_css_btna {{section.settings.layout}}">
-  {%- render 'section_title' -%}
-  <div class="nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
+  <div class="mt__30 nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
     <div class="grid-sizer"></div>
     {%- for block in arr_blocks_img %}{% assign bk_stts = block.settings %}{% assign image = bk_stts.image -%}
       <div class="cat_space_item hoverz_{{bk_stts.hoverz}} col-lg-{{bk_stts.col_pr}} col-md-{{bk_stts.col_pr_tb}} col-{{bk_stts.col_pr_mb}} pr_animated done bg_content_{{bk_stts.bg_content_bl}} border_bl_{{bk_stts.border_bl}} br_style_{{bk_stts.br_style}}" id="bk_{{block.id}}">
@@ -56,7 +56,7 @@
   </div>
 </div>
 
-{%- render 'section_css' -%}
+{%- render 'section_css2' -%}
 {%- style -%}
     {%- for block in section.blocks %}{% assign bid = block.id %}{% assign btype = block.type %}{% assign bk_stts = block.settings -%}
     {%- if btype == 'image' -%}
@@ -118,7 +118,7 @@
 
 {%- schema -%}
   {
-    "name": "Banner Custom 2",
+    "name": "Banner Custom 2.1",
     "class": "nt_section type_banner3 type_packery tp_se_cdt2",
     "max_blocks": 30,
     "settings": [
@@ -183,9 +183,20 @@
          {
             "value": "title_7 +la",
             "label": "Style 7 (with line-awesome)"
+          },
+          {
+            "value": "title_bg",
+            "label": "Design background"
           }
         ],
         "label": "Style title"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_line",
+        "label": "Show line",
+        "default": false,
+        "info": "Only use design background"
       },
       {
         "type": "text",
@@ -202,6 +213,82 @@
       {
         "type": "paragraph",
         "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
+      },
+      {
+        "type": "range",
+        "id": "fs_title",
+        "min": 10,
+        "max": 50,
+        "step": 0.5,
+        "label": "Font size",
+        "unit": "px",
+        "default": 30,
+        "info": "Heading title font size"
+      },
+      {
+        "type": "range",
+        "id": "fs_title_m",
+        "min": 0.8,
+        "max": 4,
+        "step": 0.1,
+        "label": "Font size",
+        "unit": "rem",
+        "default": 1.8,
+        "info": "Heading title font size(mobile)"
+      },
+      {
+        "type": "range",
+        "id": "fs_view",
+        "min": 10,
+        "max": 40,
+        "step": 0.5,
+        "label": "Font size",
+        "unit": "px",
+        "default": 20,
+        "info": "View all text font size"
+      },
+      {
+        "type": "range",
+        "id": "fs_view_m",
+        "min": 0.8,
+        "max": 3,
+        "step": 0.1,
+        "label": "Font size",
+        "unit": "rem",
+        "default": 1.2,
+        "info": "View all text font size(mobile)"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_title",
+        "label": "Background color for title",
+        "default": "#603DAE"
+      },
+      {
+        "type": "color",
+        "id": "color_title",
+        "label": "Text color for title",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "max_height_title",
+        "label": "Title max height (Desktop)",
+        "default": 88,
+        "min": 50,
+        "max": 150,
+        "step": 1,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "max_height_title_m",
+        "label": "Title max height (mobile)",
+        "default": 44,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px"
       },
       {
         "type": "header",
@@ -690,8 +777,8 @@
               "type": "range",
               "id": "fs_text",
               "min": 20,
-              "max": 120,
-              "step": 1,
+              "max": 70,
+              "step": 0.5,
               "label": "Font size",
               "unit": "px",
               "default": 30
@@ -1455,7 +1542,7 @@
     ],
     "presets": [
       {
-        "name": "Banner Custom 2",
+        "name": "Banner Custom 2.1",
         "category": "Image",
         "blocks": [
           { "type": "image" },

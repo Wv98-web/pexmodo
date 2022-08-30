@@ -914,6 +914,10 @@
           {
             "value": "10",
             "label": "Header Design 10"
+          },
+          {
+            "value": "3_1",
+            "label": "Header Design 3_1"
           }
         ],
         "label": "Header Design",
@@ -2774,6 +2778,10 @@
           {
             "value": "2 pos_pr_btmt4",
             "label": "Design 2 - Bottom"
+          },
+          {
+            "value": "2 pos_pr_btmt4_r",
+            "label": "Design 2 - Right"
           },
           {
             "value": "3",

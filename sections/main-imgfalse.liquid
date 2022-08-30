@@ -29,9 +29,9 @@
   endif -%}
 
 {%- if images_0 != blank -%}{%- if settings.show_pr_img == '2' -%}{%- render 'pr_img_2',product:product,url_last:url_last -%}{%- else -%}{%- render 'pr_img',product:product,url_last:url_last -%}{%- endif -%}{%- endif -%}
-{%- assign tooltip = "ttip_nt tooltip_right" -%}{%- render 'nt_add_w',product:product,tooltip:tooltip,url_last:url_last -%}
+{%- assign tooltip = "ttip_nt tooltip_left" -%}{%- render 'nt_add_w',product:product,tooltip:tooltip,url_last:url_last -%}
 <div class="hover_button op__0 tc pa flex column ts__03 des_btns_pr_{{des_btns_pr}} has_sizelistt4_{{ck_s}}{% if settings.use_quickview and settings.hide_btns == false %} has_2btnst4_pr{% endif %}">
-{%- render 'nt_add_qvcp',product:product,tooltip:tooltip2,pr_id:pr_id,url_last:url_last -%}{% unless settings.hide_btns %}{%- render 'nt_add_btn',product:product,tooltip:tooltip2,url_last:url_last -%}{%- endunless -%}
+{%- render 'nt_add_qvcp',product:product,tooltip:tooltip2,pr_id:pr_id,url_last:url_last -%}{% unless settings.hide_btns %}{%- render 'nt_add_btn',product:product,tooltip:tooltip,url_last:url_last -%}{%- endunless -%}
 </div>
 {%- if ck_s and settings.pr_size_pos == '1' %}<div class="product-attr pa ts__03 cw op__0 tc pe_none"><p class="truncate mg__0 w__100">{{size_variants | join: ", "}}</p></div>{% endif -%}
 [t4splitlz]

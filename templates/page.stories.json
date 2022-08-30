@@ -128,101 +128,137 @@
         "pd_mb": ""
       }
     },
-    "16524320428a86e68b": {
-      "type": "banner",
+    "166124600618974ca6": {
+      "type": "banner3",
       "blocks": {
-        "16524320421e33aed7-0": {
+        "16612460055e8f113a-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/abc_pc_1a37c10b-4d03-4878-8bd5-8f5f03cd2ab7.jpg",
-            "img_align": "center",
+            "image": "shopify:\/\/shop_images\/feature-loge_value.jpg",
+            "image_mb": "shopify:\/\/shop_images\/feature-logo_value-m.jpg",
             "url": "",
-            "open_link": "_self",
-            "cat_design": "1",
+            "open_link": "_blank",
+            "hoverz": false,
+            "col_pr": "12",
+            "col_pr_tb": "12",
+            "col_pr_mb": "12",
+            "cap_v_pos": 50,
+            "cap_h_pos": 50,
+            "txt_align": "tc_md",
+            "cap_v_pos_mb": 50,
+            "cap_h_pos_mb": 50,
+            "txt_align_mb": "tc",
+            "cl_overlay": "#000",
+            "cl_opacity": 0,
+            "bg_content_bl": false,
+            "bg_content_cl": "#fff",
+            "bg_content_op": 50,
+            "content_pd": "40px 80px",
+            "content_pd_mb": "10px 20px",
+            "border_bl": false,
+            "br_color": "#222",
+            "br_style": "solid",
+            "br_pd": 20,
+            "br_pd_mb": 10
+          }
+        },
+        "16612460055e8f113a-1": {
+          "type": "hd",
+          "settings": {
             "title": "",
-            "title_2": "",
-            "txt_align": "tc",
-            "banner_align": "fl_center"
+            "color": "#fff",
+            "fw_text": 600,
+            "fs_text": 30,
+            "lh_text": 0,
+            "ls_text": 0,
+            "fs_mb_text": 15,
+            "lh_mb_text": 0,
+            "ls_mb_text": 0,
+            "sp": 0,
+            "sp_mb": 0
+          }
+        },
+        "16612460055e8f113a-2": {
+          "type": "space",
+          "settings": {
+            "sp": 20,
+            "sp_mb": 10
+          }
+        },
+        "16612460055e8f113a-3": {
+          "type": "subhd",
+          "settings": {
+            "font": "f__libre",
+            "title": "",
+            "color": "#fff",
+            "fw_text": 400,
+            "fs_text": 14,
+            "lh_text": 0,
+            "ls_text": 0,
+            "fs_mb_text": 14,
+            "lh_mb_text": 0,
+            "ls_mb_text": 0,
+            "hide": false,
+            "sp": 0,
+            "sp_mb": 0
+          }
+        },
+        "16612460055e8f113a-4": {
+          "type": "space",
+          "settings": {
+            "sp": 20,
+            "sp_mb": 10
+          }
+        },
+        "16612460055e8f113a-5": {
+          "type": "btn",
+          "settings": {
+            "title": "Shop Now",
+            "btn_link": "",
+            "title2": "Shop Now",
+            "btn_link2": "",
+            "btn_w": false,
+            "btn_icon": false,
+            "cl_txt": "#fff",
+            "cl_bg": "#222",
+            "cl_bd": "#222",
+            "fs_text": 14,
+            "fw_text": 600,
+            "h": 40,
+            "ls_text": 0,
+            "bdr": 0,
+            "pd": 15,
+            "fs_mb_text": 14,
+            "h_mb": 40,
+            "ls_mb_text": 0,
+            "bdr_mb": 0,
+            "pd_mb": 15,
+            "sp": 0,
+            "sp_mb": 0
           }
         }
       },
       "block_order": [
-        "16524320421e33aed7-0"
+        "16612460055e8f113a-0",
+        "16612460055e8f113a-1",
+        "16612460055e8f113a-2",
+        "16612460055e8f113a-3",
+        "16612460055e8f113a-4",
+        "16612460055e8f113a-5"
       ],
       "settings": {
-        "hide": true,
-        "title": "OUR BRAND",
-        "sub_title": "pexmod",
-        "sub_font": "3",
-        "style_title": "title_new",
-        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
-        "show_bottom_border": false,
-        "ic_tt": "gem",
-        "show_clpr": false,
-        "cat_space": "0",
-        "image_ratio": "auto",
-        "col": "12",
-        "col_md": "12",
-        "col_mb": "12",
-        "hoverz": false,
-        "use_shadow": false,
-        "cl_txt": "#ffffff",
-        "cl_overlay": "#000000",
-        "cl_opacity": 0,
-        "layout": "container",
-        "cl_bg": "",
-        "mg": "100px,,50px,",
-        "pd": "",
-        "mg_mb": "50px,,50px,",
-        "pd_mb": ""
-      }
-    },
-    "165275074869313a81": {
-      "type": "banner",
-      "blocks": {
-        "16527507477a009763-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/e4ae2ebf7cda8f9281b0dfd383aea1a8.png",
-            "img_align": "center",
-            "url": "",
-            "open_link": "_self",
-            "cat_design": "1",
-            "title": "",
-            "title_2": "",
-            "txt_align": "tc",
-            "banner_align": "fl_center"
-          }
-        }
-      },
-      "block_order": [
-        "16527507477a009763-0"
-      ],
-      "settings": {
-        "hide": false,
         "title": "OUR BRAND",
         "sub_title": "",
         "sub_font": "2",
-        "style_title": "title_new",
-        "tag_image": "shopify:\/\/shop_images\/pexmod_2x_e41438fc-0b69-4394-aa46-3231a8044eaf.png",
-        "show_bottom_border": false,
+        "style_title": "title_1",
         "ic_tt": "gem",
         "show_clpr": false,
         "cat_space": "0",
-        "image_ratio": "auto",
-        "col": "12",
-        "col_md": "12",
-        "col_mb": "12",
-        "hoverz": false,
-        "use_shadow": false,
-        "cl_txt": "#ffffff",
-        "cl_overlay": "#000000",
-        "cl_opacity": 0,
         "layout": "container",
         "cl_bg": "",
-        "mg": "100px,,50px,",
+        "mg": "50px,,50px,",
         "pd": "",
-        "mg_mb": "50px,,50px,",
+        "mg_mb": "",
         "pd_mb": ""
       }
     },
@@ -494,8 +530,7 @@
     "main",
     "1652757949a64f1dc7",
     "1651214948c9f5ace8",
-    "16524320428a86e68b",
-    "165275074869313a81",
+    "166124600618974ca6",
     "16526931191f7dac16",
     "1652694887a6b46414",
     "16527564520dcfed1e"

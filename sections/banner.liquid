@@ -7,8 +7,8 @@
   assign ck = true
   endif -%} 
   
-<div class="nt_se_{{sid}} {{section.settings.layout}} hide_768_{{section.settings.hide}}">
-  {%- render 'section_title_new_custom',section:section -%}
+<div class="nt_se_{{sid}} {{section.settings.layout}}">
+  {%- render 'section_title',section:section -%}
   <div class="mt__30 nt_banner_holder row equal_nt {{ratio}} hoverz_{{section.settings.hoverz}} cat_space_{{section.settings.cat_space}} txt_shadow_{{section.settings.use_shadow}}">
     {%- for block in section.blocks -%}{% assign bk_stts = block.settings %}{%- assign image = bk_stts.image -%}{%- assign cat_design = bk_stts.cat_design -%}
       <div class="cat_space_item bk_{{block.id}} {{ccol}}">
@@ -55,13 +55,6 @@
     "max_blocks": 30,
     "settings": [
       {
-        "type": "checkbox",
-        "id": "hide",
-        "label": "Hide on tablet, mobile?",
-        "info": "If checked, it will only be displayed on the mobile screen, if not selected, it will only be displayed on the desktop. (You need to use two sections for different resolution image display and different settings) !!!",
-        "default": false
-      },
-      {
         "type": "header",
         "content": "== Title Settings"
       },
@@ -89,10 +82,6 @@
          {
             "value": "2",
             "label": "Sub title font"
-          },
-          {
-            "value": "3",
-            "label": "Colors Of Autumn"
           }
         ],
         "label": "Sub Text use font:"
@@ -128,26 +117,9 @@
          {
             "value": "title_7 +la",
             "label": "Style 7 (with line-awesome)"
-          }, 
-          {
-            "value": "title_new",
-            "label": "Design new(new custon)"
           }
         ],
         "label": "Style title"
-      },
-      {
-        "type": "image_picker",
-        "id": "tag_image",
-        "label": "Tag image",
-        "info": "Only working with design title: design new"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_bottom_border",
-        "label": "Show bottom border",
-        "default": false,
-        "info": "Show only on mobile"
       },
       {
         "type": "text",

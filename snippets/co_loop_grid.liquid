@@ -1,0 +1,26 @@
+{%- liquid
+  assign collection = collections[block.settings.collection]
+  assign image = block.settings.image | default:collection.image
+  assign home_t = 'homepage.onboarding.collection_title' | t  | append:' #' | append:for_i
+  assign block_title = block.settings.title | default:collection.title | default:home_t
+  assign hot = collection.metafields.my_fields.hot -%}
+
+<div id="nt_{{block.id}}" class="cat_grid_item cat_space_item cat_grid_item_{{for_i}} {{ccol}}" {{ block.shopify_attributes }}>
+  <div class="cat_grid_wrap h__100 pr">
+    {% if hot %}
+      <span class="pa co_lb_h"><img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" /></span>
+    {% endif %}
+    <a href="{{ block.settings.url | default:collection.url }}"><div class="cat_grid_item__content pr oh is-flex al_center h__100">
+      <div class="cat_grid_item__image col-lg-6 col-12 pt__5 pb__5">
+        <div href="{{ block.settings.url | default:collection.url }}" class="db cat_grid_item__link"{% if image != blank and Ismaxwh %} style="margin: 0 auto;max-height: {{image.height}}px;max-width: {{image.width}}px"{% endif %}>
+        {%- if image != blank -%}
+          <div class="cat_grid_item__overlay item__position equal_nt nt_contain nt_bg_lz lazyloadt4s {{block.settings.img_align}}" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" {% if cat_grid_item %} style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"{% endif %}></div>
+        {%- else -%}
+          <div class="cat_grid_item__overlay item__position equal_nt nt_contain nt_bg_lz lazyloadt4s {{block.settings.img_align}}" data-bg="{{cimg}}"{% if cat_grid_item %} style="padding-top:100%;"{% endif %}></div>
+        {%- endif -%}
+        </div>
+      </div>
+      <div class="cat_grid_item__title col-lg-6 col-12 tl_lg tc" style="padding:0 !important;">{{ block_title }}</div>
+    </div></a>
+  </div>
+</div>

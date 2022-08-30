@@ -1,0 +1,31 @@
+{%- liquid
+  assign sid = section.id -%}
+
+<div class="mt__20 type_css_btna">
+  <div class="nt_banner_holder row fl_center js_packery">
+    <div class="grid-sizer"></div>
+    {% assign se_stts = section.settings %}
+    {% assign image = se_stts.section_banner -%}
+    <div class="cat_space_item hoverz_{{se_stts.hoverz}} col-lg-12 col-md-12 col-12 pr_animated done" id="bk_{{sid}}">
+      <div class="banner_hzoom nt_promotion oh pr">
+        {%- if image != blank %}
+        {% assign image_mb = se_stts.section_banner_mb |default:image -%}
+          <div class="dek_img_slide nt_bg_lz pr_lazy_img lazyloadt4s item__position {{se_stts.img_align}}" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"></div>
+          <div class="mb_img_slide nt_bg_lz pr_lazy_img lazyloadt4s item__position {{se_stts.img_align}}" data-bgset="{{ image_mb | img_url: '1x1' }}" data-ratio="{{image_mb.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" style="padding-top:{{ 1 | divided_by: image_mb.aspect_ratio | times: 100}}%;"></div>
+        {%- endif -%}
+
+        <a href="{{ se_stts.url }}" target="{{se_stts.open_link}}" class="pa t__0 l__0 r__0 b__0{% if se_stts.url == blank %} pe_none{% endif %}"></a>
+      </div>
+    </div>
+  </div>
+</div>
+{%- style -%}
+  {%- assign sid = section.id -%}
+  {%- assign se_stts = section.settings -%}
+  #bk_{{sid}} .nt_promotion > a:after {
+    background-color: {{se_stts.cl_overlay}};
+    opacity: {{se_stts.cl_opacity | divided_by: 100.00}};
+  }
+{%- endstyle -%}
+
+

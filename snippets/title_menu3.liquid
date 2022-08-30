@@ -1,0 +1,20 @@
+{%- liquid
+  assign icon = block.settings.icon
+  if icon != blank
+    assign arr_icon = icon | split:','
+    assign icon_class1 = arr_icon[1] | default:'las'
+  endif  -%}
+{%- if icon != blank %}
+<i class="{{arr_icon[1] | default:'las'}} la-{{arr_icon[0]}}"></i>
+{% endif -%}
+{{block.settings.title }}
+{% if block.settings.lb != blank %}
+<span class="lbc_nav" style="background-color: {{block.settings.lb_cl|default:'#01bad4'}}">{{block.settings.lb}}</span>
+{% endif -%}
+{%- if block.settings.label_n -%}
+<span class="lbn_nav"><span class="pa pa-center">NEW</span></span>
+{%- endif -%}
+
+{%- if block.settings.label_h -%}
+<span class="lbh_nav"><span class="pa pa-center">HOT</span></span>
+{%- endif -%}

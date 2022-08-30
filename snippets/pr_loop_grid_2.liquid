@@ -34,7 +34,8 @@
     endfor
   endif
   assign countdown = time_meta | default:product.metafields.meta.countdown
-  assign images_0 = product.images[0] | default:settings.placeholder_img -%}
+  assign images_0 = product.images[0] | default:settings.placeholder_img
+  assign hot = product.metafields.my_fields.hot -%}
   {%- if settings.within_cat and collection -%}
     {%- assign pr_url = product.url | within:collection -%}
   {%- else -%}
@@ -44,6 +45,9 @@
 
 <div data-page="{{page_t4}}" class="col-lg-{{col}} col-md-{{col_tb}} col-{{col_mb}} mt__30 pr_grid_item product nt_pr desgin__2 tc" data-pr_id="{{pr_id}}">
    <div class="product-inner pr">
+      {% if hot %}
+        <span class="pa pr_lb_h"><img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" /></span>
+      {% endif %}
       {%- if countdown != blank and use_cdt -%}
         <div class="pr_wr_dcimg pr oh">
           <div class="product-image pr oh lazyloadt4s" data-set4url="/?section_id=main-img{{sett_equal}}" data-rendert4s="{{pr_url_js}}">{%- if images_0 != blank %}<noscript><img class="pr_lazy_img main-img nt_img_ratio" loading="lazy" src="{{ images_0 | img_url: '600x' }}" alt="{{ images_0.alt | escape }}"></noscript>{% endif %}<div class="nt_bg_lz nt_fk_lz"{% unless sett_equal %} style="padding-top:{{ 1 | divided_by: images_0.aspect_ratio | times: 100}}%;"{% endunless %}></div></div>

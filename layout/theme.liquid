@@ -36,6 +36,38 @@
     gtag('config', 'G-9WDFET9QS9');
   </script>
 
+<script>
+	window.addEventListener('load',function()
+	{
+		if(window.location.href.includes('/products/')) 
+		{
+			gtag("event", "view_item", {
+			    'send_to': 'G-9WDFET9QS9',
+                items: [
+                {
+                  item_name: document.querySelector('[class="product_title entry-title"]').innerText,
+                  currency: Shopify.currency.active,
+                  price: document.querySelector('#price_ppr ins').innerText.replace(/[^0-9.]/g, '')
+                }
+                ]
+            });
+            document.querySelector('.single_add_to_cart_button').addEventListener('click',function()
+	        {
+	            gtag("event", "add_to_cart", {
+	                'send_to': 'G-9WDFET9QS9',
+                    items: [
+                    {
+                      item_name: document.querySelector('[class="product_title entry-title"]').innerText,
+                      currency: Shopify.currency.active,
+                      price: document.querySelector('#price_ppr ins').innerText.replace(/[^0-9.]/g, '')
+                    }
+                    ]
+                });
+	        })
+		}
+	})
+</script>
+
   <meta charset="utf-8">
   <meta
     name="viewport"
