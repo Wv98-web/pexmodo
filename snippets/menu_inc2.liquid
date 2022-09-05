@@ -42,7 +42,7 @@
                   {%- if bk_stts.lazy_mn and admin_sp == false -%}
                   <div class="row lazy_menu lazyloadt4s lazy_menu_mega" data-t4splitlz data-rendert4s="{{search_url}}/{{blockID}}+ntt4tag" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }' data-set4url='{{url_seir}}'><div class="lds_bginfinity pr"></div></div>
                   {%- else -%}
-                    <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID,custom:true -%}</div>
+                    <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div>
                   {%- endif -%}
               </div></div>
               {%- endif -%}

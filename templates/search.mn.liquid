@@ -18,14 +18,26 @@
     <div class="mb_nav_title pr flex al_center fl_center active" data-id="#shopify-section-mb_cat_js"><span class="db truncate">{{ 'general.mobile_menu.categories' | t }}</span></div>
     <div class="mb_nav_title pr mb_nav_ul flex al_center fl_center" data-id="#shopify-section-mb_nav_js"><span class="db truncate">{{ 'general.mobile_menu.menu' | t }}</span></div>
   </div>
-  <div id="shopify-section-mb_cat_js" class="mb_nav_tab active">{%- section 'mb_cat' -%}</div><div id="shopify-section-mb_nav_js" class="mb_nav_tab">{%- section 'mb_nav' -%}</div>
+  <div id="shopify-section-mb_cat_js" class="mb_nav_tab active">{%- section 'mb_cat' -%}</div><div id="shopify-section-mb_nav_js" class="mb_nav_tab">{%- section 'mb_nav2' -%}</div>
 
 {%- else -%}
 
   <div class="mb_nav_tabs flex al_center mb_cat_{{mb_cat}}">
     <div class="mb_nav_title pr mb_nav_ul flex al_center fl_center active" data-id="#shopify-section-mb_nav_js"><span class="db truncate">{{ 'general.mobile_menu.menu' | t }}</span></div>
     {%- if mb_cat -%}<div class="mb_nav_title pr flex al_center fl_center" data-id="#shopify-section-mb_cat_js"><span class="db truncate">{{ 'general.mobile_menu.categories' | t }}</span></div>{%- endif -%}
+    <div class="mb_nav_title pr flex al_center fl_center" data-id="#shopify-section-mb_cat2_js"><span class="db truncate">FEATURE</span></div>
+      <div class="mb_nav_title pr flex al_center fl_center" data-id="#shopify-section-mb_cat3_js"><span class="db truncate">E-MAGAZINE</span></div>
+      <div class="mb_nav_title pr flex al_center fl_center" data-id="#shopify-section-mb_cat4_js"><span class="db truncate">PEXMOD</span></div>
   </div>
-  <div id="shopify-section-mb_nav_js" class="mb_nav_tab active">{%- section 'mb_nav' -%}</div>{%- if mb_cat -%}<div id="shopify-section-mb_cat_js" class="mb_nav_tab">{%- section 'mb_cat' -%}</div>{%- endif -%}
+  <div id="shopify-section-mb_nav_js" class="mb_nav_tab active">{%- section 'mb_nav2' -%}</div>{%- if mb_cat -%}<div id="shopify-section-mb_cat_js" class="mb_nav_tab">{%- section 'mb_cat' -%}</div>{%- endif -%}
+  <div id="shopify-section-mb_cat2_js" class="mb_nav_tab">
+    {%- section 'mb_cat2' -%}
+  </div>
+  <div id="shopify-section-mb_cat3_js" class="mb_nav_tab">
+    {%- section 'mb_cat3' -%}
+  </div>
+  <div id="shopify-section-mb_cat4_js" class="mb_nav_tab">
+    {%- section 'mb_cat4' -%}
+  </div>
 
 {%- endif -%}

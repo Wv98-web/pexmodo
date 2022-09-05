@@ -170,12 +170,12 @@
 												{%- if image != blank -%}
 													<div class="cat_grid_item__overlay item__position nt_bg_lz lazyloadt4s" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="width"{% if cat_ratio == 'ratio_adapt' %} style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"{% endif %}></div>
 												{%- else -%}
-													<div class="cat_grid_item__overlay item__position nt_bg_lz lazyloadt4s" data-bgset="{{ first_product_img | img_url: '1x1' }}" data-ratio="{{first_product_img.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" style="padding-top:127%;"></div>
+													<div class="cat_grid_item__overlay item__position nt_bg_lz lazyloadt4s" data-bgset="{{ first_product_img | img_url: '1x1' }}" data-ratio="{{first_product_img.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" style="padding-top:100%;"></div>
 												{%- endif -%}
 											</a>
 											<div class="cat_grid_item__wrapper pe_none">
 												<div class="cat_grid_item__title h3">{{ link.title|default:collection.title }}</div>
-												<div class="cat_grid_item__count dn">{{collection.all_products_count}} {{pr_txt}}</div>
+												<!-- <div class="cat_grid_item__count dn">{{collection.all_products_count}} {{pr_txt}}</div> -->
 											</div>
 										</div>
 									</div>

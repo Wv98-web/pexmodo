@@ -569,8 +569,10 @@
 
           sticky_atc_wrap = $('.sticky_atc_wrap'),
           bl_atc_sticky = (selector == '#cart-form_ppr' && $('[data-select-sticky_atc]').length > 0),
+          bl_clothes_details = (selector == '#cart-form_ppr' && $('[data-select-clothes_details]').length > 0),
           js_sticky_qty = $('.js_sticky_qty'),
           js_sticky_sl = $('.js_sticky_sl'),
+          js_clothes_details = $('.js_clothes_details'),
           js_fgr_img = $('.js_fgr_img'),
           sticky_atc_price = $('.sticky_atc_price'),
           sticky_atc_js = $('.sticky_atc_js'),
@@ -663,6 +665,9 @@
              // update sticky addtocart
              if (bl_atc_sticky) {
                updateSticky_atc(variant,sticky_atc_js,js_sticky_sl,js_fgr_img,sticky_atc_price);
+             }
+            if (bl_clothes_details) {
+              updateClothes_details(variant,sticky_atc_js,js_clothes_details);
              }
 
           } else {
@@ -975,6 +980,18 @@
       //$(parent+'.flickityt4s-enabled').off( 'select.flickityt4s', listener_pr).flickityt4s( 'select', index, false, true ).on( 'select.flickityt4s', listener_pr);
       
     };
+
+    function updateClothes_details (variant, sticky_atc_js, js_clothes_details) {
+      //sticky_atc_js.removeAttr("disabled");
+      sticky_atc_js.removeClass("disabled");
+      // update variant name
+      js_clothes_details.val(variant.id);
+      console.log(js_clothes_details, '123')
+
+      var op_cked = js_clothes_details.find('option:checked');
+
+      $('.clothes_sku_a').html(op_cked.text());
+    }
 
     function updateSticky_atc(variant,sticky_atc_js,js_sticky_sl,js_fgr_img,sticky_atc_price) {
 

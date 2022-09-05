@@ -7,7 +7,7 @@
           "type": "img",
           "settings": {
             "image": "shopify:\/\/shop_images\/backtoschool-banner.jpg",
-            "image_mb": "shopify:\/\/shop_images\/213213.jpg",
+            "image_mb": "shopify:\/\/shop_images\/03_082c9b92-974b-4eea-ab5f-fab528b6fc04.jpg",
             "pos_img": "center center",
             "cl_img": "rgba(0,0,0,0)",
             "link_img1": "shopify:\/\/collections\/street-fashion",
@@ -345,16 +345,6 @@
             "url": ""
           }
         },
-        "6102b40f-161e-477c-b82e-e6d5c7491139": {
-          "type": "collection",
-          "settings": {
-            "collection": "sweatshirts",
-            "image": "shopify:\/\/shop_images\/Sweatshirts_2x_97360558-6898-41cb-8c22-d35e6ca6f375.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
         "c9540ac7-f242-4f31-bfa4-7e41145a5426": {
           "type": "collection",
           "settings": {
@@ -375,13 +365,13 @@
             "url": ""
           }
         },
-        "62ad71de-5b2a-48a9-b02f-49a0f70a8ce3": {
+        "6102b40f-161e-477c-b82e-e6d5c7491139": {
           "type": "collection",
           "settings": {
-            "collection": "caps",
-            "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
+            "collection": "sweatshirts",
+            "image": "shopify:\/\/shop_images\/Sweatshirts_2x_97360558-6898-41cb-8c22-d35e6ca6f375.png",
             "img_align": "center",
-            "title": "Caps",
+            "title": "",
             "url": ""
           }
         },
@@ -390,6 +380,16 @@
           "settings": {
             "collection": "sweater-vests",
             "image": "shopify:\/\/shop_images\/Sweater_Vests_2x_8882a134-0c6f-4eac-8c89-92d15085647c.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "d051616c-f6a6-44c5-a04e-5ccc9f052fad": {
+          "type": "collection",
+          "settings": {
+            "collection": "cardigans",
+            "image": "shopify:\/\/shop_images\/Cardigans_2x_94944923-d41b-4120-af16-ec498b8dc93e.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -405,13 +405,13 @@
             "url": ""
           }
         },
-        "d051616c-f6a6-44c5-a04e-5ccc9f052fad": {
+        "62ad71de-5b2a-48a9-b02f-49a0f70a8ce3": {
           "type": "collection",
           "settings": {
-            "collection": "cardigans",
-            "image": "shopify:\/\/shop_images\/Cardigans_2x_94944923-d41b-4120-af16-ec498b8dc93e.png",
+            "collection": "caps",
+            "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
             "img_align": "center",
-            "title": "",
+            "title": "Caps",
             "url": ""
           }
         },
@@ -443,13 +443,13 @@
         "1661320947e5aca80a-3",
         "ce9080f2-d677-4001-b065-30c7fb57705b",
         "9c502019-5504-4f7f-908d-f83e7507bf3b",
-        "6102b40f-161e-477c-b82e-e6d5c7491139",
         "c9540ac7-f242-4f31-bfa4-7e41145a5426",
         "d4356a43-ed6b-41a1-ad1b-3b49bde1aff6",
-        "62ad71de-5b2a-48a9-b02f-49a0f70a8ce3",
+        "6102b40f-161e-477c-b82e-e6d5c7491139",
         "10761950-0881-4093-ae2e-531f43331909",
-        "fd18ee85-e78c-4905-83b2-969f682ad025",
         "d051616c-f6a6-44c5-a04e-5ccc9f052fad",
+        "fd18ee85-e78c-4905-83b2-969f682ad025",
+        "62ad71de-5b2a-48a9-b02f-49a0f70a8ce3",
         "8c28daae-e72d-4df9-9b7f-5d1c319ed357",
         "59881708-dd03-4868-8d17-fb1f43965631"
       ],
@@ -518,19 +518,6 @@
             "col_mb": "4"
           }
         },
-        "16613070881f8b5e82-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "graphic-tee",
-            "image": "shopify:\/\/shop_images\/pet_2x_db161288-da26-4f3f-8748-78fbfd10a305.png",
-            "img_align": "center",
-            "title": "Pet",
-            "url": "",
-            "col": "2",
-            "col_md": "4",
-            "col_mb": "4"
-          }
-        },
         "16613070881f8b5e82-2": {
           "type": "collection",
           "settings": {
@@ -544,11 +531,24 @@
             "col_mb": "4"
           }
         },
+        "7b68be5f-8f2e-44a6-bfef-815a6f01e136": {
+          "type": "collection",
+          "settings": {
+            "collection": "eye-series",
+            "image": "shopify:\/\/shop_images\/eye_2x_188a693f-36ed-42cb-9394-9fca52464fba.png",
+            "img_align": "center",
+            "title": "Eye",
+            "url": "",
+            "col": "2",
+            "col_md": "4",
+            "col_mb": "4"
+          }
+        },
         "16613070881f8b5e82-3": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/cartoon_2x_146bbe79-6bfd-4c91-ae70-a0982246277b.png",
+            "collection": "cartoon-series",
+            "image": "shopify:\/\/shop_images\/2x_e425827a-3823-4d9a-96e2-93bee9f44f6c.png",
             "img_align": "center",
             "title": "Cartoon",
             "url": "",
@@ -560,8 +560,8 @@
         "6e527dba-1c95-4d0c-9a69-7dbfed1e209e": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/abstract_2x_b7360a69-49bf-41da-ab8f-6bba5c5f5310.png",
+            "collection": "abstract-series",
+            "image": "shopify:\/\/shop_images\/2x_29919306-9881-494b-bddb-dc367dea7f8b.png",
             "img_align": "center",
             "title": "Abstract",
             "url": "",
@@ -570,13 +570,13 @@
             "col_mb": "4"
           }
         },
-        "7b68be5f-8f2e-44a6-bfef-815a6f01e136": {
+        "16613070881f8b5e82-1": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/eye_2x_188a693f-36ed-42cb-9394-9fca52464fba.png",
+            "collection": "graphic-tee",
+            "image": "shopify:\/\/shop_images\/pet_2x_db161288-da26-4f3f-8748-78fbfd10a305.png",
             "img_align": "center",
-            "title": "Eye",
+            "title": "Pet",
             "url": "",
             "col": "2",
             "col_md": "4",
@@ -586,11 +586,11 @@
       },
       "block_order": [
         "16613070881f8b5e82-0",
-        "16613070881f8b5e82-1",
         "16613070881f8b5e82-2",
+        "7b68be5f-8f2e-44a6-bfef-815a6f01e136",
         "16613070881f8b5e82-3",
         "6e527dba-1c95-4d0c-9a69-7dbfed1e209e",
-        "7b68be5f-8f2e-44a6-bfef-815a6f01e136"
+        "16613070881f8b5e82-1"
       ],
       "settings": {
         "title": "DIFFERENT SERIES STYLES",
@@ -647,7 +647,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/hot-sale-banner.jpg",
-            "image_mb": "shopify:\/\/shop_images\/213213.jpg",
+            "image_mb": "shopify:\/\/shop_images\/02_eda71038-1245-46b4-83eb-1d3fe521ebfc.jpg",
             "url": "shopify:\/\/collections\/hot-sale",
             "open_link": "_blank",
             "hoverz": false,
@@ -772,12 +772,12 @@
     "166124728961ada76c": {
       "type": "featured_collection2",
       "settings": {
-        "title": "2022 Week 1 of September",
-        "sub_title": "NEW ARRIVAL",
+        "title": "Week 1 of September",
+        "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
         "style_title": "title_bg",
-        "show_line": true,
+        "show_line": false,
         "ic_tt": "gem",
         "show_clpr": false,
         "fs_title": 36,
@@ -789,15 +789,13 @@
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": false,
-        "section_banner": "shopify:\/\/shop_images\/hotsale_banner_2x_8dac64b2-fb29-4b92-bf1a-e9c02befa390.png",
-        "section_banner_mb": "shopify:\/\/shop_images\/213213.jpg",
         "img_align": "center",
         "url": "shopify:\/\/collections\/week-5-of-august",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "hot-sale",
+        "collection": "week-5-of-august",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -830,12 +828,12 @@
     "166124728961ada76a": {
       "type": "featured_collection2",
       "settings": {
-        "title": "2022 Week 4 of August",
-        "sub_title": "NEW ARRIVAL",
+        "title": "Week 4 of August",
+        "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
         "style_title": "title_bg",
-        "show_line": true,
+        "show_line": false,
         "ic_tt": "gem",
         "show_clpr": false,
         "fs_title": 36,
@@ -847,8 +845,6 @@
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": false,
-        "section_banner": "shopify:\/\/shop_images\/hotsale_banner_2x_8dac64b2-fb29-4b92-bf1a-e9c02befa390.png",
-        "section_banner_mb": "shopify:\/\/shop_images\/213213.jpg",
         "img_align": "center",
         "url": "shopify:\/\/collections\/week-4-of-august",
         "open_link": "_blank",
@@ -906,7 +902,7 @@
         "max_height_title_m": 44,
         "enable_section_banner": true,
         "section_banner": "shopify:\/\/shop_images\/flash-sale-banner.jpg",
-        "section_banner_mb": "shopify:\/\/shop_images\/213213.jpg",
+        "section_banner_mb": "shopify:\/\/shop_images\/01_75e6391c-88a5-4991-a266-73e1694aead1.jpg",
         "img_align": "center",
         "url": "shopify:\/\/collections\/flash-sale",
         "open_link": "_blank",

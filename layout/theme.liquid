@@ -244,7 +244,7 @@
   <script>(() => { const previewKey = 'docapp-discount-test'; const urlParams = new URLSearchParams(window.location.search); if (urlParams.get(previewKey)) { window.sessionStorage.setItem(previewKey, JSON.stringify({ active: true, integrationId: urlParams.get('docapp-discount-inst-test') })); } })();</script>
 </head>
 
-<body {{class_body_theme | strip_newlines-}}>
+<body {{class_body_theme | strip_newlines-}} data-pexmoder={{ customer.id }}>
   {% if content_for_header contains 'convert_global' %}
   <script type="text/javascript">
     var _conv_page_type = "{{ request.page_type }}";
@@ -270,7 +270,7 @@
       class="bgbl footer-1"
     >{%- section 'footer_top' -%}{%- section 'footer_bot' -%}</footer>
   </div>
-  {%- render 'div_html',t_name:t_name -%}
+  {%- render 'div_html2',t_name:t_name -%}
   
 
   <script>

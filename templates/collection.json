@@ -45,8 +45,8 @@
         "shown": true,
         "use_specify_image": false,
         "parallax": false,
-        "color": "#878787",
-        "overlay": 80,
+        "color": "#603dae",
+        "overlay": 100,
         "padding": 30,
         "paddingmb": 20,
         "bg_pos": "center center",
@@ -97,7 +97,7 @@
         "round_cd": true,
         "cdt_des": "1",
         "use_eq_height": true,
-        "image_ratio": "ratio1_1",
+        "image_ratio": "ratio_nt",
         "image_size": "nt_cover",
         "image_position": "default"
       }

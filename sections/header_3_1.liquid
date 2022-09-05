@@ -6,7 +6,7 @@
   assign h__bgimg = settings.h__bgimg -%}
 
 {%- if current_tags contains 'ntt4tag' and current_tags -%}
-  {%- render 'menu_import2',section:section,custom:true -%}
+  {%- render 'menu_import2',section:section -%}
 {%- else -%}
   <div class="header__mid{% if h__bgimg != blank %} lazyloadt4s h__lz_img" data-bgset="{{ h__bgimg | img_url: '1x1' }}" data-ratio="{{h__bgimg.aspect_ratio}}" data-sizes="auto"{% else %}"{% endif %}>
     <div class="container">

@@ -2042,6 +2042,57 @@ if ($.support.pjax) {
                 $this.siblings(".js_progress_bar").hide();
               }
             }
+
+            /* report ga start*/
+            const MIC_ID = 6338834464988;
+            let pp_report = sessionStorage.getItem('pp_reports');
+            let user = $('body').data('pexmoder');
+
+            if(user == MIC_ID){
+                let is_collection = window.location.pathname.includes("/collections/"),
+        			is_product_dt = window.location.pathname.includes("/products/"),
+                    pr_set = $(".products.nt_products_holder").children(),
+                    rp_data = pp_report;
+
+                if(rp_data){
+                //collection page
+        		if (is_collection && !is_product_dt) {
+                    // default
+                    pr_set.map(function(index, item){
+                      let item_data = JSON.parse(rp_data).filter(function(pp_data){
+                          return pp_data.product_id == item.dataset.pr_id;
+                      });
+                      console.log(item_data)
+                      let block = `
+                        <div style="position: absolute;top: 0;right: 0;z-index: 1;background: rgb(86 102 207);color: rgb(255 255 255);padding: 10px 15px;font-size:0.6rem;">
+                          <div>过去7天数据</div>
+                          <div>浏览量: ${item_data[0].last7day_pageviews}</div>
+                          <div>用户数: ${item_data[0].last7day_users}</div>
+                          <div>点击率: ${(item_data[0].last7day_ctr * 100).toFixed(2)}%</div>
+                          <div>加购数: ${item_data[0].last7day_to_cart}</div>
+                          <div>加购率: ${(item_data[0].last7day_cart_rate * 100).toFixed(2)}%</div>
+                          <div>结账数: ${item_data[0].last7day_ic_count}</div>
+                          <div>结账率: ${(item_data[0].last7day_checkout_rate * 100).toFixed(2)}%</div>
+                          <div>订单数: ${item_data[0].last7day_orders}</div>
+                          <div>转化率: ${(item_data[0].last7day_conversion * 100).toFixed(2)}%</div>
+                          <div>历史数据</div>
+                          <div>发布时间: ${item_data[0].created_at}</div>
+                          <div>历史订单: ${item_data[0].history_orders}</div>
+                          <div>整体转化率: ${(item_data[0].overall_conversion * 100).toFixed(2)}%</div>
+                        </div>
+                      `
+                      $(item).prepend(block);
+                    })
+        		}
+        		//collection product details
+        		if (is_collection && is_product_dt) {
+        		}
+        		//product details
+        		if (!is_collection && is_product_dt) {
+        		}
+              }
+            }
+            /* report ga end*/
           });
       });
       

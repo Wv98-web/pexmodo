@@ -147,7 +147,7 @@
                      {%- if zoom_tp == '2' %}<div class="dt_img_zoom pa t__0 r__0 dib"></div>{% endif -%}
                   </div>
                </div>
-               <div class="{{class_summary}} col-12 product-infors pr_sticky_su"><div class="theiaStickySidebar">{%- render 'pr_summary',section:section -%}</div></div>
+               <div class="{{class_summary}} col-12 product-infors pr_sticky_su"><div class="theiaStickySidebar">{%- render 'pr_summary2',section:section -%}</div></div>
             </div>
          </div>
       </div>
@@ -883,10 +883,28 @@
         ]
       },
       {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
         "type": "frm",
         "name": "Product Form",
         "limit": 1,
         "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Section name",
+            "default": "Product Form",
+            "info": "Useless"
+          },
          {
            "type": "select",
            "id": "ani",
@@ -1114,7 +1132,28 @@
            "label": "Show dynamic checkout button",
            "info": "Lets customers check out directly using a familiar payment method. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)",
            "default": false
-         }
+         },
+         {
+           "type": "page",
+           "id": "page",
+           "label": "Content page",
+           "info": "This page content will appear."
+         },
+          {
+            "type": "color",
+            "id": "bg",
+            "label": "Background"
+          },
+          {
+            "type": "range",
+            "id": "bdr",
+            "label": "Border radius",
+            "unit": "px",
+            "min": 1,
+            "max": 50,
+            "step": 1,
+            "default": 15
+          }
         ]
       },
       {
