@@ -11,7 +11,7 @@
       <span class="pa co_lb_h"><img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" /></span>
     {% endif %}
     <a href="{{ block.settings.url | default:collection.url }}"><div class="cat_grid_item__content pr oh is-flex al_center h__100">
-      <div class="cat_grid_item__image col-lg-6 col-12 pt__5 pb__5">
+      <div class="cat_grid_item__image col-lg-6 col-12 pt__10 pb__10">
         <div href="{{ block.settings.url | default:collection.url }}" class="db cat_grid_item__link"{% if image != blank and Ismaxwh %} style="margin: 0 auto;max-height: {{image.height}}px;max-width: {{image.width}}px"{% endif %}>
         {%- if image != blank -%}
           <div class="cat_grid_item__overlay item__position equal_nt nt_contain nt_bg_lz lazyloadt4s {{block.settings.img_align}}" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="width" {% if cat_grid_item %} style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"{% endif %}></div>

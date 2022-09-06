@@ -68,6 +68,9 @@ jQuery_T4NT(document).ready(function ($) {
 	$('.notice_close').click(() => {
 		$('.notice_content_wrapper').hide();
 	});
+	$('.notice_cover').click(() => {
+		$('.notice_content_wrapper').hide();
+	});
 });
 
 new ResizeSensor($(".additional_checkout_buttons"), function () {
