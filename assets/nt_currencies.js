@@ -1173,8 +1173,13 @@ Currency.format = nt_settings.currency_format || 'money_format';
           var baseAmount = $this.attr(dt_base);
 
           // If we are converting to a currency that we have saved, we will use the saved amount.
+          setTimeout(() => {
           if ($this.attr('data-currency-'+newCurrency)) {
+            if ($this.attr('data-currency') == "USD") {
+              $this.html("USD " + $this.attr('data-currency-'+newCurrency));
+            } else {
             $this.html($this.attr('data-currency-'+newCurrency));
+            }
           } else {
              var newFormat = moneyFormats[newCurrency][format || Currency.format] || '{{amount}}';
 
@@ -1199,6 +1204,7 @@ Currency.format = nt_settings.currency_format || 'money_format';
             $this.html(newFormattedAmount);
             $this.attr('data-currency-'+newCurrency, newFormattedAmount);
           }
+          }, 500);
 
           // END JS
 

@@ -261,7 +261,7 @@
     "flag_currency": true,
     "size_currency": "sm",
     "currency_pos": "0",
-    "supported_currencies": "EUR - EUR | USD - USD | GBP - GBP| SEK -SEK",
+    "supported_currencies": "USD - USD | GBP - GBP| CAD - CAD",
     "currency_format": "money_with_currency_format",
     "round_currency": false,
     "notify_currency": true,
@@ -671,7 +671,7 @@
             "type": "simple",
             "settings": {
               "title": "TRACKING",
-              "url": "shopify:\/\/pages\/shipping-track",
+              "url": "shopify:\/\/pages\/track",
               "open_link": "_self",
               "icon": "truck",
               "cus_cl": false,
@@ -973,7 +973,7 @@
             "type": "menu",
             "settings": {
               "title": "Tracking Order",
-              "url": "shopify:\/\/pages\/tracking-order",
+              "url": "shopify:\/\/pages\/track",
               "open_link": "_self",
               "menu": "",
               "icon": "truck",

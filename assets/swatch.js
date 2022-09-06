@@ -986,7 +986,6 @@
       sticky_atc_js.removeClass("disabled");
       // update variant name
       js_clothes_details.val(variant.id);
-      console.log(js_clothes_details, '123')
 
       var op_cked = js_clothes_details.find('option:checked');
 

@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "heading": {
+      "type": "pages_heading",
+      "disabled": true,
+      "blocks": {
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2d": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2d"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "#000000",
+        "overlay": 54,
+        "padding": 50,
+        "paddingmb": 50,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "main": {
+      "type": "main-pagetrack",
+      "blocks": {
+        "62f5266e-aa3b-4f42-87e8-5bcbcff98340": {
+          "type": "notice",
+          "settings": {
+            "content": "<p>Your order would be shipped on time. But delivery on time cannot be 100%guaranteed due to the worldwide outbreak of a pandemic. Your package might be delayed due to the long queue in customs and the unclear transport aging in the destination country. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "62f5266e-aa3b-4f42-87e8-5bcbcff98340"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

@@ -60,6 +60,14 @@ jQuery_T4NT(document).ready(function ($) {
 					}
 	}
 	/* report ga end*/
+
+	/* track notice */
+	$('#notice_btn').click(() => {
+		$('.notice_content_wrapper').show();
+	});
+	$('.notice_close').click(() => {
+		$('.notice_content_wrapper').hide();
+	});
 });
 
 new ResizeSensor($(".additional_checkout_buttons"), function () {
