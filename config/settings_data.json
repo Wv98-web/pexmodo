@@ -487,6 +487,8 @@
           "d51b71a4-8545-444a-ba9b-92179e7b5f3f": {
             "type": "mega",
             "settings": {
+              "only_feature": false,
+              "only_magazine": false,
               "title": "NEW",
               "url": "shopify:\/\/collections\/trendy-on-social",
               "open_link": "_self",
@@ -498,9 +500,19 @@
               "label_n": true,
               "label_h": false,
               "lazy_mn": true,
-              "pos": "default",
+              "pos": "center",
               "wid": "full",
-              "cus_wid": 1200
+              "cus_wid": 1600
+            }
+          },
+          "ffb565ee-4c34-4e76-954c-750d0cd1fb46": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "week-2-of-september",
+              "title": "",
+              "col": "2"
             }
           },
           "6027a8c6-ee3a-4018-a832-9931585d5427": {
@@ -553,51 +565,55 @@
               "col": "2"
             }
           },
-          "ffb565ee-4c34-4e76-954c-750d0cd1fb46": {
-            "type": "cat",
+          "01f21040-c175-48aa-bd4f-09e7ea52b6d9": {
+            "type": "mega",
             "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-4-of-july",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "3d99aef3-bd0b-49a7-8bca-b21c58256a93": {
-            "type": "list",
-            "settings": {
+              "only_feature": false,
+              "only_magazine": false,
               "title": "HOT SALE",
               "url": "shopify:\/\/collections\/hot-sale",
               "open_link": "_self",
-              "menu": "hot-sale",
-              "col": "3",
               "icon": "",
               "cus_cl": false,
               "cl": "#ec0101",
               "lb": "",
               "lb_cl": "",
               "label_n": false,
-              "label_h": true,
+              "label_h": false,
               "lazy_mn": true,
               "pos": "center",
               "wid": "full",
-              "cus_wid": 1200,
-              "enable_cat": true,
+              "cus_wid": 1600
+            }
+          },
+          "b1a5dccc-d877-4d9d-be84-3225359ea4e5": {
+            "type": "cat",
+            "settings": {
               "cat_design": "5",
-              "hoverz": false,
-              "cat_ratio": "ratio4_3",
-              "cat_size": "nt_contain",
-              "cat_position": "8",
-              "enable_pr": true,
-              "pr_des": "1 tc",
-              "show_vendor": false,
-              "use_cdt": false,
-              "round_cd": false,
-              "cdt_des": "1",
-              "use_eq_height": false,
-              "image_ratio": "ratio_nt",
-              "image_size": "nt_cover",
-              "image_position": "8"
+              "hoverz": true,
+              "collection": "the-best-selling-tops",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "488f9d0f-b0ef-4861-9173-3521d147d7c7": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "the-best-selling-bottoms",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "f78e793d-86b2-4262-b6de-bd070fa4ad30": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "the-best-selling-accessories",
+              "title": "",
+              "col": "2"
             }
           },
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea": {
@@ -615,14 +631,14 @@
               "label_h": false
             }
           },
-          "1557aefc-9501-4ea1-a7ab-679f1ac94b10": {
-            "type": "list",
+          "84bd709b-231a-4e00-b33b-877d9df5147e": {
+            "type": "mega",
             "settings": {
+              "only_feature": false,
+              "only_magazine": false,
               "title": "CATEGORY",
               "url": "shopify:\/\/collections",
               "open_link": "_self",
-              "menu": "category",
-              "col": "2",
               "icon": "",
               "cus_cl": false,
               "cl": "#ec0101",
@@ -633,28 +649,155 @@
               "lazy_mn": true,
               "pos": "center",
               "wid": "full",
-              "cus_wid": 1200,
-              "enable_cat": true,
-              "cat_design": "5",
-              "hoverz": true,
-              "cat_ratio": "ratio_nt",
-              "cat_size": "nt_contain",
-              "cat_position": "8",
-              "enable_pr": true,
-              "pr_des": "1",
-              "show_vendor": false,
-              "use_cdt": false,
-              "round_cd": false,
-              "cdt_des": "1",
-              "use_eq_height": false,
-              "image_ratio": "ratio_nt",
-              "image_size": "nt_cover",
-              "image_position": "8"
+              "cus_wid": 1600
             }
           },
-          "aeb3f88f-f960-47ae-bc27-386cd1d20152": {
-            "type": "simple",
+          "67fac2d4-67a5-463b-b2d2-d9da4f5246df": {
+            "type": "cat",
             "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "men",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "d6145a2a-6e83-4161-997f-6e3c6235699b": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "women",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "18e8df2b-4a5d-41ce-8ab7-50de4c008271": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "trendy-on-social",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "ca2aef99-04b9-456e-a01a-65bd6def657c": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "top",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "74a7fb75-21b0-43c6-8e4a-51067e812ec2": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "bottom",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "0ee651d8-1287-4f5d-8f3f-de8e928356c6": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "accessories",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "914ae5ea-042d-4d3b-8071-7979fed67048": {
+            "type": "mega",
+            "settings": {
+              "only_feature": true,
+              "only_magazine": false,
+              "title": "FEATURE",
+              "url": "shopify:\/\/collections",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "label_n": false,
+              "label_h": false,
+              "lazy_mn": false,
+              "pos": "center",
+              "wid": "full",
+              "cus_wid": 1600
+            }
+          },
+          "ee292f4e-962d-41d9-883b-f2d5e8f0f182": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "abstract-series",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "d3399087-e618-4797-a90d-0e863dd346ad": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "cartoon-series",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "313fa09a-2677-4130-bcfe-fcbcb3b8563e": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "cross-series",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "4bf779ac-6067-4207-b625-19ac86853ac6": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "graphic-tee",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "571cd017-234c-4c79-8afd-96cbbc22111f": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "eye-series",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "3568ae8c-f8c2-4c58-9f12-94742bf47bec": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "skeleton-series",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "48c231dd-c1e0-4e2c-9cd6-e26f8941395a": {
+            "type": "mega",
+            "settings": {
+              "only_feature": false,
+              "only_magazine": false,
               "title": "E-MAGAZINES",
               "url": "shopify:\/\/pages\/magazine",
               "open_link": "_self",
@@ -664,7 +807,47 @@
               "lb": "",
               "lb_cl": "",
               "label_n": false,
-              "label_h": false
+              "label_h": false,
+              "lazy_mn": true,
+              "pos": "center",
+              "wid": "full",
+              "cus_wid": 1600
+            }
+          },
+          "91a30f85-e775-407c-8150-41ad8e70b1d2": {
+            "type": "magazine",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/03_2x_20c39bb1-72bc-4952-b8b2-0dadff401879.png",
+              "cat_design": "5",
+              "hoverz": false,
+              "link": "shopify:\/\/pages\/magazine_1",
+              "collection": "",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "ea795e0b-ddd9-488f-8728-80aa9cab042c": {
+            "type": "magazine",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/02_2x_67807694-9477-4f40-98d5-8ef524eae909.png",
+              "cat_design": "5",
+              "hoverz": false,
+              "link": "shopify:\/\/pages\/magazine_1_2",
+              "collection": "",
+              "title": "",
+              "col": "2"
+            }
+          },
+          "d00fb042-7b45-4e00-91f2-da1f61561a54": {
+            "type": "magazine",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/01_2x_2aa1a139-64fd-4d6d-ad86-e593796370a5.png",
+              "cat_design": "5",
+              "hoverz": false,
+              "link": "shopify:\/\/pages\/magazine_1_3",
+              "collection": "",
+              "title": "",
+              "col": "2"
             }
           },
           "445ccff6-be99-4484-ac95-c7bc25bd3c80": {
@@ -681,22 +864,57 @@
               "label_n": false,
               "label_h": false
             }
+          },
+          "88726381-63bf-4bf9-a4be-0075741c50d4": {
+            "type": "simple",
+            "settings": {
+              "title": "HELP",
+              "url": "\/",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "label_n": false,
+              "label_h": false
+            }
           }
         },
         "block_order": [
           "86bd9393-abd1-4b5c-b658-5155f77baf54",
           "d51b71a4-8545-444a-ba9b-92179e7b5f3f",
+          "ffb565ee-4c34-4e76-954c-750d0cd1fb46",
           "6027a8c6-ee3a-4018-a832-9931585d5427",
           "c771f502-5d2b-4ea4-940f-625c26734ffd",
           "8e0c761f-15cf-4be5-a090-8991bd56f4cf",
           "ad3230ef-3b3c-4367-97b8-4f2494191818",
           "1628de76-32d2-46f3-bad0-85b806c6456d",
-          "ffb565ee-4c34-4e76-954c-750d0cd1fb46",
-          "3d99aef3-bd0b-49a7-8bca-b21c58256a93",
+          "01f21040-c175-48aa-bd4f-09e7ea52b6d9",
+          "b1a5dccc-d877-4d9d-be84-3225359ea4e5",
+          "488f9d0f-b0ef-4861-9173-3521d147d7c7",
+          "f78e793d-86b2-4262-b6de-bd070fa4ad30",
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea",
-          "1557aefc-9501-4ea1-a7ab-679f1ac94b10",
-          "aeb3f88f-f960-47ae-bc27-386cd1d20152",
-          "445ccff6-be99-4484-ac95-c7bc25bd3c80"
+          "84bd709b-231a-4e00-b33b-877d9df5147e",
+          "67fac2d4-67a5-463b-b2d2-d9da4f5246df",
+          "d6145a2a-6e83-4161-997f-6e3c6235699b",
+          "18e8df2b-4a5d-41ce-8ab7-50de4c008271",
+          "ca2aef99-04b9-456e-a01a-65bd6def657c",
+          "74a7fb75-21b0-43c6-8e4a-51067e812ec2",
+          "0ee651d8-1287-4f5d-8f3f-de8e928356c6",
+          "914ae5ea-042d-4d3b-8071-7979fed67048",
+          "ee292f4e-962d-41d9-883b-f2d5e8f0f182",
+          "d3399087-e618-4797-a90d-0e863dd346ad",
+          "313fa09a-2677-4130-bcfe-fcbcb3b8563e",
+          "4bf779ac-6067-4207-b625-19ac86853ac6",
+          "571cd017-234c-4c79-8afd-96cbbc22111f",
+          "3568ae8c-f8c2-4c58-9f12-94742bf47bec",
+          "48c231dd-c1e0-4e2c-9cd6-e26f8941395a",
+          "91a30f85-e775-407c-8150-41ad8e70b1d2",
+          "ea795e0b-ddd9-488f-8728-80aa9cab042c",
+          "d00fb042-7b45-4e00-91f2-da1f61561a54",
+          "445ccff6-be99-4484-ac95-c7bc25bd3c80",
+          "88726381-63bf-4bf9-a4be-0075741c50d4"
         ],
         "settings": {
           "height": 75,

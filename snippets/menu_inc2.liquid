@@ -38,14 +38,16 @@
             <li id="item_{{blockID}}" class="type_{{block.type}} menu_wid_{{bk_stts.wid}} menu-item has-children menu_has_offsets menu_{{bk_stts.pos}} pos_{{bk_stts.pos}}" {{ block.shopify_attributes }}>
                <a class="lh__1 flex al_center pr" href="{{bk_stts.url | default:root_url}}" target="{{bk_stts.open_link}}"{% if bk_stts.cus_cl %} style="color:{{bk_stts.cl}}"{% endif %}>{%- render 'title_menu3',block:block -%}</a>
                {%- if linklists[bk_stts.menu].links.size > 0 -%}
-               <div class="{{bk_stts.wid}} sub-menu"><div class="container"{% if  bk_stts.wid != 'full nav_t4cnt' %} style="width:{{bk_stts.cus_wid}}px"{% endif %}>
-                  {%- if bk_stts.lazy_mn and admin_sp == false -%}
-                  <div class="row lazy_menu lazyloadt4s lazy_menu_mega" data-t4splitlz data-rendert4s="{{search_url}}/{{blockID}}+ntt4tag" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }' data-set4url='{{url_seir}}'><div class="lds_bginfinity pr"></div></div>
-                  {%- else -%}
-                    <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div>
-                  {%- endif -%}
-              </div></div>
-              {%- endif -%}
+               <div class="{{bk_stts.wid}} sub-menu">
+                  <div class="container"{% if  bk_stts.wid != 'full nav_t4cnt' %} style="width:{{bk_stts.cus_wid}}px"{% endif %}>
+                     {%- if bk_stts.lazy_mn and admin_sp == false -%}
+                     <div class="row lazy_menu lazyloadt4s lazy_menu_mega" data-t4splitlz data-rendert4s="{{search_url}}/{{blockID}}+ntt4tag" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }' data-set4url='{{url_seir}}'><div class="lds_bginfinity pr"></div></div>
+                     {%- else -%}
+                     <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div>
+                     {%- endif -%}
+                  </div>
+               </div>
+               {%- endif -%}
             </li>
             
          {%- when 'logo' -%}{%- render 'nt_logo', nt_logo:'li',class:'menu-item',class2:'lh__1 flex al_center pr' -%}
@@ -70,12 +72,60 @@
                </a>
                <div class="{{bk_stts.wid}} sub-menu">
                   <div class="container"{% if  bk_stts.wid != 'full nav_t4cnt' %} style="width:{{bk_stts.cus_wid}}px"{% endif %}>
-                  {%- if bk_stts.lazy_mn and admin_sp == false -%}
-                    <div class="row lazy_menu lazyloadt4s lazy_menu_mega" data-t4splitlz data-rendert4s="{{search_url}}/{{blockID}}+ntt4tag" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }' data-set4url='{{url_seir}}'><div class="lds_bginfinity pr"></div></div>
-                  {%- else -%}
-                    <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div>
-                  {%- endif -%}
-              </div></div>
+                     {%- if bk_stts.only_feature -%}
+                        <div class="row">
+                           <div class="col-8">
+                              <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div> 
+                           </div>
+                           <div class="col-4">
+                              <div>
+                                 <div class="h3">SHOP BY COLOR</div>
+                                 <form action="{{ routes.search_url }}">
+                                    <input type="hidden" name="type" value="product,page" />
+                                    <input type="hidden" name="options[unavailable_products]" value="hide" />
+                                    <input type="hidden" name="options[prefix]" value="last" />
+                                    <div class="flex fl_wrap al_center">
+                                       {%- assign colors = "Red,Orange,Yellow,Green,Purple,Blue,Black,White,Gray,Pink" | split: ',' -%}
+                                       {%- for color in colors -%}
+                  
+                                          <div class="col-4">
+                                             <input type="submit" name="q" value="{{ color }}" style="width: 100%;padding: 0;border: none;background: {{ color }};color: {{ color }};" />
+                                             <input type="submit" name="q" value="{{ color }}" style="width: 100%;padding: 0;border: none;background: unset;color: #000000;" />
+                                          </div>
+                  
+                                       {%- endfor -%}
+                                    </div>
+                                 </form>
+                              </div>
+                              <div>
+                                 <div class="h3">SHOP BY SIZE</div>
+                                 <form action="{{ routes.search_url }}">
+                                    <input type="hidden" name="type" value="product,page" />
+                                    <input type="hidden" name="options[unavailable_products]" value="hide" />
+                                    <input type="hidden" name="options[prefix]" value="last" />
+                                    <div class="flex fl_wrap al_center">
+                                       {%- assign sizes = "X,M,L,XL,2XL,3XL,4XL,5XL" | split: ',' -%}
+                                       {%- for size in sizes -%}
+                  
+                                          <div class="col-4">
+                                             <input type="submit" name="q" value="{{ size }}" style="width: 100%;padding: 0;border: none;background: unset;color: #000000;" />
+                                          </div>
+                  
+                                       {%- endfor -%} 
+                                    </div> 
+                                 </form> 
+                              </div>
+                           </div>
+                        </div>
+                     {%- else -%}
+                        {%- if bk_stts.lazy_mn and admin_sp == false -%}
+                        <div class="row lazy_menu lazyloadt4s lazy_menu_mega" data-t4splitlz data-rendert4s="{{search_url}}/{{blockID}}+ntt4tag" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }' data-set4url='{{url_seir}}'><div class="lds_bginfinity pr"></div></div>
+                        {%- else -%}
+                        <div class="row lazy_menu unlazy_menu_mega" data-jspackery='{ "itemSelector": ".sub-column-item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'>{%- render 'menu_import2',section:section,Current_id:blockID -%}</div>
+                        {%- endif -%}
+                     {%- endif -%}
+                  </div>
+               </div>
             </li>
       {%- endcase -%}
 

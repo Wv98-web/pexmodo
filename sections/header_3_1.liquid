@@ -1,6 +1,6 @@
 {%- liquid
   assign se_blocks = section.blocks 
-  assign tp_blocks = se_blocks | map: 'type' | join: ',' | remove:',link2' | remove:',link' | remove:',pr' | remove:',banner' | remove:',html' | remove:',cat' | split: ','
+  assign tp_blocks = se_blocks | map: 'type' | join: ',' | remove:',link2' | remove:',link' | remove:',pr' | remove:',banner' | remove:',html' | remove:',cat' | remove:',feature' | remove:',magazine' | split: ','
   assign blocktp = 't4'
   assign admin_sp = request.design_mode
   assign h__bgimg = settings.h__bgimg -%}
@@ -22,7 +22,7 @@
   </div> 
 
   {%- if admin_sp -%}
-    {%- assign arr_sub = 'link,link2,banner,html,pr,cat' -%}
+    {%- assign arr_sub = 'link,link2,banner,html,pr,cat,feature' -%}
     {%- for block in se_blocks %}
       <div {% if arr_sub contains block.type %}{% assign id_data = block.id %} {{ block.shopify_attributes }}{% else %}{% assign id_data2 = block.id %}{% endif %}id="bkjs_{{id_data}}" data-id='{{id_data2}}'></div>
     {% endfor -%}
@@ -37,7 +37,7 @@
   {
     "name": "Header Design 3.1",
     "class": "sp_header_mid",
-	  "settings": [
+    "settings": [
       {
         "type": "range",
         "id": "height",
@@ -61,56 +61,68 @@
       {
         "type": "select",
         "id": "align",
-         "options": [
-          {
-            "value": "tl",
-            "label": "Left"
-          },
-          {
-            "value": "tc",
-            "label": "Center"
-          },
-          {
-            "value": "tr",
-            "label": "Right"
-          }
-         ],
+          "options": [
+            {
+              "value": "tl",
+              "label": "Left"
+            },
+            {
+              "value": "tc",
+              "label": "Center"
+            },
+            {
+              "value": "tr",
+              "label": "Right"
+            }
+          ],
         "label": "Main menu align:",
         "default": "tc"
       },
-	    {
-	      "type": "select",
-	      "id": "hover",
-	      "options": [
-	        {
-	          "value": "hover_side_up",
-	          "label": "Hover Slide Up"
-	        },
-	        {
-	          "value": "hover_fade_in",
-	          "label": "Hover Fade In"
-	        }
-	      ],
-	      "label": "Hover effect:",
-	      "default": "hover_side_up"
-	    }
-	  ],
+      {
+        "type": "select",
+        "id": "hover",
+        "options": [
+          {
+            "value": "hover_side_up",
+            "label": "Hover Slide Up"
+          },
+          {
+            "value": "hover_fade_in",
+            "label": "Hover Fade In"
+          }
+        ],
+        "label": "Hover effect:",
+        "default": "hover_side_up"
+      }
+  ] ,
     "blocks": [
       {
         "type": "mega",
         "name": "Mega Menu (Parent)",
         "settings": [
           {
+            "type": "checkbox",
+            "id": "only_feature",
+            "label": "Only use FEATURE menu",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "only_magazine",
+            "label": "Only use MAGAZINES menu",
+            "default": false
+          },
+          {
             "type": "text",
             "id": "title",
             "label": "Heading",
             "default": "Heading"
           },
-         {
+          {
             "type": "url",
             "id": "url",
             "label": "Link"
-         },
+          },
           {
             "type": "select",
             "id": "open_link",
@@ -119,7 +131,7 @@
                 "value": "_self",
                 "label": "Current window (_self)"
               },
-             {
+              {
                 "value": "_blank",
                 "label": "New window (_blank)"
               }
@@ -214,7 +226,7 @@
             "id": "cus_wid",
             "label": "== Custom Width",
             "min": 200,
-            "max": 1200,
+            "max": 1800,
             "step": 50,
             "unit": "px",
             "default": 1200
@@ -231,11 +243,11 @@
             "label": "Heading",
             "default": "Heading"
           },
-         {
+          {
             "type": "url",
             "id": "url",
             "label": "Link"
-         },
+          },
           {
             "type": "select",
             "id": "open_link",
@@ -244,7 +256,7 @@
                 "value": "_self",
                 "label": "Current window (_self)"
               },
-             {
+              {
                 "value": "_blank",
                 "label": "New window (_blank)"
               }
@@ -256,7 +268,7 @@
             "id": "menu",
             "label": "Add menu"
           },
-           {
+          {
             "type": "select",
             "id": "col",
             "default": "3",
@@ -287,7 +299,7 @@
               }
             ],
             "label": "Columns:"
-           },
+          },
           {
             "id": "icon",
             "type": "text",
@@ -376,7 +388,7 @@
             "id": "cus_wid",
             "label": "== Custom Width",
             "min": 200,
-            "max": 1200,
+            "max": 1800,
             "step": 50,
             "unit": "px",
             "default": 1200
@@ -391,30 +403,30 @@
             "label": "Enable Collection Type?",
             "default": true
           },
-           {
-             "type": "select",
-             "id": "cat_design",
-             "options": [
+          {
+            "type": "select",
+            "id": "cat_design",
+            "options": [
               {
-                 "value": "1",
-                 "label": "Default"
-               },
-               {
-                 "value": "2",
-                 "label": "Design 2"
-               },
-               {
-                 "value": "6",
-                 "label": "Design 3"
-               },
-               {
-                 "value": "5",
-                 "label": "Design 5"
-               }
-             ],
-             "label": "Collections design",
-             "default": "1"
-           },
+                "value": "1",
+                "label": "Default"
+              },
+              {
+                "value": "2",
+                "label": "Design 2"
+              },
+              {
+                "value": "6",
+                "label": "Design 3"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              }
+            ],
+            "label": "Collections design",
+            "default": "1"
+          },
           {
             "type": "checkbox",
             "id": "hoverz",
@@ -565,24 +577,24 @@
             "label": "Image Position",
             "default": "8"
           },
-         {
-           "type": "image_picker","id": "image1","label": "Image #1"
-         }, 
-         {
-           "type": "image_picker","id": "image2","label": "Image #2"
-         },   
-         {
-           "type": "image_picker","id": "image3","label": "Image #3"
-         },   
-         {
-           "type": "image_picker","id": "image4","label": "Image #4"
-         },   
-         {
-           "type": "image_picker","id": "image5","label": "Image #5"
-         },   
-         {
-           "type": "image_picker","id": "image6","label": "Image #6"
-         },     
+          {
+            "type": "image_picker","id": "image1","label": "Image #1"
+          }, 
+          {
+            "type": "image_picker","id": "image2","label": "Image #2"
+          },   
+          {
+            "type": "image_picker","id": "image3","label": "Image #3"
+          },   
+          {
+            "type": "image_picker","id": "image4","label": "Image #4"
+          },   
+          {
+            "type": "image_picker","id": "image5","label": "Image #5"
+          },   
+          {
+            "type": "image_picker","id": "image6","label": "Image #6"
+          },     
           {
             "type": "header",
             "content": "+ Product Type"
@@ -828,11 +840,11 @@
             "label": "Heading",
             "default": "Heading"
           },
-         {
+          {
             "type": "url",
             "id": "url",
             "label": "Link"
-         },
+          },
           {
             "type": "select",
             "id": "open_link",
@@ -841,7 +853,7 @@
                 "value": "_self",
                 "label": "Current window (_self)"
               },
-             {
+              {
                 "value": "_blank",
                 "label": "New window (_blank)"
               }
@@ -1413,7 +1425,7 @@
             "label": "Image Position",
             "default": "8"
           }, 
-           {
+          {
             "type": "select",
             "id": "col",
             "default": "4",
@@ -1464,61 +1476,61 @@
               }
             ],
             "label": "Width col:"
-           }
+          }
         ]
       },
       {
         "type": "cat",
         "name":"Collection (child)",
         "settings": [
-         {
-           "type": "image_picker",
-           "id": "image",
-           "label": "Image"
-         },   
-         {
-           "type": "select",
-           "id": "cat_design",
-           "options": [
-            {
-               "value": "1",
-               "label": "Default"
-             },
-             {
-               "value": "2",
-               "label": "Design 2"
-             },
-             /*{
-               "value": "3",
-               "label": "Design 3"
-             },
-             {
-               "value": "4",
-               "label": "Design 4"
-             },
-             {
-               "value": "5",
-               "label": "Design 5"
-             },*/
-             {
-               "value": "6",
-               "label": "Design 3"
-             },
-             {
-               "value": "5",
-               "label": "Design 5"
-             }
-           ],
-           "label": "Collections design",
-           "default": "1"
-         },
-        {
-          "type": "checkbox",
-          "id": "hoverz",
-          "label": "Enable zoom image on hover?",
-          "default": true
-        },
-         {
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },   
+          {
+            "type": "select",
+            "id": "cat_design",
+            "options": [
+              {
+                "value": "1",
+                "label": "Default"
+              },
+              {
+                "value": "2",
+                "label": "Design 2"
+              },
+              /*{
+                "value": "3",
+                "label": "Design 3"
+              },
+              {
+                "value": "4",
+                "label": "Design 4"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              },*/
+              {
+                "value": "6",
+                "label": "Design 3"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              }
+            ],
+            "label": "Collections design",
+            "default": "1"
+          },
+          {
+            "type": "checkbox",
+            "id": "hoverz",
+            "label": "Enable zoom image on hover?",
+            "default": true
+          },
+          {
             "id": "collection",
             "type": "collection",
             "label": "Collection"
@@ -1529,74 +1541,311 @@
             "label": "Title block (optional)",
             "info": "Leave empty to use 'collection title' title."
           },
-         {
-          "type": "select",
-          "id": "col",
-          "default": "4",
-          "options": [
-            {
-              "value": "1",
-              "label": "1/12 (8.333333%)"
-            },
-            {
-              "value": "2",
-              "label": "2/12 (16.666667%)"
-            },
-            {
-              "value": "3",
-              "label": "3/12 (25%)"
-            },
-            {
-              "value": "4",
-              "label": "4/12 (33.333333%)"
-            },
-            {
-              "value": "6",
-              "label": "6/12 (50%)"
-            },
-            {
-              "value": "7",
-              "label": "7/12 (58.333333%)"
-            },
-            {
-              "value": "8",
-              "label": "8/12 (66.666667%)"
-            },
-            {
-              "value": "9",
-              "label": "9/12 (75%)"
-            },
-            {
-              "value": "10",
-              "label": "10/12 (83.333333%)"
-            },
-            {
-              "value": "11",
-              "label": "11/12 (91.666667%)"
-            },
-            {
-              "value": "12",
-              "label": "12/12 (100%)"
-            }
-          ],
-          "label": "Width col:"
-         }
+          {
+            "type": "select",
+            "id": "col",
+            "default": "4",
+            "options": [
+              {
+                "value": "1",
+                "label": "1/12 (8.333333%)"
+              },
+              {
+                "value": "2",
+                "label": "2/12 (16.666667%)"
+              },
+              {
+                "value": "3",
+                "label": "3/12 (25%)"
+              },
+              {
+                "value": "4",
+                "label": "4/12 (33.333333%)"
+              },
+              {
+                "value": "6",
+                "label": "6/12 (50%)"
+              },
+              {
+                "value": "7",
+                "label": "7/12 (58.333333%)"
+              },
+              {
+                "value": "8",
+                "label": "8/12 (66.666667%)"
+              },
+              {
+                "value": "9",
+                "label": "9/12 (75%)"
+              },
+              {
+                "value": "10",
+                "label": "10/12 (83.333333%)"
+              },
+              {
+                "value": "11",
+                "label": "11/12 (91.666667%)"
+              },
+              {
+                "value": "12",
+                "label": "12/12 (100%)"
+              }
+            ],
+            "label": "Width col:"
+          }
+        ]
+      },
+      {
+        "type": "feature",
+        "name":"Feature (child)",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },   
+          {
+            "type": "select",
+            "id": "cat_design",
+            "options": [
+              {
+                "value": "1",
+                "label": "Default"
+              },
+              {
+                "value": "2",
+                "label": "Design 2"
+              },
+              /*{
+                "value": "3",
+                "label": "Design 3"
+              },
+              {
+                "value": "4",
+                "label": "Design 4"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              },*/
+              {
+                "value": "6",
+                "label": "Design 3"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              }
+            ],
+            "label": "Collections design",
+            "default": "1"
+          },
+          {
+            "type": "checkbox",
+            "id": "hoverz",
+            "label": "Enable zoom image on hover?",
+            "default": true
+          },
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title block (optional)",
+            "info": "Leave empty to use 'collection title' title."
+          },
+          {
+            "type": "select",
+            "id": "col",
+            "default": "4",
+            "options": [
+              {
+                "value": "1",
+                "label": "1/12 (8.333333%)"
+              },
+              {
+                "value": "2",
+                "label": "2/12 (16.666667%)"
+              },
+              {
+                "value": "3",
+                "label": "3/12 (25%)"
+              },
+              {
+                "value": "4",
+                "label": "4/12 (33.333333%)"
+              },
+              {
+                "value": "6",
+                "label": "6/12 (50%)"
+              },
+              {
+                "value": "7",
+                "label": "7/12 (58.333333%)"
+              },
+              {
+                "value": "8",
+                "label": "8/12 (66.666667%)"
+              },
+              {
+                "value": "9",
+                "label": "9/12 (75%)"
+              },
+              {
+                "value": "10",
+                "label": "10/12 (83.333333%)"
+              },
+              {
+                "value": "11",
+                "label": "11/12 (91.666667%)"
+              },
+              {
+                "value": "12",
+                "label": "12/12 (100%)"
+              }
+            ],
+            "label": "Width col:"
+          }
+        ]
+      },
+      {
+        "type": "magazine",
+        "name":"Magazine (child)",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },   
+          {
+            "type": "select",
+            "id": "cat_design",
+            "options": [
+              {
+                "value": "1",
+                "label": "Default"
+              },
+              {
+                "value": "2",
+                "label": "Design 2"
+              },
+              /*{
+                "value": "3",
+                "label": "Design 3"
+              },
+              {
+                "value": "4",
+                "label": "Design 4"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              },*/
+              {
+                "value": "6",
+                "label": "Design 3"
+              },
+              {
+                "value": "5",
+                "label": "Design 5"
+              }
+            ],
+            "label": "Collections design",
+            "default": "1"
+          },
+          {
+            "type": "checkbox",
+            "id": "hoverz",
+            "label": "Enable zoom image on hover?",
+            "default": true
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title block (optional)",
+            "info": "Leave empty to use 'collection title' title."
+          },
+          {
+            "type": "select",
+            "id": "col",
+            "default": "4",
+            "options": [
+              {
+                "value": "1",
+                "label": "1/12 (8.333333%)"
+              },
+              {
+                "value": "2",
+                "label": "2/12 (16.666667%)"
+              },
+              {
+                "value": "3",
+                "label": "3/12 (25%)"
+              },
+              {
+                "value": "4",
+                "label": "4/12 (33.333333%)"
+              },
+              {
+                "value": "6",
+                "label": "6/12 (50%)"
+              },
+              {
+                "value": "7",
+                "label": "7/12 (58.333333%)"
+              },
+              {
+                "value": "8",
+                "label": "8/12 (66.666667%)"
+              },
+              {
+                "value": "9",
+                "label": "9/12 (75%)"
+              },
+              {
+                "value": "10",
+                "label": "10/12 (83.333333%)"
+              },
+              {
+                "value": "11",
+                "label": "11/12 (91.666667%)"
+              },
+              {
+                "value": "12",
+                "label": "12/12 (100%)"
+              }
+            ],
+            "label": "Width col:"
+          }
         ]
       },
       {
         "type": "banner",
         "name":"Banner (child)",
         "settings": [
-        {
-           "type": "image_picker",
-           "id": "image",
-           "label": "Image"
-         },
-         {
-          "label": "Link to (Optional)",
-          "id": "url",
-          "type": "url"
-        },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "label": "Link to (Optional)",
+            "id": "url",
+            "type": "url"
+          },
           {
             "type": "select",
             "id": "open_link",
@@ -1605,137 +1854,137 @@
                 "value": "_self",
                 "label": "Current window (_self)"
               },
-             {
+              {
                 "value": "_blank",
                 "label": "New window (_blank)"
               }
             ],
             "label": "Open link in"
           },
-         {
-         "type": "header",
-         "content": "== Content Settings"
-         },
-        {
-          "type": "html",
-          "id": "html",
-          "label": "Content HTML:",
-          "default": "<h3 class=\"fs__30 mg__0 lh__1 cw mb__10\">lighting collections<\/h3><h4 class=\"fs__16 mg__0 cw\">Explorer<\/h4>"
-        },
-       {
-          "type": "range",
-          "id": "cap_v_pos",
-          "label": "Content vertical position",
-          "default": 50,
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%"
-       },
-       {
-          "type": "range",
-          "id": "cap_h_pos",
-          "label": "Content horizontal position",
-          "default": 50,
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%"
-       },
-        {
-         "type": "select",
-         "id": "txt_align",
-         "options": [
           {
-             "value": "tl",
-             "label": "Left"
-           },
-           {
-             "value": "tc",
-             "label": "Center"
-           },
-           {
-             "value": "tr",
-             "label": "Right"
-           }
-         ],
-         "label": "Text alignment",
-         "default": "tc"
-        },
-        {
-          "type": "color",
-          "id": "cl_txt",
-          "label": "Text",
-          "default": "#fff"
-        },
-        {
-          "type": "color",
-          "id": "cl_overlay",
-          "label": "Overlay",
-          "default": "#000"
-        },
-        {
-          "type": "range",
-          "id": "cl_opacity",
-          "label": "Overlay opacity",
-          "default": 0,
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%"
-        },
-         {
-          "type": "select",
-          "id": "col",
-          "default": "4",
-          "options": [
-            {
-              "value": "1",
-              "label": "1/12 (8.333333%)"
+            "type": "header",
+            "content": "== Content Settings"
+          },
+          {
+            "type": "html",
+            "id": "html",
+            "label": "Content HTML:",
+            "default": "<h3 class=\"fs__30 mg__0 lh__1 cw mb__10\">lighting collections<\/h3><h4 class=\"fs__16 mg__0 cw\">Explorer<\/h4>"
+          },
+          {
+            "type": "range",
+            "id": "cap_v_pos",
+            "label": "Content vertical position",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%"
+          },
+          {
+            "type": "range",
+            "id": "cap_h_pos",
+            "label": "Content horizontal position",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%"
+          },
+          {
+            "type": "select",
+            "id": "txt_align",
+            "options": [
+              {
+                "value": "tl",
+                "label": "Left"
+              },
+              {
+                "value": "tc",
+                "label": "Center"
+              },
+              {
+                "value": "tr",
+                "label": "Right"
+              }
+            ],
+            "label": "Text alignment",
+            "default": "tc"
             },
-            {
-              "value": "2",
-              "label": "2/12 (16.666667%)"
-            },
-            {
-              "value": "3",
-              "label": "3/12 (25%)"
-            },
-            {
-              "value": "4",
-              "label": "4/12 (33.333333%)"
-            },
-            {
-              "value": "6",
-              "label": "6/12 (50%)"
-            },
-            {
-              "value": "7",
-              "label": "7/12 (58.333333%)"
-            },
-            {
-              "value": "8",
-              "label": "8/12 (66.666667%)"
-            },
-            {
-              "value": "9",
-              "label": "9/12 (75%)"
-            },
-            {
-              "value": "10",
-              "label": "10/12 (83.333333%)"
-            },
-            {
-              "value": "11",
-              "label": "11/12 (91.666667%)"
-            },
-            {
-              "value": "12",
-              "label": "12/12 (100%)"
-            }
-          ],
-          "label": "Width col:"
-         }
+          {
+            "type": "color",
+            "id": "cl_txt",
+            "label": "Text",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "cl_overlay",
+            "label": "Overlay",
+            "default": "#000"
+          },
+          {
+            "type": "range",
+            "id": "cl_opacity",
+            "label": "Overlay opacity",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%"
+          },
+          {
+            "type": "select",
+            "id": "col",
+            "default": "4",
+            "options": [
+              {
+                "value": "1",
+                "label": "1/12 (8.333333%)"
+              },
+              {
+                "value": "2",
+                "label": "2/12 (16.666667%)"
+              },
+              {
+                "value": "3",
+                "label": "3/12 (25%)"
+              },
+              {
+                "value": "4",
+                "label": "4/12 (33.333333%)"
+              },
+              {
+                "value": "6",
+                "label": "6/12 (50%)"
+              },
+              {
+                "value": "7",
+                "label": "7/12 (58.333333%)"
+              },
+              {
+                "value": "8",
+                "label": "8/12 (66.666667%)"
+              },
+              {
+                "value": "9",
+                "label": "9/12 (75%)"
+              },
+              {
+                "value": "10",
+                "label": "10/12 (83.333333%)"
+              },
+              {
+                "value": "11",
+                "label": "11/12 (91.666667%)"
+              },
+              {
+                "value": "12",
+                "label": "12/12 (100%)"
+              }
+            ],
+            "label": "Width col:"
+          }
         ]
       },
       {
@@ -1748,61 +1997,61 @@
             "label": "HTML custom",
             "default": "HTML custom code"
           },
-         {
-          "type": "select",
-          "id": "col",
-          "default": "4",
-          "options": [
-            {
-              "value": "1",
-              "label": "1/12 (8.333333%)"
-            },
-            {
-              "value": "2",
-              "label": "2/12 (16.666667%)"
-            },
-            {
-              "value": "3",
-              "label": "3/12 (25%)"
-            },
-            {
-              "value": "4",
-              "label": "4/12 (33.333333%)"
-            },
-            {
-              "value": "6",
-              "label": "6/12 (50%)"
-            },
-            {
-              "value": "7",
-              "label": "7/12 (58.333333%)"
-            },
-            {
-              "value": "8",
-              "label": "8/12 (66.666667%)"
-            },
-            {
-              "value": "9",
-              "label": "9/12 (75%)"
-            },
-            {
-              "value": "10",
-              "label": "10/12 (83.333333%)"
-            },
-            {
-              "value": "11",
-              "label": "11/12 (91.666667%)"
-            },
-            {
-              "value": "12",
-              "label": "12/12 (100%)"
-            }
-          ],
-          "label": "Width col:"
-         }
+          {
+            "type": "select",
+            "id": "col",
+            "default": "4",
+            "options": [
+              {
+                "value": "1",
+                "label": "1/12 (8.333333%)"
+              },
+              {
+                "value": "2",
+                "label": "2/12 (16.666667%)"
+              },
+              {
+                "value": "3",
+                "label": "3/12 (25%)"
+              },
+              {
+                "value": "4",
+                "label": "4/12 (33.333333%)"
+              },
+              {
+                "value": "6",
+                "label": "6/12 (50%)"
+              },
+              {
+                "value": "7",
+                "label": "7/12 (58.333333%)"
+              },
+              {
+                "value": "8",
+                "label": "8/12 (66.666667%)"
+              },
+              {
+                "value": "9",
+                "label": "9/12 (75%)"
+              },
+              {
+                "value": "10",
+                "label": "10/12 (83.333333%)"
+              },
+              {
+                "value": "11",
+                "label": "11/12 (91.666667%)"
+              },
+              {
+                "value": "12",
+                "label": "12/12 (100%)"
+              }
+            ],
+            "label": "Width col:"
+          }
         ]
       }
-   ],
+    ],
     "default": {
       "blocks": [
         {
