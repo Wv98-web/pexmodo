@@ -869,7 +869,7 @@
             "type": "simple",
             "settings": {
               "title": "HELP",
-              "url": "\/",
+              "url": "shopify:\/\/pages\/contact",
               "open_link": "_self",
               "icon": "",
               "cus_cl": false,

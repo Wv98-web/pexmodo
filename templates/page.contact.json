@@ -5,21 +5,79 @@
       "blocks": {
         "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
           "type": "1",
-          "settings": {}
+          "settings": {
+            "color": "#ffffff"
+          }
         }
       },
       "block_order": [
         "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
       ],
-      "settings": {}
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1-1_2x_7c471184-a892-461b-9e0e-3107cbbe4a15.jpg",
+        "parallax": false,
+        "color": "#ffffff",
+        "overlay": 40,
+        "padding": 100,
+        "paddingmb": 100,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "fixed"
+      }
     },
     "main": {
       "type": "main-pagecontact",
       "settings": {}
+    },
+    "product-recommendations3": {
+      "type": "product-recommendations3",
+      "settings": {
+        "show": true,
+        "product": "pexmod-embroidered-eyes-beaded-baseball-uniform-baggy-coat",
+        "title": "You May Also Like",
+        "sub_title": "",
+        "sub_font": "2",
+        "style_title": "title_1",
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "display_effect": "1",
+        "display_type": "3",
+        "limit": 8,
+        "space": 20,
+        "col_pr": "3",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "collection": "jackets-coats",
+        "use_pagination": "view-all",
+        "btn_rd": true,
+        "btn_icon": false,
+        "btn_style": "shadow",
+        "loop": false,
+        "au_time": 0,
+        "au_hover": true,
+        "button": true,
+        "btn_vi": "2",
+        "btn_owl": "1",
+        "btn_color": "3",
+        "dot": false,
+        "dot_owl": "2",
+        "dot_color": "3",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8"
+      }
     }
   },
   "order": [
     "heading",
-    "main"
+    "main",
+    "product-recommendations3"
   ]
 }

@@ -90,10 +90,10 @@
         "nav_img_pr": "large",
         "use_sticky_des": true,
         "ratio_img_main": "ratio_img1",
-        "img_size_main": "nt_contain",
+        "img_size_main": "nt_cover",
         "img_pos_main": "8",
         "ratio_img_thumb": "ratio_img1",
-        "img_size_thumb": "nt_contain",
+        "img_size_thumb": "nt_cover",
         "img_pos_thumb": "8",
         "pr_sidebar": "none",
         "pr_size_sidebar": "2",
@@ -198,7 +198,7 @@
         "dot_color": "3",
         "use_eq_height": true,
         "image_ratio": "ratio_nt",
-        "image_size": "nt_contain",
+        "image_size": "nt_cover",
         "image_position": "8"
       }
     },

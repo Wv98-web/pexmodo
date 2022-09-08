@@ -1,5 +1,5 @@
 {%- assign page_content = page.content -%}
-{%- assign formId = 'contact_form_page' -%}
+{%- assign formId = 'contact_track_page' -%}
 {%- liquid
   assign se_blocks = section.blocks
   assign arr_blocks_notice = se_blocks | where: "type", 'notice' -%}
@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div class="container" id="track_page">
+<div class="container mb__50" id="track_page">
   <div class="content_heading flex fl_center mt__50 mb__50">
     <span>How to track your order?</span>
     <span id="notice_btn" class="db">Notice?</span>

@@ -3910,6 +3910,14 @@ html.wf-fontawesome5free-n4-loading .fas:before {opacity: 0}
     display: inline-block;
     vertical-align: middle;
   }
+  @media (max-width: 767px) {
+    .nt-social svg.fa-tiktok {
+      width: 24px !important;
+      height: 24px !important;
+      display: inline-block;
+      vertical-align: unset;
+    }
+  }
   #nt_footer .nt-social svg.fa-tiktok {
       width: 15px !important;
       height: 15px !important;

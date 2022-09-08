@@ -139,7 +139,10 @@ endif -%}
 {%- else -%}
   
   <div class="container container_cat {{settings.pop_style}} cat_{{se_settings.shop_layout}} mb__60">
-     {%- if se_settings.breadcrumb_pr %}<nav class="sp-breadcrumb mt__10" aria-label="Breadcrumbs"><a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a><i class="facl facl-angle-right"></i>{{collection.title}}{% endif -%}
+     {%- if se_settings.breadcrumb_pr %}<nav class="sp-breadcrumb mt__10" aria-label="Breadcrumbs">
+      <div class="breadcrumb">
+        <a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a><i class="facl facl-angle-right"></i><b>{{collection.title}}</b>
+      </div>{% endif -%}
      {%- assign get_url = '' | link_to_remove_tag: '' | split:'href="' | last | split:'"' | first | remove:'?customer_posted=true' -%}
      {%- assign sy = collection.sort_by -%}
      {%- if collection.current_type or sy != blank or collection.current_vendor or get_url contains '?' %}{% assign get_url = get_url | append:'&' %}{% else %}{% assign get_url = get_url | append:'/?' %}{% endif -%}
