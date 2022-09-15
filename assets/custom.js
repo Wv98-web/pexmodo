@@ -71,6 +71,26 @@ jQuery_T4NT(document).ready(function ($) {
 	$('.notice_cover').click(() => {
 		$('.notice_content_wrapper').hide();
 	});
+
+	/* Account nav click start */
+	$(function () {
+		$('.js_myaccount_nav_link').click(function () {
+      if ($(this).children('.js_myaccount_nav_sub_link').is(':hidden')) {
+				$(this).children('.js_myaccount_nav_sub_link').show();
+				$(this).addClass('footer_opened');
+      } else {
+        $(this).children('.js_myaccount_nav_sub_link').hide();
+				$(this).removeClass('footer_opened');
+      }
+		});
+		
+		// $('.coupon-nav li').click(function () {
+		// 	$(this).addClass('on').siblings().removeClass('on');
+		// 	var $index = $(this).index();
+		// 	$('.coupon-list').eq($index).show().siblings().hide();
+		// })
+	});
+	/* Account nav click end */
 });
 
 new ResizeSensor($(".additional_checkout_buttons"), function () {

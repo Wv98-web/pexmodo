@@ -2,123 +2,240 @@
 {%- render 'enable_minify' with 'tagcss',nameFile:'0520.css' -%}
 <div class="container mt__60 mb__60">
   <div class="row">
-     <div class="col-12 col-md-3 sp-myaccount-sidebar is_sticky_sidebar">
-        <nav class="sp-myaccount-nav mb__30 theiaStickySidebar">
-           <ul class="ul_none is_sticky_inner">
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard is-active pe_none">
-                 <a class="js_add_ld" href="{{ routes.account_url }}">{{ 'customer.account.dashboard' | t }}</a>
+    <div class="col-12 col-md-3 sp-myaccount-sidebar is_sticky_sidebar">
+      <nav class="sp-myaccount-nav mb__30 theiaStickySidebar">
+        <ul class="ul_none is_sticky_inner">
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard  is-active pe_none">
+            <a class="js_add_ld" href="{{ routes.account_url }}">{{ 'customer.account.dashboard' | t }}</a>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--account js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/account">
+              <span>MY ACCOUNT</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <!-- <li class="sp-myaccount-nav-link--edit-information">
+                <a class="js_add_ld" href="/pages/account">Account Information</a>
+              </li> -->
+              <li class="sp-myaccount-nav-link--edit-address">
+                <a class="js_add_ld" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }} ({{ customer.addresses_count }})</a>
               </li>
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--edit-address">
-                 <a class="js_add_ld" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }} ({{ customer.addresses_count }})</a>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--order js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/orders">
+              <span>MY ORDER</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <li class="sp-myaccount-nav-link--orders">
+                <a class="js_add_ld" href="/pages/orders">My Orders</a>
               </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY WALLET</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <li class="sp-myaccount-nav-link--coupons">
+                <a class="js_add_ld" href="/pages/coupons">My Coupons</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY PERSONALIZATION</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
               {%- if settings.wishlist_type != '0' -%}
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wishlist">
-                 {%- if settings.wishlist_type != '3' -%}
-                 <a class="js_link_wis" href="{{ routes.search_url }}/?view=wish">{{ 'customer.account.wishlist' | t }} (<span class="jswcount">0</span>)</a>
-                 {%- else -%}
-                 <a class="js_link_wis" href="/pages/wishlist">{{ 'customer.account.wishlist' | t }} (<span class="jswcount ssw-counter-fave-menu">0</span>)</a>
-                 {%- endif -%}
+              <li class="sp-myaccount-nav-link--wishlist">
+                {%- if settings.wishlist_type != '3' -%}
+                <a class="js_link_wis" href="{{ routes.search_url }}/?view=wish">{{ 'customer.account.wishlist' | t }} (<span class="jswcount">0</span>)</a>
+                {%- else -%}
+                <a class="js_link_wis" href="/pages/wishlist">{{ 'customer.account.wishlist' | t }} (<span class="jswcount ssw-counter-fave-menu">0</span>)</a>
+                {%- endif -%}
               </li>
               {%- endif -%}
-              <li class="sp-myaccount-nav-link iconic-symbol-nav" id="0520iconic">
-                <a href="/pages/iconic" class="item">Iconic Symbol</a>
-              </li>
-              <li class="sp-myaccount-nav-link iconic-symbol-nav" id="0520ootd">
+              <li class="sp-myaccount-nav-link--ootd iconic-symbol-nav" id="0520ootd">
                 <a href="/pages/ootd" class="item">OOTD</a>
               </li>
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--customer-logout">
-                <a class="js_add_ld" href="{{routes.account_logout_url}}" data-no-instant>{{ 'customer.account.log_out' | t }}</a>
-              </li>
-           </ul>
-        </nav>
-     </div>
-     <div class="col-12 col-md-9 sp-myaccount-content is_sticky_content">
-     <div class="theiaStickySidebar">{%- assign customer_name = customer.name |default:customer.default_address.name |default:customer.email -%}
-         <p>{{ 'customer.account.hello_html' | t:name:customer_name,link:routes.account_logout_url }}</p>
-         {%- if settings.enable_sub_reCharge -%}   
-         <!-- Begin ReCharge code -->
-         <p clas="mt__30" id="rc_link_container"><a href="/tools/recurring/login">{{ 'customer.account.manage_subs' | t }}</a></p>
-         <!-- End ReCharge code -->
-         {%- endif -%}
-         <p clas="mt__30"><strong>{{ 'customer.orders.title' | t }}</strong></p>
-         {%- if customer.orders.size != 0 -%}
-            {%- paginate customer.orders by 20 -%}
-               <table class="responsive-table orders-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
-                      <th scope="col">{{ 'customer.orders.date' | t }}</th>
-                      <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
-                      <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
-                      <th scope="col">{{ 'customer.orders.total' | t }}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {%- for order in customer.orders -%}
-                      <tr>
-                        <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
-                          <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small js_add_ld" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
-                        </th>
-                        <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-                        <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                        <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-                        <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
-                      </tr>
-                    {%- endfor -%}
-                  </tbody>
-               </table>
-              {%- if paginate.pages > 1 -%}{% render 'pagination', paginate: paginate, cl_a:' js_add_ld' %}{%- endif -%}
-            {%- endpaginate -%}
-         {%- else -%}
-            <div class="shopify-message"><i class="facl facl-ok"></i><a class="btn_link fwsb tu mr__10" href="{{routes.all_products_collection_url | sort_by: 'best-selling'}}">{{ 'customer.make_order' | t }}</a> {{ 'customer.orders.none' | t }}</div>
-         {%- endif -%}
-         <p class="mt__40"><strong>{{ 'customer.account.details' | t }}</strong></p>
-            <div class="table-responsive">   
-               <table>
-                 <tbody>
-                   <tr>
-                     <td class="text-left"><strong>{{ 'customer.account.name' | t }}</strong></td>
-                     <td>{{ customer_name }}</td>
-                   </tr>
-                   <tr>
-                     <td class="text-left"><strong>{{ 'customer.account.email' | t }}</strong></td>
-                     <td>{{ customer.default_address.email |default:customer.email }}</td>
-                   </tr>
-                   
-                   {%- if customer.default_address != nil -%}
-                      <tr>
-                        <td class="text-left"><strong>{{ 'customer.account.address' | t }}</strong></td>
-                        <td>{{ customer.default_address.address1 }}</td>
-                      </tr>
-                      {%- if customer.default_address.address2 != "" -%}
-                      <tr>
-                        <td class="text-left"><strong>{{ 'customer.account.address_2' | t }}</strong></td>
-                        <td>{{ customer.default_address.address2 }}</td>
-                      </tr>
-                      {%- endif -%}
-                      {%- if customer.default_address.city != blank -%}
-                      <tr>
-                        <td class="text-left"><strong>{{ 'customer.account.country' | t }}</strong></td>
-                        <td>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</td>
-                      </tr>
-                      {%- endif -%}
-                      {%- if customer.default_address.zip != blank -%}
-                      <tr>
-                        <td class="text-left"><strong>{{ 'customer.account.zip' | t }}</strong></td>
-                        <td>{{ customer.default_address.zip }}</td>
-                      </tr>
-                      {%- endif -%}
-                      {%- if customer.default_address.phone != blank -%}
-                      <tr>
-                        <td class="text-left"><strong>{{ 'customer.account.phone' | t }}</strong></td>
-                        <td>{{ customer.default_address.phone }}</td>
-                      </tr>
-                      {%- endif -%}
-                   {%- endif -%}
-                 </tbody>
-               </table>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--customer-logout">
+            <a class="js_add_ld" href="{{routes.account_logout_url}}" data-no-instant>{{ 'customer.account.log_out' | t }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-12 col-md-9 sp-myaccount-content is_sticky_content">
+    <div class="theiaStickySidebar">
+      <section class="account-card">
+        <div class="account-card-content">
+          <div class="account-email flex fl_between al_center">
+            <span>{{ customer.name |default:customer.default_address.name |default:customer.email }}</span>
+            <div class="js_click_info ttip_nt tooltip_left">
+              <i class="las la-exclamation-circle"></i>
+              <span class="tt_txt">No customer name, show default address name</span>
             </div>
-     </div>
-     </div>
+          </div>
+          <a href="{{ routes.account_addresses_url }}" class="account-edit"><i class="las la-edit" style="font-size: 1.3em;"></i> Edit </a>
+          <!-- <a href="/pages/points" class="account-points">
+            <span>Points:</span><b>0</b><i class="las la-caret-right"></i>
+          </a> -->
+        </div>
+        <ul>
+          <li>
+            <a href="/pages/coupons">
+              <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon.png?v=1663228285" alt="">
+              <p><span>{%- if customer.orders_count > 0 -%}5{%- else -%}6{%- endif -%}</span><span>Coupons</span></p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ routes.search_url }}/?view=wish" class="js_link_wis">
+              <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/dd96c9e230e21b346c019454510eb02c.png?v=1663228285" alt="">
+              <p><span class="jswcount">0</span><span>{{ 'customer.account.wishlist' | t }} </span></p>
+            </a>
+          </li>
+          <li>
+            <a href="/cart">
+              <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/6b474b6e9f3caf3d4ba1fd9bdd81d8db.png?v=1663228285" alt="">
+              <p><span class="tcount jsccount">{{ cart.item_count }}</span><span>Cart</span></p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <ul class="customer-nav">
+        <!-- <li>
+          <a href="/pages/tickets">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/1_28c6157c-f78b-4632-aefa-59691cbe3c4d.png?v=1663228285" alt="">
+            <p><span>My Tickets</span><span>Manage tickets</span></p>
+          </a>
+        </li> -->
+        <li>
+          <a href="/pages/orders">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/3_a0d32e6f-84b4-4b4f-a189-3a40c4afc1d4.png?v=1663228285" alt="">
+            <p><span>My Orders</span><span>View order details</span></p><span class="num" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/coupons">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/5.png?v=1663228285" alt="">
+            <p><span>Coupons</span><span><i class="coupon-num">{%- if customer.orders_count > 0 -%}4{%- else -%}5{%- endif -%}</i> available </span></p>
+          </a>
+        </li>
+        <li>
+          <a href="/account/addresses">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/4_8c7b8964-c43e-41da-bbcc-07496d3389a8.png?v=1663228285" alt="">
+            <p><span>Addresses</span><span>Manage addresses</span></p>
+          </a>
+        </li>
+        <li>
+          <a href="/search/?view=wish">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2_d47aaeb4-834a-48c6-a51b-0f8b4494e46e.png?v=1663228285" alt="">
+            <p><span>My Wishlist</span><span>Manage wishlist</span></p>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="/pages/account_reviews">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/6.png?v=1663228285" alt="">
+            <p><span>Reviews</span><span>Manage reviews</span></p>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+    {%- comment -%}
+    <div class="theiaStickySidebar">
+      {%- assign customer_name = customer.name |default:customer.default_address.name |default:customer.email -%}
+        <p>{{ 'customer.account.hello_html' | t:name:customer_name,link:routes.account_logout_url }}</p>
+        {%- if settings.enable_sub_reCharge -%}   
+        <!-- Begin ReCharge code -->
+        <p clas="mt__30" id="rc_link_container"><a href="/tools/recurring/login">{{ 'customer.account.manage_subs' | t }}</a></p>
+        <!-- End ReCharge code -->
+        {%- endif -%}
+        <p clas="mt__30"><strong>{{ 'customer.orders.title' | t }}</strong></p>
+        {%- if customer.orders.size != 0 -%}
+          {%- paginate customer.orders by 20 -%}
+              <table class="responsive-table orders-table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
+                    <th scope="col">{{ 'customer.orders.date' | t }}</th>
+                    <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
+                    <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
+                    <th scope="col">{{ 'customer.orders.total' | t }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%- for order in customer.orders -%}
+                    <tr>
+                      <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
+                        <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small js_add_ld" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+                      </th>
+                      <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+                      <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                      <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                      <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                    </tr>
+                  {%- endfor -%}
+                </tbody>
+              </table>
+            {%- if paginate.pages > 1 -%}{% render 'pagination', paginate: paginate, cl_a:' js_add_ld' %}{%- endif -%}
+          {%- endpaginate -%}
+        {%- else -%}
+          <div class="shopify-message"><i class="facl facl-ok"></i><a class="btn_link fwsb tu mr__10" href="{{routes.all_products_collection_url | sort_by: 'best-selling'}}">{{ 'customer.make_order' | t }}</a> {{ 'customer.orders.none' | t }}</div>
+        {%- endif -%}
+        <p class="mt__40"><strong>{{ 'customer.account.details' | t }}</strong></p>
+          <div class="table-responsive">   
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="text-left"><strong>{{ 'customer.account.name' | t }}</strong></td>
+                    <td>{{ customer_name }}</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left"><strong>{{ 'customer.account.email' | t }}</strong></td>
+                    <td>{{ customer.default_address.email |default:customer.email }}</td>
+                  </tr>
+                  
+                  {%- if customer.default_address != nil -%}
+                    <tr>
+                      <td class="text-left"><strong>{{ 'customer.account.address' | t }}</strong></td>
+                      <td>{{ customer.default_address.address1 }}</td>
+                    </tr>
+                    {%- if customer.default_address.address2 != "" -%}
+                    <tr>
+                      <td class="text-left"><strong>{{ 'customer.account.address_2' | t }}</strong></td>
+                      <td>{{ customer.default_address.address2 }}</td>
+                    </tr>
+                    {%- endif -%}
+                    {%- if customer.default_address.city != blank -%}
+                    <tr>
+                      <td class="text-left"><strong>{{ 'customer.account.country' | t }}</strong></td>
+                      <td>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</td>
+                    </tr>
+                    {%- endif -%}
+                    {%- if customer.default_address.zip != blank -%}
+                    <tr>
+                      <td class="text-left"><strong>{{ 'customer.account.zip' | t }}</strong></td>
+                      <td>{{ customer.default_address.zip }}</td>
+                    </tr>
+                    {%- endif -%}
+                    {%- if customer.default_address.phone != blank -%}
+                    <tr>
+                      <td class="text-left"><strong>{{ 'customer.account.phone' | t }}</strong></td>
+                      <td>{{ customer.default_address.phone }}</td>
+                    </tr>
+                    {%- endif -%}
+                  {%- endif -%}
+                </tbody>
+              </table>
+          </div>
+    </div>{%- endcomment -%}
+    </div>
   </div>
 </div>

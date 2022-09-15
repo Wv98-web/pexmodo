@@ -369,7 +369,7 @@ assign ck_tab = section.settings.auto -%}
                       </div> 
                       <a rel="nofollow" data-no-instant href="#" class="single_stt out_stock button pe_none order-2" id="out_stock{{call_cl}}">{{'products.product.outofstock' | t}}</a>
                       {%- render 'nt_add_w',class:"order-3",tooltip:"ttip_nt tooltip_top_left" -%}
-                      <button onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1463942});" type="submit" data-time='{{bk_stts.time}}000' data-ani='{{bk_stts.ani}}' class="single_add_to_cart_button 123 button truncate js_frm_cart w__100 mt__20 order-4{% if PR_no_pick %} disabled{% endif %}"><span class="txt_add {{classdn1}}">{{'products.product.add_to_cart' | t}}</span><span class="txt_pre {{classdn2}}">{{'products.product.pre_orders' | t}}</span></button>
+                      <button onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1463942});" type="submit" data-time='{{bk_stts.time}}000' data-ani='{{bk_stts.ani}}' class="single_add_to_cart_button button truncate js_frm_cart w__100 mt__20 order-4{% if PR_no_pick %} disabled{% endif %}"><span class="txt_add {{classdn1}}">{{'products.product.add_to_cart' | t}}</span><span class="txt_pre {{classdn2}}">{{'products.product.pre_orders' | t}}</span></button>
                     {%- endif -%}
                   </div>
                   {%- if PR_buy_pr -%}{{- form | payment_button -}}{%- endif -%} 
@@ -445,7 +445,7 @@ assign ck_tab = section.settings.auto -%}
               endif -%}
 
             {%- if sc_type == '1' and page_size != blank and ck_s -%}
-              <a class="cd chp ajax_pp_js mr__20" href="#" data-no-instant rel="nofollow" data-id='ps_ajax_pp_js' data-url="{{page_size.url}}/?view=AjaxPopup">123{{ 'products.product.product_size_guide' | t }}</a>
+              <a class="cd chp ajax_pp_js mr__20" href="#" data-no-instant rel="nofollow" data-id='ps_ajax_pp_js' data-url="{{page_size.url}}/?view=AjaxPopup">{{ 'products.product.product_size_guide' | t }}</a>
             {%- elsif sc_type == '2' and image != blank and ck_s -%}
               <a class="cd chp btn_size_guide mr__20" href="#" data-no-instant rel="nofollow" data-src="{{ image | img_url: 'master' }}" data-width="{{ image.width }}" data-height="{{ image.height }}">{{ 'products.product.product_size_guide' | t }}</a>
             {%- endif -%}

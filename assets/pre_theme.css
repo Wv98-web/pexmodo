@@ -3812,7 +3812,7 @@ html.wf-fontawesome5free-n4-loading .fas:before {opacity: 0}
       margin-top: 15px;
   }
   .variations_form .shopify-payment-button__button--unbranded {
-      border-radius: 40px !important;
+      border-radius: 16px !important;
       background-color: #000;
           text-transform: capitalize;
   }

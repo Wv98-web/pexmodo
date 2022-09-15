@@ -42,82 +42,56 @@
       </div>
       {%- endif -%}
       <div class="mini_cart_wrap">
-        <div class="tc mt__10 mb__10 flex no_wrap al_center col fs__12" style="color: #603dae;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i>Discount code not eligible for flash sale product.</div>
+        <div class="tc mt__10 mb__10 flex no_wrap al_center" style="color: #603dae;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i></i>Discount code not eligible for flash sale product.</div>
+         <div class="mini_cart_content fixcl-scroll">
+            <div class="fixcl-scroll-content">
+               <div class="empty tc mt__40{% if ccount > 0 %} dn{% endif %}"><i class="las la-shopping-bag pr mb__10"></i><p>{{ 'cart.general.empty' | t }}</p>
+                  {%- assign btn_blocks = section_blocks | where: "type", 'btn' -%}
+                  {%- if btn_blocks.size > 0 -%}
+                  {%- for block in btn_blocks -%}
+                  <p class="return-to-shop mb__15"><a class="button button_{{block.settings.style}} js_add_ld" href="{{block.settings.url | default:routes.all_products_collection_url}}"><span class="truncate">{{ block.settings.title }}</span></a></p>
+                  {%- endfor -%}
+                  {%- endif -%}
+               </div>
+               <div class="cookie-message dn">{{ 'cart.general.cookies_required' | t }}</div>
+               {%- if se_style == '2' or se_style == '1' and se_pos == '2' %}{% assign tooltip = 'tooltip_top' %}<div class="mini_cart_items js_cat_items" data-rendert4s="{{cart_url}}/?view=viewjs"><div class="lds_bginfinity pr mt__10 mb__20"></div></div>{% endif -%}
 
-        <div class="mini_cart_content fixcl-scroll">
-          {%- comment -%}scroll content begin{%- endcomment -%}
-          <div class="fixcl-scroll-content">
-            <div class="empty tc mt__40{% if ccount > 0 %} dn{% endif %}">
-              <i class="las la-shopping-bag pr mb__10"></i>
-              <p>{{ 'cart.general.empty' | t }}</p>
-              {%- assign btn_blocks = section_blocks | where: "type", 'btn' -%}
-              {%- if btn_blocks.size > 0 -%}
-                {%- for block in btn_blocks -%}
-                <p class="return-to-shop mb__15"><a class="button button_{{block.settings.style}} js_add_ld" href="{{block.settings.url | default:routes.all_products_collection_url}}"><span class="truncate">{{ block.settings.title }}</span></a></p>
-                {%- endfor -%}
-              {%- endif -%}
-            </div>
-
-            <div class="cookie-message dn">{{ 'cart.general.cookies_required' | t }}</div>
-
-            {%- if se_style == '2' or se_style == '1' and se_pos == '2' %}{% assign tooltip = 'tooltip_top' %}<div class="mini_cart_items js_cat_items" data-rendert4s="{{cart_url}}/?view=viewjs"><div class="lds_bginfinity pr mt__10 mb__20"></div></div>{% endif -%}
-
-            {%- comment -%}custom coupons form start{%- endcomment -%}
-            {%- if se_stts.show_discount_not_click -%}
-            <div data-id="dis" class="mini_cart_dis_not_click js_cart_tool mt__40 {% if ccount == 0 %} dn{% endif %}">
-              <div class="flex fl_between al_center ml__15 mr__15">
-                <div class="field col-8 pd__0">
-                  <input type="text" name="discount" id="Cartdiscode" value placeholder="{{ 'cart.general.placeholder_coupon' | t }}">
+              {%- if se_stts.show_discount_not_click -%}
+                <div data-id="dis" class="mini_cart_dis_not_click js_cart_tool {% if ccount == 0 %} dn{% endif %}">
+                  <div class="flex fl_between al_center">
+                    <p class="field col-8">
+                      <input type="text" name="discount" id="Cartdiscode" value placeholder="{{ 'cart.general.placeholder_coupon' | t }}">
+                    </p>
+                    <p class="field col-4" style="padding-left: 0;">
+                      <!-- <input type="button" class="button btn_back js_cart_save js_cart_tls_back" value="Checkout" style="padding-left: 0;padding-right: 0;" /> -->
+                      <button type="submit" data-confirm="{{ck_lumise}}" onclick="_tfa.push({notify: 'event', name: 'start_checkout', id: 1463942});" name="checkout" class="button btn-checkout js_add_ld truncate" style="width: 100%; height: auto;padding-left: 0;padding-right: 0;">Checkout</button>
+                    </p>
+                  </div>
                 </div>
-                <div class="field col-4 pd__0">
-                  <button type="submit" data-confirm="{{ck_lumise}}" onclick="_tfa.push({notify: 'event', name: 'start_checkout', id: 1463942});" name="checkout" class="button btn-checkout js_add_ld truncate" style="width: 100%; height: auto;padding-left: 0;padding-right: 0;">Checkout</button>
-                </div>
-              </div>
-            </div>
-            {%- endif -%}
-            {%- comment -%}custom coupons form end{%- endcomment -%}
-
-            {%- if se_style == '1' -%}
-            <div class="mini_cart_tool js_cart_tool tc {% if ccount == 0 %} dn{% endif %}{%- if se_style == '1' and se_pos == '1' %} mt__20{% endif %}">
-              {%- if se_stts.show_note -%}<div data-id="note" class="mini_cart_tool_note js_cart_tls ttip_nt {{tooltip}}">
-                <span class="txt_add_note {{noteclass[0]}}"><i class="lar la-clipboard"></i><span class="tt_txt">{{ 'cart.general.note' | t }}</span></span>
-                <span class="txt_edit_note {{noteclass[1]}}"><i class="las la-clipboard-list"></i><span class="tt_txt">{{ 'cart.general.edit_note' | t }}</span></span></div>
               {%- endif -%}
-              {%- if show_gift_wrap and gift_wrap_pr != blank -%}<div data-id="gift" class="mini_cart_tool_gift js_cart_tls js_gift_wrap ttip_nt {{tooltip}}"><i class="las la-gift"></i><span class="tt_txt">{{ 'cart.general.add_gift_wrap' | t }}</span></div>{%- endif -%}
-              {%- if se_stts.show_rates -%}<div data-id="ship" class="mini_cart_tool_ship js_cart_tls ttip_nt {{tooltip}}"><i class="las la-truck-moving"></i><span class="tt_txt">{{ 'cart.general.estimate_ship' | t }}</span></div>{%- endif -%}
-              {%- if se_stts.show_discount -%}<div data-id="dis" class="mini_cart_tool_dis js_cart_tls ttip_nt {{tooltip}}"><i class="las la-tag"></i><span class="tt_txt">{{ 'cart.general.add_coupon' | t }}</span></div>{%- endif -%}
+
+               {%- if se_style == '1' -%}
+               <div class="mini_cart_tool js_cart_tool tc {% if ccount == 0 %} dn{% endif %}{%- if se_style == '1' and se_pos == '1' %} mt__20{% endif %}">
+                  {%- if se_stts.show_note -%}<div data-id="note" class="mini_cart_tool_note js_cart_tls ttip_nt {{tooltip}}">
+                    <span class="txt_add_note {{noteclass[0]}}"><i class="lar la-clipboard"></i><span class="tt_txt">{{ 'cart.general.note' | t }}</span></span>
+                    <span class="txt_edit_note {{noteclass[1]}}"><i class="las la-clipboard-list"></i><span class="tt_txt">{{ 'cart.general.edit_note' | t }}</span></span></div>
+                  {%- endif -%}
+                  {%- if show_gift_wrap and gift_wrap_pr != blank -%}<div data-id="gift" class="mini_cart_tool_gift js_cart_tls js_gift_wrap ttip_nt {{tooltip}}"><i class="las la-gift"></i><span class="tt_txt">{{ 'cart.general.add_gift_wrap' | t }}</span></div>{%- endif -%}
+                  {%- if se_stts.show_rates -%}<div data-id="ship" class="mini_cart_tool_ship js_cart_tls ttip_nt {{tooltip}}"><i class="las la-truck-moving"></i><span class="tt_txt">{{ 'cart.general.estimate_ship' | t }}</span></div>{%- endif -%}
+                  {%- if se_stts.show_discount -%}<div data-id="dis" class="mini_cart_tool_dis js_cart_tls ttip_nt {{tooltip}}"><i class="las la-tag"></i><span class="tt_txt">{{ 'cart.general.add_coupon' | t }}</span></div>{%- endif -%}
+               </div>
+               {%- else -%}
+               <div class="mini_cart_tool js_cart_tool{% if ccount == 0 %} dn{% endif %}">
+                  {%- if se_stts.show_note -%}<div data-id="note" class="mini_cart_tool_note js_cart_tls pr truncate"><span class="txt_add_note {{noteclass[0]}}">{{ 'cart.general.note' | t }}</span><span class="txt_edit_note {{noteclass[1]}}">{{ 'cart.general.edit_note' | t }}</span></div>{%- endif -%}
+                  {%- if show_gift_wrap and gift_wrap_pr != blank -%}<div data-id="gift" class="mini_cart_tool_gift js_cart_tls pr truncate js_gift_wrap">{{ 'cart.general.add_gift_wrap' | t }}</div>{%- endif -%}
+                  {%- if se_stts.show_rates -%}<div data-id="ship" class="mini_cart_tool_ship js_cart_tls pr truncate">{{ 'cart.general.estimate_ship' | t }}</div>{%- endif -%}
+                  {%- if se_stts.show_discount -%}<div data-id="dis" class="mini_cart_tool_dis js_cart_tls pr truncate">{{ 'cart.general.add_coupon' | t }}</div>{%- endif -%}
+               </div>
+               {%- endif -%}
+               {%- if se_style == '1' and se_pos == '1' %}<div class="mini_cart_items js_cat_items" data-rendert4s="{{cart_url}}/?view=viewjs"><div class="lds_bginfinity pr mt__10 mb__20"></div></div>{% endif -%}
+               {%- if se_stts.enable_pr %}<div data-cart-upsell-js data-baseurl="{{ routes.product_recommendations_url }}" data-limit="10" data-id="{{cart.items.first.product_id}}"></div>{% endif -%}
             </div>
-            {%- else -%}
-            <div class="mini_cart_tool js_cart_tool{% if ccount == 0 %} dn{% endif %}">
-              {%- if se_stts.show_note -%}<div data-id="note" class="mini_cart_tool_note js_cart_tls pr truncate"><span class="txt_add_note {{noteclass[0]}}">{{ 'cart.general.note' | t }}</span><span class="txt_edit_note {{noteclass[1]}}">{{ 'cart.general.edit_note' | t }}</span></div>{%- endif -%}
-              {%- if show_gift_wrap and gift_wrap_pr != blank -%}<div data-id="gift" class="mini_cart_tool_gift js_cart_tls pr truncate js_gift_wrap">{{ 'cart.general.add_gift_wrap' | t }}</div>{%- endif -%}
-              {%- if se_stts.show_rates -%}<div data-id="ship" class="mini_cart_tool_ship js_cart_tls pr truncate">{{ 'cart.general.estimate_ship' | t }}</div>{%- endif -%}
-              {%- if se_stts.show_discount -%}<div data-id="dis" class="mini_cart_tool_dis js_cart_tls pr truncate">{{ 'cart.general.add_coupon' | t }}</div>{%- endif -%}
-            </div>
-            {%- endif -%}
-
-            {%- if se_style == '1' and se_pos == '1' %}<div class="mini_cart_items js_cat_items" data-rendert4s="{{cart_url}}/?view=viewjs"><div class="lds_bginfinity pr mt__10 mb__20"></div></div>{% endif -%}
-            {%- if se_stts.enable_pr %}<div data-cart-upsell-js data-baseurl="{{ routes.product_recommendations_url }}" data-limit="10" data-id="{{cart.items.first.product_id}}"></div>{% endif -%}
-
-            {%- comment -%}Selected page start{%- endcomment -%}
-            <div class="mini_cart_textarea js_cart_tool mt__30 ml__15 mr__15 {% if ccount == 0 %} dn{% endif %}">
-              {% for block in section_blocks %}
-                {%- case block.type -%}
-                  {%- when 'textarea' -%}
-                    {%- if block.settings.page == blank -%}{%- continue -%}{%- endif -%}
-                    <div class="custom_{{block.id}} mb__20">
-                      {{pages[block.settings.page].content}}
-                    </div>
-                  {%- else -%}{%- continue -%}
-                {%- endcase -%}
-              {% endfor %}
-            </div>
-            {%- comment -%}Selected page end{%- endcomment -%}
-
-          </div>
-          {%- comment -%}scroll content end{%- endcomment -%}
-        </div>
-
+         </div>
          <div class="mini_cart_footer js_cart_footer{% if ccount == 0 %} dn{% endif %}">
             <div class="js_cat_dics">
             {%- if cart.cart_level_discount_applications != blank -%}
@@ -129,6 +103,11 @@
             {%- if section_blocks.size > 0 -%}
                {%- for block in section_blocks -%}
                {%- case block.type -%}
+                  {%- when 'textarea' -%}
+                    {%- if block.settings.page == blank -%}{%- continue -%}{%- endif -%}
+                    <div class="custom_{{block.id}} mb__20">
+                      {{pages[block.settings.page].content}}
+                    </div>
                   {%- when 'price' -%}
                      <div class="total row fl_between al_center">
                         <div class="col-auto"><strong>{{ 'cart.general.subtotal' | t }}</strong></div>

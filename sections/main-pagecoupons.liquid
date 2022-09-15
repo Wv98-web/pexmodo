@@ -1,0 +1,166 @@
+{%- render 'enable_minify' with 'tagcss',nameFile:'0520.css' -%}
+<div class="container mt__60 mb__60">
+  <div class="row">
+    <div class="col-12 col-md-3 sp-myaccount-sidebar is_sticky_sidebar">
+      <nav class="sp-myaccount-nav mb__30 theiaStickySidebar">
+        <ul class="ul_none is_sticky_inner">
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard">
+            <a class="js_add_ld" href="{{ routes.account_url }}">{{ 'customer.account.dashboard' | t }}</a>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--account js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/account">
+              <span>MY ACCOUNT</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <!-- <li class="sp-myaccount-nav-link--edit-information">
+                <a class="js_add_ld" href="/pages/account">Account Information</a>
+              </li> -->
+              <li class="sp-myaccount-nav-link--edit-address">
+                <a class="js_add_ld" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }} ({{ customer.addresses_count }})</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--order js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/orders">
+              <span>MY ORDER</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <li class="sp-myaccount-nav-link--orders">
+                <a class="js_add_ld" href="/pages/orders">My Orders</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link is-active footer_opened">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY WALLET</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link">
+              <li class="sp-myaccount-nav-link--coupons">
+                <a class="js_add_ld active" href="/pages/coupons">My Coupons</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY PERSONALIZATION</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              {%- if settings.wishlist_type != '0' -%}
+              <li class="sp-myaccount-nav-link--wishlist">
+                {%- if settings.wishlist_type != '3' -%}
+                <a class="js_link_wis" href="{{ routes.search_url }}/?view=wish">{{ 'customer.account.wishlist' | t }} (<span class="jswcount">0</span>)</a>
+                {%- else -%}
+                <a class="js_link_wis" href="/pages/wishlist">{{ 'customer.account.wishlist' | t }} (<span class="jswcount ssw-counter-fave-menu">0</span>)</a>
+                {%- endif -%}
+              </li>
+              {%- endif -%}
+              <li class="sp-myaccount-nav-link--ootd iconic-symbol-nav" id="0520ootd">
+                <a href="/pages/ootd" class="item">OOTD</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--customer-logout">
+            <a class="js_add_ld" href="{{routes.account_logout_url}}" data-no-instant>{{ 'customer.account.log_out' | t }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-12 col-md-9 sp-myaccount-content is_sticky_content">
+      <div class="theiaStickySidebar">
+        <h3 class="fs__30 mb__20">Coupons</h3>
+
+        <div class="account_content_wrapper">
+
+          <!-- <ul class="coupon-nav flex fl_nowrap al_center mb__20">
+            <li class="pr mr__20">Available({%- if customer.orders_count > 0 -%}5{%- else -%}6{%- endif -%})</li>
+            <li class="pr">Unavailable({%- if customer.orders_count > 0 -%}1{%- else -%}0{%- endif -%})</li>
+          </ul> -->
+
+          <div>
+            <div class="coupon-list" style="display: block;">
+              
+              <div class="available_coupon_list">
+                <div class="mb__20">My Coupins</div>
+                <div class="row al_center fl_between">
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon1.png?v=1663224244" alt="pexmod">
+                  </div>
+                  {%- if customer.orders_count <= 0 -%}
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon2.png?v=1663224244" alt="pexmod" />
+                  </div>
+                  {%- endif -%}
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon3.png?v=1663224244" alt="pexmod" />
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon4.png?v=1663224244" alt="pexmod" />
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon5.png?v=1663224244" alt="pexmod" />
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon6.png?v=1663224244" alt="pexmod" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="unavailable_coupon_list mt__30">
+                <div class="mb__20">My Disable Coupins</div>
+                <div class="row al_center fl_between">
+                  {%- if customer.orders_count > 0 -%}
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon7.png?v=1663224245" alt="pexmod">
+                  </div>
+                  {%- else -%}
+                  <div class="col-md-6 col-12 tc">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/nocoupon.png?v=1663228285" alt="pexmod">
+                    <div class="mt__15">No coupons</div>
+                  </div>
+                  {%- endif -%}
+                </div>
+              </div>
+
+              <div class="Note_coupon_list mt__30">
+                <div class="mb__20">Note</div>
+                <div class="row al_center fl_between">
+                  <div class="col-md-6 col-12">
+                    <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon8.png?v=1663224245" alt="pexmod">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="coupon-list">
+              <div class="unavailable_coupon_list row al_center fl_between">
+                {%- if customer.orders_count > 0 -%}
+                <div class="col-md-6 col-12">
+                  <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/coupon7.png?v=1663224245" alt="pexmod">
+                </div>
+                {%- else -%}
+                <div class="col-md-6 col-12 tc">
+                  <img src="https://www.zeelool.com/img/no_coupons.5b07376c.png" alt="pexmod">
+                  <span class="mt__15">No coupons</span>
+                </div>
+                {%- endif -%}
+              </div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "main-pagecoupons",
+  "settings": []
+}
+{% endschema %}

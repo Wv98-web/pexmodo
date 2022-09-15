@@ -55,9 +55,9 @@
   <input type="hidden" data-cart-attr-rm name="attributes[cat_mb_items_per_row]" value=""><input type="hidden" data-cart-attr-rm name="attributes[cat_tb_items_per_row]" value=""><input type="hidden" data-cart-attr-rm name="attributes[cat_dk_items_per_row]" value="">
   <input type="hidden" data-cart-attr-rm name="attributes[auto_hide_ofsock]" value=""><input type="hidden" data-cart-attr-rm name="attributes[paginate_ntt4]" value=""><input type="hidden" data-cart-attr-rm name="attributes[limit_ntt4]" value=""><input type="hidden" data-cart-attr-rm name="attributes[use_bar_lmntt4]" value="">
 
-  <div class="tc mb__20" style="color: #603dae;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i></i>Discount code not eligible for flash sale product.</div>
+  <div class="tc mb__20 pl__15 flex no_wrap al_center" style="color: #603dae;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i></i>Discount code not eligible for flash sale product.</div>
   <div class="cart_header">
-		<div class="row al_center">
+		<div class="flex wrap al_center">
 			<div class="col-5">{{ 'cart.label.product' | t }}</div>
 			<div class="col-3 tc">{{ 'cart.label.price' | t }}</div>
 			<div class="col-2 tc">{{ 'cart.label.quantity' | t }}</div>
@@ -66,7 +66,7 @@
 	</div>
 	<div class="cart_items js_cat_items">{% render 'cart_items_page' %}</div>
 	<div class="cart__footer mt__60 mb__30">
-     <div class="row">
+     <div class="flex wrap">
        {%- if se_stts.show_note or se_stts.show_discount or se_stts.show_gift_wrap and gift_pr != blank -%}{%- assign ck_col = true -%}
          <div class="col-12 col-md-6 cart_actions tl_md tc order-md-2 order-2 mb__30">
            {%- if se_stts.show_gift_wrap and gift_pr != blank -%}
@@ -87,11 +87,11 @@
            {%- if se_stts.show_discount -%}
 	           <label for="couponcode" class="cart-couponcode__label db cd mt__20 mb__10">{{ 'cart.general.coupon' | t }}</label>
              <p>{{ 'cart.general.info_coupon' | t }}</p>
-	           <input type="text" name="discount" id="couponcode" value placeholder="{{ 'cart.general.placeholder_coupon' | t }}" style="border-color:#000000;">
+	           <input type="text" name="discount" id="couponcode" value placeholder="{{ 'cart.general.placeholder_coupon' | t }}">
            {%- endif -%}
 
            {%- if se_stts.show_sale_info and se_stts.sale_page != blank -%}
-              <div class="mt__20" style="width:max-content; text-align:left;">
+              <div class="mt__20 cart_sale_info tl">
                 {{pages[se_stts.sale_page].content}}
               </div>
            {%- endif -%}
