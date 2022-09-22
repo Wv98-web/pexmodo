@@ -886,6 +886,8 @@
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": true,
+        "section_banner": "shopify:\/\/shop_images\/Hot-sale.jpg",
+        "section_banner_mb": "shopify:\/\/shop_images\/M_banner-2.jpg",
         "img_align": "center",
         "url": "shopify:\/\/collections\/flash-sale",
         "open_link": "_blank",
