@@ -873,7 +873,7 @@
             "type": "simple",
             "settings": {
               "title": "TRACKING",
-              "url": "shopify:\/\/pages\/track",
+              "url": "shopify:\/\/pages\/track-order",
               "open_link": "_self",
               "icon": "truck",
               "cus_cl": false,
