@@ -3,6 +3,9 @@
     "cat_shop": {
       "type": "cat_shop",
       "settings": {
+        "shown": false,
+        "source": "1",
+        "sort": "alphabetical"
       }
     },
     "cat_heading": {
@@ -11,25 +14,21 @@
         "cc30e06b-26b5-4d95-8a6d-a3c0ba6bb5b1": {
           "type": "1",
           "settings": {
-          }
-        },
-        "b9fa77af-4041-42da-b41c-1df6ade5dbbd": {
-          "type": "2",
-          "settings": {
+            "color": "#ffffff"
           }
         }
       },
       "block_order": [
-        "cc30e06b-26b5-4d95-8a6d-a3c0ba6bb5b1",
-        "b9fa77af-4041-42da-b41c-1df6ade5dbbd"
+        "cc30e06b-26b5-4d95-8a6d-a3c0ba6bb5b1"
       ],
       "settings": {
         "shown": true,
+        "image": "shopify:\/\/shop_images\/1800x400.png",
         "use_specify_image": true,
         "parallax": false,
-        "color": "#000000",
-        "overlay": 54,
-        "padding": 50,
+        "color": "rgba(0,0,0,0)",
+        "overlay": 100,
+        "padding": 100,
         "paddingmb": 50,
         "bg_pos": "center center",
         "bg_repeat": "no-repeat",
@@ -40,16 +39,46 @@
     "des": {
       "type": "main-des-collection",
       "settings": {
+        "show_des": false
       }
     },
     "sub": {
       "type": "sub-collections",
       "settings": {
+        "show_sub": false,
+        "layout": "default",
+        "cat_design": "5",
+        "cat_space": "30",
+        "col": "3",
+        "col_md": "3",
+        "col_mb": "6",
+        "pr_txt": "products",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt"
       }
     },
     "main": {
       "type": "main-collection",
       "settings": {
+        "shop_layout": "default",
+        "shop_des": "default",
+        "limit": 12,
+        "space": 30,
+        "use_pagination": "infinite",
+        "use_bar_lm": false,
+        "col_pr": "3",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1 tc",
+        "show_vendor": false,
+        "breadcrumb_pr": true,
+        "use_cdt": true,
+        "round_cd": true,
+        "cdt_des": "3",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_contain",
+        "image_position": "8"
       }
     }
   },
