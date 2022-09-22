@@ -469,10 +469,9 @@
         "blocks": {
           "86bd9393-abd1-4b5c-b658-5155f77baf54": {
             "type": "dropdown",
-            "disabled": true,
             "settings": {
               "title": "ALL PRODUCTS",
-              "url": "shopify:\/\/collections\/all-production",
+              "url": "shopify:\/\/collections\/all-products",
               "open_link": "_self",
               "menu": "",
               "icon": "",
@@ -484,87 +483,6 @@
               "label_h": false,
               "lazy_mn": true,
               "pos": "right"
-            }
-          },
-          "d51b71a4-8545-444a-ba9b-92179e7b5f3f": {
-            "type": "mega",
-            "settings": {
-              "only_feature": false,
-              "only_magazine": false,
-              "title": "NEW",
-              "url": "shopify:\/\/collections\/trendy-on-social",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "#ff8000",
-              "label_n": true,
-              "label_h": false,
-              "lazy_mn": true,
-              "pos": "center",
-              "wid": "full",
-              "cus_wid": 1600
-            }
-          },
-          "ffb565ee-4c34-4e76-954c-750d0cd1fb46": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-2-of-september",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "6027a8c6-ee3a-4018-a832-9931585d5427": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-5-of-august",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "c771f502-5d2b-4ea4-940f-625c26734ffd": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-4-of-august",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "8e0c761f-15cf-4be5-a090-8991bd56f4cf": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-3-of-august",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "ad3230ef-3b3c-4367-97b8-4f2494191818": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-2-of-august",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "1628de76-32d2-46f3-bad0-85b806c6456d": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-1-of-august",
-              "title": "",
-              "col": "2"
             }
           },
           "01f21040-c175-48aa-bd4f-09e7ea52b6d9": {
@@ -629,22 +547,6 @@
               "cl": "#ec0101",
               "lb": "",
               "lb_cl": "",
-              "label_n": false,
-              "label_h": false
-            }
-          },
-          "ddff055f-e4af-4cdb-8306-bc11f7cef7ea": {
-            "type": "simple",
-            "disabled": true,
-            "settings": {
-              "title": "START FROM $17.95",
-              "url": "shopify:\/\/collections\/flash-sale",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "FLASH SALE",
-              "lb_cl": "#ff8000",
               "label_n": false,
               "label_h": false
             }
@@ -873,7 +775,7 @@
             "type": "simple",
             "settings": {
               "title": "TRACKING",
-              "url": "shopify:\/\/pages\/track-order",
+              "url": "shopify:\/\/pages\/track",
               "open_link": "_self",
               "icon": "truck",
               "cus_cl": false,
@@ -902,19 +804,11 @@
         },
         "block_order": [
           "86bd9393-abd1-4b5c-b658-5155f77baf54",
-          "d51b71a4-8545-444a-ba9b-92179e7b5f3f",
-          "ffb565ee-4c34-4e76-954c-750d0cd1fb46",
-          "6027a8c6-ee3a-4018-a832-9931585d5427",
-          "c771f502-5d2b-4ea4-940f-625c26734ffd",
-          "8e0c761f-15cf-4be5-a090-8991bd56f4cf",
-          "ad3230ef-3b3c-4367-97b8-4f2494191818",
-          "1628de76-32d2-46f3-bad0-85b806c6456d",
           "01f21040-c175-48aa-bd4f-09e7ea52b6d9",
           "b1a5dccc-d877-4d9d-be84-3225359ea4e5",
           "488f9d0f-b0ef-4861-9173-3521d147d7c7",
           "f78e793d-86b2-4262-b6de-bd070fa4ad30",
           "7d90d3e5-44a1-49e7-a190-1cc318e171dd",
-          "ddff055f-e4af-4cdb-8306-bc11f7cef7ea",
           "84bd709b-231a-4e00-b33b-877d9df5147e",
           "67fac2d4-67a5-463b-b2d2-d9da4f5246df",
           "d6145a2a-6e83-4161-997f-6e3c6235699b",
@@ -946,17 +840,6 @@
       "footer_top": {
         "type": "footer_top",
         "blocks": {
-          "1581507824602": {
-            "type": "menu",
-            "settings": {
-              "title": "Shop By",
-              "menu": "",
-              "order": "1",
-              "cl": "2",
-              "cl_tb": "6",
-              "cl_mb": "12"
-            }
-          },
           "1581507828337": {
             "type": "menu",
             "settings": {
@@ -972,7 +855,7 @@
             "type": "menu",
             "settings": {
               "title": "Policies",
-              "menu": "",
+              "menu": "policies",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -1014,7 +897,6 @@
           }
         },
         "block_order": [
-          "1581507824602",
           "1581507828337",
           "1581507840818",
           "1581507835369",
