@@ -922,6 +922,7 @@
         "1661303304f559d5ff-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/magazine.png",
             "url": "shopify:\/\/pages\/magazine",
             "open_link": "_blank",
             "hoverz": true,
@@ -967,6 +968,7 @@
         "1661303304f559d5ff-6": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/creative.png",
             "url": "shopify:\/\/pages\/about-pexmod",
             "open_link": "_blank",
             "hoverz": true,
@@ -1012,6 +1014,8 @@
         "2a1925a6-a3a7-4c61-96c3-4666dccb7a90": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/ootd.png",
+            "image_mb": "shopify:\/\/shop_images\/ootd_m.png",
             "url": "shopify:\/\/pages\/pexmod-ootd",
             "open_link": "_blank",
             "hoverz": true,
