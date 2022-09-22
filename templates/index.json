@@ -1020,6 +1020,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/ootd.png",
+            "image_mb": "shopify:\/\/shop_images\/ootd_m_e600e05a-e9fa-4d46-9117-a290012effad.png",
             "url": "shopify:\/\/pages\/pexmod-ootd",
             "open_link": "_blank",
             "hoverz": true,
