@@ -1784,7 +1784,7 @@
           "header_top2-0": {
             "type": "text",
             "settings": {
-              "text": "<div class=\"flex al_center\">\n<i class=\"las la-envelope\" style=\"font-size: 1.6em;\"><\/i><a href=\"mailto:\">service@pexmod.com<\/a>\n<\/div>",
+              "text": "<div class=\"flex al_center\">\n<i class=\"las la-envelope\" style=\"font-size: 1.6em;\"><\/i><a href=\"mailto:\" style=\"color:#000000;\">service@pexmod.com<\/a>\n<\/div>",
               "hide": true,
               "col": "2"
             }
@@ -1792,7 +1792,7 @@
           "header_top2-1": {
             "type": "text",
             "settings": {
-              "text": "<a style=\"font-weight:bold;\">Halloween Sale! 40% off Sitewide!<\/a>",
+              "text": "<a style=\"color:#000000;font-weight:bold;\">Halloween Sale! 40% off Sitewide!<\/a>",
               "hide": false,
               "col": "8"
             }
