@@ -136,7 +136,8 @@
     "cl_lazyload": "#603dae",
     "bg_lazyload": "#f5f5f5",
     "use_cus_lz": true,
-    "cus_lz": "shopify:\/\/shop_images\/2x_9a920079-e277-4a1e-b768-fbe976255552.png",
+    "cus_lz": "shopify:\/\/shop_images\/loading.png",
+    "size_cus_lz": 90,
     "ship_bar2": "#008060",
     "ship_bar3": "#008060",
     "font_source": "2",
@@ -817,7 +818,6 @@
           "91a30f85-e775-407c-8150-41ad8e70b1d2": {
             "type": "magazine",
             "settings": {
-              "image": "shopify:\/\/shop_images\/03_2x_20c39bb1-72bc-4952-b8b2-0dadff401879.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1",
@@ -829,7 +829,6 @@
           "ea795e0b-ddd9-488f-8728-80aa9cab042c": {
             "type": "magazine",
             "settings": {
-              "image": "shopify:\/\/shop_images\/02_2x_67807694-9477-4f40-98d5-8ef524eae909.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1_2",
@@ -841,7 +840,6 @@
           "d00fb042-7b45-4e00-91f2-da1f61561a54": {
             "type": "magazine",
             "settings": {
-              "image": "shopify:\/\/shop_images\/01_2x_2aa1a139-64fd-4d6d-ad86-e593796370a5.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1_3",
@@ -930,7 +928,7 @@
             "type": "menu",
             "settings": {
               "title": "Shop By",
-              "menu": "shop-by",
+              "menu": "",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -952,7 +950,7 @@
             "type": "menu",
             "settings": {
               "title": "Policies",
-              "menu": "polocies",
+              "menu": "",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -1131,11 +1129,10 @@
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/polos_2x_b95398ac-e3e9-4f17-8fdf-30920b1f27d9.png",
               "title": "HOT SALE",
               "url": "",
               "open_link": "_self",
-              "menu": "hot-sale",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1144,7 +1141,6 @@
           "698422c8-d22c-4158-b019-9a8ba27049b3": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Sweater_Vests_2x_8882a134-0c6f-4eac-8c89-92d15085647c.png",
               "title": "TOPS",
               "url": "",
               "open_link": "_self",
@@ -1157,11 +1153,10 @@
           "7455657f-5642-485d-b214-22fc3f3bdc7d": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Jeans_2x_99170b3f-9fb2-41c0-8a85-c58b7a806c00.png",
               "title": "BOTTOMS",
               "url": "",
               "open_link": "_self",
-              "menu": "bottom-navigation-bar",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1170,11 +1165,10 @@
           "d742e08a-8c94-46ec-8fa8-7e2fc489ac36": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
               "title": "ACCESSORIES",
               "url": "",
               "open_link": "_self",
-              "menu": "accessries",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1249,7 +1243,7 @@
               "title": "Policies",
               "url": "",
               "open_link": "_self",
-              "menu": "polocies",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -2211,7 +2205,7 @@
               "title": "AUGUST",
               "url": "",
               "open_link": "_self",
-              "menu": "brand-culture",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -2231,7 +2225,6 @@
             "type": "image",
             "settings": {
               "title": "Pexmod Creative Expression",
-              "image": "shopify:\/\/shop_images\/pexmodcreative_2x_89272693-392c-4264-920f-09d09dc0e640.png",
               "url": "shopify:\/\/pages\/pexmod-creative-expression",
               "open_link": "_blank",
               "hoverz": true,
@@ -2262,8 +2255,6 @@
             "type": "image",
             "settings": {
               "title": "Pexmod OOTD",
-              "image": "shopify:\/\/shop_images\/Pexmod_Creative_2x_ba2107cb-a356-470b-bd69-9bfd05ed0d05.png",
-              "image_mb": "shopify:\/\/shop_images\/OOTD_2x_78f7cdcd-b6d8-4d83-9c3a-4fe9124f6cd1.png",
               "url": "shopify:\/\/pages\/pexmod-ootd",
               "open_link": "_blank",
               "hoverz": true,
@@ -2307,7 +2298,7 @@
               "title": "SHOP BY FEATURE",
               "url": "",
               "open_link": "_self",
-              "menu": "feture",
+              "menu": "",
               "icon": "",
               "lb": "",
               "lb_cl": ""
