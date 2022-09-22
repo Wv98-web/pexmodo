@@ -494,6 +494,7 @@
           "type": "collection",
           "settings": {
             "collection": "cross-series",
+            "image": "shopify:\/\/shop_images\/cross.png",
             "img_align": "center",
             "title": "Cross",
             "url": "",
@@ -506,6 +507,7 @@
           "type": "collection",
           "settings": {
             "collection": "skeleton-series",
+            "image": "shopify:\/\/shop_images\/skeleton.png",
             "img_align": "center",
             "title": "Skeleton",
             "url": "",
@@ -518,6 +520,7 @@
           "type": "collection",
           "settings": {
             "collection": "eye-series",
+            "image": "shopify:\/\/shop_images\/eye.png",
             "img_align": "center",
             "title": "Eye",
             "url": "",
@@ -530,6 +533,7 @@
           "type": "collection",
           "settings": {
             "collection": "cartoon-series",
+            "image": "shopify:\/\/shop_images\/cartoon.png",
             "img_align": "center",
             "title": "Cartoon",
             "url": "",
@@ -542,6 +546,7 @@
           "type": "collection",
           "settings": {
             "collection": "abstract-series",
+            "image": "shopify:\/\/shop_images\/abstract.png",
             "img_align": "center",
             "title": "Abstract",
             "url": "",
@@ -554,6 +559,7 @@
           "type": "collection",
           "settings": {
             "collection": "graphic-tee",
+            "image": "shopify:\/\/shop_images\/pet.png",
             "img_align": "center",
             "title": "Pet",
             "url": "",
@@ -1015,7 +1021,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/ootd.png",
-            "image_mb": "shopify:\/\/shop_images\/ootd_m.png",
+            "image_mb": "shopify:\/\/shop_images\/ootd_m_e600e05a-e9fa-4d46-9117-a290012effad.png",
             "url": "shopify:\/\/pages\/pexmod-ootd",
             "open_link": "_blank",
             "hoverz": true,
