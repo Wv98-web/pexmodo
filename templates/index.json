@@ -633,6 +633,8 @@
         "1661248649bd147037-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/flash-sale.jpg",
+            "image_mb": "shopify:\/\/shop_images\/M_banner-3.jpg",
             "url": "shopify:\/\/collections\/hot-sale",
             "open_link": "_blank",
             "hoverz": false,
