@@ -289,8 +289,9 @@
           "type": "collection",
           "settings": {
             "collection": "tees",
+            "image": "shopify:\/\/shop_images\/tees.png",
             "img_align": "center",
-            "title": "",
+            "title": "Tees",
             "url": ""
           }
         },
@@ -298,8 +299,9 @@
           "type": "collection",
           "settings": {
             "collection": "shorts",
+            "image": "shopify:\/\/shop_images\/shorts.png",
             "img_align": "center",
-            "title": "",
+            "title": "Shorts",
             "url": ""
           }
         },
