@@ -289,8 +289,9 @@
           "type": "collection",
           "settings": {
             "collection": "tees",
+            "image": "shopify:\/\/shop_images\/tees.png",
             "img_align": "center",
-            "title": "",
+            "title": "Tees",
             "url": ""
           }
         },
@@ -298,8 +299,9 @@
           "type": "collection",
           "settings": {
             "collection": "shorts",
+            "image": "shopify:\/\/shop_images\/shorts.png",
             "img_align": "center",
-            "title": "",
+            "title": "Shorts",
             "url": ""
           }
         },
@@ -307,8 +309,9 @@
           "type": "collection",
           "settings": {
             "collection": "shirts",
+            "image": "shopify:\/\/shop_images\/shirts.png",
             "img_align": "center",
-            "title": "",
+            "title": "Shirts",
             "url": ""
           }
         },
@@ -316,8 +319,9 @@
           "type": "collection",
           "settings": {
             "collection": "pants",
+            "image": "shopify:\/\/shop_images\/pants.png",
             "img_align": "center",
-            "title": "",
+            "title": "Pants",
             "url": ""
           }
         },
@@ -325,6 +329,7 @@
           "type": "collection",
           "settings": {
             "collection": "jackets-coats",
+            "image": "shopify:\/\/shop_images\/Jackets.png",
             "img_align": "center",
             "title": "Jackets",
             "url": ""
@@ -334,8 +339,9 @@
           "type": "collection",
           "settings": {
             "collection": "polos",
+            "image": "shopify:\/\/shop_images\/polos.png",
             "img_align": "center",
-            "title": "",
+            "title": "Polos",
             "url": ""
           }
         },
@@ -343,8 +349,9 @@
           "type": "collection",
           "settings": {
             "collection": "sweaters",
+            "image": "shopify:\/\/shop_images\/Sweaters.png",
             "img_align": "center",
-            "title": "",
+            "title": "Sweaters",
             "url": ""
           }
         },
@@ -352,6 +359,7 @@
           "type": "collection",
           "settings": {
             "collection": "hoodie",
+            "image": "shopify:\/\/shop_images\/Hoodies.png",
             "img_align": "center",
             "title": "Hoodies",
             "url": ""
@@ -361,8 +369,9 @@
           "type": "collection",
           "settings": {
             "collection": "sweatshirts",
+            "image": "shopify:\/\/shop_images\/Sweatshirts.png",
             "img_align": "center",
-            "title": "",
+            "title": "Sweatshirts",
             "url": ""
           }
         },
@@ -370,8 +379,9 @@
           "type": "collection",
           "settings": {
             "collection": "sweater-vests",
+            "image": "shopify:\/\/shop_images\/Sweater_Vests.png",
             "img_align": "center",
-            "title": "",
+            "title": "Sweater Vests",
             "url": ""
           }
         },
@@ -379,8 +389,9 @@
           "type": "collection",
           "settings": {
             "collection": "cardigans",
+            "image": "shopify:\/\/shop_images\/Cardigans.png",
             "img_align": "center",
-            "title": "",
+            "title": "Cardigans",
             "url": ""
           }
         },
@@ -388,8 +399,9 @@
           "type": "collection",
           "settings": {
             "collection": "jeans",
+            "image": "shopify:\/\/shop_images\/Jeans.png",
             "img_align": "center",
-            "title": "",
+            "title": "Jeans",
             "url": ""
           }
         },
@@ -397,6 +409,7 @@
           "type": "collection",
           "settings": {
             "collection": "caps",
+            "image": "shopify:\/\/shop_images\/Caps.png",
             "img_align": "center",
             "title": "Caps",
             "url": ""
@@ -406,8 +419,9 @@
           "type": "collection",
           "settings": {
             "collection": "sunglasses",
+            "image": "shopify:\/\/shop_images\/Sunglasses.png",
             "img_align": "center",
-            "title": "",
+            "title": "Sunglasses",
             "url": ""
           }
         },
@@ -415,8 +429,9 @@
           "type": "collection",
           "settings": {
             "collection": "phone-cases",
+            "image": "shopify:\/\/shop_images\/Phone.png",
             "img_align": "center",
-            "title": "",
+            "title": "Phone Cases",
             "url": ""
           }
         }
