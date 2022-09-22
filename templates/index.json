@@ -73,7 +73,8 @@
           "settings": {
             "title": "US <b style=\"font-size: 1.2em\">$5<\/b> OFF",
             "des": "FOR THE FIRST ORDER",
-            "prompt": "Only for the first order"
+            "prompt": "Only for the first order",
+            "image": "shopify:\/\/shop_images\/coupon_5.png"
           }
         },
         "11095400-bc15-4870-9b4b-afbd0795b309": {
@@ -81,7 +82,8 @@
           "settings": {
             "title": "US <b style=\"font-size: 1.2em\">$10<\/b> OFF",
             "des": "ON ORDERS OF US $79+",
-            "prompt": ""
+            "prompt": "",
+            "image": "shopify:\/\/shop_images\/coupon_10.png"
           }
         },
         "aa1f3186-7ec4-4ca5-8b3d-672b669a092e": {
@@ -89,7 +91,8 @@
           "settings": {
             "title": "US $30 OFF",
             "des": "ON ORDERS OF US $159+",
-            "prompt": ""
+            "prompt": "",
+            "image": "shopify:\/\/shop_images\/coupon_30.png"
           }
         },
         "a4157c10-7e7e-490d-a2a3-950601da717c": {
@@ -97,7 +100,8 @@
           "settings": {
             "title": "US $50 OFF",
             "des": "ON ORDERS OF US $209+",
-            "prompt": ""
+            "prompt": "",
+            "image": "shopify:\/\/shop_images\/coupon_50.png"
           }
         },
         "57f1560f-dc7f-456c-a68c-b511ccf43ba3": {
@@ -105,7 +109,8 @@
           "settings": {
             "title": "US $70 OFF",
             "des": "ON ORDERS OF US $299+",
-            "prompt": ""
+            "prompt": "",
+            "image": "shopify:\/\/shop_images\/coupon_70.png"
           }
         }
       },
