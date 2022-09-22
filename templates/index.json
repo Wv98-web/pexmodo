@@ -629,7 +629,7 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "rgba(0,0,0,0)",
-        "lp_c_bg": "#efebf7",
+        "lp_c_bg": "rgba(0,0,0,0)",
         "hide_bgimg": false,
         "content_bg": "#ffffff",
         "content_bg_hover": "#ff8000",
