@@ -137,7 +137,7 @@
     "bg_lazyload": "#f5f5f5",
     "use_cus_lz": true,
     "cus_lz": "shopify:\/\/shop_images\/loading.png",
-    "size_cus_lz": 90,
+    "size_cus_lz": 70,
     "ship_bar2": "#008060",
     "ship_bar3": "#008060",
     "font_source": "2",
