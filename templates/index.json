@@ -467,8 +467,8 @@
         "fs_title_m": 1.8,
         "fs_view": 20,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
-        "color_title": "#ffffff",
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "round": 0,
@@ -644,6 +644,7 @@
     },
     "1661248650b11cc158": {
       "type": "banner3",
+      "disabled": true,
       "blocks": {
         "1661248649bd147037-0": {
           "type": "image",
@@ -715,6 +716,7 @@
     },
     "166124728961ada76b": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "TRENDING",
         "sub_title": "",
@@ -771,6 +773,7 @@
     },
     "166124728961ada76c": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Week 1 of September",
         "sub_title": "",
@@ -827,6 +830,7 @@
     },
     "166124728961ada76a": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Week 4 of August",
         "sub_title": "",
@@ -883,6 +887,7 @@
     },
     "166124728961ada76d": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Flash Sale",
         "sub_title": "",
@@ -941,6 +946,7 @@
     },
     "1661303305725ccba3": {
       "type": "banner3_1",
+      "disabled": true,
       "blocks": {
         "1661303304f559d5ff-0": {
           "type": "image",
@@ -1323,6 +1329,62 @@
         "mg_mb": ",1.5rem,,1.5rem,",
         "pd_mb": "3rem,1rem,3rem,1rem,"
       }
+    },
+    "1663828892103ada30": {
+      "type": "featured_collection2",
+      "settings": {
+        "title": "3 ITEMS ONLY $59",
+        "sub_title": "",
+        "sub_font": "2",
+        "btn_title": "See all products",
+        "style_title": "title_bg",
+        "show_line": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "fs_title": 30,
+        "fs_title_m": 1.8,
+        "fs_view": 20,
+        "fs_view_m": 1.2,
+        "bg_color_title": "#603DAE",
+        "color_title": "#ffffff",
+        "max_height_title": 88,
+        "max_height_title_m": 44,
+        "enable_section_banner": false,
+        "img_align": "center",
+        "url": "",
+        "open_link": "_blank",
+        "hoverz": true,
+        "cl_overlay": "#000",
+        "cl_opacity": 0,
+        "collection": "",
+        "limit": 12,
+        "limit_m": 6,
+        "space": 30,
+        "use_pagination": "none",
+        "use_bar_lm": true,
+        "btn_rd": true,
+        "btn_icon": false,
+        "btn_style": "default",
+        "col_pr": "3",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "use_eq_height": false,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "cp_code": false,
+        "layout": "wrap",
+        "cl_bg": "",
+        "mg": "50px,,50px,",
+        "pd": "",
+        "mg_mb": "",
+        "pd_mb": ""
+      }
     }
   },
   "order": [
@@ -1339,6 +1401,7 @@
     "1661303305725ccba3",
     "165354614392a84d0f",
     "165354745662564e86",
-    "1653547766972217eb"
+    "1653547766972217eb",
+    "1663828892103ada30"
   ]
 }
