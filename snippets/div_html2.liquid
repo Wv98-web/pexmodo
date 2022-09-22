@@ -27,7 +27,7 @@ if t_name != 'cart' and settings.cart_pos != 'disable'
 endif -%}
 {%- if admin_sp -%}
 
-{%- render 'style_up_css' -%}
+{% comment %} {%- render 'style_up_css' -%} {% endcomment %}
 <div id="nt_menu_canvas" class="nt_fk_canvas nt_sleft dn">
   {%- comment -%}
   {%- if settings.mb_search -%}
