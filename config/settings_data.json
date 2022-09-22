@@ -1071,24 +1071,29 @@
           },
           "cart_widget-0": {
             "type": "price",
-            "settings": {}
+            "settings": {
+            }
           },
           "cart_widget-3": {
             "type": "btnc",
             "disabled": true,
-            "settings": {}
+            "settings": {
+            }
           },
           "cart_widget-5": {
             "type": "btnmr",
-            "settings": {}
+            "settings": {
+            }
           },
           "cart_widget-4": {
             "type": "btnck",
-            "settings": {}
+            "settings": {
+            }
           },
           "cart_widget-6": {
             "type": "img",
-            "settings": {}
+            "settings": {
+            }
           },
           "cart_widget-7": {
             "type": "btn",
@@ -1201,15 +1206,18 @@
           },
           "mb_nav-4": {
             "type": "wis",
-            "settings": {}
+            "settings": {
+            }
           },
           "mb_nav-5": {
             "type": "sea",
-            "settings": {}
+            "settings": {
+            }
           },
           "mb_nav-6": {
             "type": "acc",
-            "settings": {}
+            "settings": {
+            }
           },
           "mb_nav-7": {
             "type": "help",
@@ -1220,7 +1228,8 @@
           },
           "mb_nav-8": {
             "type": "cur",
-            "settings": {}
+            "settings": {
+            }
           },
           "80c1d701-37c1-49c4-9caf-41e2a6f04cab": {
             "type": "menu",
@@ -1262,7 +1271,8 @@
           "80c1d701-37c1-49c4-9caf-41e2a6f04cab",
           "a03f0fd1-948a-4dd8-9de7-a5e2d1e06068"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "mb_cat": {
         "type": "mb_cat",
@@ -1326,7 +1336,8 @@
           "e42e938c-157f-4e5e-bfc6-9b16ac88bbe5",
           "a86e251f-af6c-47a9-8031-6de3e8a9b2b4"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "toolbar_mobile": {
         "type": "toolbar_mobile",
@@ -1475,7 +1486,8 @@
           "1581913909406",
           "1581913174211"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "sticky_atc": {
         "type": "sticky_atc",
@@ -1715,11 +1727,13 @@
           "pr-sidebar-1",
           "pr-sidebar-2"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "nt_filter2": {
         "type": "nt_filter2",
-        "settings": {}
+        "settings": {
+        }
       },
       "sidebar_shop2": {
         "type": "sidebar_shop2",
@@ -1757,7 +1771,8 @@
           },
           "sidebar_shop2-3": {
             "type": "filters",
-            "settings": {}
+            "settings": {
+            }
           }
         },
         "block_order": [
@@ -1766,7 +1781,8 @@
           "sidebar_shop2-2",
           "sidebar_shop2-3"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "header_top2": {
         "type": "header_top2",
@@ -1871,7 +1887,8 @@
           },
           "header_2-1": {
             "type": "logo",
-            "settings": {}
+            "settings": {
+            }
           },
           "header_2-2": {
             "type": "simple",
@@ -2204,7 +2221,8 @@
         "block_order": [
           "bdb31ed0-94c5-450d-9437-4e46a9622b10"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "mb_cat4": {
         "type": "mb_cat4",
@@ -2277,7 +2295,8 @@
           "37d2878c-4765-4763-a122-39ecbfb402f5",
           "f034fcd0-a840-485f-81c2-7dbde9ed28fc"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "mb_cat2": {
         "type": "mb_cat2",
@@ -2487,9 +2506,12 @@
           "bb2c3345-cd25-4c86-885c-d5bd16ea5170",
           "9c497064-55bf-4f09-818d-13c00ff75646"
         ],
-        "settings": {}
+        "settings": {
+        }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   }
 }
