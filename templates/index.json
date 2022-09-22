@@ -928,6 +928,7 @@
         "1661303304f559d5ff-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/magazine.png",
             "url": "shopify:\/\/pages\/magazine",
             "open_link": "_blank",
             "hoverz": true,
