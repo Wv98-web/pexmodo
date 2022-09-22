@@ -7,7 +7,7 @@
           "type": "img",
           "settings": {
             "image": "shopify:\/\/shop_images\/banner1.jpg",
-            "image_mb": "shopify:\/\/shop_images\/M_banner-1-1.jpg",
+            "image_mb": "shopify:\/\/shop_images\/M_banner-1.jpg",
             "pos_img": "center center",
             "cl_img": "rgba(0,0,0,0)",
             "link_img1": "shopify:\/\/collections\/all-production",
