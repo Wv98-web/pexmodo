@@ -469,6 +469,7 @@
         "blocks": {
           "86bd9393-abd1-4b5c-b658-5155f77baf54": {
             "type": "dropdown",
+            "disabled": true,
             "settings": {
               "title": "ALL PRODUCTS",
               "url": "shopify:\/\/collections\/all-production",
@@ -617,8 +618,24 @@
               "col": "2"
             }
           },
+          "7d90d3e5-44a1-49e7-a190-1cc318e171dd": {
+            "type": "simple",
+            "settings": {
+              "title": "HALLOWEEN",
+              "url": "\/",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "label_n": false,
+              "label_h": false
+            }
+          },
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea": {
             "type": "simple",
+            "disabled": true,
             "settings": {
               "title": "START FROM $17.95",
               "url": "shopify:\/\/collections\/flash-sale",
@@ -796,6 +813,7 @@
           },
           "48c231dd-c1e0-4e2c-9cd6-e26f8941395a": {
             "type": "mega",
+            "disabled": true,
             "settings": {
               "only_feature": false,
               "only_magazine": false,
@@ -817,6 +835,7 @@
           },
           "91a30f85-e775-407c-8150-41ad8e70b1d2": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "cat_design": "5",
               "hoverz": false,
@@ -828,6 +847,7 @@
           },
           "ea795e0b-ddd9-488f-8728-80aa9cab042c": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "cat_design": "5",
               "hoverz": false,
@@ -839,6 +859,7 @@
           },
           "d00fb042-7b45-4e00-91f2-da1f61561a54": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "cat_design": "5",
               "hoverz": false,
@@ -892,6 +913,7 @@
           "b1a5dccc-d877-4d9d-be84-3225359ea4e5",
           "488f9d0f-b0ef-4861-9173-3521d147d7c7",
           "f78e793d-86b2-4262-b6de-bd070fa4ad30",
+          "7d90d3e5-44a1-49e7-a190-1cc318e171dd",
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea",
           "84bd709b-231a-4e00-b33b-877d9df5147e",
           "67fac2d4-67a5-463b-b2d2-d9da4f5246df",
