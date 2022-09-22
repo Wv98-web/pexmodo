@@ -67,6 +67,7 @@
     },
     "1661391658670bdbe3": {
       "type": "coupon-list",
+      "disabled": true,
       "blocks": {
         "ca42e349-e933-4c76-827e-699e8c2ca9dc": {
           "type": "coupon",
@@ -175,6 +176,7 @@
     },
     "166149194810f6d9cc": {
       "type": "coupon-list-mb",
+      "disabled": true,
       "blocks": {
         "16614919482196e05f-0": {
           "type": "coupon",
@@ -604,8 +606,8 @@
         "fs_title_m": 1.8,
         "fs_view": 20,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
-        "color_title": "#ffffff",
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "cat_layout": "3",
