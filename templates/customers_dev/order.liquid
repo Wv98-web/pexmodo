@@ -1,35 +1,78 @@
 {%- section 'acc_heading' -%}
 <div class="container mt__60 mb__60">
   <div class="row">
-     <div class="col-12 col-md-3 sp-myaccount-sidebar is_sticky_sidebar">
-        <nav class="sp-myaccount-nav mb__30 theiaStickySidebar">
-           <ul class="ul_none is_sticky_inner">
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard">
-                 <a class="js_add_ld" href="{{ routes.account_url }}">{{ 'customer.account.dashboard' | t }}</a>
+    <div class="col-12 col-md-3 sp-myaccount-sidebar is_sticky_sidebar">
+      <nav class="sp-myaccount-nav mb__30 theiaStickySidebar">
+        <ul class="ul_none is_sticky_inner">
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard">
+            <a class="js_add_ld" href="{{ routes.account_url }}">{{ 'customer.account.dashboard' | t }}</a>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--account js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/account">
+              <span>MY ACCOUNT</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <!-- <li class="sp-myaccount-nav-link--edit-information">
+                <a class="js_add_ld" href="/pages/account">Account Information</a>
+              </li> -->
+              <li class="sp-myaccount-nav-link--edit-address">
+                <a class="js_add_ld" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }} ({{ customer.addresses_count }})</a>
               </li>
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--dashboard is-active pe_none">
-                 <a class="js_add_ld" href="{{ order.customer_url }}">{{ 'customer.order.title' | t: name: order.name }}</a>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--order js_myaccount_nav_link is-active footer_opened">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/orders">
+              <span>MY ORDER</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link">
+              <li class="sp-myaccount-nav-link--dashboard">
+                <a class="js_add_ld active" href="{{ order.customer_url }}">{{ 'customer.order.title' | t: name: order.name }}</a>
               </li>
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--edit-address">
-                 <a class="js_add_ld" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }} ({{ customer.addresses_count }})</a>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY WALLET</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
+              <li class="sp-myaccount-nav-link--coupons">
+                <a class="js_add_ld" href="/pages/coupons">My Coupons</a>
               </li>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wallet js_myaccount_nav_link">
+            <span class="js_add_ld sp-myaccount-nav-title flex al_center fl_between" href="/pages/coupons">
+              <span>MY PERSONALIZATION</span>
+              <span class="nav_link_icon ml__5"></span>
+            </span>
+            <ul class="js_myaccount_nav_sub_link" style="display: none;">
               {%- if settings.wishlist_type != '0' -%}
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--wishlist">
-                 {%- if settings.wishlist_type != '3' -%}
-                 <a class="js_link_wis" href="{{ routes.search_url }}/?view=wish">{{ 'customer.account.wishlist' | t }} (<span class="jswcount">0</span>)</a>
-                 {%- else -%}
-                 <a class="js_link_wis" href="/pages/wishlist">{{ 'customer.account.wishlist' | t }} (<span class="jswcount ssw-counter-fave-menu">0</span>)</a>
-                 {%- endif -%}
+              <li class="sp-myaccount-nav-link--wishlist">
+                {%- if settings.wishlist_type != '3' -%}
+                <a class="js_link_wis" href="{{ routes.search_url }}/?view=wish">{{ 'customer.account.wishlist' | t }} (<span class="jswcount">0</span>)</a>
+                {%- else -%}
+                <a class="js_link_wis" href="/pages/wishlist">{{ 'customer.account.wishlist' | t }} (<span class="jswcount ssw-counter-fave-menu">0</span>)</a>
+                {%- endif -%}
               </li>
               {%- endif -%}
-              <li class="sp-myaccount-nav-link sp-myaccount-nav-link--customer-logout">
-                <a class="js_add_ld" href="{{routes.account_logout_url}}" data-no-instant>{{ 'customer.account.log_out' | t }}</a>
+              <li class="sp-myaccount-nav-link--ootd iconic-symbol-nav" id="0520ootd">
+                <a href="/pages/ootd" class="item">OOTD</a>
               </li>
-           </ul>
-        </nav>
-     </div>
+            </ul>
+          </li>
+          <li class="sp-myaccount-nav-link sp-myaccount-nav-link--customer-logout">
+            <a class="js_add_ld" href="{{routes.account_logout_url}}" data-no-instant>{{ 'customer.account.log_out' | t }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
      <div class="col-12 col-md-9 sp-myaccount-content is_sticky_content">
      <div class="theiaStickySidebar">
+      <a href="/pages/orders" style="text-decoration: underline;"><b>All Orders</b></a>
        <div class="grid__item myaccount__order-history">
          <h2>{{ 'customer.order.title' | t: name: order.name }}</h2>
 
@@ -196,11 +239,11 @@
                      <dl>
                        <dt></dt>
                        <dd>
-                         <s>{{ order.total_price | money_with_currency }}</s>
+                         <s>{{ order.total_price | money_with_currency | remove: "USD" }}</s>
                        </dd>
                        <dt></dt>
                        <dd>
-                         <span class="order-discount">{{ order.total_net_amount | money_with_currency }}</span>
+                         <span class="order-discount">{{ order.total_net_amount | money_with_currency | remove: "USD" }}</span>
                        </dd>
                      </dl>
                    {%- else -%}
