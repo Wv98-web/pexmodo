@@ -50,7 +50,7 @@
     "c_3": "",
     "c_4": "",
     "logo_svg": "",
-    "logo": "shopify:\/\/shop_images\/logo.png",
+    "logo": "shopify:\/\/shop_images\/pexmod_2x_078c1d74-109f-4f54-b6e2-7d4eb106730b.png",
     "logo_retina": "",
     "logo_width": 95,
     "logos": "",
@@ -136,8 +136,7 @@
     "cl_lazyload": "#603dae",
     "bg_lazyload": "#f5f5f5",
     "use_cus_lz": true,
-    "cus_lz": "shopify:\/\/shop_images\/loading.png",
-    "size_cus_lz": 60,
+    "cus_lz": "shopify:\/\/shop_images\/2x_9a920079-e277-4a1e-b768-fbe976255552.png",
     "ship_bar2": "#008060",
     "ship_bar3": "#008060",
     "font_source": "2",
@@ -818,6 +817,7 @@
           "91a30f85-e775-407c-8150-41ad8e70b1d2": {
             "type": "magazine",
             "settings": {
+              "image": "shopify:\/\/shop_images\/03_2x_20c39bb1-72bc-4952-b8b2-0dadff401879.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1",
@@ -829,6 +829,7 @@
           "ea795e0b-ddd9-488f-8728-80aa9cab042c": {
             "type": "magazine",
             "settings": {
+              "image": "shopify:\/\/shop_images\/02_2x_67807694-9477-4f40-98d5-8ef524eae909.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1_2",
@@ -840,6 +841,7 @@
           "d00fb042-7b45-4e00-91f2-da1f61561a54": {
             "type": "magazine",
             "settings": {
+              "image": "shopify:\/\/shop_images\/01_2x_2aa1a139-64fd-4d6d-ad86-e593796370a5.png",
               "cat_design": "5",
               "hoverz": false,
               "link": "shopify:\/\/pages\/magazine_1_3",
@@ -928,7 +930,7 @@
             "type": "menu",
             "settings": {
               "title": "Shop By",
-              "menu": "",
+              "menu": "shop-by",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -939,7 +941,7 @@
             "type": "menu",
             "settings": {
               "title": "Company",
-              "menu": "",
+              "menu": "company",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -950,7 +952,7 @@
             "type": "menu",
             "settings": {
               "title": "Policies",
-              "menu": "",
+              "menu": "polocies",
               "order": "1",
               "cl": "2",
               "cl_tb": "6",
@@ -1069,29 +1071,24 @@
           },
           "cart_widget-0": {
             "type": "price",
-            "settings": {
-            }
+            "settings": {}
           },
           "cart_widget-3": {
             "type": "btnc",
             "disabled": true,
-            "settings": {
-            }
+            "settings": {}
           },
           "cart_widget-5": {
             "type": "btnmr",
-            "settings": {
-            }
+            "settings": {}
           },
           "cart_widget-4": {
             "type": "btnck",
-            "settings": {
-            }
+            "settings": {}
           },
           "cart_widget-6": {
             "type": "img",
-            "settings": {
-            }
+            "settings": {}
           },
           "cart_widget-7": {
             "type": "btn",
@@ -1129,10 +1126,11 @@
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316": {
             "type": "menu2",
             "settings": {
+              "image": "shopify:\/\/shop_images\/polos_2x_b95398ac-e3e9-4f17-8fdf-30920b1f27d9.png",
               "title": "HOT SALE",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "hot-sale",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1141,6 +1139,7 @@
           "698422c8-d22c-4158-b019-9a8ba27049b3": {
             "type": "menu2",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Sweater_Vests_2x_8882a134-0c6f-4eac-8c89-92d15085647c.png",
               "title": "TOPS",
               "url": "",
               "open_link": "_self",
@@ -1153,10 +1152,11 @@
           "7455657f-5642-485d-b214-22fc3f3bdc7d": {
             "type": "menu2",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Jeans_2x_99170b3f-9fb2-41c0-8a85-c58b7a806c00.png",
               "title": "BOTTOMS",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "bottom-navigation-bar",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1165,10 +1165,11 @@
           "d742e08a-8c94-46ec-8fa8-7e2fc489ac36": {
             "type": "menu2",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
               "title": "ACCESSORIES",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "accessries",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1200,18 +1201,15 @@
           },
           "mb_nav-4": {
             "type": "wis",
-            "settings": {
-            }
+            "settings": {}
           },
           "mb_nav-5": {
             "type": "sea",
-            "settings": {
-            }
+            "settings": {}
           },
           "mb_nav-6": {
             "type": "acc",
-            "settings": {
-            }
+            "settings": {}
           },
           "mb_nav-7": {
             "type": "help",
@@ -1222,8 +1220,7 @@
           },
           "mb_nav-8": {
             "type": "cur",
-            "settings": {
-            }
+            "settings": {}
           },
           "80c1d701-37c1-49c4-9caf-41e2a6f04cab": {
             "type": "menu",
@@ -1231,7 +1228,7 @@
               "title": "Company",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "company",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1243,7 +1240,7 @@
               "title": "Policies",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "polocies",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -1265,8 +1262,7 @@
           "80c1d701-37c1-49c4-9caf-41e2a6f04cab",
           "a03f0fd1-948a-4dd8-9de7-a5e2d1e06068"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "mb_cat": {
         "type": "mb_cat",
@@ -1330,8 +1326,7 @@
           "e42e938c-157f-4e5e-bfc6-9b16ac88bbe5",
           "a86e251f-af6c-47a9-8031-6de3e8a9b2b4"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "toolbar_mobile": {
         "type": "toolbar_mobile",
@@ -1480,8 +1475,7 @@
           "1581913909406",
           "1581913174211"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "sticky_atc": {
         "type": "sticky_atc",
@@ -1721,13 +1715,11 @@
           "pr-sidebar-1",
           "pr-sidebar-2"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "nt_filter2": {
         "type": "nt_filter2",
-        "settings": {
-        }
+        "settings": {}
       },
       "sidebar_shop2": {
         "type": "sidebar_shop2",
@@ -1765,8 +1757,7 @@
           },
           "sidebar_shop2-3": {
             "type": "filters",
-            "settings": {
-            }
+            "settings": {}
           }
         },
         "block_order": [
@@ -1775,8 +1766,7 @@
           "sidebar_shop2-2",
           "sidebar_shop2-3"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header_top2": {
         "type": "header_top2",
@@ -1881,8 +1871,7 @@
           },
           "header_2-1": {
             "type": "logo",
-            "settings": {
-            }
+            "settings": {}
           },
           "header_2-2": {
             "type": "simple",
@@ -2205,7 +2194,7 @@
               "title": "AUGUST",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "brand-culture",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -2215,8 +2204,7 @@
         "block_order": [
           "bdb31ed0-94c5-450d-9437-4e46a9622b10"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "mb_cat4": {
         "type": "mb_cat4",
@@ -2225,8 +2213,7 @@
             "type": "image",
             "settings": {
               "title": "Pexmod Creative Expression",
-              "image": "shopify:\/\/shop_images\/pexmodcreative.png",
-              "image_mb": "shopify:\/\/shop_images\/pexmodcreative.png",
+              "image": "shopify:\/\/shop_images\/pexmodcreative_2x_89272693-392c-4264-920f-09d09dc0e640.png",
               "url": "shopify:\/\/pages\/pexmod-creative-expression",
               "open_link": "_blank",
               "hoverz": true,
@@ -2257,8 +2244,8 @@
             "type": "image",
             "settings": {
               "title": "Pexmod OOTD",
-              "image": "shopify:\/\/shop_images\/ootd_m.png",
-              "image_mb": "shopify:\/\/shop_images\/ootd_m.png",
+              "image": "shopify:\/\/shop_images\/Pexmod_Creative_2x_ba2107cb-a356-470b-bd69-9bfd05ed0d05.png",
+              "image_mb": "shopify:\/\/shop_images\/OOTD_2x_78f7cdcd-b6d8-4d83-9c3a-4fe9124f6cd1.png",
               "url": "shopify:\/\/pages\/pexmod-ootd",
               "open_link": "_blank",
               "hoverz": true,
@@ -2290,8 +2277,7 @@
           "37d2878c-4765-4763-a122-39ecbfb402f5",
           "f034fcd0-a840-485f-81c2-7dbde9ed28fc"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "mb_cat2": {
         "type": "mb_cat2",
@@ -2302,7 +2288,7 @@
               "title": "SHOP BY FEATURE",
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "feture",
               "icon": "",
               "lb": "",
               "lb_cl": ""
@@ -2501,12 +2487,9 @@
           "bb2c3345-cd25-4c86-885c-d5bd16ea5170",
           "9c497064-55bf-4f09-818d-13c00ff75646"
         ],
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }

@@ -1,0 +1,113 @@
+{
+  "sections": {
+    "cat_shop": {
+      "type": "cat_shop",
+      "blocks": {
+        "e976702e-6628-46ac-86b7-7a8d3f8abe5c": {
+          "type": "cat",
+          "settings": {
+            "collection": "",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "e976702e-6628-46ac-86b7-7a8d3f8abe5c"
+      ],
+      "settings": {
+        "shown": false,
+        "source": "1",
+        "sort": "alphabetical"
+      }
+    },
+    "cat_heading": {
+      "type": "cat_heading",
+      "blocks": {
+        "cc30e06b-26b5-4d95-8a6d-a3c0ba6bb5b1": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        },
+        "b9fa77af-4041-42da-b41c-1df6ade5dbbd": {
+          "type": "2",
+          "disabled": true,
+          "settings": {
+            "color": "#ededed"
+          }
+        }
+      },
+      "block_order": [
+        "cc30e06b-26b5-4d95-8a6d-a3c0ba6bb5b1",
+        "b9fa77af-4041-42da-b41c-1df6ade5dbbd"
+      ],
+      "settings": {
+        "shown": true,
+        "use_specify_image": false,
+        "parallax": false,
+        "color": "#603dae",
+        "overlay": 100,
+        "padding": 30,
+        "paddingmb": 20,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
+    },
+    "des": {
+      "type": "main-des-collection",
+      "settings": {
+        "show_des": false
+      }
+    },
+    "sub": {
+      "type": "sub-collections",
+      "settings": {
+        "show_sub": true,
+        "layout": "wide",
+        "cat_design": "5",
+        "cat_space": "20",
+        "col": "3",
+        "col_md": "3",
+        "col_mb": "6",
+        "pr_txt": "products",
+        "use_eq_height": true,
+        "image_ratio": "ratio1_1"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_collection_img": false,
+        "collection_mobile_banner": "{{ collection.metafields.my_fields.mobile_banner.value }}",
+        "shop_layout": "wide",
+        "shop_des": "packery",
+        "limit": 12,
+        "space": 20,
+        "use_pagination": "infinite",
+        "use_bar_lm": true,
+        "col_pr": "15",
+        "col_pr_tb": "3",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "breadcrumb_pr": true,
+        "use_cdt": true,
+        "round_cd": true,
+        "cdt_des": "1",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "default"
+      }
+    }
+  },
+  "order": [
+    "cat_shop",
+    "cat_heading",
+    "des",
+    "sub",
+    "main"
+  ]
+}
