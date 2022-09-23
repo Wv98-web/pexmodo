@@ -66,10 +66,10 @@
             {%- if se_stts.show_discount_not_click -%}
             <div data-id="dis" class="mini_cart_dis_not_click js_cart_tool mt__40 {% if ccount == 0 %} dn{% endif %}">
               <div class="flex fl_between al_center ml__15 mr__15">
-                <div class="field col-8 pd__0">
+                <div class="field col-8" style="padding: 0;">
                   <input type="text" name="discount" id="Cartdiscode" value placeholder="{{ 'cart.general.placeholder_coupon' | t }}">
                 </div>
-                <div class="field col-4 pd__0">
+                <div class="field col-4" style="padding: 0;">
                   <button type="submit" data-confirm="{{ck_lumise}}" onclick="_tfa.push({notify: 'event', name: 'start_checkout', id: 1463942});" name="checkout" class="button btn-checkout js_add_ld truncate" style="width: 100%; height: auto;padding-left: 0;padding-right: 0;">Checkout</button>
                 </div>
               </div>
