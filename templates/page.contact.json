@@ -16,10 +16,10 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/1-1_2x_7c471184-a892-461b-9e0e-3107cbbe4a15.jpg",
         "parallax": false,
-        "color": "#ffffff",
+        "color": "#151515",
         "overlay": 40,
-        "padding": 100,
-        "paddingmb": 100,
+        "padding": 50,
+        "paddingmb": 50,
         "bg_pos": "center center",
         "bg_repeat": "no-repeat",
         "bg_size": "cover",
@@ -32,6 +32,7 @@
     },
     "product-recommendations3": {
       "type": "product-recommendations3",
+      "disabled": true,
       "settings": {
         "show": true,
         "product": "pexmod-embroidered-eyes-beaded-baseball-uniform-baggy-coat",

@@ -8,7 +8,10 @@
 <div id="nt_{{block.id}}" class="cat_grid_item cat_space_item cat_grid_item_{{for_i}} {{ccol}}" {{ block.shopify_attributes }}>
   <div class="cat_grid_wrap h__100 pr">
     {% if hot %}
-      <span class="pa co_lb_h"><img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" /></span>
+      <span class="pa co_lb_h">
+        {%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" />{%- endcomment -%}
+        <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/hot.png?v=1663898967" alt="pexmod" />
+      </span>
     {% endif %}
     <a href="{{ block.settings.url | default:collection.url }}"><div class="cat_grid_item__content pr oh is-flex al_center h__100">
       <div class="cat_grid_item__image col-lg-6 col-12 pt__10 pb__10">

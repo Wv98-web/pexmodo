@@ -6,8 +6,8 @@
         "16357021760efbe511-0": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/backtoschool-banner.jpg",
-            "image_mb": "shopify:\/\/shop_images\/03_082c9b92-974b-4eea-ab5f-fab528b6fc04.jpg",
+            "image": "shopify:\/\/shop_images\/banner.png",
+            "image_mb": "shopify:\/\/shop_images\/banner1.png",
             "pos_img": "center center",
             "cl_img": "rgba(0,0,0,0)",
             "link_img1": "shopify:\/\/collections\/all-production",
@@ -67,6 +67,7 @@
     },
     "1661391658670bdbe3": {
       "type": "coupon-list",
+      "disabled": true,
       "blocks": {
         "ca42e349-e933-4c76-827e-699e8c2ca9dc": {
           "type": "coupon",
@@ -175,6 +176,7 @@
     },
     "166149194810f6d9cc": {
       "type": "coupon-list-mb",
+      "disabled": true,
       "blocks": {
         "16614919482196e05f-0": {
           "type": "coupon",
@@ -461,12 +463,12 @@
         "show_line": false,
         "ic_tt": "gem",
         "show_clpr": false,
-        "fs_title": 36,
-        "fs_title_m": 1.8,
+        "fs_title": 30,
+        "fs_title_m": 1.6,
         "fs_view": 20,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
-        "color_title": "#ffffff",
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "round": 0,
@@ -481,15 +483,15 @@
         "col": "15",
         "col_md": "15",
         "col_mb": "3",
-        "loop": true,
+        "loop": false,
         "autoplay": false,
         "au_time": 6,
-        "au_hover": true,
+        "au_hover": false,
         "button": false,
         "btn_vi": "2",
         "btn_owl": "2",
         "btn_color": "3",
-        "dot": true,
+        "dot": false,
         "dot_owl": "2",
         "dot_color": "3",
         "cp_code": false,
@@ -600,12 +602,12 @@
         "show_line": false,
         "ic_tt": "gem",
         "show_clpr": false,
-        "fs_title": 36,
-        "fs_title_m": 1.8,
+        "fs_title": 30,
+        "fs_title_m": 1.6,
         "fs_view": 20,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
-        "color_title": "#ffffff",
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "cat_layout": "3",
@@ -640,8 +642,67 @@
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
+    "16638998957715718e": {
+      "type": "featured_collection2_1",
+      "settings": {
+        "title": "3 ITEMS ONLY $59",
+        "sub_title": "",
+        "sub_font": "2",
+        "btn_title": "",
+        "style_title": "title_bg",
+        "show_line": false,
+        "ic_tt": "gem",
+        "show_clpr": false,
+        "fs_title": 30,
+        "fs_title_m": 1.6,
+        "fs_view": 20,
+        "fs_view_m": 1.2,
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
+        "max_height_title": 88,
+        "max_height_title_m": 44,
+        "enable_section_banner": true,
+        "section_banner": "shopify:\/\/shop_images\/2_020a2d27-7549-4c8d-8bb6-df0cf91fb245.png",
+        "section_banner_mb": "shopify:\/\/shop_images\/banner2.png",
+        "img_align": "center",
+        "url": "shopify:\/\/pages\/halloween",
+        "open_link": "_blank",
+        "hoverz": false,
+        "cl_overlay": "#000000",
+        "cl_opacity": 0,
+        "collection": "all-production",
+        "limit": 5,
+        "limit_m": 6,
+        "space": 20,
+        "use_pagination": "more",
+        "use_bar_lm": false,
+        "btn_rd": false,
+        "btn_icon": false,
+        "btn_style": "shadow",
+        "col_pr": "15",
+        "col_pr_tb": "15",
+        "col_pr_mb": "6",
+        "pr_des": "1",
+        "show_vendor": false,
+        "use_cdt": false,
+        "round_cd": false,
+        "cdt_des": "1",
+        "use_eq_height": true,
+        "image_ratio": "ratio_nt",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "cp_code": false,
+        "layout": "nt_full",
+        "cl_bg": "",
+        "mg": "30px,,30px,",
+        "pd": ",50px,,50px,",
+        "mg_mb": "",
+        "pd_mb": ",1.5rem,,1.5rem,"
+      }
+    },
     "1661248650b11cc158": {
       "type": "banner3",
+      "disabled": true,
       "blocks": {
         "1661248649bd147037-0": {
           "type": "image",
@@ -713,6 +774,7 @@
     },
     "166124728961ada76b": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "TRENDING",
         "sub_title": "",
@@ -771,6 +833,7 @@
     },
     "166124728961ada76c": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Week 1 of September",
         "sub_title": "",
@@ -827,6 +890,7 @@
     },
     "166124728961ada76a": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Week 4 of August",
         "sub_title": "",
@@ -883,6 +947,7 @@
     },
     "166124728961ada76d": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "Flash Sale",
         "sub_title": "",
@@ -1098,12 +1163,12 @@
         "show_line": false,
         "ic_tt": "gem",
         "show_clpr": false,
-        "fs_title": 36,
-        "fs_title_m": 1.8,
+        "fs_title": 30,
+        "fs_title_m": 1.6,
         "fs_view": 20,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
-        "color_title": "#ffffff",
+        "bg_color_title": "#fb6c1d",
+        "color_title": "#151515",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "cat_space": "30",
@@ -1180,10 +1245,10 @@
           "type": "3",
           "settings": {
             "cl_all": "#606060",
-            "cl_bd": "#603dae",
-            "cl_ip": "#000000",
+            "cl_bd": "#fb6c1d",
+            "cl_ip": "#151515",
             "cl_btn": "#ffffff",
-            "bg_btn": "#603dae",
+            "bg_btn": "#fb6c1d",
             "newl_des": "1",
             "btn_icon": false
           }
@@ -1209,7 +1274,7 @@
         "mg": "50px,,50px,",
         "pd": "",
         "mg_mb": "3rem,1.5rem,3rem,1.5rem,",
-        "pd_mb": "2rem,1rem,2rem,1rem,"
+        "pd_mb": "2rem,,2rem,,"
       }
     },
     "165354745662564e86": {
@@ -1331,6 +1396,7 @@
     "166149194810f6d9cc",
     "1661320948c35981c7",
     "1661307088ecaab9f8",
+    "16638998957715718e",
     "1661248650b11cc158",
     "166124728961ada76b",
     "166124728961ada76c",

@@ -45,11 +45,11 @@
       {%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
 
       <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2',url:collection.url -%}</div>
+      {%- if section.settings.enable_section_banner -%}
+        {%- render 'section_banner2' -%}
+      {%- endif -%}
       <div class="nt_se_{{sid}} {{layout}}{%- if image != blank %} hide_bgimg_{{se_stts.hide_bgimg}} lazyloadt4s se_t4_bg nt_parallax_{{se_stts.use_pr}}{%- endif -%}{% if se_stts.hidden and page_type == 'index' and design_mode %} t4s_disable_se{% endif %}"{% if image != blank %} data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"{% endif %}>
         {{-html_layout[0]-}}
-        {%- if section.settings.enable_section_banner -%}
-          {%- render 'section_banner' -%}
-        {%- endif -%}
         <div class="products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_stts.cdt_des}} round_cd_{{se_stts.round_cd}} {{se_stts.image_size}} {{se_stts.image_ratio}} position_{{se_stts.image_position}} space_{{se_stts.space}}{%- if sett_equal %} equal_nt{%- endif -%}">
             {%- if collection != blank -%}
               {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
@@ -112,11 +112,12 @@
       {%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
 
       <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2',url:collection.url -%}</div>
+      {%- if section.settings.enable_section_banner -%}
+        {%- render 'section_banner2' -%}
+      {%- endif -%}
+
       <div class="nt_se_{{sid}} {{layout}}{%- if image != blank %} hide_bgimg_{{se_stts.hide_bgimg}} lazyloadt4s se_t4_bg nt_parallax_{{se_stts.use_pr}}{%- endif -%}{% if se_stts.hidden and page_type == 'index' and design_mode %} t4s_disable_se{% endif %}"{% if image != blank %} data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"{% endif %}>
         {{-html_layout[0]-}}
-        {%- if section.settings.enable_section_banner -%}
-          {%- render 'section_banner' -%}
-        {%- endif -%}
         <div class="products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_stts.cdt_des}} round_cd_{{se_stts.round_cd}} {{se_stts.image_size}} {{se_stts.image_ratio}} position_{{se_stts.image_position}} space_{{se_stts.space}}{%- if sett_equal %} equal_nt{%- endif -%}">
             {%- if collection != blank -%}
               {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
@@ -180,7 +181,7 @@
 
 {%- schema -%}
   {
-    "name": "Collection Grid2",
+    "name": "Collection Grid3",
     "class": "nt_section type_featured_collection tp_se_cdt",
     "settings": [
       {
@@ -565,6 +566,10 @@
           {
             "value": "shadow",
             "label": "Shadow"
+          },
+          {
+            "value": "image",
+            "label": "Image"
           }
         ]
       },
@@ -923,7 +928,7 @@
     ],
     "presets": [
       {
-        "name": "Collection Grid2",
+        "name": "Collection Grid3",
         "category": "I. Collections"
       }
     ]

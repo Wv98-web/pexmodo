@@ -48,7 +48,10 @@
 <div data-page="{{page_t4}}" class="col-lg-{{col}} col-md-{{col_tb}} col-{{col_mb}} mt__30 pr_grid_item product nt_pr desgin__1" data-pr_id="{{pr_id}}">
    <div class="product-inner pr">
     {% if hot %}
-      <span class="pa pr_lb_h"><img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" /></span>
+      <span class="pa pr_lb_h">
+        {%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" />{%- endcomment -%}
+        <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/hot.png?v=1663898967" alt="pexmod" />
+      </span>
     {% endif %}
       {%- if countdown != blank and use_cdt -%}
         <div class="pr_wr_dcimg pr oh">
