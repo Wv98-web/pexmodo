@@ -53,7 +53,7 @@
         <div class="products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_stts.cdt_des}} round_cd_{{se_stts.round_cd}} {{se_stts.image_size}} {{se_stts.image_ratio}} position_{{se_stts.image_position}} space_{{se_stts.space}}{%- if sett_equal %} equal_nt{%- endif -%}">
             {%- if collection != blank -%}
               {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
-              {%- for product in collection.products -%}{%- render 'pr_loop_grid_1',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+              {%- for product in collection.products -%}{%- render 'pr_loop_grid_hallo',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size,show_stock:true -%}{%- endfor -%}
               {%- else -%}
               {%- for product in collection.products -%}{%- render 'pr_loop_grid_2',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
               {%- endif -%}
@@ -127,7 +127,7 @@
         <div class="products nt_products_holder row fl_center row_pr_{{inc_pr}} cdt_des_{{se_stts.cdt_des}} round_cd_{{se_stts.round_cd}} {{se_stts.image_size}} {{se_stts.image_ratio}} position_{{se_stts.image_position}} space_{{se_stts.space}}{%- if sett_equal %} equal_nt{%- endif -%}">
             {%- if collection != blank -%}
               {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
-              {%- for product in collection.products -%}{%- render 'pr_loop_grid_1',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
+              {%- for product in collection.products -%}{%- render 'pr_loop_grid_hallo',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size,show_stock:true -%}{%- endfor -%}
               {%- else -%}
               {%- for product in collection.products -%}{%- render 'pr_loop_grid_2',collection:collection,product:product,use_cdt:use_cdt,txt_cd:txt_cd, col:col, col_tb:col_tb, col_mb:col_mb,url_cat:url_cat,sett_equal:sett_equal,show_vendor:show_vendor,inc_price:inc_price,use_rating:use_rating,inc_rating:inc_rating,show_color:show_color,show_cl_type:show_cl_type,show_size:show_size -%}{%- endfor -%}
               {%- endif -%}
@@ -193,7 +193,7 @@
 
 {%- schema -%}
   {
-    "name": "Collection Grid3",
+    "name": "Collection Grid Hallo2",
     "class": "nt_section type_featured_collection tp_se_cdt",
     "settings": [
       {
@@ -940,7 +940,7 @@
     ],
     "presets": [
       {
-        "name": "Collection Grid3",
+        "name": "Collection Grid Hallo2",
         "category": "I. Collections"
       }
     ]

@@ -216,7 +216,7 @@
                      </ul>
                   </li>
                {%- else -%}
-                  <li id="item_{{block.id}}" class="menu-item item-level-0"><a href="{% if block_stts.url contains '#homet4' %}{{ root_url }}{% else %}{{block_stts.url}}{% endif %}" target="{{block_stts.open_link}}">{% if block_stts.icon != blank %}<i class="las la-{{block_stts.icon | strip }} mr__10 fs__20"></i>{% endif %}{{block_stts.title }}{% if block_stts.lb != blank %}<span class="lbc_nav_mb ml__5" style="background-color: {{block_stts.lb_cl | default:'#01bad4'}}">{{block_stts.lb}}</span>{% endif %}</a></li>
+                  <li id="item_{{block.id}}" class="menu-item item-level-0"><a href="{% if block_stts.url contains '#homet4' %}{{ root_url }}{% else %}{{block_stts.url}}{% endif %}" target="{{block_stts.open_link}}">{% if block_stts.label_image != blank %}<img class="mr__10" style="width: 2em;" src="{{ block_stts.label_image | img_url: 'master' }}" alt="pexmod" />{% endif %}{% if block_stts.icon != blank %}<i class="las la-{{block_stts.icon | strip }} mr__10 fs__20"></i>{% endif %}{{block_stts.title }}{% if block_stts.lb != blank %}<span class="lbc_nav_mb ml__5" style="background-color: {{block_stts.lb_cl | default:'#01bad4'}}">{{block_stts.lb}}</span>{% endif %}</a></li>
                {%- endif -%}
 
             {%- when 'menu2' -%}
@@ -521,6 +521,11 @@
                "type": "text",
                "label": "Icon",
                "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+            },
+            {
+               "type": "image_picker",
+               "id": "label_image",
+               "label": "Label image"
             },
             {
                "type":"text",

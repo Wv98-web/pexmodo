@@ -12,7 +12,7 @@
 
 <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2' -%}</div>
 <div class="nt_se_{{sid}} type_css_btna {{section.settings.layout}}">
-  <div class="mt__30 nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
+  <div class="nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
     <div class="grid-sizer"></div>
     {%- for block in arr_blocks_img %}{% assign bk_stts = block.settings %}{% assign image = bk_stts.image -%}
       <div class="cat_space_item hoverz_{{bk_stts.hoverz}} col-lg-{{bk_stts.col_pr}} col-md-{{bk_stts.col_pr_tb}} col-{{bk_stts.col_pr_mb}} pr_animated done bg_content_{{bk_stts.bg_content_bl}} border_bl_{{bk_stts.border_bl}} br_style_{{bk_stts.br_style}}" id="bk_{{block.id}}">

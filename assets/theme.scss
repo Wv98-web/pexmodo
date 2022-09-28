@@ -889,20 +889,20 @@
 
 .extra-link.light {
 	a {
-		color: #980ce7;
+		color: #FF8000;
 
 		&:hover {
-			color: #5d0983;
+			color: #FB6C1D;
 		}
 	}
 }
 
 .mini_login_content {
 	a.link_acc {
-		color: #980ce7;
+		color: #FF8000;
 
 		&:hover {
-			color: #5d0983;
+			color: #FB6C1D;
 		}
 	}
 }
@@ -1559,12 +1559,10 @@ a.button.button_shadow {
 	top: 0;
 	right: 10px;
 	transform: translateY(-50%);
-	width: 2.5em;
-	height: 2.5em;
+	width: 2.5rem;
+	height: 2.5rem;
 	@media (max-width: 768px) {
 		right: 0;
-		width: 1.3em;
-		height: 1.3em;
 	}
 }
 
@@ -2230,4 +2228,39 @@ ul.address_form li {
 .mini_cart_actions .quantity {
 	border-radius: 6px !important;
 	border-color: #FB6C1D !important;
+}
+
+//
+.product-stock {
+	.jindutiao {
+		width: 100%;
+		height: 9px;
+		background: rgba(128,128,128,0.6);
+		border-radius: 6px;
+	}
+	
+	.jindu {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 9px;
+		background: #FB6C1D;
+		box-shadow: inset 0px 1px 6px 0px #ffffff;
+		border-radius: 6px;
+	}
+
+	.stock {
+		@media (max-width: 768px) {
+			font-size: 1rem;
+		}
+	}
+
+}
+
+.view_btn {
+	@media (max-width: 768px) {
+		img {
+			width: 12rem;
+		}
+	}
 }

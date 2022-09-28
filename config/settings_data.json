@@ -1,7 +1,7 @@
 {
   "current": {
     "general_layout": "full_width",
-    "cus_w_bd": 1420,
+    "cus_w_bd": 1520,
     "body_bg": "rgba(0,0,0,0)",
     "body_bg_image": "",
     "body_bg_repeat": "default",
@@ -467,9 +467,26 @@
       "header_3_1": {
         "type": "header_3_1",
         "blocks": {
+          "62cbc492-e33d-4595-af33-cd22d746ff60": {
+            "type": "simple",
+            "settings": {
+              "title": "HALLOWEEN",
+              "url": "shopify:\/\/pages\/halloween",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "label_hallo_n": false,
+              "label_hallo_h": false,
+              "label_hallo": true,
+              "label_n": false,
+              "label_h": false
+            }
+          },
           "86bd9393-abd1-4b5c-b658-5155f77baf54": {
             "type": "dropdown",
-            "disabled": true,
             "settings": {
               "title": "ALL PRODUCTS",
               "url": "shopify:\/\/collections\/all-production",
@@ -511,6 +528,16 @@
               "pos": "center",
               "wid": "full",
               "cus_wid": 1600
+            }
+          },
+          "1628de76-32d2-46f3-bad0-85b806c6456d": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "week-3-of-september",
+              "title": "",
+              "col": "2"
             }
           },
           "ffb565ee-4c34-4e76-954c-750d0cd1fb46": {
@@ -559,16 +586,6 @@
               "cat_design": "5",
               "hoverz": true,
               "collection": "week-2-of-august",
-              "title": "",
-              "col": "2"
-            }
-          },
-          "1628de76-32d2-46f3-bad0-85b806c6456d": {
-            "type": "cat",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "week-1-of-august",
               "title": "",
               "col": "2"
             }
@@ -625,24 +642,6 @@
               "collection": "the-best-selling-accessories",
               "title": "",
               "col": "2"
-            }
-          },
-          "62cbc492-e33d-4595-af33-cd22d746ff60": {
-            "type": "simple",
-            "settings": {
-              "title": "HALLOWEEN",
-              "url": "shopify:\/\/pages\/halloween",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "",
-              "label_hallo_n": false,
-              "label_hallo_h": false,
-              "label_hallo": true,
-              "label_n": false,
-              "label_h": false
             }
           },
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea": {
@@ -834,6 +833,7 @@
           },
           "48c231dd-c1e0-4e2c-9cd6-e26f8941395a": {
             "type": "mega",
+            "disabled": true,
             "settings": {
               "only_feature": false,
               "only_magazine": false,
@@ -858,6 +858,7 @@
           },
           "91a30f85-e775-407c-8150-41ad8e70b1d2": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/03_2x_20c39bb1-72bc-4952-b8b2-0dadff401879.png",
               "cat_design": "5",
@@ -870,6 +871,7 @@
           },
           "ea795e0b-ddd9-488f-8728-80aa9cab042c": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/02_2x_67807694-9477-4f40-98d5-8ef524eae909.png",
               "cat_design": "5",
@@ -882,6 +884,7 @@
           },
           "d00fb042-7b45-4e00-91f2-da1f61561a54": {
             "type": "magazine",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/01_2x_2aa1a139-64fd-4d6d-ad86-e593796370a5.png",
               "cat_design": "5",
@@ -930,19 +933,19 @@
           }
         },
         "block_order": [
+          "62cbc492-e33d-4595-af33-cd22d746ff60",
           "86bd9393-abd1-4b5c-b658-5155f77baf54",
           "d51b71a4-8545-444a-ba9b-92179e7b5f3f",
+          "1628de76-32d2-46f3-bad0-85b806c6456d",
           "ffb565ee-4c34-4e76-954c-750d0cd1fb46",
           "6027a8c6-ee3a-4018-a832-9931585d5427",
           "c771f502-5d2b-4ea4-940f-625c26734ffd",
           "8e0c761f-15cf-4be5-a090-8991bd56f4cf",
           "ad3230ef-3b3c-4367-97b8-4f2494191818",
-          "1628de76-32d2-46f3-bad0-85b806c6456d",
           "01f21040-c175-48aa-bd4f-09e7ea52b6d9",
           "b1a5dccc-d877-4d9d-be84-3225359ea4e5",
           "488f9d0f-b0ef-4861-9173-3521d147d7c7",
           "f78e793d-86b2-4262-b6de-bd070fa4ad30",
-          "62cbc492-e33d-4595-af33-cd22d746ff60",
           "ddff055f-e4af-4cdb-8306-bc11f7cef7ea",
           "84bd709b-231a-4e00-b33b-877d9df5147e",
           "67fac2d4-67a5-463b-b2d2-d9da4f5246df",
@@ -1033,7 +1036,7 @@
               "align_mb": "tl",
               "logo_width": 95,
               "title": "Get in touch",
-              "content": "<p><i class=\"pegk pe-7s-map-marker\"> <\/i><span>Room 2301, Block A, Bodi Center, Xiaoshan District, Hangzhou City, Zhejiang Province. <br><\/span><\/p><p><i class=\"pegk pe-7s-mail\"><\/i><span><a href=\"mailto:\">service@pexmod.com<\/a>\n<br>\n<i class=\"pegk pe-7s-mail fwb mr__10\"><\/i><a class=\"cg\" href=\"mailto:service@pexmod.com\">support@pexmod.com<\/a><\/span><\/p>",
+              "content": "<p><i class=\"pegk pe-7s-mail\"><\/i><span><a href=\"mailto:\">service@pexmod.com<\/a>\n<br>\n<i class=\"pegk pe-7s-mail fwb mr__10\"><\/i><a class=\"cg\" href=\"mailto:service@pexmod.com\">support@pexmod.com<\/a><\/span><\/p>",
               "social_mode": "3",
               "order": "1",
               "cl": "3",
@@ -1090,7 +1093,8 @@
           "5329317b-f625-41b8-90d5-340e323a2a96": {
             "type": "payment",
             "settings": {
-              "source": "2",
+              "source": "1",
+              "image": "shopify:\/\/shop_images\/b84cefc9313ad64a0c3febfd38ef9dc2.png",
               "svg": "paypal,master,maestro",
               "height": 30
             }
@@ -1172,6 +1176,19 @@
       "mb_nav2": {
         "type": "mb_nav2",
         "blocks": {
+          "b4b52819-1377-4cb0-96a8-aeef75ff2af5": {
+            "type": "menu",
+            "settings": {
+              "title": "HALLOWEEN",
+              "url": "shopify:\/\/pages\/halloween",
+              "open_link": "_self",
+              "menu": "",
+              "icon": "",
+              "label_image": "shopify:\/\/shop_images\/43d125fb86b8b9abe49b61d1f3dc3535.png",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316": {
             "type": "menu2",
             "settings": {
@@ -1297,6 +1314,7 @@
           }
         },
         "block_order": [
+          "b4b52819-1377-4cb0-96a8-aeef75ff2af5",
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316",
           "698422c8-d22c-4158-b019-9a8ba27049b3",
           "7455657f-5642-485d-b214-22fc3f3bdc7d",
@@ -1823,7 +1841,7 @@
           "header_top2-0": {
             "type": "text",
             "settings": {
-              "text": "<div class=\"flex al_center\">\n<i class=\"las la-envelope\" style=\"font-size: 1.6em;\"><\/i><a href=\"mailto:\">service@pexmod.com<\/a>\n<\/div>",
+              "text": "<div class=\"flex al_center\">\n<i class=\"las la-envelope\" style=\"font-size: 1.6em;\"><\/i><a href=\"mailto:\" style=\"color: #fff;\">service@pexmod.com<\/a>\n<\/div>",
               "hide": true,
               "col": "2"
             }
@@ -1831,7 +1849,7 @@
           "header_top2-1": {
             "type": "text",
             "settings": {
-              "text": "<span style=\"font-weight:bold;\">Buy 3, 1 Free! (Not eligible for FLASH SALE products)<\/span>",
+              "text": "<span style=\"font-weight:bold;\">Halloween Sale! 40% off Sitewide (Excluding $59 lucky bags)<\/span>",
               "hide": false,
               "col": "8"
             }
@@ -1855,7 +1873,7 @@
         "settings": {
           "height": 40,
           "fontsize": 14,
-          "cl": "#000000",
+          "cl": "#ffffff",
           "cl_a": "#ffffff",
           "cl_cr": "#ec0101",
           "bg": "#fb6c1d",

@@ -4473,7 +4473,7 @@ button.mfp-close:hover {
     height: 24px;
     display: inline-block;
     border-radius: 50%;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     text-align: center;
     line-height: 24px;
     border: 1px solid transparent;

@@ -8,10 +8,10 @@
    {%- if section.blocks.size > 0 -%}
       {%- assign arr_blocks_img = section.blocks | where: "type", 'image' -%}
       {%- if arr_blocks_img.size > 0 -%}
-      <div class="menu_mb_cat4_title">
-         <div style="background-color: transparent;border-bottom: none;">
-            <span class="nav_link_txt flex al_center h3">Pexmod</span>
-         </div>
+      <div class="menu_mb_cat4_title mb__20" style="background-color: rgba(0,0,0,.04); border-bottom: 1px solid rgba(129,129,129,.2);">
+         <a href="javascript:void(0);">
+            <span class="nav_link_txt flex al_center h3">PEXMOD</span>
+         </a>
       </div>
       {%- for block in arr_blocks_img %}
          {% assign bk_stts = block.settings %}
@@ -42,8 +42,8 @@
             {%- case block.type -%}
                {%- when 'menu2' -%}
                   {%- if linklists[block_stts.menu].links.size > 0 -%}
-                     <li id="item_{{block.id}}" class="menu-item item-level-0 menu-item-has-children {{only_icon}} nt_opended" {{ block.shopify_attributes }}>
-                        <a href="{{block_stts.url}}" target="{{block_stts.open_link}}" style="background-color: transparent;border-bottom: none;">
+                     <li id="item_{{block.id}}" class="menu-item item-level-0 menu-item-has-children nt_opended">
+                        <a href="javascript:void(0);">
                            <span class="nav_link_txt flex al_center h3">
                               {% if block_stts.icon != blank %}
                               <i class="las la-{{block_stts.icon | strip }} mr__10 fs__20"></i>

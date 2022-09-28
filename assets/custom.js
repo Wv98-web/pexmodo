@@ -130,109 +130,112 @@ window.addEventListener("resize", debounce(handleSlideHeightChange, 500));
 handleSlideHeightChange();
 
 /* Coupon code auto write */
-const comparePrice = (price) => {
-  if (price > 29900) {
-    $('#couponcode').val('70OFF');
-    $('#Cartdiscode').val('70OFF');
-  } else if (price > 20900) {
-    $('#couponcode').val('50OFF');
-    $('#Cartdiscode').val('50OFF');
-  } else if (price > 15900) {
-    $('#couponcode').val('30OFF');
-    $('#Cartdiscode').val('30OFF');
-  } else if (price > 7900) {
-    $('#couponcode').val('10OFF');
-    $('#Cartdiscode').val('10OFF');
-  } else {
-    $('#couponcode').val('');
-    $('#Cartdiscode').val('');
-  }
-};
-const comparePrice2 = (price) => {
-  if (price > 29900) {
-    $('#couponcode').val('70OFF');
-    $('#Cartdiscode').val('70OFF');
-  } else if (price > 20900) {
-    $('#couponcode').val('50OFF');
-    $('#Cartdiscode').val('50OFF');
-  } else if (price > 15900) {
-    $('#couponcode').val('30OFF');
-    $('#Cartdiscode').val('30OFF');
-  } else if (5900 < price && price < 15900) {
-    $('#couponcode').val('FREE');
-    $('#Cartdiscode').val('FREE');
-  } else {
-    $('#couponcode').val('');
-    $('#Cartdiscode').val('');
-  }
-};
+// const comparePrice = (price) => {
+//   if (price > 29900) {
+//     $('#couponcode').val('70OFF');
+//     $('#Cartdiscode').val('70OFF');
+//   } else if (price > 20900) {
+//     $('#couponcode').val('50OFF');
+//     $('#Cartdiscode').val('50OFF');
+//   } else if (price > 15900) {
+//     $('#couponcode').val('30OFF');
+//     $('#Cartdiscode').val('30OFF');
+//   } else if (price > 7900) {
+//     $('#couponcode').val('10OFF');
+//     $('#Cartdiscode').val('10OFF');
+//   } else {
+//     $('#couponcode').val('');
+//     $('#Cartdiscode').val('');
+//   }
+// };
+// const comparePrice2 = (price) => {
+//   if (price > 29900) {
+//     $('#couponcode').val('70OFF');
+//     $('#Cartdiscode').val('70OFF');
+//   } else if (price > 20900) {
+//     $('#couponcode').val('50OFF');
+//     $('#Cartdiscode').val('50OFF');
+//   } else if (price > 15900) {
+//     $('#couponcode').val('30OFF');
+//     $('#Cartdiscode').val('30OFF');
+//   } else if (5900 < price && price < 15900) {
+//     $('#couponcode').val('FREE');
+//     $('#Cartdiscode').val('FREE');
+//   } else {
+//     $('#couponcode').val('');
+//     $('#Cartdiscode').val('');
+//   }
+// };
 
-const couponcode = (data) => {
-  let final_line_price = 0;
-  $.ajaxSettings.async = false;
-  data.items.forEach(async (item, index) => {
-    await jQuery.getJSON(
-      window.Shopify.routes.root + `products/${item.handle}`,
-      function (product) {
-        const { tags } = product.product;
-        if (tags.indexOf('flash_sale') > 0) {
-          final_line_price =
-            data.items[index].final_line_price + final_line_price;
-          return false;
-        }
-      }
-    );
-  });
-  $.ajaxSettings.async = true;
+// const couponcode = (data) => {
+// 	halloAutoCount();
+	// let final_line_price = 0;
+	// let fs_product_num = 0;
+  // $.ajaxSettings.async = false;
+	// data.items.forEach(async (item, index) => {
+  //   await jQuery.getJSON(
+  //     window.Shopify.routes.root + `products/${item.handle}`,
+	// 		function (product) {
+	// 			const { tags } = product.product;
+	// 			if (tags.indexOf('CX') > -1) {
+	// 				fs_product_num = data.items[index].quantity;
+  //         final_line_price =
+  //           data.items[index].final_line_price + final_line_price;
+  //         return false;
+  //       }
+  //     }
+  //   );
+  // });
+  // $.ajaxSettings.async = true;
 
-	let price = data.items_subtotal_price - final_line_price;
+	// let price = data.items_subtotal_price - final_line_price;
 
-	if (data.item_count >= 3) {
-		comparePrice2(price);
-	} else {
-		comparePrice(price)
-	}
-};
+	// if (data.item_count - fs_product_num >= 3) {
+	// 	comparePrice2(price);
+	// } else {
+	// 	comparePrice(price)
+	// }
+// };
 
-async function cartContent() {
-  await fetch(window.Shopify.routes.root + 'cart.js')
-    .then((response) => response.json())
-    .then((data) => {
-      // 有一个产品且为促销品时，不展示code
-      // 有多个产品且包含促销品时，计算总金额-促销品金额x数量的金额，计算是否满足折扣金额后展示对应code
-      // 有三件及以上产品且结算金额为59-159展示FREE折扣码
-      // 新客结算且不含促销品展示 5OFF
-			couponcode(data);
-    });
-}
+// async function cartContent() {
+//   await fetch(window.Shopify.routes.root + 'cart.js')
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // 有一个产品且为促销品时，不展示code
+//       // 有多个产品且包含促销品时，计算总金额-促销品金额x数量的金额，计算是否满足折扣金额后展示对应code
+//       // 有三件及以上产品且结算金额为59-159展示FREE折扣码
+//       // 新客结算且不含促销品展示 5OFF
+// 			couponcode(data);
+//     });
+// }
 
-cartContent();
+// cartContent();
 
 /* 监听购物车更新 */
-(function (ns, fetch) {
-  if (typeof fetch !== 'function') return;
+// (function (ns, fetch) {
+//   if (typeof fetch !== 'function') return;
 
-  ns.fetch = function () {
-    const response = fetch.apply(this, arguments);
+//   ns.fetch = function () {
+//     const response = fetch.apply(this, arguments);
 
-    response.then((res) => {
-      if (
-        [
-          `${window.location.origin}/cart/add.js`,
-          `${window.location.origin}/cart/update.js`,
-          `${window.location.origin}/cart/change.js`,
-          `${window.location.origin}/cart/clear.js`
-        ].includes(res.url)
-      ) {
-        res
-          .clone()
-          .json()
-          .then((data) => {
-            cartContent();
-          });
-      }
-    });
+//     response.then((res) => {
+//       if (
+//         [
+//           `${window.location.origin}/cart/add.js`,
+//           `${window.location.origin}/cart/update.js`,
+//           `${window.location.origin}/cart/change.js`,
+//           `${window.location.origin}/cart/clear.js`
+//         ].includes(res.url)
+//       ) {
+//         res
+//           .clone()
+//           .json()
+//           .then((data) => {
+//             cartContent();
+//           });
+//       }
+//     });
 
-    return response;
-  };
-})(window, window.fetch);
+//     return response;
+//   };
+// })(window, window.fetch);

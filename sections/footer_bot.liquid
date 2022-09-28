@@ -33,7 +33,21 @@
 
                   {%- assign image = block.settings.image -%}
                    {%- if block.settings.source == '1' and image -%}
-                       <div class="dib"><img class="lazyloadt4s" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{image | img_url:'master'}}" alt="{{image.alt}}"></div>
+                       <div class="dib" style="text-align: left;">
+                        <img class="lazyloadt4s" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{image | img_url:'master'}}" alt="{{image.alt}}" style="max-height: 30px;">
+                        
+                        <a
+                          href="https://www.shopify.com/security/pci-compliant?utm_medium=shop&utm_source=secure"
+                          title="This online store is secured by Shopify"
+                          target="_blank"
+                          rel="nofollow"
+                        >
+                          <img
+                            src="https://cdn.shopify.com/s/images/badges/shopify-secure-badge-white.svg"
+                            alt="Shopify secure badge" style="max-height: 30px; padding: 2px 0;"
+                          >
+                        </a>
+                      </div>
                    {%- elsif block.settings.source == '2' and block.settings.svg -%}
                      {%- assign arr = block.settings.svg | remove: ' ' | split:"," -%}
                      <style>.bot_footer_svg img {padding: 2.5px;height: {{block.settings.height}}px;}</style>

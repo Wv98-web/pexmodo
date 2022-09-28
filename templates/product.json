@@ -198,7 +198,7 @@
         "dot_color": "3",
         "use_eq_height": true,
         "image_ratio": "ratio_nt",
-        "image_size": "nt_cover",
+        "image_size": "nt_contain",
         "image_position": "8"
       }
     },
@@ -242,7 +242,7 @@
         "dot_color": "2",
         "use_eq_height": true,
         "image_ratio": "ratio_nt",
-        "image_size": "nt_cover",
+        "image_size": "nt_contain",
         "image_position": "8"
       }
     }

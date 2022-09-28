@@ -6,11 +6,11 @@
         "16357021760efbe511-0": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner.png",
-            "image_mb": "shopify:\/\/shop_images\/banner1.png",
+            "image": "shopify:\/\/shop_images\/1_d111986d-d74c-495e-9993-67a76839118a.jpg",
+            "image_mb": "shopify:\/\/shop_images\/m.png",
             "pos_img": "center center",
             "cl_img": "rgba(0,0,0,0)",
-            "link_img1": "shopify:\/\/collections\/all-production",
+            "link_img1": "shopify:\/\/pages\/halloween",
             "open_link": "_blank",
             "caption_w": "1",
             "cap_v_pos": 50,
@@ -291,7 +291,7 @@
           "type": "collection",
           "settings": {
             "collection": "tees",
-            "image": "shopify:\/\/shop_images\/tees_2x_00de95b9-7620-481f-ae13-875e55027e55.png",
+            "image": "shopify:\/\/shop_images\/Tees_2x_8ee18fd2-14d5-4ec4-ad4c-5f756ce6f3f5.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -301,7 +301,7 @@
           "type": "collection",
           "settings": {
             "collection": "shorts",
-            "image": "shopify:\/\/shop_images\/shorts_2x_51105093-45f6-44c9-8032-7e391fbc8f76.png",
+            "image": "shopify:\/\/shop_images\/shorts_2x_46275c87-2d8c-4c3c-bb76-887580bb7b59.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -311,7 +311,7 @@
           "type": "collection",
           "settings": {
             "collection": "shirts",
-            "image": "shopify:\/\/shop_images\/shirts_2x_d403cff5-fdb7-4e02-82dc-6ae22bbbb639.png",
+            "image": "shopify:\/\/shop_images\/shirts_2x_0ac2304f-dac3-423b-9380-6db36bc71f3b.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -321,7 +321,7 @@
           "type": "collection",
           "settings": {
             "collection": "pants",
-            "image": "shopify:\/\/shop_images\/a98b15892c2dcc1a5c68a9f3a3348d8f.png",
+            "image": "shopify:\/\/shop_images\/pants_2x_20d25292-86ff-4d49-b0e0-404e23aff019.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -331,7 +331,7 @@
           "type": "collection",
           "settings": {
             "collection": "jackets-coats",
-            "image": "shopify:\/\/shop_images\/Jackets_2x_38e480ec-ac5c-4540-b7c4-d059482b53eb.png",
+            "image": "shopify:\/\/shop_images\/jackets_2x_90389611-d111-4b9e-be4e-0f41dffd7a05.png",
             "img_align": "center",
             "title": "Jackets",
             "url": ""
@@ -341,7 +341,7 @@
           "type": "collection",
           "settings": {
             "collection": "polos",
-            "image": "shopify:\/\/shop_images\/polos_2x_b95398ac-e3e9-4f17-8fdf-30920b1f27d9.png",
+            "image": "shopify:\/\/shop_images\/polos_2x_5469ad22-9fd1-4a20-b8f2-de4d76fe5c4f.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -351,7 +351,7 @@
           "type": "collection",
           "settings": {
             "collection": "sweaters",
-            "image": "shopify:\/\/shop_images\/Sweaters_2x_64b9793b-536c-4f7c-924c-10d950de8ab3.png",
+            "image": "shopify:\/\/shop_images\/swweater_2x_2e2ff070-5d01-45d7-84dd-bbf8facf4f43.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -361,7 +361,7 @@
           "type": "collection",
           "settings": {
             "collection": "hoodie",
-            "image": "shopify:\/\/shop_images\/Hoodies_2x_90caadd4-02bc-4c11-9e2b-1e10e45f52de.png",
+            "image": "shopify:\/\/shop_images\/hoodies_2x_b69f4adf-d6a3-4b5a-9365-d66d3504d660.png",
             "img_align": "center",
             "title": "Hoodies",
             "url": ""
@@ -371,7 +371,7 @@
           "type": "collection",
           "settings": {
             "collection": "sweatshirts",
-            "image": "shopify:\/\/shop_images\/Sweatshirts_2x_97360558-6898-41cb-8c22-d35e6ca6f375.png",
+            "image": "shopify:\/\/shop_images\/sweatershirts_2x_ec881a32-2c2a-447f-98e5-02a1fc55aac7.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -381,7 +381,7 @@
           "type": "collection",
           "settings": {
             "collection": "sweater-vests",
-            "image": "shopify:\/\/shop_images\/Sweater_Vests_2x_8882a134-0c6f-4eac-8c89-92d15085647c.png",
+            "image": "shopify:\/\/shop_images\/sweatervest_2x_318dab40-cc78-4128-9cf7-08cd1ce4f7fa.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -391,7 +391,7 @@
           "type": "collection",
           "settings": {
             "collection": "cardigans",
-            "image": "shopify:\/\/shop_images\/Cardigans_2x_94944923-d41b-4120-af16-ec498b8dc93e.png",
+            "image": "shopify:\/\/shop_images\/cardingans_2x_458cd67a-3ce5-4db3-b9e2-6219d259b2a5.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -401,7 +401,7 @@
           "type": "collection",
           "settings": {
             "collection": "jeans",
-            "image": "shopify:\/\/shop_images\/Jeans_2x_99170b3f-9fb2-41c0-8a85-c58b7a806c00.png",
+            "image": "shopify:\/\/shop_images\/jeans_2x_9d058bc6-d162-4e0c-b051-a79c3f7e11f0.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -411,7 +411,7 @@
           "type": "collection",
           "settings": {
             "collection": "caps",
-            "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
+            "image": "shopify:\/\/shop_images\/caps_2x_1a3d0597-e060-4c3d-80e8-f6e2510ac3a4.png",
             "img_align": "center",
             "title": "Caps",
             "url": ""
@@ -421,7 +421,7 @@
           "type": "collection",
           "settings": {
             "collection": "sunglasses",
-            "image": "shopify:\/\/shop_images\/Sunglasses_2x_5192f72d-1f64-4478-9a06-e2d555986ff1.png",
+            "image": "shopify:\/\/shop_images\/sunglass_2x_0cd4b9b8-8f9d-4548-873c-777958048a8e.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -431,7 +431,7 @@
           "type": "collection",
           "settings": {
             "collection": "phone-cases",
-            "image": "shopify:\/\/shop_images\/Phone_Cases_2x_bee2b465-c9e1-4398-b8c6-ee2f55fba4ee.png",
+            "image": "shopify:\/\/shop_images\/phone_case_2x_e829a79a-9158-4923-b50c-c3f7c2f1b173.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -466,15 +466,15 @@
         "fs_title": 30,
         "fs_title_m": 1.6,
         "fs_view": 20,
-        "fs_view_m": 1.2,
+        "fs_view_m": 1,
         "bg_color_title": "#fb6c1d",
-        "color_title": "#151515",
+        "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "round": 0,
         "fs_text": 20,
         "fs_text_medium": 14,
-        "fs_text_m": 1.1,
+        "fs_text_m": 0.9,
         "cat_layout": "1",
         "hoverz": false,
         "cat_design": "1",
@@ -498,9 +498,9 @@
         "layout": "nt_full",
         "cl_bg": "",
         "hide_bgimg": false,
-        "mg": "",
+        "mg": "40px,,30px,,",
         "pd": ",50px,,50px,",
-        "mg_mb": "",
+        "mg_mb": "2rem,,1rem,",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
@@ -511,7 +511,7 @@
           "type": "collection",
           "settings": {
             "collection": "cross-series",
-            "image": "shopify:\/\/shop_images\/differentstyle-2_2x_1cab0da2-0e2e-4a0d-82e8-ba79b43256c3.png",
+            "image": "shopify:\/\/shop_images\/6bdd92e475d8c2b99a1aac2a68647e16.png",
             "img_align": "center",
             "title": "Cross",
             "url": "",
@@ -524,7 +524,7 @@
           "type": "collection",
           "settings": {
             "collection": "skeleton-series",
-            "image": "shopify:\/\/shop_images\/differentstyle-5_2x_2d98b66f-3e11-4c5f-8480-c9c35c6e3457.png",
+            "image": "shopify:\/\/shop_images\/5f2e4cc3abc65215d44ac9b922b4d914.png",
             "img_align": "center",
             "title": "Skeleton",
             "url": "",
@@ -537,7 +537,7 @@
           "type": "collection",
           "settings": {
             "collection": "eye-series",
-            "image": "shopify:\/\/shop_images\/eye_2x_188a693f-36ed-42cb-9394-9fca52464fba.png",
+            "image": "shopify:\/\/shop_images\/27025bf743071e2a11f6fb5ca139f214.png",
             "img_align": "center",
             "title": "Eye",
             "url": "",
@@ -550,7 +550,7 @@
           "type": "collection",
           "settings": {
             "collection": "cartoon-series",
-            "image": "shopify:\/\/shop_images\/2x_e425827a-3823-4d9a-96e2-93bee9f44f6c.png",
+            "image": "shopify:\/\/shop_images\/8a518e88c48d6b3919d0c4958ad622c4.png",
             "img_align": "center",
             "title": "Cartoon",
             "url": "",
@@ -563,7 +563,7 @@
           "type": "collection",
           "settings": {
             "collection": "abstract-series",
-            "image": "shopify:\/\/shop_images\/2x_29919306-9881-494b-bddb-dc367dea7f8b.png",
+            "image": "shopify:\/\/shop_images\/2edb566d005c8e0badede012a9d0c8a4.png",
             "img_align": "center",
             "title": "Abstract",
             "url": "",
@@ -576,7 +576,7 @@
           "type": "collection",
           "settings": {
             "collection": "graphic-tee",
-            "image": "shopify:\/\/shop_images\/pet_2x_db161288-da26-4f3f-8748-78fbfd10a305.png",
+            "image": "shopify:\/\/shop_images\/000a85161ee64eff61f6995f98dd1cdd.png",
             "img_align": "center",
             "title": "Pet",
             "url": "",
@@ -607,7 +607,7 @@
         "fs_view": 20,
         "fs_view_m": 1.2,
         "bg_color_title": "#fb6c1d",
-        "color_title": "#151515",
+        "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "cat_layout": "3",
@@ -629,23 +629,23 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "rgba(0,0,0,0)",
-        "lp_c_bg": "#efebf7",
+        "lp_c_bg": "rgba(0,0,0,0)",
         "hide_bgimg": false,
         "content_bg": "#ffffff",
         "content_bg_hover": "#ff8000",
         "text_color": "#03234c",
         "text_hover_color": "#ffffff",
         "show_animation": false,
-        "mg": "",
-        "pd": "30px,50px,30px,50px,",
-        "mg_mb": "1.5rem,,1.5rem,",
+        "mg": "40px,,30px,,",
+        "pd": ",50px,,50px,",
+        "mg_mb": "2rem,,1rem,",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
-    "16638998957715718e": {
-      "type": "featured_collection2_1",
+    "1664160038efdd0ce9": {
+      "type": "featured_collection2_2",
       "settings": {
-        "title": "3 ITEMS ONLY $59",
+        "title": "",
         "sub_title": "",
         "sub_font": "2",
         "btn_title": "",
@@ -658,27 +658,27 @@
         "fs_view": 20,
         "fs_view_m": 1.2,
         "bg_color_title": "#fb6c1d",
-        "color_title": "#151515",
+        "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": true,
-        "section_banner": "shopify:\/\/shop_images\/2_020a2d27-7549-4c8d-8bb6-df0cf91fb245.png",
-        "section_banner_mb": "shopify:\/\/shop_images\/banner2.png",
+        "section_banner": "shopify:\/\/shop_images\/2b4de5774373bfbcf5d92b7b279ce10a.png",
+        "section_banner_mb": "shopify:\/\/shop_images\/3ea37ca7097e4cacc3951906f1e531e0.png",
         "img_align": "center",
-        "url": "shopify:\/\/pages\/halloween",
+        "url": "",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "all-production",
+        "collection": "lucky-bags",
         "limit": 5,
         "limit_m": 6,
         "space": 20,
-        "use_pagination": "more",
+        "use_pagination": "none",
         "use_bar_lm": false,
         "btn_rd": false,
         "btn_icon": false,
-        "btn_style": "shadow",
+        "btn_style": "default",
         "col_pr": "15",
         "col_pr_tb": "15",
         "col_pr_mb": "6",
@@ -694,7 +694,7 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "30px,,30px,",
+        "mg": ",,40px,",
         "pd": ",50px,,50px,",
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
@@ -774,9 +774,8 @@
     },
     "166124728961ada76b": {
       "type": "featured_collection2",
-      "disabled": true,
       "settings": {
-        "title": "TRENDING",
+        "title": "WOMEN",
         "sub_title": "",
         "sub_font": "2",
         "btn_title": "View ALL",
@@ -788,20 +787,18 @@
         "fs_title_m": 1.8,
         "fs_view": 18,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
+        "bg_color_title": "#fb6c1d",
         "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": false,
-        "section_banner": "shopify:\/\/shop_images\/hotsale_banner_2x_8dac64b2-fb29-4b92-bf1a-e9c02befa390.png",
-        "section_banner_mb": "shopify:\/\/shop_images\/213213.jpg",
         "img_align": "center",
-        "url": "shopify:\/\/collections\/hot-sale",
+        "url": "shopify:\/\/collections\/women",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "hot-sale",
+        "collection": "women",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -825,17 +822,16 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "30px,,30px,",
-        "pd": "0,50px,0,50px,",
+        "mg": "40px,,50px,",
+        "pd": ",50px,,50px,",
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
     "166124728961ada76c": {
       "type": "featured_collection2",
-      "disabled": true,
       "settings": {
-        "title": "Week 1 of September",
+        "title": "Week 4 of September",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -847,18 +843,18 @@
         "fs_title_m": 1.8,
         "fs_view": 18,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
+        "bg_color_title": "#fb6c1d",
         "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": false,
         "img_align": "center",
-        "url": "shopify:\/\/collections\/week-5-of-august",
+        "url": "shopify:\/\/collections\/week-4-of-september",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-5-of-august",
+        "collection": "week-4-of-september",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -882,17 +878,16 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "30px,,30px,",
-        "pd": "0,50px,0,50px,",
+        "mg": "40px,,50px,",
+        "pd": ",50px,,50px,",
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
     "166124728961ada76a": {
       "type": "featured_collection2",
-      "disabled": true,
       "settings": {
-        "title": "Week 4 of August",
+        "title": "Week 3 of September",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -904,18 +899,18 @@
         "fs_title_m": 1.8,
         "fs_view": 18,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
+        "bg_color_title": "#fb6c1d",
         "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": false,
         "img_align": "center",
-        "url": "shopify:\/\/collections\/week-4-of-august",
+        "url": "shopify:\/\/collections\/week-3-of-september",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-3-of-august",
+        "collection": "week-3-of-september",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -939,8 +934,8 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "30px,,30px,",
-        "pd": "0,50px,0,50px,",
+        "mg": "40px,,50px,",
+        "pd": ",50px,,50px,",
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
@@ -998,8 +993,8 @@
         "cp_code": false,
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "30px,,30px,",
-        "pd": "0,50px,0,50px,",
+        "mg": "40px,,50px,",
+        "pd": ",50px,,50px,",
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
@@ -1168,15 +1163,15 @@
         "fs_view": 20,
         "fs_view_m": 1.2,
         "bg_color_title": "#fb6c1d",
-        "color_title": "#151515",
+        "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
-        "cat_space": "30",
+        "cat_space": "20",
         "layout": "nt_full",
         "cl_bg": "",
-        "mg": "",
-        "pd": "0,50px,0,50px,",
-        "mg_mb": "",
+        "mg": "40px,,30px,,",
+        "pd": ",50px,,50px,",
+        "mg_mb": "2rem,,1rem,",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
@@ -1271,9 +1266,9 @@
         "se_bg": "#eaeaea",
         "use_pr": false,
         "layout": "nt_full",
-        "mg": "50px,,50px,",
+        "mg": "40px,,40px,",
         "pd": "",
-        "mg_mb": "3rem,1.5rem,3rem,1.5rem,",
+        "mg_mb": ",1.5rem,,1.5rem,",
         "pd_mb": "2rem,,2rem,,"
       }
     },
@@ -1325,8 +1320,8 @@
         "layout": "nt_full",
         "mg": "",
         "pd": "",
-        "mg_mb": "3rem,1.5rem,,1.5rem,",
-        "pd_mb": "3rem,1.5rem,,1.5rem,"
+        "mg_mb": ",1.5rem,,1.5rem,",
+        "pd_mb": "2rem,,2rem,,"
       }
     },
     "1653547766972217eb": {
@@ -1383,10 +1378,10 @@
         "se_bg": "rgba(0,0,0,0)",
         "use_pr": false,
         "layout": "nt_full",
-        "mg": "50px,,50px,",
+        "mg": "",
         "pd": "",
         "mg_mb": ",1.5rem,,1.5rem,",
-        "pd_mb": "3rem,1rem,3rem,1rem,"
+        "pd_mb": ",,2rem,,"
       }
     }
   },
@@ -1396,7 +1391,7 @@
     "166149194810f6d9cc",
     "1661320948c35981c7",
     "1661307088ecaab9f8",
-    "16638998957715718e",
+    "1664160038efdd0ce9",
     "1661248650b11cc158",
     "166124728961ada76b",
     "166124728961ada76c",

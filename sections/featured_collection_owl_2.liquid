@@ -62,7 +62,13 @@
       </div>
       {%- if paginate.pages > 1 and use_pagination != 'none' -%}
       <div class="products-footer tc mt__40">
+          {%- if se_stts.btn_style == "image" -%}
+          <a class="db pr js_add_loading view_btn" href="{{ collection.url }}">
+            <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/view_more.png?v=1663916770" alt="pexmod" />
+          </a>
+          {%- else -%}
           <a class="pr button view_more js_add_loading button_{{se_stts.btn_style}} br_rd_{{se_stts.btn_rd}} btn_icon_{{se_stts.btn_icon}}" href="{{ collection.url }}">{{ 'products.grid_items.view_more' | t }}</a>
+          {%- endif -%}
       </div>
       {%- endif -%}
       {{-html_layout[1]-}}
@@ -353,6 +359,10 @@
           {
             "value": "shadow",
             "label": "Shadow"
+          },
+          {
+            "value": "image",
+            "label": "Image"
           }
         ]
       },
