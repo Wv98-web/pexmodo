@@ -6,8 +6,8 @@
         "16357021760efbe511-0": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_d111986d-d74c-495e-9993-67a76839118a.jpg",
-            "image_mb": "shopify:\/\/shop_images\/m.png",
+            "image": "shopify:\/\/shop_images\/banner-01_850PX.jpg",
+            "image_mb": "shopify:\/\/shop_images\/4ab06d5d0fae9e3779190a5378aa9b02.jpg",
             "pos_img": "center center",
             "cl_img": "rgba(0,0,0,0)",
             "link_img1": "shopify:\/\/pages\/halloween",
@@ -287,6 +287,76 @@
     "1661320948c35981c7": {
       "type": "collection-list2",
       "blocks": {
+        "d4356a43-ed6b-41a1-ad1b-3b49bde1aff6": {
+          "type": "collection",
+          "settings": {
+            "collection": "hoodie",
+            "image": "shopify:\/\/shop_images\/hoodies_2x_b69f4adf-d6a3-4b5a-9365-d66d3504d660.png",
+            "img_align": "center",
+            "title": "Hoodies",
+            "url": ""
+          }
+        },
+        "ce9080f2-d677-4001-b065-30c7fb57705b": {
+          "type": "collection",
+          "settings": {
+            "collection": "jackets-coats",
+            "image": "shopify:\/\/shop_images\/jackets_2x_90389611-d111-4b9e-be4e-0f41dffd7a05.png",
+            "img_align": "center",
+            "title": "Jackets",
+            "url": ""
+          }
+        },
+        "c9540ac7-f242-4f31-bfa4-7e41145a5426": {
+          "type": "collection",
+          "settings": {
+            "collection": "sweaters",
+            "image": "shopify:\/\/shop_images\/swweater_2x_2e2ff070-5d01-45d7-84dd-bbf8facf4f43.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "1661320947e5aca80a-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "pants",
+            "image": "shopify:\/\/shop_images\/pants_2x_20d25292-86ff-4d49-b0e0-404e23aff019.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "6102b40f-161e-477c-b82e-e6d5c7491139": {
+          "type": "collection",
+          "settings": {
+            "collection": "sweatshirts",
+            "image": "shopify:\/\/shop_images\/sweatershirts_2x_ec881a32-2c2a-447f-98e5-02a1fc55aac7.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "d051616c-f6a6-44c5-a04e-5ccc9f052fad": {
+          "type": "collection",
+          "settings": {
+            "collection": "cardigans",
+            "image": "shopify:\/\/shop_images\/cardingans_2x_458cd67a-3ce5-4db3-b9e2-6219d259b2a5.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "10761950-0881-4093-ae2e-531f43331909": {
+          "type": "collection",
+          "settings": {
+            "collection": "vests",
+            "image": "shopify:\/\/shop_images\/sweatervest_2x_318dab40-cc78-4128-9cf7-08cd1ce4f7fa.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
         "1661320947e5aca80a-0": {
           "type": "collection",
           "settings": {
@@ -317,26 +387,6 @@
             "url": ""
           }
         },
-        "1661320947e5aca80a-3": {
-          "type": "collection",
-          "settings": {
-            "collection": "pants",
-            "image": "shopify:\/\/shop_images\/pants_2x_20d25292-86ff-4d49-b0e0-404e23aff019.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
-        "ce9080f2-d677-4001-b065-30c7fb57705b": {
-          "type": "collection",
-          "settings": {
-            "collection": "jackets-coats",
-            "image": "shopify:\/\/shop_images\/jackets_2x_90389611-d111-4b9e-be4e-0f41dffd7a05.png",
-            "img_align": "center",
-            "title": "Jackets",
-            "url": ""
-          }
-        },
         "9c502019-5504-4f7f-908d-f83e7507bf3b": {
           "type": "collection",
           "settings": {
@@ -347,61 +397,21 @@
             "url": ""
           }
         },
-        "c9540ac7-f242-4f31-bfa4-7e41145a5426": {
-          "type": "collection",
-          "settings": {
-            "collection": "sweaters",
-            "image": "shopify:\/\/shop_images\/swweater_2x_2e2ff070-5d01-45d7-84dd-bbf8facf4f43.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
-        "d4356a43-ed6b-41a1-ad1b-3b49bde1aff6": {
-          "type": "collection",
-          "settings": {
-            "collection": "hoodie",
-            "image": "shopify:\/\/shop_images\/hoodies_2x_b69f4adf-d6a3-4b5a-9365-d66d3504d660.png",
-            "img_align": "center",
-            "title": "Hoodies",
-            "url": ""
-          }
-        },
-        "6102b40f-161e-477c-b82e-e6d5c7491139": {
-          "type": "collection",
-          "settings": {
-            "collection": "sweatshirts",
-            "image": "shopify:\/\/shop_images\/sweatershirts_2x_ec881a32-2c2a-447f-98e5-02a1fc55aac7.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
-        "10761950-0881-4093-ae2e-531f43331909": {
-          "type": "collection",
-          "settings": {
-            "collection": "sweater-vests",
-            "image": "shopify:\/\/shop_images\/sweatervest_2x_318dab40-cc78-4128-9cf7-08cd1ce4f7fa.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
-        "d051616c-f6a6-44c5-a04e-5ccc9f052fad": {
-          "type": "collection",
-          "settings": {
-            "collection": "cardigans",
-            "image": "shopify:\/\/shop_images\/cardingans_2x_458cd67a-3ce5-4db3-b9e2-6219d259b2a5.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
-        },
         "fd18ee85-e78c-4905-83b2-969f682ad025": {
           "type": "collection",
           "settings": {
             "collection": "jeans",
             "image": "shopify:\/\/shop_images\/jeans_2x_9d058bc6-d162-4e0c-b051-a79c3f7e11f0.png",
+            "img_align": "center",
+            "title": "",
+            "url": ""
+          }
+        },
+        "59881708-dd03-4868-8d17-fb1f43965631": {
+          "type": "collection",
+          "settings": {
+            "collection": "phone-cases",
+            "image": "shopify:\/\/shop_images\/phone_case_2x_e829a79a-9158-4923-b50c-c3f7c2f1b173.png",
             "img_align": "center",
             "title": "",
             "url": ""
@@ -419,6 +429,7 @@
         },
         "8c28daae-e72d-4df9-9b7f-5d1c319ed357": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "sunglasses",
             "image": "shopify:\/\/shop_images\/sunglass_2x_0cd4b9b8-8f9d-4548-873c-777958048a8e.png",
@@ -426,34 +437,24 @@
             "title": "",
             "url": ""
           }
-        },
-        "59881708-dd03-4868-8d17-fb1f43965631": {
-          "type": "collection",
-          "settings": {
-            "collection": "phone-cases",
-            "image": "shopify:\/\/shop_images\/phone_case_2x_e829a79a-9158-4923-b50c-c3f7c2f1b173.png",
-            "img_align": "center",
-            "title": "",
-            "url": ""
-          }
         }
       },
       "block_order": [
+        "d4356a43-ed6b-41a1-ad1b-3b49bde1aff6",
+        "ce9080f2-d677-4001-b065-30c7fb57705b",
+        "c9540ac7-f242-4f31-bfa4-7e41145a5426",
+        "1661320947e5aca80a-3",
+        "6102b40f-161e-477c-b82e-e6d5c7491139",
+        "d051616c-f6a6-44c5-a04e-5ccc9f052fad",
+        "10761950-0881-4093-ae2e-531f43331909",
         "1661320947e5aca80a-0",
         "1661320947e5aca80a-1",
         "1661320947e5aca80a-2",
-        "1661320947e5aca80a-3",
-        "ce9080f2-d677-4001-b065-30c7fb57705b",
         "9c502019-5504-4f7f-908d-f83e7507bf3b",
-        "c9540ac7-f242-4f31-bfa4-7e41145a5426",
-        "d4356a43-ed6b-41a1-ad1b-3b49bde1aff6",
-        "6102b40f-161e-477c-b82e-e6d5c7491139",
-        "10761950-0881-4093-ae2e-531f43331909",
-        "d051616c-f6a6-44c5-a04e-5ccc9f052fad",
         "fd18ee85-e78c-4905-83b2-969f682ad025",
+        "59881708-dd03-4868-8d17-fb1f43965631",
         "62ad71de-5b2a-48a9-b02f-49a0f70a8ce3",
-        "8c28daae-e72d-4df9-9b7f-5d1c319ed357",
-        "59881708-dd03-4868-8d17-fb1f43965631"
+        "8c28daae-e72d-4df9-9b7f-5d1c319ed357"
       ],
       "settings": {
         "title": "SHOP BY CATEGORY",
@@ -642,64 +643,6 @@
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
-    "1664160038efdd0ce9": {
-      "type": "featured_collection2_2",
-      "settings": {
-        "title": "",
-        "sub_title": "",
-        "sub_font": "2",
-        "btn_title": "",
-        "style_title": "title_bg",
-        "show_line": false,
-        "ic_tt": "gem",
-        "show_clpr": false,
-        "fs_title": 30,
-        "fs_title_m": 1.6,
-        "fs_view": 20,
-        "fs_view_m": 1.2,
-        "bg_color_title": "#fb6c1d",
-        "color_title": "#ffffff",
-        "max_height_title": 88,
-        "max_height_title_m": 44,
-        "enable_section_banner": true,
-        "section_banner": "shopify:\/\/shop_images\/2b4de5774373bfbcf5d92b7b279ce10a.png",
-        "section_banner_mb": "shopify:\/\/shop_images\/3ea37ca7097e4cacc3951906f1e531e0.png",
-        "img_align": "center",
-        "url": "",
-        "open_link": "_blank",
-        "hoverz": false,
-        "cl_overlay": "#000000",
-        "cl_opacity": 0,
-        "collection": "lucky-bags",
-        "limit": 5,
-        "limit_m": 6,
-        "space": 20,
-        "use_pagination": "none",
-        "use_bar_lm": false,
-        "btn_rd": false,
-        "btn_icon": false,
-        "btn_style": "default",
-        "col_pr": "15",
-        "col_pr_tb": "15",
-        "col_pr_mb": "6",
-        "pr_des": "1",
-        "show_vendor": false,
-        "use_cdt": false,
-        "round_cd": false,
-        "cdt_des": "1",
-        "use_eq_height": true,
-        "image_ratio": "ratio_nt",
-        "image_size": "nt_cover",
-        "image_position": "8",
-        "cp_code": false,
-        "layout": "nt_full",
-        "cl_bg": "",
-        "mg": ",,40px,",
-        "pd": ",50px,,50px,",
-        "mg_mb": "",
-        "pd_mb": ",1.5rem,,1.5rem,"
-      }
-    },
     "1661248650b11cc158": {
       "type": "banner3",
       "disabled": true,
@@ -774,6 +717,7 @@
     },
     "166124728961ada76b": {
       "type": "featured_collection2",
+      "disabled": true,
       "settings": {
         "title": "WOMEN",
         "sub_title": "",
@@ -828,10 +772,10 @@
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
-    "166124728961ada76c": {
+    "166124728961ada76a": {
       "type": "featured_collection2",
       "settings": {
-        "title": "Week 4 of September",
+        "title": "Week 3 of October",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -849,12 +793,12 @@
         "max_height_title_m": 44,
         "enable_section_banner": false,
         "img_align": "center",
-        "url": "shopify:\/\/collections\/week-4-of-september",
+        "url": "shopify:\/\/collections\/week-3-of-october",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-4-of-september",
+        "collection": "week-3-of-october",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -884,10 +828,10 @@
         "pd_mb": ",1.5rem,,1.5rem,"
       }
     },
-    "166124728961ada76a": {
+    "166124728961ada76c": {
       "type": "featured_collection2",
       "settings": {
-        "title": "Week 3 of September",
+        "title": "Week 2 of October",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -905,12 +849,12 @@
         "max_height_title_m": 44,
         "enable_section_banner": false,
         "img_align": "center",
-        "url": "shopify:\/\/collections\/week-3-of-september",
+        "url": "shopify:\/\/collections\/week-2-of-october",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-3-of-september",
+        "collection": "week-2-of-october",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -944,7 +888,7 @@
       "type": "featured_collection2",
       "disabled": true,
       "settings": {
-        "title": "Flash Sale",
+        "title": "Week 3 of September",
         "sub_title": "",
         "sub_font": "2",
         "btn_title": "View ALL",
@@ -956,20 +900,18 @@
         "fs_title_m": 1.8,
         "fs_view": 18,
         "fs_view_m": 1.2,
-        "bg_color_title": "#603dae",
+        "bg_color_title": "#fb6c1d",
         "color_title": "#ffffff",
         "max_height_title": 88,
         "max_height_title_m": 44,
         "enable_section_banner": true,
-        "section_banner": "shopify:\/\/shop_images\/flash-sale-banner.jpg",
-        "section_banner_mb": "shopify:\/\/shop_images\/01_75e6391c-88a5-4991-a266-73e1694aead1.jpg",
         "img_align": "center",
-        "url": "shopify:\/\/collections\/flash-sale",
+        "url": "shopify:\/\/collections\/week-3-of-september",
         "open_link": "_blank",
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "flash-sale",
+        "collection": "week-3-of-september",
         "limit": 12,
         "limit_m": 6,
         "space": 20,
@@ -1391,11 +1333,10 @@
     "166149194810f6d9cc",
     "1661320948c35981c7",
     "1661307088ecaab9f8",
-    "1664160038efdd0ce9",
     "1661248650b11cc158",
     "166124728961ada76b",
-    "166124728961ada76c",
     "166124728961ada76a",
+    "166124728961ada76c",
     "166124728961ada76d",
     "1661303305725ccba3",
     "165354614392a84d0f",

@@ -44,7 +44,7 @@
                 {
                   item_name: document.querySelector('[class="product_title entry-title"]').innerText,
                   currency: Shopify.currency.active,
-                  price: document.querySelector('#price_ppr ins').innerText.replace(/[^0-9.]/g, '')
+                  price: document.querySelector('#price_ppr ins') ? document.querySelector('#price_ppr ins').innerText.replace(/[^0-9.]/g, '') : document.querySelector('#price_ppr .money').innerText.replace(/[^0-9.]/g, '')
                 }
                 ]
             });
@@ -83,6 +83,7 @@
     name="facebook-domain-verification"
     content="lyfy4vfgvnl9846tlfzq73wt6xpdaj"
   />
+  <meta name="msvalidate.01" content="0BC79735A6E3301E7DF3EE80D9A4BE61" />
   {% render 'apple_suite' %}
   <link
     rel="canonical"
@@ -242,6 +243,10 @@
 </head>
 
 <body {{class_body_theme | strip_newlines-}} data-pexmoder={{ customer.id }}>
+<script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} {% if product.first_available_variant.price %}window.KlarnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};{% endif %}window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+
+
+
   {% if content_for_header contains 'convert_global' %}
   <script type="text/javascript">
     var _conv_page_type = "{{ request.page_type }}";

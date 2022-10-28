@@ -56,6 +56,17 @@
             "bdr": 15
           }
         },
+        "82341c03-4b48-4d57-8e5e-f8cb9138cbb3": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "locale_option": "manual",
+            "locale_fallback": "en-US",
+            "theme": "light",
+            "topPadding": "0",
+            "bottomPadding": "0"
+          }
+        },
         "social": {
           "type": "social",
           "settings": {
@@ -80,6 +91,7 @@
         "pricereview",
         "size",
         "frm",
+        "82341c03-4b48-4d57-8e5e-f8cb9138cbb3",
         "social",
         "b5107412-932e-488d-b774-bef41056ac3f"
       ],

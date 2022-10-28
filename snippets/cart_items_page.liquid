@@ -92,7 +92,7 @@ assign gift_pr_id = gift_pr.id -%}
                 <div class="cart_unit_price">{{ item.unit_price | money }}<span>/</span>{{- unit_price_base_unit -}}</div>
              {%- endif -%}
              {%- if item.line_level_discount_allocations != blank -%}
-                <ul class="cart_discount_price ul_none">
+                <ul class="cart_discount_price ul_none dn">
                    {%- for discount_allocation in item.line_level_discount_allocations -%}
                      <li class="order-discount__item"><i class="facl facl-tags"></i> {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</li>
                    {%- endfor -%}

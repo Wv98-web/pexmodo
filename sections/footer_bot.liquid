@@ -41,12 +41,17 @@
                           title="This online store is secured by Shopify"
                           target="_blank"
                           rel="nofollow"
+                          class="dib"
                         >
                           <img
                             src="https://cdn.shopify.com/s/images/badges/shopify-secure-badge-white.svg"
                             alt="Shopify secure badge" style="max-height: 30px; padding: 2px 0;"
                           >
                         </a>
+
+                        <div class="dib">
+                          <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/Klarna.svg?v=1666071015" style="height: 30px;" />
+                        </div>
                       </div>
                    {%- elsif block.settings.source == '2' and block.settings.svg -%}
                      {%- assign arr = block.settings.svg | remove: ' ' | split:"," -%}

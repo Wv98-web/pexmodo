@@ -1,0 +1,78 @@
+
+
+  <div id="root" style="width: 100%; height: 100%">
+    <div style="
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      ">
+      <svg style="width:100px;height:100px;color:#9FDB1D;margin-bottom:30px" class="animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle style="opacity:0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path style="opacity:0.75"fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    <p style="font-size: 24px; color: rgba(0, 0, 0, 0.65)">
+      Syncing brand settings...
+    </p>
+    <style>
+    * { margin:0;padding:0; }
+
+    @keyframes spin{to{transform:rotate(1turn)}}
+
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+
+  </style>
+  </div>
+
+  <script>
+{% for item in shop.brand.colors.primary %}
+  {%- if forloop.first == true -%}
+    {% assign primary_background = item.background %}
+    {% assign primary_foreground = item.foreground %}
+  {%- endif %}
+{% endfor -%}
+
+{% for item in shop.brand.colors.secondary %}
+  {%- if forloop.first == true -%}
+    {% assign secondary_background = item.background %}
+    {% assign secondary_foreground = item.foreground %}
+  {%- endif %}
+{% endfor -%}
+
+ const brandSetting = {
+  "name": "{{ shop.name }}",
+  "logo": "https://{{ shop.brand.logo | img_url:'master' }}".replace(/\?v\=.*$/,""),
+  "coverImage": "https://{{ shop.brand.cover_image | img_url:'master' }}".replace(/\?v\=.*$/,""),
+  "slogan": "{{ shop.brand.slogan}}",
+  "colors": {
+    "primary": {
+      "background": "{{ primary_background }}",
+      "foreground": "{{ primary_foreground }}"
+    },
+    "secondary": {
+      "background": "{{ secondary_background }}",
+      "foreground": "{{ secondary_foreground }}"
+    }
+  },
+  "settings":{{ settings | json}}
+};
+
+  const currentHash = "eko87DqbnqIdHRBkNtSX4";
+  const expectedHash = new URLSearchParams(location.search).get('hash');
+  if (currentHash !== expectedHash) {
+    setTimeout(() => {
+      window.location.reload()
+    }, 1000);
+  } else {
+    console.log("post message", brandSetting);
+    window.opener.postMessage({
+      type: "syncBrandSetting",
+      data: brandSetting
+    }, "*");
+  }
+
+  </script>

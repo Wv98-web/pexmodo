@@ -42,7 +42,7 @@
       </div>
       {%- endif -%}
       <div class="mini_cart_wrap">
-        <div class="tc mt__10 mb__10 flex no_wrap al_center col fs__12" style="color: #FB6C1D;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i>40% off Sitewide (Excluding $59 lucky bags)</div>
+        <div class="tc mt__10 mb__10 flex no_wrap al_center col fs__12" style="color: #FB6C1D;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i>Free standard shipping on USD $65.00+</div>
 
         <div class="mini_cart_content fixcl-scroll">
           {%- comment -%}scroll content begin{%- endcomment -%}
@@ -130,9 +130,9 @@
                {%- for block in section_blocks -%}
                {%- case block.type -%}
                   {%- when 'price' -%}
-                     <div class="total row fl_between al_center">
+                     <div class="total">
                         <div class="col-auto"><strong>{{ 'cart.general.subtotal' | t }}</strong></div>
-                        <div class="col-auto tr js_cat_ttprice">
+                        <div class="col-auto js_cat_ttprice">
                            {%- if cart.total_discount > 0 -%}
                            <div class="cart_ori_price dib">{{ cart.original_total_price | money }}</div>
                            <div class="cart_dis_price dib"> - {{ cart.total_discount | money }}</div>

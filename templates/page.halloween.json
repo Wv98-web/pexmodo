@@ -1,31 +1,5 @@
 {
   "sections": {
-    "heading": {
-      "type": "pages_heading",
-      "disabled": true,
-      "blocks": {
-        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
-          "type": "1",
-          "settings": {
-            "color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
-      ],
-      "settings": {
-        "parallax": false,
-        "color": "#000000",
-        "overlay": 54,
-        "padding": 50,
-        "paddingmb": 50,
-        "bg_pos": "center center",
-        "bg_repeat": "no-repeat",
-        "bg_size": "cover",
-        "bg_att": "scroll"
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -37,8 +11,8 @@
         "1663901982dbc8bd26-0": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner3_f125d561-d907-4dc2-a55a-71edc3bd599a.png",
-            "image_mb": "shopify:\/\/shop_images\/banner_78e746f6-c15c-4466-acea-7f9749305bf2.png",
+            "image": "shopify:\/\/shop_images\/hallobanner.jpg",
+            "image_mb": "shopify:\/\/shop_images\/hallobanner_m.jpg",
             "pos_img": "center center",
             "cl_img": "",
             "link_img1": "shopify:\/\/collections\/halloween-sale",
@@ -193,7 +167,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/top4.png",
-            "url": "shopify:\/\/products\/pexmod-hip-hop-paste-cloth-embroidery-flame-casual-straight-pants",
+            "url": "shopify:\/\/products\/pexmod-flame-embroidered-vintage-hip-hop-casual-jeans",
             "open_link": "_blank",
             "hoverz": false,
             "col_pr": "15",
@@ -398,6 +372,7 @@
     },
     "166390234862321b02": {
       "type": "featured_collection2_2",
+      "disabled": true,
       "settings": {
         "title": "",
         "sub_title": "",
@@ -453,15 +428,40 @@
         "mg_mb": "",
         "pd_mb": ",1.5rem,,1.5rem,"
       }
+    },
+    "heading": {
+      "type": "pages_heading",
+      "blocks": {
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c": {
+          "type": "1",
+          "settings": {
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "89b1a94e-2cf5-4075-a6af-0969fbaeae2c"
+      ],
+      "settings": {
+        "parallax": false,
+        "color": "rgba(0,0,0,0)",
+        "overlay": 54,
+        "padding": 10,
+        "paddingmb": 0,
+        "bg_pos": "center center",
+        "bg_repeat": "no-repeat",
+        "bg_size": "cover",
+        "bg_att": "scroll"
+      }
     }
   },
   "order": [
-    "heading",
     "main",
     "1663901983fe67c9ad",
     "166415526487375ce8",
     "16639155122d79eff2",
     "16639022017027da88",
-    "166390234862321b02"
+    "166390234862321b02",
+    "heading"
   ]
 }
