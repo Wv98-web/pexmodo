@@ -72,7 +72,7 @@ recommend creating your own child theme, or add custom CSS in menu JanStudio > T
 /* ==========================================================================
    1.0 RESET BROWSER
    ========================================================================== */
-html, body, div, span, applet, object, iframe,
+   html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -3812,7 +3812,7 @@ html.wf-fontawesome5free-n4-loading .fas:before {opacity: 0}
       margin-top: 15px;
   }
   .variations_form .shopify-payment-button__button--unbranded {
-      border-radius: 16px !important;
+      border-radius: 0 !important;
       background-color: #000;
           text-transform: capitalize;
   }

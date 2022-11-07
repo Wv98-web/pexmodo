@@ -9,10 +9,10 @@
   assign index = 1
   assign se_blocks = section.blocks
   assign arr_blocks_img = se_blocks | where: "type", 'image' -%}
-  
+
 <div class="nt_se_{{sid}} type_css_btna {{section.settings.layout}}">
   {%- render 'section_title' -%}
-  <div class="nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
+  <div class="mt__30 nt_banner_holder row fl_center js_packery cat_space_{{section.settings.cat_space}}" data-packery='{ "itemSelector": ".cat_space_item","gutter": 0,"percentPosition": true,"originLeft": {{ltr}} }'> 
     <div class="grid-sizer"></div>
     {%- for block in arr_blocks_img %}{% assign bk_stts = block.settings %}{% assign image = bk_stts.image -%}
       <div class="cat_space_item hoverz_{{bk_stts.hoverz}} col-lg-{{bk_stts.col_pr}} col-md-{{bk_stts.col_pr_tb}} col-{{bk_stts.col_pr_mb}} pr_animated done bg_content_{{bk_stts.bg_content_bl}} border_bl_{{bk_stts.border_bl}} br_style_{{bk_stts.br_style}}" id="bk_{{block.id}}">
@@ -100,16 +100,7 @@
       #b_{{bid}} {height: {{bk_stts.sp_mb}}px}@media (min-width: 768px) {#b_{{bid}} { height:{{bk_stts.sp}}px} }
     {%- elsif btype == '8'  %}{% assign image = bk_stts.image %}{% if image == blank %}{% continue %}{% endif %}#b_{{bid}} img{ max-width:{% if bk_stts.width_mb > 0 %}{{bk_stts.width_mb}}{% else %}{{image.width}}{% endif %}px}@media (min-width: 768px) {#b_{{bid}} img{ max-width:{% if bk_stts.width > 0 %}{{bk_stts.width}}{% else %}{{image.width}}{% endif %}px} }
     {%- else -%}
-      #b_{{bid}} {
-        margin-bottom: {{bk_stts.sp_mb}}px;
-        {% if bk_stts.content_pd_mb != blank %}padding:{{bk_stts.content_pd_mb}};{% endif %}
-        {% if bk_stts.ls_mb_text != 0 %}letter-spacing:{{bk_stts.ls_mb_text}}px;{% endif %}
-        {% if bk_stts.lh_mb_text != 0 %}line-height:{{bk_stts.lh_mb_text}}px;{% endif %}
-        font-size: {{bk_stts.fs_mb_text}}px;
-        font-weight: {{bk_stts.fw_text}};
-        color: {{bk_stts.color}};
-        text-shadow: 0px 3px 8px rgba(255,128,0,0.5), 0px 3px 6px rgba(251, 108, 29,0.2);
-      }
+      #b_{{bid}} { margin-bottom: {{bk_stts.sp_mb}}px; {% if bk_stts.content_pd_mb != blank %}padding:{{bk_stts.content_pd_mb}};{% endif %}{% if bk_stts.ls_mb_text != 0 %}letter-spacing:{{bk_stts.ls_mb_text}}px;{% endif %}{% if bk_stts.lh_mb_text != 0 %}line-height:{{bk_stts.lh_mb_text}}px;{% endif %}font-size: {{bk_stts.fs_mb_text}}px;font-weight: {{bk_stts.fw_text}};color: {{bk_stts.color}} }
       @media (min-width: 768px) {#b_{{bid}} { margin-bottom: {{bk_stts.sp}}px; {% if bk_stts.content_pd != blank %}padding:{{bk_stts.content_pd}};{% endif %}{% if bk_stts.ls_text != 0 %}letter-spacing:{{bk_stts.ls_text}}px;{% endif %}{% if bk_stts.lh_text != 0 %}line-height: {{bk_stts.lh_text}}px;{% endif %}font-size: {{bk_stts.fs_text}}px}}
     {%- endif -%}
     {%- endfor -%}
@@ -690,8 +681,8 @@
               "type": "range",
               "id": "fs_text",
               "min": 20,
-              "max": 120,
-              "step": 1,
+              "max": 70,
+              "step": 0.5,
               "label": "Font size",
               "unit": "px",
               "default": 30

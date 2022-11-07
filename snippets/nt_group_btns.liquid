@@ -104,7 +104,8 @@ endcase -%}
            <div class="icon_cart pr in_flex al_center"><a class="pr cb chp dib push_side" data-id="#nt_cart_canvas" href="{{routes.cart_url}}"><i class="{{arric[3]}}"></i><span class="js_cat_ttprice ch_tt_price dn dib_lg fwm cd ml__5">{{cart.total_price | money}}</span></a></div>
            {%- comment -%}<div class="icon_cart pr push_side in_flex al_center" data-id="#nt_cart_canvas"><a class="pr cb chp dib" href="{{routes.cart_url}}"><i class="{{ic_stt}} {{arric[3]}}"></i><span class="op__0 ts_op pa tcount jsccount bgb br__50 cw tc">{{ cart.item_count }}</span></a><span class="ch_tt_divider dn dib_lg">/</span><span class="js_cat_ttprice ch_tt_price dn dib_lg fwm cd">{{cart.total_price | money}}</span></div>{%- endcomment -%}
          {%- else -%}
-          <div class="icon_cart pr"><a class="push_side pr cb chp db" href="{{routes.cart_url}}" data-id="#nt_cart_canvas"><i class="{{arric[3]}} pr"><span class="op__0 ts_op pa tcount jsccount bgb br__50 cw tc">{{ cart.item_count }}</span></i></a></div>
+        
+          <div class="icon_cart pr"><a class="push_side pr cb chp db site-header__cart" href="{{routes.cart_url}}" data-id="#nt_cart_canvas"><i class="{{arric[3]}} pr"><span class="op__0 ts_op pa tcount jsccount bgb br__50 cw tc">{{ cart.item_count }}</span></i></a></div>
       {%- endcase -%}
    {%- endif -%}
    {%- if nt_group_btns -%}{%- render 'push_menu' with 'ml__5 dn db_lg' -%}{%- endif -%}

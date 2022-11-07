@@ -68,8 +68,8 @@
         "type": "range",
         "id": "cus_w_bd",
         "min": 1100,
-        "max": 1900,
-        "step": 10,
+        "max": 1600,
+        "step": 5,
         "unit": "px",
         "label": "Custom Width:",
         "info": "Ony active when enable Boxed or Custom Width",
@@ -577,17 +577,6 @@
       {
         "type": "header",
         "content": "== Label settings"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_custom_label",
-        "label": "Enable Custom Label",
-        "default": false
-      },
-      {
-        "type": "richtext",
-        "id": "custom_label_text",
-        "label": "Custom Label Text"
       },
       {
         "type": "select",
@@ -3518,6 +3507,20 @@
   {
     "name": "Other settings",
     "settings": [
+      {
+        "type": "header",
+        "content": "Search recommend"
+      },
+      {
+        "type": "link_list",
+        "id": "recommend_menu",
+        "label": "Search recommend collections"
+      },
+      {
+        "type": "collection",
+        "id": "recommend_collection",
+        "label": "Search recommend products"
+      },
       {
         "type": "header",
         "content": "== My Account Page"

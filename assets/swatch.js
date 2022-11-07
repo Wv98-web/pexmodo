@@ -1915,7 +1915,8 @@
                 var price = _item.find('.qty_cart_js').attr('data-price')*qty;
                 _item.find('.js_tt_price_it').html(geckoShopify.formatMoney(price));
              }
-             geckoShopify.onCartUpdate(0,0,cart.sections.cart_js);
+             geckoShopify.GetCartData(0, 1);
+            //  geckoShopify.onCartUpdate(0,0,cart.sections.cart_js);
              UpdateBarItem();
              body.trigger('CartUpdateSuccess CartChangeSuccess');
 

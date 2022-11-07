@@ -36,21 +36,16 @@
         },
         "tax": {
           "type": "tax",
-          "settings": {}
-        },
-        "btnmr": {
-          "type": "btnmr",
+          "disabled": true,
           "settings": {}
         },
         "btnck": {
           "type": "btnck",
           "settings": {}
         },
-        "img": {
-          "type": "img",
-          "settings": {
-            "wimg": 50
-          }
+        "btnmr": {
+          "type": "btnmr",
+          "settings": {}
         },
         "btn": {
           "type": "btn",
@@ -59,15 +54,21 @@
             "url": "shopify:\/\/collections\/hot-sale",
             "style": "primary tu"
           }
+        },
+        "img": {
+          "type": "img",
+          "settings": {
+            "wimg": 50
+          }
         }
       },
       "block_order": [
         "price",
         "tax",
-        "btnmr",
         "btnck",
-        "img",
-        "btn"
+        "btnmr",
+        "btn",
+        "img"
       ],
       "settings": {
         "ajax_enable": true,
@@ -75,7 +76,7 @@
         "show_note": false,
         "show_rates": false,
         "show_discount": true,
-        "show_gift_wrap": true,
+        "show_gift_wrap": false,
         "show_sale_info": true,
         "sale_page": "sale-coupon"
       }

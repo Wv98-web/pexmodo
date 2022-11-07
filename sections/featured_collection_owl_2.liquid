@@ -18,12 +18,10 @@
    assign html_layout = '<div class="container">__</div>' | split:'__'
   else
    assign html_layout = '__' | split:'__'
-  endif
-  assign design_mode = request.design_mode
-  assign page_type = request.page_type -%}
+  endif -%}
 
 
-  {%- if se_stts.cp_code and design_mode %}<div class="dn tc mt__40 mb__40 cp_cd_js"><input type="text" class="dcp_cd_ip" value='<div class="inc_lz inc_pr_laz" data-rendert4s="/search/?section_id={{sid}}"><div class="lds_bginfinity pr"></div></div>'><button class="dcp_cd_btn">Copy Shortcode</button></div>{% endif -%}
+  {%- if se_stts.cp_code and request.design_mode %}<div class="dn tc mt__40 mb__40 cp_cd_js"><input type="text" class="dcp_cd_ip" value='<div class="inc_lz inc_pr_laz" data-rendert4s="/search/?section_id={{sid}}"><div class="lds_bginfinity pr"></div></div>'><button class="dcp_cd_btn">Copy Shortcode</button></div>{% endif -%}
 
   {%- paginate collection.products by limit -%}
   {%- if paginate.current_page > 1-%}{%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
@@ -40,10 +38,9 @@
     {%- assign current_page = '1' -%}
     {%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
 
-      <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2',url:collection.url -%}</div>
     <div class="nt_se_{{sid}} {{layout}}{%- if image != blank %} hide_bgimg_{{se_stts.hide_bgimg}} lazyloadt4s se_t4_bg nt_parallax_{{se_stts.use_pr}}{%- endif -%}"{% if image != blank %} data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"{% endif %}>
       {{-html_layout[0]-}}
-      <!-- {%- render 'section_title',url:collection.url -%} -->
+      {%- render 'section_title',url:collection.url -%}
       <div class="products nt_products_holder row row_pr_{{inc_pr}} cdt_des_{{se_stts.cdt_des}} round_cd_{{se_stts.round_cd}} js_carousel nt_slider {{se_stts.image_size}} {{se_stts.image_ratio}} position_{{se_stts.image_position}} space_{{se_stts.space}} prev_next_{{se_stts.btn_color}} btn_owl_{{se_stts.btn_owl}} dot_owl_{{se_stts.dot_owl}} dot_color_{{se_stts.dot_color}} btn_vi_{{se_stts.btn_vi}}{% if sett_equal %} equal_nt{% endif %}" data-flickityt4s-js='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{se_stts.loop}},"prevNextButtons": {{se_stts.button}},"percentPosition": 1,"pageDots": {{se_stts.dot}}, "autoPlay" : {{ se_stts.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{se_stts.au_hover}}, "rightToLeft": {{settings.use_rtl}} }'>
           {%- if collection != blank -%}
             {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
@@ -176,20 +173,9 @@
          {
             "value": "title_13",
             "label": "Design 13"
-          },
-          {
-            "value": "title_bg",
-            "label": "Design background"
           }
         ],
         "label": "Design Title:"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_line",
-        "label": "Show line",
-        "default": false,
-        "info": "Only use design background"
       },
       {
         "type": "text",
@@ -206,82 +192,6 @@
       {
         "type": "paragraph",
         "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
-      },
-      {
-        "type": "range",
-        "id": "fs_title",
-        "min": 10,
-        "max": 50,
-        "step": 0.5,
-        "label": "Font size",
-        "unit": "px",
-        "default": 30,
-        "info": "Heading title font size"
-      },
-      {
-        "type": "range",
-        "id": "fs_title_m",
-        "min": 0.8,
-        "max": 4,
-        "step": 0.1,
-        "label": "Font size",
-        "unit": "rem",
-        "default": 1.6,
-        "info": "Heading title font size(mobile)"
-      },
-      {
-        "type": "range",
-        "id": "fs_view",
-        "min": 10,
-        "max": 40,
-        "step": 0.5,
-        "label": "Font size",
-        "unit": "px",
-        "default": 20,
-        "info": "View all text font size"
-      },
-      {
-        "type": "range",
-        "id": "fs_view_m",
-        "min": 0.8,
-        "max": 3,
-        "step": 0.1,
-        "label": "Font size",
-        "unit": "rem",
-        "default": 1.2,
-        "info": "View all text font size(mobile)"
-      },
-      {
-        "type": "color",
-        "id": "bg_color_title",
-        "label": "Background color for title",
-        "default": "#603DAE"
-      },
-      {
-        "type": "color",
-        "id": "color_title",
-        "label": "Text color for title",
-        "default": "#ffffff"
-      },
-      {
-        "type": "range",
-        "id": "max_height_title",
-        "label": "Title max height (Desktop)",
-        "default": 88,
-        "min": 50,
-        "max": 150,
-        "step": 1,
-        "unit": "px"
-      },
-      {
-        "type": "range",
-        "id": "max_height_title_m",
-        "label": "Title max height (mobile)",
-        "default": 44,
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px"
       },
       {
         "type": "header",

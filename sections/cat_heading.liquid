@@ -19,6 +19,7 @@
           {%- for block in se_bks -%}
             {%- case block.type -%}
              {%- when '1' -%}<h1 class="mb__5 cw" style="color:{{block.settings.color}}">{{ collection.title }}</h1>
+             {%- when '3' -%}<p class="mg__0"><img src={{block.settings.collection_image | img_url: 'master'}} alt="pexmod" /></p>
              {%- else %}<div class="mt__5 mg__0 rtet4"style="color:{{block.settings.color}}">{{ collection.description }}</div>
             {%- endcase -%}
           {%- endfor -%}
@@ -101,8 +102,8 @@
         "label": "Padding Space (Desktop)",
         "default": 50,
         "min": 10,
-        "max": 330,
-        "step": 10,
+        "max": 100,
+        "step": 1,
         "unit": "px"
       },
       {
@@ -267,6 +268,18 @@
             "id": "color",
             "label": "color",
             "default": "#ededed"
+          }
+        ]
+      },
+      {
+        "type": "3",
+        "name": "Image",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "collection_image",
+            "label": "== Collection Image"
           }
         ]
       }

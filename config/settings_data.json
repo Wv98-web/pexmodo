@@ -1,7 +1,7 @@
 {
   "current": {
-    "general_layout": "full_width",
-    "cus_w_bd": 1520,
+    "general_layout": "cus",
+    "cus_w_bd": 1560,
     "body_bg": "rgba(0,0,0,0)",
     "body_bg_image": "",
     "body_bg_repeat": "default",
@@ -9,7 +9,7 @@
     "body_bg_attachment": "default",
     "body_bg_position": "default",
     "home_keywords": "Pexmod | Trendy Online Streetwear Brand Clothing Store 2022",
-    "shop_author": "Yadan",
+    "shop_author": "Yadan Wuwei",
     "use_rtl": false,
     "list_rtl": "ar",
     "backtop": "3",
@@ -37,8 +37,6 @@
     "wis_atc_added": "2",
     "enable_compe": false,
     "app_review": "7",
-    "enable_custom_label": false,
-    "custom_label_text": "",
     "label_settings": "rounded",
     "use_sale_label": false,
     "label_sale_style": "1",
@@ -79,21 +77,21 @@
     "bgnav": "#151515",
     "opnav": 100,
     "clnav": "#ffffff",
-    "clnav_hover": "#fb6c1d",
+    "clnav_hover": "#da0201",
     "bgnavst": "#151515",
     "opnavst": 100,
     "clnavst": "#ffffff",
-    "clnavst_hover": "#fb6c1d",
+    "clnavst_hover": "#da0201",
     "bgnavtr": "#151515",
     "opnavtr": 40,
     "clnavtr": "#ffffff",
-    "clnavtr_hover": "#fb6c1d",
+    "clnavtr_hover": "#da0201",
     "h_icon": "iccl",
     "show_search": true,
     "show_wis": true,
     "show_acc": true,
     "cart_des": "1",
-    "bg_hc": "#fb6c1d",
+    "bg_hc": "#da0201",
     "cl_hc": "#ffffff",
     "dark": false,
     "dark_cl1": "#1a1a1a",
@@ -101,16 +99,16 @@
     "dark_cl3": "#1a1a1a",
     "btnt4_style": "1",
     "cl_bd_text": "#000000",
-    "color_primary": "#fb6c1d",
+    "color_primary": "#222222",
     "cl_hd": "#000000",
     "cl_se_tt": "#000000",
-    "ld_bar": "#fb6c1d",
+    "ld_bar": "#da0201",
     "cl_sale": "#ff4e00",
     "cl_new": "#109533",
     "cl_sold_out": "#999",
-    "clpr_tt": "#000000",
-    "clpr_price": "#696969",
-    "clpr_price_sale": "#222222",
+    "clpr_tt": "#222222",
+    "clpr_price": "#000000",
+    "clpr_price_sale": "#000000",
     "clpr_price_goc": "#878787",
     "atw_btn": "#ffffff",
     "atcp_btn": "#ffffff",
@@ -119,21 +117,21 @@
     "bgqv_btn_hover": "#222",
     "qv_btn_hover": "#fff",
     "bgatc_btn": "#ffffff",
-    "atc_btn": "#ff8000",
-    "bgatc_btn_hover": "#ff8000",
+    "atc_btn": "#000000",
+    "bgatc_btn_hover": "#da0201",
     "atc_btn_hover": "#fff",
-    "cl_bg_list": "#fb6c1d",
-    "bgatc_pg": "#fb6c1d",
+    "cl_bg_list": "#da0201",
+    "bgatc_pg": "#000000",
     "atc_pg": "#fff",
-    "bgatc_pg_hover": "#ff8000",
+    "bgatc_pg_hover": "#da0201",
     "atc_pg_hover": "#fff",
     "bgck_btn": "#ffffff",
     "ck_btn": "#000000",
-    "bgck_btn_hover": "#fb6c1d",
-    "ck_btn_hover": "#fff",
+    "bgck_btn_hover": "#ffffff",
+    "ck_btn_hover": "#da0201",
     "cl_tooltip": "#383838",
     "cl_tooltip_txt": "#fff",
-    "cl_lazyload": "#fb6c1d",
+    "cl_lazyload": "#da0201",
     "bg_lazyload": "#f5f5f5",
     "use_cus_lz": true,
     "cus_lz": "shopify:\/\/shop_images\/2x_9a920079-e277-4a1e-b768-fbe976255552.png",
@@ -141,24 +139,25 @@
     "ship_bar2": "#008060",
     "ship_bar3": "#008060",
     "font_source": "2",
-    "fnt_bd": "roboto_n4",
-    "fnt_heading": "roboto_n4",
-    "fnt_sub_tt": "roboto_n4",
+    "fnt_bd": "sans-serif",
+    "fnt_heading": "sans-serif",
+    "fnt_sub_tt": "sans-serif",
     "fnt_magazine": "times_new_roman_n4",
-    "fnt_bd2": "Roboto",
-    "fnt_heading2": "Roboto",
-    "fnt_sub_tt2": "Roboto",
+    "fnt_bd2": "sans-serif",
+    "fnt_heading2": "sans-serif",
+    "fnt_sub_tt2": "sans-serif",
     "fnt_magazine2": "Times New Roman",
     "size_bd_text": 14,
     "fw_bd": 400,
     "bd_line_height": 1.5,
-    "hd_letter_spacing": 0.2,
+    "hd_letter_spacing": 0,
     "fw_hd1": 37,
     "fw_hd": 600,
     "hd_line_height": 1.4,
     "fs_nav": 14,
     "fw_nav": 400,
-    "size_se_tt": 46,
+    "fnt_df_set": "1",
+    "size_se_tt": 24,
     "fw_se_tt": 700,
     "lh_se_tt": 0,
     "ls_se_tt": 0,
@@ -169,12 +168,12 @@
     "size_se_stt": 14,
     "fnt_df_pr": "3",
     "txt_tr_pr": "capitalize",
-    "size_pr": 14,
+    "size_pr": 13.5,
     "size_price_pr": 14,
     "fw_pr": 400,
     "space_pr": 15,
     "shop_sidebar": "left",
-    "shop_size_sidebar": "1",
+    "shop_size_sidebar": "2",
     "use_hidden_cat": false,
     "space_sidebar": 30,
     "ajax_shop": true,
@@ -187,6 +186,7 @@
     "shop_filters": false,
     "pop_style": "pop_default",
     "type_filters": "2",
+    "style_color_filter": "color, colour",
     "main_click": "zoom",
     "zoom_tp": "2",
     "pswp_tp": "light",
@@ -233,7 +233,8 @@
     "show_pr_size": false,
     "show_size_type": "1",
     "size_ck": "Size",
-    "min_qty": "0",
+    "min_qty": "1",
+    "edit_item": "1",
     "use_cart_cd": false,
     "cart_time": 10,
     "cart_pos": "side",
@@ -245,7 +246,9 @@
     "unavailable_prs": "last",
     "show_search_suggest": true,
     "search_prs_suggest": "trending",
-    "lr_enable": true,
+    "recommend_menu": "search-collections",
+    "recommend_collection": "search-hot",
+    "lr_enable": false,
     "use_privacy_policy": false,
     "privacy_policy_link": "",
     "login_side": true,
@@ -269,7 +272,6 @@
     "mess_currency": "All charges are billed in {{ currency }}. While the content of your cart is currently displayed in <span class=\"selected-currency\"><\/span>, the checkout will use {{ currency }} at the most current exchange rate.",
     "hover_currency": false,
     "colors_css": true,
-    "custom_css": false,
     "custom_js": true,
     "share_image": "",
     "share_facebook": true,
@@ -305,6 +307,8 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "enable_custom_label": false,
+    "custom_label_text": "",
     "shop_layout": "default",
     "shop_des": "default",
     "des_pr_design": "1",
@@ -467,24 +471,6 @@
       "header_3_1": {
         "type": "header_3_1",
         "blocks": {
-          "62cbc492-e33d-4595-af33-cd22d746ff60": {
-            "type": "simple",
-            "settings": {
-              "title": "HALLOWEEN",
-              "url": "shopify:\/\/pages\/halloween",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "",
-              "label_hallo_n": false,
-              "label_hallo_h": false,
-              "label_hallo": true,
-              "label_n": false,
-              "label_h": false
-            }
-          },
           "86bd9393-abd1-4b5c-b658-5155f77baf54": {
             "type": "dropdown",
             "settings": {
@@ -512,13 +498,13 @@
               "only_feature": false,
               "only_magazine": false,
               "title": "NEW",
-              "url": "",
+              "url": "shopify:\/\/collections",
               "open_link": "_self",
               "icon": "",
               "cus_cl": false,
               "cl": "#ec0101",
               "lb": "",
-              "lb_cl": "#ff8000",
+              "lb_cl": "#da0201",
               "label_hallo_n": true,
               "label_hallo_h": false,
               "label_hallo": false,
@@ -526,7 +512,7 @@
               "label_h": false,
               "lazy_mn": true,
               "pos": "center",
-              "wid": "full",
+              "wid": "full nav_t4cnt",
               "cus_wid": 1600
             }
           },
@@ -610,7 +596,7 @@
               "label_h": false,
               "lazy_mn": true,
               "pos": "center",
-              "wid": "full",
+              "wid": "full nav_t4cnt",
               "cus_wid": 1600
             }
           },
@@ -664,7 +650,7 @@
               "label_h": false,
               "lazy_mn": true,
               "pos": "center",
-              "wid": "full",
+              "wid": "full nav_t4cnt",
               "cus_wid": 1600
             }
           },
@@ -708,6 +694,16 @@
               "col": "2"
             }
           },
+          "7e55dc36-7138-4492-aed7-7fd9b19e203d": {
+            "type": "cat",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "bags",
+              "title": "",
+              "col": "2"
+            }
+          },
           "914ae5ea-042d-4d3b-8071-7979fed67048": {
             "type": "mega",
             "settings": {
@@ -728,8 +724,18 @@
               "label_h": false,
               "lazy_mn": false,
               "pos": "center",
-              "wid": "full",
+              "wid": "full nav_t4cnt",
               "cus_wid": 1600
+            }
+          },
+          "3568ae8c-f8c2-4c58-9f12-94742bf47bec": {
+            "type": "feature",
+            "settings": {
+              "cat_design": "5",
+              "hoverz": true,
+              "collection": "skeleton-series",
+              "title": "",
+              "col": "3"
             }
           },
           "ee292f4e-962d-41d9-883b-f2d5e8f0f182": {
@@ -738,26 +744,6 @@
               "cat_design": "5",
               "hoverz": true,
               "collection": "abstract-series",
-              "title": "",
-              "col": "3"
-            }
-          },
-          "d3399087-e618-4797-a90d-0e863dd346ad": {
-            "type": "feature",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "cartoon-series",
-              "title": "",
-              "col": "3"
-            }
-          },
-          "313fa09a-2677-4130-bcfe-fcbcb3b8563e": {
-            "type": "feature",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "cross-series",
               "title": "",
               "col": "3"
             }
@@ -778,16 +764,6 @@
               "cat_design": "5",
               "hoverz": true,
               "collection": "eye-series",
-              "title": "",
-              "col": "3"
-            }
-          },
-          "3568ae8c-f8c2-4c58-9f12-94742bf47bec": {
-            "type": "feature",
-            "settings": {
-              "cat_design": "5",
-              "hoverz": true,
-              "collection": "skeleton-series",
               "title": "",
               "col": "3"
             }
@@ -894,7 +870,6 @@
           }
         },
         "block_order": [
-          "62cbc492-e33d-4595-af33-cd22d746ff60",
           "86bd9393-abd1-4b5c-b658-5155f77baf54",
           "d51b71a4-8545-444a-ba9b-92179e7b5f3f",
           "6027a8c6-ee3a-4018-a832-9931585d5427",
@@ -912,13 +887,12 @@
           "ca2aef99-04b9-456e-a01a-65bd6def657c",
           "74a7fb75-21b0-43c6-8e4a-51067e812ec2",
           "0ee651d8-1287-4f5d-8f3f-de8e928356c6",
+          "7e55dc36-7138-4492-aed7-7fd9b19e203d",
           "914ae5ea-042d-4d3b-8071-7979fed67048",
+          "3568ae8c-f8c2-4c58-9f12-94742bf47bec",
           "ee292f4e-962d-41d9-883b-f2d5e8f0f182",
-          "d3399087-e618-4797-a90d-0e863dd346ad",
-          "313fa09a-2677-4130-bcfe-fcbcb3b8563e",
           "4bf779ac-6067-4207-b625-19ac86853ac6",
           "571cd017-234c-4c79-8afd-96cbbc22111f",
-          "3568ae8c-f8c2-4c58-9f12-94742bf47bec",
           "48c231dd-c1e0-4e2c-9cd6-e26f8941395a",
           "91a30f85-e775-407c-8150-41ad8e70b1d2",
           "ea795e0b-ddd9-488f-8728-80aa9cab042c",
@@ -1015,13 +989,13 @@
           "accordions": true,
           "border": false,
           "bd_cl": "#ededed",
-          "cl_h": "#000000",
-          "cl": "#606060",
-          "cl_a": "#606060",
+          "cl_h": "#222222",
+          "cl": "#878787",
+          "cl_a": "#878787",
           "cl_hover": "#000000",
-          "cl_ip": "#606060",
-          "bd_ip": "#fb6c1d",
-          "cl_btn": "#fb6c1d",
+          "cl_ip": "#878787",
+          "bd_ip": "#878787",
+          "cl_btn": "#333333",
           "cl_txt": "#ffffff",
           "bg": "#ffffff",
           "bg_repeat": "no-repeat",
@@ -1084,17 +1058,12 @@
             "type": "price",
             "settings": {}
           },
-          "cart_widget-3": {
-            "type": "btnc",
-            "disabled": true,
+          "cart_widget-4": {
+            "type": "btnck",
             "settings": {}
           },
           "cart_widget-5": {
             "type": "btnmr",
-            "settings": {}
-          },
-          "cart_widget-4": {
-            "type": "btnck",
             "settings": {}
           },
           "cart_widget-6": {
@@ -1113,9 +1082,8 @@
         "block_order": [
           "05aede28-917e-4369-9a63-cf5b89b31458",
           "cart_widget-0",
-          "cart_widget-3",
-          "cart_widget-5",
           "cart_widget-4",
+          "cart_widget-5",
           "cart_widget-6",
           "cart_widget-7"
         ],
@@ -1134,37 +1102,10 @@
       "mb_nav2": {
         "type": "mb_nav2",
         "blocks": {
-          "b4b52819-1377-4cb0-96a8-aeef75ff2af5": {
-            "type": "menu",
-            "settings": {
-              "title": "HALLOWEEN",
-              "url": "shopify:\/\/pages\/halloween",
-              "open_link": "_self",
-              "menu": "",
-              "icon": "",
-              "label_image": "shopify:\/\/shop_images\/43d125fb86b8b9abe49b61d1f3dc3535.png",
-              "lb": "",
-              "lb_cl": ""
-            }
-          },
-          "7810a41b-38ec-4d4e-85af-810ceec24ae3": {
-            "type": "hot_sale",
-            "disabled": true,
-            "settings": {
-              "label": "",
-              "title": "New In",
-              "url": "",
-              "open_link": "_self",
-              "menu": "new",
-              "icon": "",
-              "lb": "",
-              "lb_cl": ""
-            }
-          },
           "ad91dfcd-7065-4b83-bcc8-ed30015922a3": {
             "type": "menu2",
             "settings": {
-              "title": "NEW IN",
+              "title": "NEW IN✨",
               "url": "",
               "open_link": "_self",
               "menu": "new",
@@ -1176,8 +1117,7 @@
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/polos_2x_b95398ac-e3e9-4f17-8fdf-30920b1f27d9.png",
-              "title": "HOT SALE",
+              "title": "HOT SALE🔥",
               "url": "shopify:\/\/collections\/hot-sale",
               "open_link": "_blank",
               "menu": "hot-sale",
@@ -1189,7 +1129,6 @@
           "698422c8-d22c-4158-b019-9a8ba27049b3": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Sweater_Vests_2x_8882a134-0c6f-4eac-8c89-92d15085647c.png",
               "title": "TOPS",
               "url": "",
               "open_link": "_self",
@@ -1202,7 +1141,6 @@
           "7455657f-5642-485d-b214-22fc3f3bdc7d": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Jeans_2x_99170b3f-9fb2-41c0-8a85-c58b7a806c00.png",
               "title": "BOTTOMS",
               "url": "",
               "open_link": "_self",
@@ -1215,8 +1153,7 @@
           "d742e08a-8c94-46ec-8fa8-7e2fc489ac36": {
             "type": "menu2",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Caps_2x_2a0601f9-0e3b-48e1-b5d2-5069b3166a4b.png",
-              "title": "ACCESSORIES",
+              "title": "ACCESSORIES🧢",
               "url": "",
               "open_link": "_self",
               "menu": "accessries",
@@ -1298,8 +1235,6 @@
           }
         },
         "block_order": [
-          "b4b52819-1377-4cb0-96a8-aeef75ff2af5",
-          "7810a41b-38ec-4d4e-85af-810ceec24ae3",
           "ad91dfcd-7065-4b83-bcc8-ed30015922a3",
           "9fd9d896-df83-48b9-a48c-b0bdd0c47316",
           "698422c8-d22c-4158-b019-9a8ba27049b3",
@@ -1619,6 +1554,7 @@
           "ic_tt": "gem",
           "show_clpr": false,
           "display_type": "3",
+          "collection_id": "",
           "limit": 6,
           "space": 30,
           "col_pr": "3",
@@ -1835,7 +1771,7 @@
           "header_top2-1": {
             "type": "text",
             "settings": {
-              "text": "<span style=\"font-weight:bold;\">Halloween Sale! 40% Off Sitewide<\/span>",
+              "text": "<span style=\"font-weight:bold;\">🎉Buy 2 Get the 3rd Free!!🎉<\/span>",
               "hide": false,
               "col": "8"
             }
@@ -1862,7 +1798,7 @@
           "cl": "#ffffff",
           "cl_a": "#ffffff",
           "cl_cr": "#ec0101",
-          "bg": "#fb6c1d",
+          "bg": "#da0201",
           "bg_op": 100,
           "show_border": false,
           "bd_cl": "#000000",
@@ -2186,13 +2122,13 @@
           "col_pr": "3",
           "col_pr_tb": "3",
           "col_pr_mb": "6",
-          "pr_des": "1",
+          "pr_des": "1 tc",
           "show_vendor": false,
           "use_cdt": false,
           "round_cd": false,
           "cdt_des": "1",
           "use_eq_height": true,
-          "image_ratio": "ratio_nt",
+          "image_ratio": "ratio1_1",
           "image_size": "nt_cover",
           "image_position": "8"
         }

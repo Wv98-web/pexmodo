@@ -33,7 +33,7 @@
     {%- else -%}
 
       {%- liquid
-      render 'section_css2'
+      render 'section_css'
       assign inc_price = settings.price_format
       assign use_rating = settings.use_pr_rating
       assign inc_rating = settings.app_review
@@ -44,9 +44,9 @@
       assign current_page = '1' -%}
       {%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
 
-      <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2',url:collection.url -%}</div>
       <div class="nt_se_{{sid}} {{layout}}{%- if image != blank %} hide_bgimg_{{se_stts.hide_bgimg}} lazyloadt4s se_t4_bg nt_parallax_{{se_stts.use_pr}}{%- endif -%}{% if se_stts.hidden and page_type == 'index' and design_mode %} t4s_disable_se{% endif %}"{% if image != blank %} data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"{% endif %}>
         {{-html_layout[0]-}}
+        {%- render 'section_title',url:collection.url -%}
         {%- if section.settings.enable_section_banner -%}
           {%- render 'section_banner' -%}
         {%- endif -%}
@@ -100,7 +100,7 @@
     {%- else -%}
 
       {%- liquid
-      render 'section_css2'
+      render 'section_css'
       assign inc_price = settings.price_format
       assign use_rating = settings.use_pr_rating
       assign inc_rating = settings.app_review
@@ -111,9 +111,9 @@
       assign current_page = '1' -%}
       {%- capture url_cat -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
 
-      <div class="se_title_{{sid}} {{ section.settings.layout }}">{%- render 'section_title2',url:collection.url -%}</div>
       <div class="nt_se_{{sid}} {{layout}}{%- if image != blank %} hide_bgimg_{{se_stts.hide_bgimg}} lazyloadt4s se_t4_bg nt_parallax_{{se_stts.use_pr}}{%- endif -%}{% if se_stts.hidden and page_type == 'index' and design_mode %} t4s_disable_se{% endif %}"{% if image != blank %} data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"{% endif %}>
         {{-html_layout[0]-}}
+        {%- render 'section_title',url:collection.url -%}
         {%- if section.settings.enable_section_banner -%}
           {%- render 'section_banner' -%}
         {%- endif -%}
@@ -276,20 +276,9 @@
          {
             "value": "title_13",
             "label": "Design 13"
-          },
-          {
-            "value": "title_bg",
-            "label": "Design background"
           }
         ],
         "label": "Design Title:"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_line",
-        "label": "Show line",
-        "default": false,
-        "info": "Only use design background"
       },
       {
         "type": "text",
@@ -306,82 +295,6 @@
       {
         "type": "paragraph",
         "content": "[Get icons Line awesome](https://icons8.com/line-awesome)"
-      },
-      {
-        "type": "range",
-        "id": "fs_title",
-        "min": 10,
-        "max": 50,
-        "step": 0.5,
-        "label": "Font size",
-        "unit": "px",
-        "default": 30,
-        "info": "Heading title font size"
-      },
-      {
-        "type": "range",
-        "id": "fs_title_m",
-        "min": 0.8,
-        "max": 4,
-        "step": 0.1,
-        "label": "Font size",
-        "unit": "rem",
-        "default": 1.6,
-        "info": "Heading title font size(mobile)"
-      },
-      {
-        "type": "range",
-        "id": "fs_view",
-        "min": 10,
-        "max": 40,
-        "step": 0.5,
-        "label": "Font size",
-        "unit": "px",
-        "default": 20,
-        "info": "View all text font size"
-      },
-      {
-        "type": "range",
-        "id": "fs_view_m",
-        "min": 0.8,
-        "max": 3,
-        "step": 0.1,
-        "label": "Font size",
-        "unit": "rem",
-        "default": 1.2,
-        "info": "View all text font size(mobile)"
-      },
-      {
-        "type": "color",
-        "id": "bg_color_title",
-        "label": "Background color for title",
-        "default": "#603DAE"
-      },
-      {
-        "type": "color",
-        "id": "color_title",
-        "label": "Text color for title",
-        "default": "#ffffff"
-      },
-      {
-        "type": "range",
-        "id": "max_height_title",
-        "label": "Title max height (Desktop)",
-        "default": 88,
-        "min": 50,
-        "max": 150,
-        "step": 1,
-        "unit": "px"
-      },
-      {
-        "type": "range",
-        "id": "max_height_title_m",
-        "label": "Title max height (mobile)",
-        "default": 44,
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px"
       },
       {
         "type": "header",

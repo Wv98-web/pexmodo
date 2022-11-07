@@ -8,7 +8,7 @@ assign gift_pr_id = gift_pr.id -%}
 {%- for item in cart.items -%}{%- assign item_id = item.id -%}{%- assign item_key = item.key -%}{%- assign item_url = item.url -%}
 <div class="cart_item js_cart_item cart_item_{{item_id}}{% if gift_pr_id == item.product_id %} gift_item_true{% endif %}">
 	<div class="ld_cart_bar"></div>
-	<div class="flex wrap al_center">
+	<div class="row al_center">
 	   <div class="col-12 col-md-12 col-lg-5">
 	      <div class="page_cart_info flex al_center">
 	      	{%- if item.image != blank %}{% assign img_url = item | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}<a href="{{item_url}}"><img class="lazyloadt4s w__100 lz_op_ef" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20{{item.image.width}}%20{{item.image.height}}%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="{{ img_url }}" data-widths="[120, 240]" data-sizes="auto" alt="{{ item.alt | escape }}"></a>{%- endif -%}
@@ -135,5 +135,12 @@ assign gift_pr_id = gift_pr.id -%}
    .template-cart .cart_item .cart_meta_prices, .template-cart .cart_item .mini_cart_actions {
       border-bottom: none !important;
    }
+
+	.template-cart .cart_item > .row {
+		padding-left: 0 !important;
+	}
+	.template-cart .page_cart_info > a {
+		position: static !important;
+	}
 }
 </style>

@@ -14,7 +14,7 @@
         "sea_heading1": {
           "type": "1",
           "settings": {
-            "color": "#fff"
+            "color": "#ffffff"
           }
         }
       },
@@ -49,13 +49,13 @@
         "col_pr": "3",
         "col_pr_tb": "3",
         "col_pr_mb": "6",
-        "pr_des": "1",
+        "pr_des": "1 tc",
         "show_vendor": false,
         "use_cdt": false,
         "round_cd": false,
         "cdt_des": "1",
-        "use_eq_height": false,
-        "image_ratio": "ratio_nt",
+        "use_eq_height": true,
+        "image_ratio": "ratio1_1",
         "image_size": "nt_cover",
         "image_position": "8"
       }

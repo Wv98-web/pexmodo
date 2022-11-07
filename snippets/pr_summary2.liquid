@@ -350,7 +350,13 @@ assign ck_tab = section.settings.auto -%}
                 {%- elsif price_varies -%}<span class="price price_varies">{{ current_variant.price | money }}</span>
                 {%- endif -%}
 
-                <div class="custom_product_html mb__40 pt__10 pr__10 pb__10 pl__10" {{ block.shopify_attributes }} style="background-color: {{ bk_stts.bg }};border-radius: {{ bk_stts.bdr }}px; box-shadow: 0px 3px 6px 1px rgb(251 108 29 / 50%);">{{pages[bk_stts.page].content}}</div>
+                {%- if bk_stts.page != blank -%}
+                    <div class="custom_product_html mb__40 pt__10 pr__10 pb__10 pl__10" {{ block.shopify_attributes }} style="background-color: {{ bk_stts.bg }};border-radius: {{ bk_stts.bdr }}px;">{{pages[bk_stts.page].content}}</div>
+                {%- endif -%}
+
+                {%- if bk_stts.sale_image != blank -%}
+                  <div class="mb__30"><img src={{ bk_stts.sale_image | img_url: 'master' }} /></div> 
+                {%- endif -%}
 
                 {%- assign PR_buy_pr = false -%}
                 {%- if bk_stts.enable_payment_btn and ck_external == false and no_sold_out -%}

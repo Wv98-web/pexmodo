@@ -93,14 +93,15 @@ jQuery_T4NT(document).ready(function ($) {
 	/* Account nav click end */
 });
 
-new ResizeSensor($(".additional_checkout_buttons"), function () {
-	let target = document.querySelector(".btn_checkout");
-	if (!target) {
-		return false;
-	}
-	let width = $(".additional_checkout_buttons")[0].clientWidth;
-	target.style.width = width + "px";
-});
+// 动态结账按钮和结账按钮高度统一
+// new ResizeSensor($(".additional_checkout_buttons"), function () {
+// 	let target = document.querySelector(".btn_checkout");
+// 	if (!target) {
+// 		return false;
+// 	}
+// 	let width = $(".additional_checkout_buttons")[0].clientWidth;
+// 	target.style.width = width + "px";
+// });
 
 let handleSlideHeightChange = () => {
 	let slideArr = document.querySelectorAll(".swiper-slide");

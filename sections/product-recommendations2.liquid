@@ -24,7 +24,7 @@
 
   {%- if display_type == "3" and recommendations.products_count > 0 -%}
     <div class="container">
-      {%- render 'section_title' -%}
+      {%- render 'section_title',section_title:'mb__10' -%}
       <div class="products {% if section.settings.display_effect == "1" %} nt_products_holder nt_slider{% endif %} row row_pr_{{inc_pr}} cdt_des_{{section.settings.cdt_des}} round_cd_{{section.settings.round_cd}} {{section.settings.image_size}} {{section.settings.image_ratio}} position_{{section.settings.image_position}} space_{{section.settings.space}} prev_next_{{section.settings.btn_color}} btn_owl_{{section.settings.btn_owl}} dot_owl_{{section.settings.dot_owl}} dot_color_{{section.settings.dot_color}} btn_vi_{{section.settings.btn_vi}}{% if sett_equal %} equal_nt{% endif %}" {% if section.settings.display_effect == "1" %}data-flickityjs='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{section.settings.loop}},"prevNextButtons": {{section.settings.button}},"percentPosition": 1,"pageDots": {{section.settings.dot}}, "autoPlay" : {{ section.settings.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{section.settings.au_hover}}, "rightToLeft": {{settings.use_rtl}} }'{% endif %}>
       {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
         {%- for product in recommendations.products -%}
@@ -51,7 +51,7 @@
 
   {%- elsif display_type == "2" and pr_link.size > 0 and template.suffix == 'cl_qv' -%}{%- assign index = 0 -%}
     <div class="container">
-      {%- render 'section_title_new_custom',section:section -%}
+      {%- render 'section_title',section:section,section_title:'mb_30' -%}
       <div class="products nt_products_holder nt_slider row row_pr_{{inc_pr}} cdt_des_{{section.settings.cdt_des}} round_cd_{{section.settings.round_cd}} {{section.settings.image_size}} {{section.settings.image_ratio}} position_{{section.settings.image_position}} space_{{section.settings.space}} prev_next_{{section.settings.btn_color}} btn_owl_{{section.settings.btn_owl}} dot_owl_{{section.settings.dot_owl}} dot_color_{{section.settings.dot_color}} btn_vi_{{section.settings.btn_vi}}{% if sett_equal %} equal_nt{% endif %}" data-flickityjs='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{section.settings.loop}},"prevNextButtons": {{section.settings.button}},"percentPosition": 1,"pageDots": {{section.settings.dot}}, "autoPlay" : {{ section.settings.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{section.settings.au_hover}}, "rightToLeft": {{settings.use_rtl}} }'>
       {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
         {%- for link in pr_link -%}
@@ -74,7 +74,7 @@
   {%- elsif display_type == "1" and collection and template.suffix == 'cl_qv' -%}
       {%- capture url_cat -%}/collections/{{collection.handle}}{%- endcapture -%}
       <div class="container">
-        {%- render 'section_title_new_custom',section:section -%}
+        {%- render 'section_title',section:section,section_title:'mb_30' -%}
         <div class="products nt_products_holder nt_slider row row_pr_{{inc_pr}} cdt_des_{{section.settings.cdt_des}} round_cd_{{section.settings.round_cd}} {{section.settings.image_size}} {{section.settings.image_ratio}} position_{{section.settings.image_position}} space_{{section.settings.space}} prev_next_{{section.settings.btn_color}} btn_owl_{{section.settings.btn_owl}} dot_owl_{{section.settings.dot_owl}} dot_color_{{section.settings.dot_color}} btn_vi_{{section.settings.btn_vi}}{% if sett_equal %} equal_nt{% endif %}" data-flickityjs='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{section.settings.loop}},"prevNextButtons": {{section.settings.button}},"percentPosition": 1,"pageDots": {{section.settings.dot}}, "autoPlay" : {{ section.settings.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{section.settings.au_hover}}, "rightToLeft": {{settings.use_rtl}} }'>
         {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
           {%- for product in collection.products -%}
@@ -96,7 +96,7 @@
 
   {%- elsif search.results.size > 0 and request.page_type == 'search' -%}
     <div class="container">
-      {%- render 'section_title_new_custom',section:section -%}
+      {%- render 'section_title',section:section,section_title:'mb_30' -%}
       <div class="products nt_products_holder nt_slider row row_pr_{{inc_pr}} cdt_des_{{section.settings.cdt_des}} round_cd_{{section.settings.round_cd}} {{section.settings.image_size}} {{section.settings.image_ratio}} position_{{section.settings.image_position}} space_{{section.settings.space}} prev_next_{{section.settings.btn_color}} btn_owl_{{section.settings.btn_owl}} dot_owl_{{section.settings.dot_owl}} dot_color_{{section.settings.dot_color}} btn_vi_{{section.settings.btn_vi}}{% if sett_equal %} equal_nt{% endif %}" data-flickityjs='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{section.settings.loop}},"prevNextButtons": {{section.settings.button}},"percentPosition": 1,"pageDots": {{section.settings.dot}}, "autoPlay" : {{ section.settings.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{section.settings.au_hover}}, "rightToLeft": {{settings.use_rtl}} }'>
       {%- if inc_pr == '1' or inc_pr == '1 tc' -%}
         {%- for product in search.results limit:limit -%}

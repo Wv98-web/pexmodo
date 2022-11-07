@@ -55,9 +55,9 @@
   <input type="hidden" data-cart-attr-rm name="attributes[cat_mb_items_per_row]" value=""><input type="hidden" data-cart-attr-rm name="attributes[cat_tb_items_per_row]" value=""><input type="hidden" data-cart-attr-rm name="attributes[cat_dk_items_per_row]" value="">
   <input type="hidden" data-cart-attr-rm name="attributes[auto_hide_ofsock]" value=""><input type="hidden" data-cart-attr-rm name="attributes[paginate_ntt4]" value=""><input type="hidden" data-cart-attr-rm name="attributes[limit_ntt4]" value=""><input type="hidden" data-cart-attr-rm name="attributes[use_bar_lmntt4]" value="">
 
-  <div class="tc mb__20 pl__15 flex no_wrap al_center" style="color: #FB6C1D;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i></i>Free standard shipping on USD $65.00+</div>
+  <div class="tc mb__20 pl__15 flex no_wrap al_center" style="color: #DA0201;"><i class="las la-bullhorn" style="font-size: 1.5em;"></i></i>Free standard shipping on USD $65.00+</div>
   <div class="cart_header">
-		<div class="flex wrap al_center">
+		<div class="row al_center">
 			<div class="col-5">{{ 'cart.label.product' | t }}</div>
 			<div class="col-3 tc">{{ 'cart.label.price' | t }}</div>
 			<div class="col-2 tc">{{ 'cart.label.quantity' | t }}</div>
@@ -65,10 +65,10 @@
 		</div>
 	</div>
 	<div class="cart_items js_cat_items">{% render 'cart_items_page' %}</div>
-	<div class="cart__footer mt__60 mb__30">
-     <div class="flex wrap">
+	<div class="cart__footer mt__60 mb__80">
+     <div class="row">
        {%- if se_stts.show_note or se_stts.show_discount or se_stts.show_gift_wrap and gift_pr != blank -%}{%- assign ck_col = true -%}
-         <div class="col-12 col-md-6 cart_actions tl_md tc order-md-2 order-2 mb__30">
+         <div class="col-12 col-md-6 cart_actions tl_md tc order-md-2 order-2 mb__50">
            {%- if se_stts.show_gift_wrap and gift_pr != blank -%}
 					<div class="gift_wrap row al_center tc tl_md mb__25 js_gift_wrap{% if arr_gift_id.size > 0 %} dn{% endif %}">
 					   <div class="gift_wrap_info col-lg-7 col-12">
@@ -117,11 +117,6 @@
             {%- if section_blocks.size > 0 -%}
                {%- for block in section_blocks -%}
                {%- case block.type -%}
-                  {%- when 'textarea' -%}
-                    {%- if block.settings.page == blank -%}{%- continue -%}{%- endif -%}
-                    <div class="custom_{{block.id}} mt__20">
-                      {{pages[block.settings.page].content}}
-                    </div>
                   {%- when 'price' -%}
                      <div class="js_cat_dics">
                       {%- if cart.cart_level_discount_applications != blank -%}
@@ -398,17 +393,6 @@
             "default": "<div>Custom html here</div>"
           }
         ]
-      },
-      {
-        "type": "textarea",
-        "name": "Textarea",
-        "settings":[
-          {
-            "type": "page",
-            "id": "page",
-            "label": "Select Page"
-          }
-        ]
       }
    ],
     "default": {
@@ -418,7 +402,3 @@
     }
   }
 {% endschema %}
-
-<script id="docapp-discount-speedup">
-(() => { if (!document.documentElement.innerHTML.includes('\\/shop' + '\\/js' + '\\/discount-on-cart-pro.min.js') || window.discountOnCartProAppLoaded) return; let script = document.createElement('script'); script.src = "https://d9fvwtvqz2fm1.cloudfront.net/shop/js/discount-on-cart-pro.min.js?shop=pexmodo.myshopify.com"; document.getElementById('docapp-discount-speedup').after(script); })();
-</script>

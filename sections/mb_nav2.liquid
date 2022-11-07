@@ -39,7 +39,7 @@
 
                {%- elsif settings.currency_type == '2' -%}
                   {%- assign supported_codes = settings.supported_currencies | split: '|' -%}
-                  <li id="item_mb_cur" class="menu-item item-level-0 menu-item-has-children only_icon_false currencies menu-item-bg mb__15" {{ block.shopify_attributes }}>
+                  <li id="item_mb_cur" class="menu-item item-level-0 menu-item-has-children only_icon_false currencies menu-item-bg" {{ block.shopify_attributes }}>
                      <a rel="nofollow" data-no-instant href="#"><span class="current dib {{fl}} lazyloadt4s flagst4-{{sz}} flagst4-{{cart_iso_code}}">{{cart_iso_code}}</span><span class="nav_link_icon ml__5"></span></a>
                      <ul class="sub-menu">
                         <li><a class="currency-item cg db {{fl}} lazyloadt4s flagst4-{{sz}} flagst4-T4D dn" href="/" data-no-instant rel="nofollow" data-currency="T4D"></a></li>
@@ -176,7 +176,7 @@
 
             {%- when 'menu' -%}
                {%- if linklists[block_stts.menu].links.size > 0 -%}
-                  <li id="item_{{block.id}}" class="menu-item item-level-0 menu-item-has-children {{only_icon}} menu-item-bg mb__15" {{ block.shopify_attributes }}>
+                  <li id="item_{{block.id}}" class="menu-item item-level-0 menu-item-has-children {{only_icon}} menu-item-bg" {{ block.shopify_attributes }}>
                      <a href="{{block_stts.url}}" target="{{block_stts.open_link}}"><span class="nav_link_txt flex al_center">{% if block_stts.icon != blank %}<i class="las la-{{block_stts.icon | strip }} mr__10 fs__20"></i>{% endif %}{{block_stts.title}}{% if block_stts.lb != blank %}<span class="lbc_nav_mb ml__5" style="background-color: {{block_stts.lb_cl | default:'#01bad4'}}">{{block_stts.lb}}</span>{% endif %}</span><span class="nav_link_icon ml__5"></span></a>
                      <ul class="sub-menu">
                         {%- for link in linklists[block_stts.menu].links -%}

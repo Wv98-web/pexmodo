@@ -139,10 +139,7 @@ endif -%}
 {%- else -%}
   
   <div class="container container_cat {{settings.pop_style}} cat_{{se_settings.shop_layout}} mb__60">
-     {%- if se_settings.breadcrumb_pr %}<nav class="sp-breadcrumb mt__10" aria-label="Breadcrumbs">
-      <div class="breadcrumb">
-        <a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a><i class="facl facl-angle-right"></i><b>{{collection.title}}</b>
-      </div>{% endif -%}
+     {%- if se_settings.breadcrumb_pr %}<nav class="sp-breadcrumb mt__10" aria-label="Breadcrumbs"><a href="{{ routes.root_url }}" class="dib">{{ 'general.breadcrumbs.home' | t }}</a><i class="facl facl-angle-right"></i><b class="fs__16">{{collection.title}}</b>{% endif -%}
      {%- assign get_url = '' | link_to_remove_tag: '' | split:'href="' | last | split:'"' | first | remove:'?customer_posted=true' -%}
      {%- assign sy = collection.sort_by -%}
      {%- if collection.current_type or sy != blank or collection.current_vendor or get_url contains '?' %}{% assign get_url = get_url | append:'&' %}{% else %}{% assign get_url = get_url | append:'/?' %}{% endif -%}
@@ -260,30 +257,6 @@ endif -%}
                       {%- assign show_cl_type = settings.show_color_type -%}
                       {%- assign show_size = settings.show_pr_size -%}
                       {%- assign results_count = collection.products_count -%}
-                      {%- assign collection_img = collection.image -%}
-
-                      {%- if se_settings.show_collection_img -%}
-                        {%- if collection.image != blank -%}
-                          <div class="collection_banner_wrapper">
-                            <div class="pc_block js_full_ht4 img_slider_block dek_img_slide pr">
-                                <div class="bg_rp_norepeat bg_sz_cover lazyloadt4s item__position pa l__0 t__0 r__0 b__0" data-bgset="{{ collection.image | img_url: '1x1' }}" data-ratio="{{ se_settings.collection_banner.aspect_ratio }}" data-sizes="auto"></div>
-                            </div>
-                            <div class="mobile_block mb_img_slide pr">
-                              <img src="{{ se_settings.collection_mobile_banner | img_url: "master" }}" />
-                            </div>
-                          </div>
-                        {%- endif -%}
-                      {%- else -%}
-                        {%- if se_settings.collection_banner != blank and se_settings.collection_banner_m != blank -%}
-                          <div class="collection_banner_wrapper">
-                            <div class="pc_block dek_img_slide pr">
-                              <img src="{{  se_settings.collection_banner | img_url: "master" }}" /></div>
-                            <div class="mobile_block mb_img_slide pr">
-                              <img src="{{  se_settings.collection_banner_m | img_url: "master" }}" />
-                            </div>
-                          </div>
-                        {%- endif -%}
-                      {%- endif -%}
 
                       {%- if nt_ck or current_tags.size > 0 and type_filters == '1' -%}
                       <div class="result_clear mt__30 mb__20">
@@ -397,28 +370,6 @@ endif -%}
       {
         "type": "header",
         "content": "+ Shop page layout"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_collection_img",
-        "label": "Show collection image",
-        "default": false,
-        "info": "If the collection image is not set, it will not be displayed"
-      },
-      {
-        "type": "image_picker",
-        "id": "collection_mobile_banner",
-        "label": "Please set collection metafields image"
-      },
-      {
-        "type": "image_picker",
-        "id": "collection_banner",
-        "label": "Collection desktop banner"
-      },
-      {
-        "type": "image_picker",
-        "id": "collection_banner_m",
-        "label": "Collection mobile banner"
       },
       {
         "type": "select",

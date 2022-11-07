@@ -27,7 +27,7 @@
   {%- capture url_cat %}{% if collection %}/collections/{{collection.handle}}{% endif %}{% endcapture -%}
 
   <div class="nt_se_{{sid}} {{se_stts.layout}} se_cat_height{{se_stts.se_height}} img_pos_{{se_stts.img_pos}}">
-    {%- render 'section_title',url:collection.url,section_title:'mb__40' -%}
+    {%- render 'section_title',url:collection.url,section_title:'mb__30' -%}
     <div class="banner_collection_wrap row no-gutters">
 
       <div class="col-12 col-lg-6 cat_banner_img{{order_1}} fade_flick_{{se_stts.effect}} slideshow flex column equal_nt nt_slider js_carousel prev_next_{{se_stts.btn_color}} btn_owl_{{se_stts.btn_owl}} dot_owl_{{se_stts.dot_owl}} dot_color_{{se_stts.dot_color}} btn_vi_{{se_stts.btn_vi}}" data-flickityt4s-js='{ "setGallerySize": 0,"fade":0,"cellAlign": "center","imagesLoaded": 0,"lazyload": 0,"freeScroll": 0,"wrapAround": {{se_stts.loop}},"autoPlay" : {% if se_stts.autoplay %}{{ se_stts.au_time | times: 1000 }}{% else %}0{% endif %},"pauseAutoPlayOnHover" : {{se_stts.au_hover}}, "rightToLeft": {{settings.use_rtl}}, "prevNextButtons": {{se_stts.button}},"pageDots": {{se_stts.dot}}, "contain" : 1,"adaptiveHeight" : 1,"dragThreshold" : 5,"percentPosition": 1 }'>

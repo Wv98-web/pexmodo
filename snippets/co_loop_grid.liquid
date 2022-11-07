@@ -9,8 +9,7 @@
   <div class="cat_grid_wrap h__100 pr">
     {% if hot %}
       <span class="pa co_lb_h">
-        {%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/2x_3bee8617-ea03-4522-adb1-87d5dbf08959.png?v=1661741660" alt="pexmod" />{%- endcomment -%}
-        <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/hot.png?v=1663898967" alt="pexmod" />
+        <img src="https://cdn.shopify.com/s/files/1/0637/3346/5308/files/hot_label.png?v=1667179238" alt="pexmod" />
       </span>
     {% endif %}
     <a href="{{ block.settings.url | default:collection.url }}"><div class="cat_grid_item__content pr oh is-flex al_center h__100">
@@ -23,7 +22,7 @@
         {%- endif -%}
         </div>
       </div>
-      <div class="cat_grid_item__title col-lg-6 col-12 tl_lg tc" style="padding:0 !important;">{{ block_title | upcase }}</div>
+      <div class="cat_grid_item__title col-lg-6 col-12 tl_lg tc" style="padding:0 !important;">{{ block_title }}</div>
     </div></a>
   </div>
 </div>
