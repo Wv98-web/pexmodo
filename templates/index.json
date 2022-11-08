@@ -590,7 +590,7 @@
     "166124728961ada76a": {
       "type": "featured_collection2",
       "settings": {
-        "title": "🌈WEEK 3 OF OCTOBER🌈",
+        "title": "🌈WEEK 1 OF NOVEMBER🌈",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -604,7 +604,7 @@
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-3-of-october",
+        "collection": "week-1-of-november",
         "limit": 10,
         "limit_m": 6,
         "space": 30,
@@ -637,7 +637,7 @@
     "166124728961ada76c": {
       "type": "featured_collection2",
       "settings": {
-        "title": "🛒WEEK 2 OF OCTOBER🛒",
+        "title": "🛒WEEK 3 OF OCTOBER🛒",
         "sub_title": "",
         "sub_font": "1",
         "btn_title": "View ALL",
@@ -651,7 +651,7 @@
         "hoverz": false,
         "cl_overlay": "#000000",
         "cl_opacity": 0,
-        "collection": "week-2-of-october",
+        "collection": "week-3-of-october",
         "limit": 10,
         "limit_m": 6,
         "space": 30,
