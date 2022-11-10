@@ -15,40 +15,55 @@
 
   {%- capture bk_contents -%}
     {%- if se_bks.size > 0 -%}
-       <div class="container pr z_100">
-          {%- for block in se_bks -%}
-            {%- case block.type -%}
-             {%- when '1' -%}<h1 class="mb__5 cw" style="color:{{block.settings.color}}">{{ collection.title }}</h1>
-             {%- when '3' -%}<p class="mg__0"><img src={{block.settings.collection_image | img_url: 'master'}} alt="pexmod" /></p>
-             {%- else %}<div class="mt__5 mg__0 rtet4"style="color:{{block.settings.color}}">{{ collection.description }}</div>
-            {%- endcase -%}
-          {%- endfor -%}
-       </div>
+      <div class="container pr z_100">
+        {%- for block in se_bks -%}
+          {%- if collection.image != blank -%}
+            {%- assign collection_image = collection.image -%}
+          {%- else -%}
+            {%- assign collection_image = block.settings.collection_image -%}
+          {%- endif -%}
+          {%- case block.type -%}
+            {%- when '1' -%}
+              <h1 class="mb__5 cw" style="color:{{block.settings.color}}">{{ collection.title }}</h1>
+            {%- when '3' -%}
+              <p class="mg__0"><img src={{collection_image | img_url: 'master'}} alt="pexmod"/></p>
+            {%- else %}
+              <div class="mt__5 mg__0 rtet4" style="color:{{block.settings.color}}">{{ collection.description }}</div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
     {%- endif -%}
   {%- endcapture -%}
 
-    {%- if image != blank -%}
-      <div class="page-head tc pr oh cat_bg_img page_head_{{se_id}} page_head_{{collection.id |default:19041994}}">
-         <div class="parallax-inner nt_parallax_{{parallax}} lazyloadt4s nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"></div>
-         {{-bk_contents-}}
-      </div>
-    {%- else -%}
-      <div class="page-head tc pr oh page_head_{{se_id}} page_head_{{collection.id |default:19041994}}">{{bk_contents}}</div>
-    {%- endif -%}
+  {%- if image != blank -%}
+    <div class="page-head tc pr oh cat_bg_img page_head_{{se_id}} page_head_{{collection.id |default:19041994}}">
+      <div class="parallax-inner nt_parallax_{{parallax}} lazyloadt4s nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" data-parent-fit="cover"></div>
+      {{-bk_contents-}}
+    </div>
+  {%- else -%}
+    <div class="page-head tc pr oh page_head_{{se_id}} page_head_{{collection.id |default:19041994}}">{{bk_contents}}</div>
+  {%- endif -%}
 
   {%- style -%}
-  .page_head_{{se_id}} {padding: {{se_stts.paddingmb}}px 0}@media (min-width: 768px){.page_head_{{se_id}} {padding: {{se_stts.padding}}px 0} }
-  .page_head_{{se_id}}:before {
-    background-color: {{se_stts.color}};opacity: {{se_stts.overlay | divided_by: 100.0}}
-  }
-  {%- unless parallax -%}
-  .page_head_{{se_id}} .parallax-inner {
-       background-repeat: {{se_stts.bg_repeat}};
-      background-size: {{se_stts.bg_size}};
-      background-attachment: {{se_stts.bg_att}};
-      background-position: {{se_stts.bg_pos | replace: '_', ' ' }};
-  }
-  {%- endunless -%}
+    .page_head_{{ se_id}}{
+      padding: {{ se_stts.paddingmb}}px 0
+    }
+    @media(min-width: 768px) {
+      .page_head_{{ se_id}}{
+        padding: {{ se_stts.padding}}px 0
+      }
+    }
+    .page_head_{{ se_id}}:before {
+      background-color: {{ se_stts.color}};
+      opacity: {{ se_stts.overlay | divided_by: 100.0}}}
+    {%- unless parallax -%}
+      .page_head_{{ se_id}}.parallax-inner {
+        background-repeat: {{ se_stts.bg_repeat}};
+        background-size: {{ se_stts.bg_size}};
+        background-attachment: {{ se_stts.bg_att}};
+        background-position: {{ se_stts.bg_pos | replace: '_', ' ' }};
+      }
+    {%- endunless -%}
   {%- endstyle -%}
 {%- endfor -%}
 {%- schema -%}
@@ -79,14 +94,12 @@
         "id": "parallax",
         "label": "Use scroll parallax?",
         "default": false
-      },
-      {
+      }, {
         "type": "color",
         "id": "color",
         "label": "Background color",
         "default": "#000"
-      },
-      {
+      }, {
         "type": "range",
         "id": "overlay",
         "label": "Background overlay",
@@ -95,8 +108,7 @@
         "max": 100,
         "step": 1,
         "unit": "%"
-      },
-      {
+      }, {
         "type": "range",
         "id": "padding",
         "label": "Padding Space (Desktop)",
@@ -105,8 +117,7 @@
         "max": 100,
         "step": 1,
         "unit": "px"
-      },
-      {
+      }, {
         "type": "range",
         "id": "paddingmb",
         "label": "Padding Space (Mobile)",
@@ -115,16 +126,13 @@
         "max": 100,
         "step": 1,
         "unit": "px"
-      },
-      {
+      }, {
         "type": "header",
         "content": "== Background Image Config:"
-      },
-      {
+      }, {
         "type": "paragraph",
         "content": "Not active when you enable scroll parallax."
-      },
-      {
+      }, {
         "type": "select",
         "id": "bg_pos",
         "label": "Background Image Position",
@@ -145,30 +153,24 @@
           {
             "value": "center top",
             "label": "Center Top"
-          },
-          {
+          }, {
             "value": "center center",
             "label": "Center Center"
-          },
-          {
+          }, {
             "value": "center bottom",
             "label": "Center Bottom"
-          },
-          {
+          }, {
             "value": "right top",
             "label": "Right Top"
-          },
-          {
+          }, {
             "value": "right center",
             "label": "Right Center"
-          },
-          {
+          }, {
             "value": "right bottom",
             "label": "Right Bottom"
           }
         ]
-      },
-      {
+      }, {
         "type": "select",
         "id": "bg_repeat",
         "options": [
@@ -187,8 +189,7 @@
           {
             "value": "repeat-y",
             "label": "Repeat Vertically"
-          },
-          {
+          }, {
             "value": "inherit",
             "label": "Inherit"
           }
@@ -196,24 +197,20 @@
         "label": "___ Background Repeat",
         "default": "no-repeat",
         "info": "[Specifies how to repeat the background images](https:\/\/w3schools.com\/cssref\/pr_background-repeat.asp)"
-      },
-      {
+      }, {
         "type": "select",
         "id": "bg_size",
         "options": [
           {
             "value": "auto",
             "label": "Auto"
-          },
-          {
+          }, {
             "value": "inherit",
             "label": "Inherit"
-          },
-          {
+          }, {
             "value": "cover",
             "label": "Cover"
-          },
-          {
+          }, {
             "value": "contain",
             "label": "Contain"
           }
@@ -221,20 +218,17 @@
         "label": "___ Background Size",
         "default": "cover",
         "info": "[Specifies the size of the background images](https:\/\/w3schools.com\/cssref\/css3_pr_background-size.asp)"
-      },
-      {
+      }, {
         "type": "select",
         "id": "bg_att",
         "options": [
           {
             "value": "fixed",
             "label": "Fixed"
-          },
-          {
+          }, {
             "value": "scroll",
             "label": "Scroll"
-          },
-          {
+          }, {
             "value": "inherit",
             "label": "Inherit"
           }
@@ -257,8 +251,7 @@
             "default": "#fff"
           }
         ]
-      },
-      {
+      }, {
         "type": "2",
         "name": "Description",
         "limit": 1,
@@ -270,8 +263,7 @@
             "default": "#ededed"
           }
         ]
-      },
-      {
+      }, {
         "type": "3",
         "name": "Image",
         "limit": 1,
@@ -286,7 +278,11 @@
     ],
     "default": {
       "blocks": [
-        { "type": "1" },{ "type": "2" }
+        {
+          "type": "1"
+        }, {
+          "type": "2"
+        }
       ]
     }
   }
